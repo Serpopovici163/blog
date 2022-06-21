@@ -12,6 +12,14 @@ My overarching goal with a lot of the things I build is to develop a small ecosy
 
 The SmartSight contains a small display which reflects through a mirrored lens that allows the user to see both the display and the real world, just like a traditional holographic sight. I'm not too sure how much information I will present on the display; so far I intend to display a shot counter and a reticle which can adjust based on weapon cant. Furthermore, I will add indicators that describe the motorized ascender's state and possibly a rangefinder at the very least. I only intend to use this on airsoft rifles so the rangefinder doesn't need to be excessively good.
 
+# UPDATE Jun 2022
+I have been working on this ascender on and off for a while now without updating this page.
+![FrontV2](/assets/img/smart-sight/frontV2.PNG){: style="float: right; width:50%; height:50%; margin-left: 10px;"}
+ I received the new 1.3" displays about a month ago and have generated a new CAD model which accomodates the larger display. The new display covers the majority of the space available on the lens and a shroud was included in this design to ensure that the optic remains viable even when exposed to sunlight. The previous design would likely have suffered in bright environments given how weak the displays are. Below is an updated exploded view of the new design:
+![Exploded View V2](/assets/img/smart-sight/explodedV2.PNG){: style="display: block; margin-left: auto; margin-right: auto; margin-top: 10px"}
+
+A couple iterations of this design have been printed and all that is left at the moment is to wire up the final version and develop software. Since this design uses an Arduino Nano with its USB port exposed at the back, iterating software should be a piece of cake which can't be said for the [LoRa Sensor Project](/lora-sensor-suite/).
+
 # UPDATE Mar 2022
 
 The last version used a 0.96" 80x160 [ST7735S display](https://www.aliexpress.com/item/1005003514645335.html) which has great pixel density but does not manage to cover the whole lens that it's being reflected through. To rectify the issue, I recently purchased a 1.3" 240x240 [ST7789 display](https://www.aliexpress.com/item/4001282467099.html) that is large enough to mostly cover the exposed area of the lens. 

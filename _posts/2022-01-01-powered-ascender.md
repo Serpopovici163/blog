@@ -7,9 +7,13 @@ classes: wide
 
 I figured that, considering people have 3D printed functional guns, surely it must be possible to 3D print an ascender without worrying about the material's strength. Initial designs are solely for prototyping and, as such, have no accomodations for the ESCs, batteries, or any hardware besides pulleys and motors. 
 
-# UPDATE Mar 2022
+# UPDATE Jun 2022
 
-**TODO: make new CAD design**
+Took a relatively long break from personal projects and school work since I got burned out; this update should have come in March but I am only getting around to it in June. A friend of mine asked me to revisit the personal ascender project since we may have identified a genuine use case for it. 
+![MIT Ascender](/assets/img/ascender/mit-ascender.PNG){: style="float: right; width:60%;"}
+I was simultaneously made aware of [this paper](https://dspace.mit.edu/bitstream/handle/1721.1/92180/897205934-MIT.pdf;sequence=2) written by Daniel P. Gillund, a Mechanical Engineering student at MIT. He built a relatively cheap ascender using the motor and gearbox of a hand drill alongside a few machined parts of his own. The prototype (pictured to the right) relies on a Capstan pulley to generate adequate friction with the rope thereby solving my problem. 
+
+This design had a couple minor flaws described in section 7.4 of the paper which could easily be improved by iterating the design. The only other modification required will be to modify the ascender's capstan pulley to accomodate thicker rope; my use case will require this ascender to work with 16mm polysteel rope commonly used by window washers. The thickness of this rope translates to a comparatively thicker Capstan pulley thereby hopefully increasing the feasabiliy of placing the planetary gearbox within the Capstan pulley itself. I will likely begin by designing an ascender for 8-10mm climbing rope and go from there once that design is proved to be feasible.
 
 # UPDATE Feb 2022
 

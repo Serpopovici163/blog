@@ -1,0 +1,33 @@
+I"a<h2 id="intelligent-weapon-optics">Intelligent weapon optics</h2>
+
+<p>My overarching goal with a lot of the things I build is to develop a small ecosystem of tactically useful devices that can exchange information and provide the user with an advantage over their adversary. These devices include anything from motorized ascenders to augmented reality devices and UAVs. The SmartSight may work in conjunction with a motorized ascender such that the user can maintain the optic at eye level while also being able to control their ascender. This would provide the ability to keep a weapon tracked on a target while moving up or down the side of a building, for example. The SmartSight idea came about as I saw an old project by a <a href="https://andymeng.dev/">friend</a> of mine and decided to elaborate on it.</p>
+
+<h1 id="basic-premise">Basic Premise</h1>
+
+<p>The SmartSight contains a small display which reflects through a mirrored lens that allows the user to see both the display and the real world, just like a traditional holographic sight. I’m not too sure how much information I will present on the display; so far I intend to display a shot counter and a reticle which can adjust based on weapon cant. Furthermore, I will add indicators that describe the motorized ascender’s state and possibly a rangefinder at the very least. I only intend to use this on airsoft rifles so the rangefinder doesn’t need to be excessively good.</p>
+
+<h1 id="update-jun-2022">UPDATE Jun 2022</h1>
+<p>I have been working on this ascender on and off for a while now without updating this page.
+<img src="/assets/img/smart-sight/frontV2.PNG" alt="FrontV2" style="float: right; width:50%; height:50%; margin-left: 10px;" />
+ I received the new 1.3” displays about a month ago and have generated a new CAD model which accomodates the larger display. The new display covers the majority of the space available on the lens and a shroud was included in this design to ensure that the optic remains viable even when exposed to sunlight. The previous design would likely have suffered in bright environments given how weak the displays are. Below is an updated exploded view of the new design:
+<img src="/assets/img/smart-sight/explodedV2.PNG" alt="Exploded View V2" style="display: block; margin-left: auto; margin-right: auto; margin-top: 10px" /></p>
+
+<p>A couple iterations of this design have been printed and all that is left at the moment is to wire up the final version and develop software. Since this design uses an Arduino Nano with its USB port exposed at the back, iterating software should be a piece of cake which can’t be said for the <a href="/_posts/2021-08-16-lora-sensor-suite.md">LoRa Sensor Project</a>.</p>
+
+<h1 id="update-mar-2022">UPDATE Mar 2022</h1>
+
+<p>The last version used a 0.96” 80x160 <a href="https://www.aliexpress.com/item/1005003514645335.html">ST7735S display</a> which has great pixel density but does not manage to cover the whole lens that it’s being reflected through. To rectify the issue, I recently purchased a 1.3” 240x240 <a href="https://www.aliexpress.com/item/4001282467099.html">ST7789 display</a> that is large enough to mostly cover the exposed area of the lens.</p>
+
+<p><strong>TODO</strong> Generate new model with bigger display and whatnot.</p>
+
+<h1 id="update-feb-2022">UPDATE Feb 2022</h1>
+
+<p><img src="/assets/img/smart-sight/front.PNG" alt="Front" style="float: right; width:50%; height:50%; margin-left: 10px;" />
+Got around to creating a CAD model of the sight; this model is technically the third iteration but it represents the first reasonably functional version. It has space for an Arduino Nano, LoRa SX1278 transceiver, display, and a LiPo though no antenna mounting hole has been added. Having created this model with a transceiver onboard, I considered the possibility of including a remote kill feature for disabling weapons and as such I will probably need to wire the sight into the gun’s electronics. This means that future designs don’t strictly need to include space for a LiPo but I’m unsure of whether or not I will remove it just yet.</p>
+
+<p><img src="/assets/img/smart-sight/back.PNG" alt="Back" style="float: left; width:50%; height:50%; margin-right: 10px;" />
+Unfortunately, this design was built to fit some standardized Picatinny rail dimensions I found <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Picatinny.svg/1200px-Picatinny.svg.png">online</a> and these did fit one of the rifles I own but not the functional one. I was picky in finding my dimensions since the design was built all in metric units which may have caused some inaccuracies so the next design will be built using real measurements from the functional rifle. The intent with this design was to stick the antenna out the side of the sight but this is a poor decision considering the wear and tear that the weapon will likely be subjected to so I try to will integrate the antenna within the sight for the next iteration.</p>
+
+<p>Here is an exploded view of this model:
+<img src="/assets/img/smart-sight/exploded_noWriting.PNG" alt="Exploded View" style="display: block; margin-left: auto; margin-right: auto; margin-top: 10px" /></p>
+:ET
