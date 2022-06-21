@@ -1,0 +1,367 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Two G-class Stage Rocket w/ Basic Telemetry - Ludicrous Tech</title>
+<meta name="description" content="Experimenting with rocketry electronics">
+
+
+  <meta name="author" content="Alex Ludicrous">
+  
+  <meta property="article:author" content="Alex Ludicrous">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_CA">
+<meta property="og:site_name" content="Ludicrous Tech">
+<meta property="og:title" content="Two G-class Stage Rocket w/ Basic Telemetry">
+<meta property="og:url" content="http://localhost:4000/two-stage-rocket/">
+
+
+  <meta property="og:description" content="Experimenting with rocketry electronics">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-11-08T00:00:00-05:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/two-stage-rocket/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Alex Ludicrous",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <!-- <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Ludicrous Tech Feed"> -->
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--archive wide">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/favicon.ico" alt="Ludicrous Tech"></a>
+        
+        <a class="site-title" href="/">
+          Ludicrous Tech
+          
+        </a>
+        <ul class="visible-links"></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/img/bio.jpg" alt="Alex Ludicrous" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Alex Ludicrous</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>BioMedical Mechanical Engineering student at the University of Ottawa</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Ottawa, Ontario, Canada</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:serpopovici163@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://ludicroustech.ca" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+            <li><a href="https://ca.linkedin.com/in/serban-m-popovici" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-facebook-square" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/Serpopovici163" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://instagram.com/discover.ottawa" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i><span class="label">Instagram</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+  </div>
+
+
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title">Two G-class Stage Rocket w/ Basic Telemetry</h1>
+    
+    <h2 id="experimenting-with-rocketry-electronics">Experimenting with rocketry electronics</h2>
+
+<p>While I doubt I will ever get a high power rocketry license, I do thoroughly enjoy developing and flying model rockets. None of my past rockets have incorporated any amount of electronics so the purpose of this project is to get a feel for rocketry electronics without any risk by developing only non-terribly-flight-critical components. For this project, I purchased the two biggest rocket engines I can legally get my hands on without any license: AeroTech G80-7T motors.</p>
+
+<h1 id="design">Design</h1>
+<h2 id="motor-mounts">Motor mounts</h2>
+<p>I watched a <a href="https://www.youtube.com/watch?v=4fhoCt9vXA8">video</a> by ProjectAir on YouTube about a rocket he built using similarly powerful motors and I based my rocket motor mounts on his design. The motor mounts consist of a small tube for the motor and a larger tube that fits snuggly into the rocket body. These two are connected by 8 perpendicular supports between the two cylindrical extrusions. The holes on the bottom of this motor mount also work to hold the first stage onto the main stage by using 8 pegs protruding from the first stage which fit snuggly into the 8 holes of the motor mount above.</p>
+
+<h2 id="avionics">Avionics</h2>
+
+<p>I intend to have live data logging and telemetry at the very least. This rocket will include a GPS, barometer, and accelerometer as well as an ignition system for the main stage engine. I would also like to include some system that can delay the deployment of the main chute since it will significantly increase the rocket’s drift during recovery however I’m unsure of how reliably I can integrate such a feature. All the electronics will be housed near/in the nose cone and the rocket will separate close to the main stage motor for recovery such that the body tube/nose cone section containing the electronics remains intact.</p>
+
+<h1 id="update-mar-2022">UPDATE Mar 2022</h1>
+
+<p><img src="/assets/img/habibi-express/avionics-CAD-V2-back.PNG" alt="Avionics bay V2 back" style="float: right; width:30%; height:50%; margin-left: 10px;" />
+The avionics bay is mostly finalized and I will attempt to print this soon; I’ve done without the 18650 battery and kept the 3s LiPo which is now housed in a casing at the top of the avionics bay. The LoRa module is now positioned such that an antenna can be directly attached to the module and have space in the rocket fuselage. The only thing lacking from the model to the right is a relay holder to ignite the second stage. I still need to remodel the nose cone since the current GPS holder may not have clearance so it must be shifted upwards after which I will begin 3D printing these components and assembling the rocket!</p>
+
+<h1 id="update-feb-2022">UPDATE Feb 2022</h1>
+
+<p><img src="/assets/img/habibi-express/rocket-CAD.PNG" alt="Rocket model" style="float: right; width:50%; height:50%; margin-left: 10px;" />
+CAD model is now mostly finished, lots of small things still need to be figured out however most of the grunt work is done. I don’t have a concrete plan for how to wire the main stage motor’s igniter in a way that won’t risk tangling the parachute during recovery. Furthermore, I purchased two G80-7T motors however the rocket will need at least 10 seconds after the main stage burns out to reach its apogee so I most likely need to source a G80-13T motor to avoid using any complex recovery mechanisms. Unfortunately, <a href="https://www.greathobbies.com/">Great Hobbies</a> does not carry any G80 motors anymore so I can only source these for unreasonably high prices from <a href="https://www.allrockets.ca/G80-13">AllRockets</a>.</p>
+
+<p><img src="/assets/img/habibi-express/avionics-CAD.PNG" alt="Avionics model" style="float: right; width:30%; height:50%; margin-left: 10px;" />
+Main focus now is the avionics bay. The model pictured here has space for an Arduino Mega 2560 (embed), a BMP280, an MPU6050, a LoRa SX1278 transceiver, and two batteries. The nose cone contains a GPS antenna bracket for positioning as well. This is the second iteration of the avionics bay and it contains space for both an 18650 LiIon cell (in green) and a small 3S 700mAh LiPo next to the LiIon cell. I’m concerned that the ~3V from the 18650 will not be enough to ignite the main stage of the rocket even with a boost converter which is why I included the LiPo. I originally considered using the 18650 in light of its higher energy density however it only has roughly 1.5 times the energy stored by the LiPo so it will likely be discarded in the next iteration.</p>
+
+<h1 id="update-dec-2021">UPDATE Dec 2021</h1>
+<p>Rocket design was finalized in <a href="https://openrocket.info/">OpenRocket</a> and basic simulation was done; maximum altitude estimated at roughly 1.1km with a max speed of Mach 0.52. I made some faster designs and others with higher apogees but this model seems the most predictable based on how much tech I want to fly with the rocket and how lightly I can manufacture things.</p>
+
+<p><img src="/assets/img/habibi-express/open-rocket-sim.PNG" alt="OpenRocket Model" />
+<img src="/assets/img/habibi-express/open-rocket-sim-graph.PNG" alt="OpenRocket Simulation" /></p>
+
+  </div>
+</div>
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="mailto:serpopovici163@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+        
+      
+        
+          <li><a href="https://ludicroustech.ca" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i> Website</a></li>
+        
+      
+        
+          <li><a href="https://ca.linkedin.com/in/serban-m-popovici" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-facebook-square" aria-hidden="true"></i> LinkedIn</a></li>
+        
+      
+        
+          <li><a href="https://github.com/Serpopovici163" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://instagram.com/discover.ottawa" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    
+      <!-- <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li> -->
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 Alex Ludicrous. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,29 @@
+I")<h2 id="simple-but-limited-uav-platform-for-urban-operations">Simple but limited UAV platform for urban operations</h2>
+
+<p>I kept seeing ~2.5m wide VTOL UAVs on AliExpress that I would love to own but they are all rather overpriced so I decided to make my own. Using the tech I played with while developing the LTE-based Mavic Pro I intend to have this drone operated by a cellular application and AI to minimize how much interaction is required from the user.</p>
+
+<p>I purchased motors and ESCs in accordance with <a href="https://www.aliexpress.com/item/1005002831031206.html?spm=a2g0o.productlist.0.0.38ef1d39JjUhDN&amp;algo_pvid=7475fc42-48b8-4b91-ad05-eff71d8d9826&amp;algo_exp_id=7475fc42-48b8-4b91-ad05-eff71d8d9826-8">this</a> VTOL from AliExpress because it will be similarly sized to my final design.</p>
+
+<h1 id="design-overview">Design Overview</h1>
+
+<p>This design relies heavily on 3D printed components and foamboard/spars which can be sourced at Dollarama. The general premise is to create a form of outline using 3D printed ribs and cover it in delaminated foamboard. The spars inside the fuselage are fiberglass whereas all other spars in the aircraft are steel broomsticks from Dollarama. The current design is solely a prototype and, as such, the extra weight should not matter.</p>
+
+<h1 id="update-feb-2022">UPDATE Feb 2022</h1>
+
+<p>Removable wing extensions have been finished.</p>
+
+<p><strong>WING PICS</strong></p>
+
+<p><img src="/assets/img/jaguar/CAD-V1.PNG" alt="Tail closeup" style="float: right; width:50%; height:50%" />
+The CAD design has also been updated to include more specific design considerations for the tail: there are now servo and LED holes. The VTOL motors and mounts have been omitted in the design below. I also doubled the rib density in the wing based on my experience when building the removable portions; one rib every 8 inches allowed for an inconsistent profile at the leading edge once the foamboard was delaminated on one side.</p>
+
+<p><img src="/assets/img/jaguar/CAD-V2.PNG" alt="Updated CAD" /></p>
+
+<h1 id="update-dec-2021">UPDATE Dec 2021</h1>
+
+<p>Went on a last minute trip before the COVID-19 Omicron wave and, for some reason, I find that my design productivity is very high while travelling so I was able to finish the CAD design for this UAV. The internals of the plane are not yet finalized because I have not yet decided on the specifications of the battery and I can’t fully imagine what components will be included in the UAV just yet. The current CAD progress focused on obtaining a general shape for the aircraft and fully designing the wings as well as the rear half of the fuselage containing the camera gimbal, electronics, and thrust motor. The tail is currently designed but without any considerations about the electronics which will be housed within.</p>
+
+<p><img src="/assets/img/jaguar/CAD-V1.PNG" alt="Original CAD" /></p>
+
+<p>I’ve also been printing wing ribs on and off for a few weeks now in hopes that I can begin construction soon. It’s difficult to decide where I should begin with a project as daunting as this one.</p>
+:ET

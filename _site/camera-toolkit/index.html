@@ -1,0 +1,370 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>IP Camera Hacking Toolkit - Ludicrous Tech</title>
+<meta name="description" content="Exploit collection/automation for networked cameras">
+
+
+  <meta name="author" content="Alex Ludicrous">
+  
+  <meta property="article:author" content="Alex Ludicrous">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_CA">
+<meta property="og:site_name" content="Ludicrous Tech">
+<meta property="og:title" content="IP Camera Hacking Toolkit">
+<meta property="og:url" content="http://localhost:4000/camera-toolkit/">
+
+
+  <meta property="og:description" content="Exploit collection/automation for networked cameras">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-05-11T00:00:00-04:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/camera-toolkit/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Alex Ludicrous",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <!-- <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Ludicrous Tech Feed"> -->
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--archive wide">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/favicon.ico" alt="Ludicrous Tech"></a>
+        
+        <a class="site-title" href="/">
+          Ludicrous Tech
+          
+        </a>
+        <ul class="visible-links"></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/img/bio.jpg" alt="Alex Ludicrous" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Alex Ludicrous</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>BioMedical Mechanical Engineering student at the University of Ottawa</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Ottawa, Ontario, Canada</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:serpopovici163@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://ludicroustech.ca" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Website</span></a></li>
+          
+        
+          
+            <li><a href="https://ca.linkedin.com/in/serban-m-popovici" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-facebook-square" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/Serpopovici163" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://instagram.com/discover.ottawa" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i><span class="label">Instagram</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+  </div>
+
+
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title">IP Camera Hacking Toolkit</h1>
+    
+    <h2 id="exploit-collectionautomation-for-networked-cameras">Exploit collection/automation for networked cameras</h2>
+
+<p>This is a project I haphazardly began upon discovering <strong>FIND CVE #</strong> which allows an attacker to bypass authentication on Hikvision cameras using a crafted URL. The exploit is rather simplistic but made me consider how useful camera exploits are when infiltrating facilities with unknown camera locations. Aside from connectivity issues I’ve faced with IPv6 networks, it should be theoretically possible to tap into any ethernet cable within a camera network and gain access to every single camera. I have not yet built a device capable of this but I intend to do so in the near future, here is the theoretical approach I have considered.</p>
+
+<p>Axis, Avigilon, and Hikvision cameras are most common in construction site and commercial security so these are a priority.</p>
+
+<h1 id="theoretical-device">Theoretical device</h1>
+
+<p>The device would have two sets of 8 punch down connectors for each wire within an ethernet cable. The attacker would have to strip roughly 15-20 cm of a target cable and separate the wires enough to punch each wire down in both sets of connectors. After all the wires have been connected, the attacker must cut them between the punchdown connectors at which point the device will activate and act as a network switch which will almost instantly reconnect the affected camera and provide the attacker with a physical connection into the network. The device would leech POE power off of the ethernet cable though having a standalone power supply may be required because it may be possible for the target to actively monitor changes in POE power draw.</p>
+
+<h1 id="current-issues">Current issues</h1>
+
+<p>IPv6 is the most significant issue I’m facing at the moment. Both my laptop and cell phone refuse to obtain a valid IP address when on a wired IPv6 network even though they should both be fully compatible. This may be due to MAC address filtering but I’m not sure.</p>
+
+<h1 id="hikvision">Hikvision</h1>
+
+<p>Working exploit for individual cameras but no exploit against NVRs. Camera enumaration/fingerprinting possible.</p>
+
+<h1 id="unv">UNV</h1>
+
+<p>Found a NVR password disclosure exploit but not tested. My building uses UNV cameras on an IPv4 network so I am able to experiment with things but I haven’t done much work thus far.</p>
+
+<h1 id="axis">Axis</h1>
+
+<p>I know remote code execution is possible but have yet to experment with any Axis cameras.</p>
+
+<h1 id="avigilon">Avigilon</h1>
+
+<p>Probably the most important target to me given their deep learning AI that makes them more detrimental than regular cameras.</p>
+
+<h1 id="sony-ipela">Sony IPELA</h1>
+
+<p>Idk if I’ll bother with Sony, they are mostly used in retail so I have little interest in them.</p>
+
+  </div>
+</div>
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="mailto:serpopovici163@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+        
+      
+        
+          <li><a href="https://ludicroustech.ca" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i> Website</a></li>
+        
+      
+        
+          <li><a href="https://ca.linkedin.com/in/serban-m-popovici" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-facebook-square" aria-hidden="true"></i> LinkedIn</a></li>
+        
+      
+        
+          <li><a href="https://github.com/Serpopovici163" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://instagram.com/discover.ottawa" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    
+      <!-- <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li> -->
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 Alex Ludicrous. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
