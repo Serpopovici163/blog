@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>IP Camera Hacking Toolkit - Ludicrous Tech</title>
-<meta name="description" content="Exploit collection/automation for networked cameras">
+<!-- begin _includes/seo.html --><title>Modernizing my 2013 Subaru BRZ - Ludicrous Tech</title>
+<meta name="description" content="Building an immersive and modern driving UI with hidden features">
 
 
   <meta name="author" content="Alex Ludicrous">
@@ -22,30 +22,30 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_CA">
 <meta property="og:site_name" content="Ludicrous Tech">
-<meta property="og:title" content="IP Camera Hacking Toolkit">
-<meta property="og:url" content="http://localhost:4000/camera-toolkit/">
+<meta property="og:title" content="Modernizing my 2013 Subaru BRZ">
+<meta property="og:url" content="http://localhost:4000/brz/">
 
 
-  <meta property="og:description" content="Exploit collection/automation for networked cameras">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2021-05-11T00:00:00-04:00">
+  <meta property="og:description" content="Building an immersive and modern driving UI with hidden features">
 
 
 
 
 
-  
+
+
+  <meta property="article:published_time" content="2022-06-01T00:00:00-04:00">
+
+
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/camera-toolkit/">
+
+<link rel="canonical" href="http://localhost:4000/brz/">
 
 
 
@@ -266,49 +266,25 @@
 
   <div class="archive">
     
-      <h1 id="page-title" class="page__title">IP Camera Hacking Toolkit</h1>
+      <h1 id="page-title" class="page__title">Modernizing my 2013 Subaru BRZ</h1>
     
-    <h2 id="exploit-collectionautomation-for-networked-cameras">Exploit collection/automation for networked cameras</h2>
+    <h2 id="building-an-immersive-and-modern-driving-ui-with-hidden-features">Building an immersive and modern driving UI with hidden features</h2>
 
-<p>This is a project I haphazardly began upon discovering <strong>FIND CVE #</strong> which allows an attacker to bypass authentication on Hikvision cameras using a crafted URL. The exploit is rather simplistic but made me consider how useful camera exploits are when infiltrating facilities with unknown camera locations. Aside from connectivity issues I’ve faced with IPv6 networks, it should be theoretically possible to tap into any ethernet cable within a camera network and gain access to every single camera. I have not yet built a device capable of this but I intend to do so in the near future, here is the theoretical approach I have considered.</p>
+<p>I recently acquired a car for recreational purposes since I had saved up a decent amount of money and didn’t feel like investing it considering the state of the stock market/crypto thanks to COVID-19. I purchased a BRZ because they are built in conjunction with Toyota and this should theoretically imply that they are relatively reliable so I won’t need to worry about the mechanical aspect of the vehicle. Furthermore, this colaboration with Toyota also makes them relatively easy to work on at home which I am thankful for since I’ve had to do a wealth of maintenance on it even going as far as removing the differential with no previous mechanic experience.</p>
 
-<p>Axis, Avigilon, and Hikvision cameras are most common in construction site and commercial security so these are a priority.</p>
+<h1 id="idea">Idea</h1>
 
-<h1 id="theoretical-device">Theoretical device</h1>
+<p>The plan is to replace the head unit of the BRZ with a <a href="https://www.aliexpress.com/item/1005003546521274.html">12.3” touch-screen</a>, replace the small button cluster on the center console with a <a href="https://www.aliexpress.com/item/4000393713339.html">7” touch screen</a>, and add a heads up display in the windshield. The 12.3” display will be used for navigation and media controls while the 7” display will serve more of a diagnostic purpose. Ideally, the computer running the 7” display will have access to the car’s internal computer to provide any information from DTC/SRS/ABS codes to general information about things like tire pressure. Furthermore, it will be able to diagnose issues with any of the car’s additional subsystems that I will be adding.</p>
 
-<p>The device would have two sets of 8 punch down connectors for each wire within an ethernet cable. The attacker would have to strip roughly 15-20 cm of a target cable and separate the wires enough to punch each wire down in both sets of connectors. After all the wires have been connected, the attacker would cut them between the punchdown connectors at which point the device will activate and act as a network switch and instantly reconnect the affected camera while providing the attacker with a physical connection into the network. The device would leech POE power off of the ethernet cable though having a standalone power supply may be required because the POE device powering the camera could technically trigger an alarm and notify someone of a discrepancy in POE power draw.</p>
+<h2 id="pics-of-plan">pics of plan</h2>
 
-<h1 id="update-june-2022">UPDATE June 2022</h1>
+<p>The car will have an LTE modem in it to provide WiFi connectivity for passengers and allow its internal computers to access Google Maps, media streaming services, and other resources such as the Waze database to protect against police encounters. Finally, I hope to add cameras all around the car and experiment with computer vision though, aside from collision warnings or enhanced cruise control, I’m not sure what I’ll do with this. The cameras will however provide a 360-degree dash cam and I will be able to use them for a Tesla-like sentry mode when the car is locked.</p>
 
-<p>Just purchased three items to hopefully build a device that can parasitically leech off of a POE camera wire. I bought a POE splitter which accepts one ~30W input and splits it into two ~15W POE outputs; I’m not entirely sure about these specifications but it should be capable of powering a single camera even with the device patched in to the existing POE line. I also purchased a board which converts POE power into a 12V 1A output and managed to find some punchdown connectors that should work with 22-23AWG wire. 
-<img src="/assets/img/camera-toolkit/t-taps.PNG" alt="T-taps" style="float: right; width:30%; margin-right: 25px;" />
-Fortunately, the punchdown connectors I found are single ‘T-taps’ as pictured to the right. These T-taps will make it significantly easier to patch in to an existing installation without needing to strip a large length of wire. I was initially worried about how difficult it may be to align and punch down 8 wires given past experience when installing <a href="https://github.com/rfidtool/ESP-RFID-Tool">ESP-RFID-Tools</a> which only require me to punch down 4 wires. I am eager to proceed with this project once I receive the parts, at the very least I will develop a tool capable of jamming camera networks using a <a href="https://www.researchgate.net/publication/266022049_ICMPv6_Router_Advertisement_Flooding">IPv6 Router Advertisment Flood Attack</a>. I have had issues in the past getting my computer to communicate with devices on NVR networks since these are designed more for communication between the NVR and the camera as opposed to communication between the cameras themselves. For some reason, my computer fails to obtain a valid IP configuration since it does not seem to gather that it is connected to an IPv6 network as opposed to an IPv4 network. I will be using a smaller SBC such as the <a href="https://www.aliexpress.com/item/1005002918902225.html">Orange Pi Zero</a> when building this concept which will ideally perform better.</p>
+<h2 id="speed-enforcement-countermeasures">Speed Enforcement Countermeasures</h2>
 
-<p>A possible concern is not knowing whether the installation is using T-568A or T-568B wiring. Not sure how serious it would be to guess but I will do more research into POE wiring and all once I receive the parts and am closer to the design stage. These parts were purchased without a concrete design because the device itself costs about $25 excluding the SBC so I figured why not. I’ll have a use for these things regardless of whether this works.</p>
+<p>I’m hoping to, at the very least, add passive sensors for police radar/lidar and possibly even aircraft but I may not be able to add active countermeasures such as radar/lidar jamming. Based on some brief research, there is a significant risk that the officer’s radar/lidar gun would detect my jamming attempts since many of them have jamming detection built in and complex lidar jammers, for example, are designed to identify the specific make/model of a lidar gun and behave accordingly.</p>
 
-<h1 id="current-issues">Current issues</h1>
-
-<p>IPv6 is the most significant issue I’m facing at the moment. Both my laptop and cell phone refuse to obtain a valid IP address when on a wired IPv6 network even though they should both be fully compatible. This may be due to MAC address filtering but I’m not sure.</p>
-
-<h1 id="hikvision">Hikvision</h1>
-
-<p>Working exploit for individual cameras but no exploit against NVRs. Camera enumaration/fingerprinting possible.</p>
-
-<h1 id="unv">UNV</h1>
-
-<p>Found a NVR password disclosure exploit but not tested. My building uses UNV cameras on an IPv4 network so I am able to experiment with things but I haven’t done much work thus far.</p>
-
-<h1 id="axis">Axis</h1>
-
-<p>I know remote code execution is possible but have yet to experment with any Axis cameras.</p>
-
-<h1 id="avigilon">Avigilon</h1>
-
-<p>Probably the most important target to me given their deep learning AI that makes them more detrimental than regular cameras.</p>
-
-<h1 id="sony-ipela">Sony IPELA</h1>
-
-<p>Idk if I’ll bother with Sony, they are mostly used in retail so I have little interest in them.</p>
+<p>Aircraft speed detection works using lines painted on the pavement at a known distance interval such that an aircraft flying above can time a vehicle crossing a set of these lines and thereby identify the speed of that vehicle. My plan for countering this is to use a front facing camera on the car to pick up the lines at which point an onboard computer will use a software defined radio to look for any aircraft transponders within a certain radius of the vehicle. Should there be an aircraft nearby, the onboard computer will begin calling out speeds for the user to match in hopes that the average speed across the two lines does not exceed the posted limit.</p>
 
   </div>
 </div>

@@ -52,4 +52,10 @@ var store = [{
         "tags": [],
         "url": "/smart-sight/",
         "teaser": null
+      },{
+        "title": "Modernizing my 2013 Subaru BRZ",
+        "excerpt":"Building an immersive and modern driving UI with hidden features I recently acquired a car for recreational purposes since I had saved up a decent amount of money and didn’t feel like investing it considering the state of the stock market/crypto thanks to COVID-19. I purchased a BRZ because they...","categories": [],
+        "tags": [],
+        "url": "/brz/",
+        "teaser": null
       }]

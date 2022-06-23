@@ -1,0 +1,18 @@
+I"�<h2 id="building-an-immersive-and-modern-driving-ui-with-hidden-features">Building an immersive and modern driving UI with hidden features</h2>
+
+<p>I recently acquired a car for recreational purposes since I had saved up a decent amount of money and didn’t feel like investing it considering the state of the stock market/crypto thanks to COVID-19. I purchased a BRZ because they are built in conjunction with Toyota and this should theoretically imply that they are relatively reliable so I won’t need to worry about the mechanical aspect of the vehicle. Furthermore, this colaboration with Toyota also makes them relatively easy to work on at home which I am thankful for since I’ve had to do a wealth of maintenance on it even going as far as removing the differential with no previous mechanic experience.</p>
+
+<h1 id="idea">Idea</h1>
+
+<p>The plan is to replace the head unit of the BRZ with a <a href="https://www.aliexpress.com/item/1005003546521274.html">12.3” touch-screen</a>, replace the small button cluster on the center console with a <a href="https://www.aliexpress.com/item/4000393713339.html">7” touch screen</a>, and add a heads up display in the windshield. The 12.3” display will be used for navigation and media controls while the 7” display will serve more of a diagnostic purpose. Ideally, the computer running the 7” display will have access to the car’s internal computer to provide any information from DTC/SRS/ABS codes to general information about things like tire pressure. Furthermore, it will be able to diagnose issues with any of the car’s additional subsystems that I will be adding.</p>
+
+<h2 id="pics-of-plan">pics of plan</h2>
+
+<p>The car will have an LTE modem in it to provide WiFi connectivity for passengers and allow its internal computers to access Google Maps, media streaming services, and other resources such as the Waze database to protect against police encounters. Finally, I hope to add cameras all around the car and experiment with computer vision though, aside from collision warnings or enhanced cruise control, I’m not sure what I’ll do with this. The cameras will however provide a 360-degree dash cam and I will be able to use them for a Tesla-like sentry mode when the car is locked.</p>
+
+<h2 id="speed-enforcement-countermeasures">Speed Enforcement Countermeasures</h2>
+
+<p>I’m hoping to, at the very least, add passive sensors for police radar/lidar and possibly even aircraft but I may not be able to add active countermeasures such as radar/lidar jamming. Based on some brief research, there is a significant risk that the officer’s radar/lidar gun would detect my jamming attempts since many of them have jamming detection built in and complex lidar jammers, for example, are designed to identify the specific make/model of a lidar gun and behave accordingly.</p>
+
+<p>Aircraft speed detection works using lines painted on the pavement at a known distance interval such that an aircraft flying above can time a vehicle crossing a set of these lines and thereby identify the speed of that vehicle. My plan for countering this is to use a front facing camera on the car to pick up the lines at which point an onboard computer will use a software defined radio to look for any aircraft transponders within a certain radius of the vehicle. Should there be an aircraft nearby, the onboard computer will begin calling out speeds for the user to match in hopes that the average speed across the two lines does not exceed the posted limit.</p>
+:ET

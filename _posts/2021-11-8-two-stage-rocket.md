@@ -10,6 +10,7 @@ While I doubt I will ever get a high power rocketry license, I do thoroughly enj
 
 # Design
 ## Motor mounts
+
 I watched a [video](https://www.youtube.com/watch?v=4fhoCt9vXA8) by ProjectAir on YouTube about a rocket he built using similarly powerful motors and I based my rocket motor mounts on his design. The motor mounts consist of a small tube for the motor and a larger tube that fits snuggly into the rocket body. These two are connected by 8 perpendicular supports between the two cylindrical extrusions. The holes on the bottom of this motor mount also work to hold the first stage onto the main stage by using 8 pegs protruding from the first stage which fit snuggly into the 8 holes of the motor mount above.
 
 ## Avionics
