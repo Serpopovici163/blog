@@ -20,8 +20,6 @@ and can be used to pick up unknown devices and send alerts even if the sensor it
 
 The current design does not have space for a battery management circuit so I will need to reiterate but it does successfully house the LoRa SX1278, 18650, and PIR sensor. The general shape of the sensor allows for it to be placed on the floor with the PIR facing 45 degrees upwards or it can be flipped and placed on top of a cabinet, for example, with the PIR facing 45 degrees downwards. The next iteration will likely also include magnets such that the sensor can attach to metallic cabinets, metal hand rails on stairs, light fixtures, etc. I also took apart one of the 433 antennas and noticed that at least 10mm of the rubber housing is left empty so I will take this in account and ommit the rubber housing in future designs.
 
-
-
 # UPDATE Oct 2021
 
 ## Sensor Construction
