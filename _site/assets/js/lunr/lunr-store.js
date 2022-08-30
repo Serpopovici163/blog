@@ -54,8 +54,14 @@ var store = [{
         "teaser": null
       },{
         "title": "Modernizing my 2013 Subaru BRZ",
-        "excerpt":"Building an immersive and modern driving UI with hidden features I recently acquired a car for recreational purposes since I had saved up a decent amount of money and didn’t feel like investing it considering the state of the stock market/crypto thanks to COVID-19. I purchased a BRZ because they...","categories": [],
+        "excerpt":"Building an immersive and modern driving UI with hidden features I recently acquired a car for recreational purposes since I had saved up a decent amount of money and didn’t feel like investing it. I purchased a BRZ because they are built in conjunction with Toyota and this should theoretically...","categories": [],
         "tags": [],
         "url": "/brz/",
+        "teaser": null
+      },{
+        "title": "Roof Anchor Drone",
+        "excerpt":"A physical infiltration tool This device was originally designed in hopes of rooftopping the second tallest building in Canada at the time of this writing: The St. Regis hotel in Toronto. The concern was that the lower roof at the St. Regis hotel is accessible while the higher roof is...","categories": [],
+        "tags": [],
+        "url": "/roof-anchor-drone/",
         "teaser": null
       }]
