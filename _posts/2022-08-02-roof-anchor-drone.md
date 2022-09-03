@@ -1,5 +1,5 @@
 ---
-layout: archive
+layout: single
 title:  "Roof Anchor Drone"
 classes: wide
 ---

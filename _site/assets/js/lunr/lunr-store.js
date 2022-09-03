@@ -54,7 +54,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Modernizing my 2013 Subaru BRZ",
-        "excerpt":"Building an immersive and modern driving UI with hidden features I recently acquired a car for recreational purposes since I had saved up a decent amount of money and didn’t feel like investing it. I purchased a BRZ because they are built in conjunction with Toyota and this should theoretically...","categories": [],
+        "excerpt":"I recently acquired a car for recreational purposes since I had saved up a decent amount of money and didn’t feel like investing it. I purchased a BRZ because they are built in conjunction with Toyota and this should theoretically imply that they are relatively reliable so I won’t need...","categories": [],
         "tags": [],
         "url": "/brz/",
         "teaser": null
