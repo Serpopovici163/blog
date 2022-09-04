@@ -6,7 +6,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Annota Application",
-        "excerpt":"My first android application Annota is my first ever attempt at developing software for Android devices. As part of a second year course, we were challenged to develop an application that could digitize a user’s notes in order to categorize and index them. This application is far from exemplar for...","categories": [],
+        "excerpt":"Annota is my first ever attempt at developing software for Android devices. As part of a second year course, we were challenged to develop an application that could digitize a user’s notes in order to categorize and index them. This application is far from exemplar for a variety of reasons...","categories": [],
         "tags": [],
         "url": "/annota-mobile-application/",
         "teaser": null
@@ -36,7 +36,7 @@ var store = [{
         "teaser": null
       },{
         "title": "LTE Mavic Pro",
-        "excerpt":"Limitless range and enhanced autonomy LTE based drone control has been a longstanding goal with the purpose of creating UAVs requiring minimal user input to function. I have found the need for constant input to significantly reduce the useability of drones for recon during my adventures because neither myself nor...","categories": [],
+        "excerpt":"Cellular-based drone control has been a longstanding goal with the purpose of creating UAVs requiring minimal user input to function. I have found the need for constant input to significantly reduce the useability of drones for recon during my adventures because neither myself nor the people with me can dedicate...","categories": [],
         "tags": [],
         "url": "/lte-mavic-pro/",
         "teaser": null

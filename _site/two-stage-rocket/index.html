@@ -96,7 +96,7 @@
 
   </head>
 
-  <body class="layout--archive wide">
+  <body class="layout--single wide">
     <nav class="skip-links">
   <ul>
     <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
@@ -180,7 +180,7 @@
       
         
           
-            <li><a href="mailto:serpopovici163@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+            <li><a href="mailto:alexludicrous@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
           
         
           
@@ -188,11 +188,7 @@
           
         
           
-            <li><a href="https://ca.linkedin.com/in/serban-m-popovici" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-facebook-square" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
-          
         
-          
-            <li><a href="https://github.com/Serpopovici163" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
           
         
           
@@ -264,11 +260,46 @@
 
 
 
-  <div class="archive">
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Two G-class Stage Rocket w/ Basic Telemetry">
+    <meta itemprop="description" content="Experimenting with rocketry electronics">
+    <meta itemprop="datePublished" content="2021-11-08T00:00:00-05:00">
     
-      <h1 id="page-title" class="page__title">Two G-class Stage Rocket w/ Basic Telemetry</h1>
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/two-stage-rocket/" class="u-url" itemprop="url">Two G-class Stage Rocket w/ Basic Telemetry
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
     
-    <h2 id="experimenting-with-rocketry-electronics">Experimenting with rocketry electronics</h2>
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          5 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <h2 id="experimenting-with-rocketry-electronics">Experimenting with rocketry electronics</h2>
 
 <p>While I doubt I will ever get a high power rocketry license, I do thoroughly enjoy developing and flying model rockets. None of my past rockets have incorporated any amount of electronics so the purpose of this project is to get a feel for rocketry electronics without any risk by developing only non-terribly-flight-critical components. For this project, I purchased the two biggest rocket engines I can legally get my hands on without any license: AeroTech G80-7T motors.</p>
 
@@ -280,6 +311,11 @@
 <h2 id="avionics">Avionics</h2>
 
 <p>I intend to have live data logging and telemetry at the very least. This rocket will include a GPS, barometer, and accelerometer as well as an ignition system for the main stage engine. I would also like to include some system that can delay the deployment of the main chute since it will significantly increase the rocket’s drift during recovery however I’m unsure of how reliably I can integrate such a feature. All the electronics will be housed near/in the nose cone and the rocket will separate close to the main stage motor for recovery such that the body tube/nose cone section containing the electronics remains intact.</p>
+
+<h1 id="update-sep-2022">UPDATE Sep 2022</h1>
+
+<p><img src="/assets/img/habibi-express/fin_laser_cutting.jpg" alt="Laser cutting fins" style="float: right; width:30%; height:50%; margin-left: 10px;" />
+Finally got around to laser cutting the fins and I have worked slightly on the firmware for the flight controller. Unfortunately I’m having issues with the barometer since it communicates using 3.3V so the Arduino Mega is not able to interpret the I2C data coming from it. The current solution is to replace the barometer with a proven chip that I can find online as working with the Arduino Mega. I will also attempt to read the I2C data using another 5V Arduino to verify that this is indeed the issue. Finally, I have decided to add a few <a href="https://www.aliexpress.com/item/1005002457700952.html">video recorders</a> and a few analog cameras to capture a few angles of the flight. I’m hoping to add a downward facing camera, a side facing camera, and one looking down the body tube towards the main stage engine to capture the ejection from inside the rocket. I intend model camera mounts and redo the avionics bay by the end of October such that the rocket can be flown early November at the latest.</p>
 
 <h1 id="update-jun-2022">UPDATE Jun 2022</h1>
 
@@ -307,7 +343,219 @@ Main focus now is the avionics bay. The model pictured here has space for an Ard
 <p><img src="/assets/img/habibi-express/open-rocket-sim.PNG" alt="OpenRocket Model" />
 <img src="/assets/img/habibi-express/open-rocket-sim-graph.PNG" alt="OpenRocket Simulation" /></p>
 
-  </div>
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2021-11-08T00:00:00-05:00">November 8, 2021</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Two+G-class+Stage+Rocket+w%2F+Basic+Telemetry%20http%3A%2F%2Flocalhost%3A4000%2Ftwo-stage-rocket%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Ftwo-stage-rocket%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Ftwo-stage-rocket%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/lora-sensor-suite/" class="pagination--pager" title="LoRa Sensor Suite
+">Previous</a>
+    
+    
+      <a href="/mining-rig-temp-control/" class="pagination--pager" title="Mining Rig Temperature Control
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">You may also enjoy</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/roof-anchor-drone/" rel="permalink">Roof Anchor Drone
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">A physical infiltration tool
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/brz/" rel="permalink">Modernizing my 2013 Subaru BRZ
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          15 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">I recently acquired a car for recreational purposes since I had saved up a decent amount of money and didn’t feel like investing it. I purchased a BRZ becaus...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/smart-sight/" rel="permalink">Smart Holographic Sight
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          3 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Intelligent weapon optics
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/powered-ascender/" rel="permalink">DIY 3D Printed Powered Ascender
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          3 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Shouldn’t work but it might
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
 </div>
     </div>
 
@@ -327,7 +575,7 @@ Main focus now is the avionics bay. The model pictured here has space for an Ard
     
       
         
-          <li><a href="mailto:serpopovici163@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+          <li><a href="mailto:alexludicrous@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
         
       
         
@@ -335,11 +583,7 @@ Main focus now is the avionics bay. The model pictured here has space for an Ard
         
       
         
-          <li><a href="https://ca.linkedin.com/in/serban-m-popovici" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-facebook-square" aria-hidden="true"></i> LinkedIn</a></li>
-        
       
-        
-          <li><a href="https://github.com/Serpopovici163" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
         
       
         

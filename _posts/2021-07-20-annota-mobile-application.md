@@ -1,10 +1,8 @@
 ---
-layout: archive
+layout: single
 title:  "Annota Application"
 classes: wide
 ---
-
-## My first android application
 
 Annota is my first ever attempt at developing software for Android devices. As part of a second year course, we were challenged to develop an application that could digitize a user's notes in order to categorize and index them. This application is far from exemplar for a variety of reasons however I had a tremendous level of success considering I knew very little about Java and Android development prior to this project. This was a group project so the work was done in conjunction with three other students though I got away with doing the coding work while the others focused on testing the application and taking care of written deliverables.
 

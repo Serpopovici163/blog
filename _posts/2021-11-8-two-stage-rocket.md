@@ -1,5 +1,5 @@
 ---
-layout: archive
+layout: single
 title:  "Two G-class Stage Rocket w/ Basic Telemetry"
 classes: wide
 ---
@@ -16,6 +16,11 @@ I watched a [video](https://www.youtube.com/watch?v=4fhoCt9vXA8) by ProjectAir o
 ## Avionics
 
 I intend to have live data logging and telemetry at the very least. This rocket will include a GPS, barometer, and accelerometer as well as an ignition system for the main stage engine. I would also like to include some system that can delay the deployment of the main chute since it will significantly increase the rocket's drift during recovery however I'm unsure of how reliably I can integrate such a feature. All the electronics will be housed near/in the nose cone and the rocket will separate close to the main stage motor for recovery such that the body tube/nose cone section containing the electronics remains intact.
+
+# UPDATE Sep 2022
+
+![Laser cutting fins](/assets/img/habibi-express/fin_laser_cutting.jpg){: style="float: right; width:30%; height:50%; margin-left: 10px;"}
+Finally got around to laser cutting the fins and I have worked slightly on the firmware for the flight controller. Unfortunately I'm having issues with the barometer since it communicates using 3.3V so the Arduino Mega is not able to interpret the I2C data coming from it. The current solution is to replace the barometer with a proven chip that I can find online as working with the Arduino Mega. I will also attempt to read the I2C data using another 5V Arduino to verify that this is indeed the issue. Finally, I have decided to add a few [video recorders](https://www.aliexpress.com/item/1005002457700952.html) and a few analog cameras to capture a few angles of the flight. I'm hoping to add a downward facing camera, a side facing camera, and one looking down the body tube towards the main stage engine to capture the ejection from inside the rocket. I intend model camera mounts and redo the avionics bay by the end of October such that the rocket can be flown early November at the latest.
 
 # UPDATE Jun 2022
 

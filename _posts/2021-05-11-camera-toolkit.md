@@ -1,5 +1,5 @@
 ---
-layout: archive
+layout: single
 title:  "IP Camera Hacking Toolkit"
 classes: wide
 ---

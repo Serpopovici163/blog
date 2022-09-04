@@ -1,12 +1,10 @@
 ---
-layout: archive
+layout: single
 title:  "LTE Mavic Pro"
-classes: wide
+toc: true
 ---
 
-## Limitless range and enhanced autonomy
-
-LTE based drone control has been a longstanding goal with the purpose of creating UAVs requiring minimal user input to function. I have found the need for constant input to significantly reduce the useability of drones for recon during my adventures because neither myself nor the people with me can dedicate significant attention to piloting them. This project aims to achieve basic autonomous control through an Android application that allows the user to place the drone at specific coordinates or land it. The first rendition was built to be submitted as an electronics project for a university course and is solely capable of navigation; takeoff and landing must be manually with a separate remote controller. This is because a F1 flight controller was used which is only capable of managing stability. 
+Cellular-based drone control has been a longstanding goal with the purpose of creating UAVs requiring minimal user input to function. I have found the need for constant input to significantly reduce the useability of drones for recon during my adventures because neither myself nor the people with me can dedicate significant attention to piloting them. This project aims to achieve basic autonomous control through an Android application that allows the user to place the drone at specific coordinates or land it. The first rendition was built to be submitted as an electronics project for a university course and is solely capable of navigation; takeoff and landing must be manually with a separate remote controller. This is because a F1 flight controller was used which is only capable of managing stability. 
 
 # Basic Idea
 
