@@ -11,22 +11,10 @@ var store = [{
         "url": "/annota-mobile-application/",
         "teaser": null
       },{
-        "title": "LoRa Sensor Suite",
-        "excerpt":"A scalable dynamic solution for monitoring activity in unknown environments At some point in 2021, a friend and I had just finished exploring a construction site and as we were preparing to leave on the first floor, a security guard haphazardly walked in. kLuckily we were out of sight and...","categories": [],
-        "tags": [],
-        "url": "/lora-sensor-suite/",
-        "teaser": null
-      },{
         "title": "Two G-class Stage Rocket w/ Basic Telemetry",
         "excerpt":"Experimenting with rocketry electronics While I doubt I will ever get a high power rocketry license, I do thoroughly enjoy developing and flying model rockets. None of my past rockets have incorporated any amount of electronics so the purpose of this project is to get a feel for rocketry electronics...","categories": [],
         "tags": [],
         "url": "/two-stage-rocket/",
-        "teaser": null
-      },{
-        "title": "Mining Rig Temperature Control",
-        "excerpt":"A solution for outdoor mining rigs during winter I briefly decided to invest in a few graphics cards with all the recent hype surrounding cryptocurrencies and mining. I figured, with GPU prices today, it would be rather impossible to lose money from such an investment and I wanted to try...","categories": [],
-        "tags": [],
-        "url": "/mining-rig-temp-control/",
         "teaser": null
       },{
         "title": "Jaguar (Medium-sized VTOL UAV Platform)",
@@ -39,12 +27,6 @@ var store = [{
         "excerpt":"Cellular-based drone control has been a longstanding goal with the purpose of creating UAVs requiring minimal user input to function. I have found the need for constant input to significantly reduce the useability of drones for recon during my adventures because neither myself nor the people with me can dedicate...","categories": [],
         "tags": [],
         "url": "/lte-mavic-pro/",
-        "teaser": null
-      },{
-        "title": "DIY 3D Printed Powered Ascender",
-        "excerpt":"Shouldn’t work but it might I figured that, considering people have 3D printed functional guns, surely it must be possible to 3D print an ascender without worrying about the material’s strength. Initial designs are solely for prototyping and, as such, have no accomodations for the ESCs, batteries, or any hardware...","categories": [],
-        "tags": [],
-        "url": "/powered-ascender/",
         "teaser": null
       },{
         "title": "Smart Holographic Sight",

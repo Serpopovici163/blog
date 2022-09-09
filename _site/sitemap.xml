@@ -9,16 +9,8 @@
 <lastmod>2021-07-20T00:00:00-04:00</lastmod>
 </url>
 <url>
-<loc>http://localhost:4000/lora-sensor-suite/</loc>
-<lastmod>2021-08-16T00:00:00-04:00</lastmod>
-</url>
-<url>
 <loc>http://localhost:4000/two-stage-rocket/</loc>
 <lastmod>2021-11-08T00:00:00-05:00</lastmod>
-</url>
-<url>
-<loc>http://localhost:4000/mining-rig-temp-control/</loc>
-<lastmod>2021-11-25T00:00:00-05:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/jaguar/</loc>
@@ -27,10 +19,6 @@
 <url>
 <loc>http://localhost:4000/lte-mavic-pro/</loc>
 <lastmod>2021-12-03T00:00:00-05:00</lastmod>
-</url>
-<url>
-<loc>http://localhost:4000/powered-ascender/</loc>
-<lastmod>2022-01-01T00:00:00-05:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/smart-sight/</loc>
@@ -49,6 +37,6 @@
 </url>
 <url>
 <loc>http://localhost:4000/mito/</loc>
-<lastmod>2022-07-29T12:10:05-04:00</lastmod>
+<lastmod>2022-08-07T19:22:11-04:00</lastmod>
 </url>
 </urlset>

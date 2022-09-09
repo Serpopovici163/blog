@@ -287,7 +287,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          14 minute read
+          15 minute read
         
       </span>
     
@@ -302,7 +302,7 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#idea">Idea</a><ul><li><a href="#ui-enhancements">UI Enhancements</a></li><li><a href="#speed-enforcement-countermeasures">Speed Enforcement Countermeasures</a></li></ul></li><li><a href="#build">Build</a><ul><li><a href="#design-considerations">Design considerations</a></li><li><a href="#hardware">Hardware</a><ul><li><a href="#computers">Computers</a></li><li><a href="#cameras">Cameras</a></li><li><a href="#steering-wheel-button-integration">Steering Wheel Button Integration</a></li><li><a href="#todo-check-purple-resistance-values-again-maybe-swap-resistors-if-necessary">TODO check purple resistance values again, maybe swap resistors if necessary</a></li><li><a href="#lighting-modifications">Lighting Modifications</a></li></ul></li><li><a href="#visual-user-interface">Visual User Interface</a><ul><li><a href="#head-unit-display">Head Unit Display</a></li><li><a href="#diagnostic-display">Diagnostic Display</a></li><li><a href="#gauge-cluster-display">Gauge Cluster Display</a></li><li><a href="#heads-up-display">Heads Up Display</a></li></ul></li><li><a href="#interactive-user-interface">Interactive User Interface</a></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#idea">Idea</a><ul><li><a href="#ui-enhancements">UI Enhancements</a></li><li><a href="#speed-enforcement-countermeasures">Speed Enforcement Countermeasures</a></li></ul></li><li><a href="#build">Build</a><ul><li><a href="#design-considerations">Design considerations</a></li><li><a href="#hardware">Hardware</a><ul><li><a href="#computers">Computers</a></li><li><a href="#cameras">Cameras</a></li><li><a href="#steering-wheel-button-integration">Steering Wheel Button Integration</a></li><li><a href="#todo-check-purple-resistance-values-again-maybe-swap-resistors-if-necessary">TODO check purple resistance values again, maybe swap resistors if necessary</a></li><li><a href="#lighting-modifications">Lighting Modifications</a></li><li><a href="#cad">CAD</a></li></ul></li><li><a href="#visual-user-interface">Visual User Interface</a><ul><li><a href="#head-unit-display">Head Unit Display</a></li><li><a href="#diagnostic-display">Diagnostic Display</a></li><li><a href="#gauge-cluster-display">Gauge Cluster Display</a></li><li><a href="#heads-up-display">Heads Up Display</a></li></ul></li><li><a href="#interactive-user-interface">Interactive User Interface</a></li></ul></li></ul>
 
             </nav>
           </aside>
@@ -448,6 +448,24 @@ steering wheel and looked at the traces to figure out the function of each wire.
 
 <p>Some of the modifications require extensive control of the vehicle’s lights however I was not willing to alter anything about the car’s stock lighting controls. My solution consists of two relays in series placed in between the car’s lights and the control signal coming from the vehicle’s computers: one solid state relay to toggle the light, and one mechanical relay capable of switching the light’s power source from the car to a secondary ‘always-on’ supply. Using the circuit depicted below, any light of the vehicle can be turned on or off at will regardless of any input from the vehicle’s internal computers.
 <img src="/assets/img/brz/light_control_circuit.png" alt="Light relay circuit" /></p>
+
+<h3 id="cad">CAD</h3>
+
+<p>The retrofit brackets for this vehicle were designed by first measuring and modelling the mount points to the vehicle before extruding a general shape to house all the required components. The components are then arranged on the aforementioned general shape such that their screw holes/mount points can be cut after which the bulk of the material is removed leaving a barebones structure which can be further broken down into smaller pieces to facilitate manufacturing.</p>
+
+<p>The head unit bracket is a perfect example of this technique. The design was built symmetrically, and as such, I began by modelling the left side before mirroring it to generate the entire assembly. I knew I would need two ‘platforms’ to house all the required components so I began by measuring the mount hole positions from the old head unit and generating two basic mount ‘ears’ before extruding an arbitrary platform attached to each ear. The platforms were extended an arbitrary amount in both directions based on how much space I estimated to be available inside the vehicle’s cavity and how far the head unit display would be mounted. The head unit bracket holds the following hardware as can be seen in the <em>PIC</em> to the right:</p>
+
+<ol>
+  <li>Head unit display</li>
+  <li>Head unit display driver</li>
+  <li>Khadas VIM4</li>
+  <li>Voltage regulator</li>
+  <li>Diagnostic computer</li>
+  <li>Driver-facing camera</li>
+  <li>Head unit Arduino? (would hasten getting reverse signal to mirror managers)</li>
+</ol>
+
+<p>No amp needed up front since it’s in the trunk from factory (woot woot)</p>
 
 <h2 id="visual-user-interface">Visual User Interface</h2>
 
@@ -636,46 +654,6 @@ steering wheel and looked at the traces to figure out the function of each wire.
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/powered-ascender/" rel="permalink">DIY 3D Printed Powered Ascender
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          3 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">Shouldn’t work but it might
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
         <a href="/lte-mavic-pro/" rel="permalink">LTE Mavic Pro
 </a>
       
@@ -702,6 +680,46 @@ steering wheel and looked at the traces to figure out the function of each wire.
 
 
     <p class="archive__item-excerpt" itemprop="description">Cellular-based drone control has been a longstanding goal with the purpose of creating UAVs requiring minimal user input to function. I have found the need f...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/jaguar/" rel="permalink">Jaguar (Medium-sized VTOL UAV Platform)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Simple but limited UAV platform for urban operations
+</p>
   </article>
 </div>
 
