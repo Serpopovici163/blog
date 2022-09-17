@@ -17,6 +17,9 @@ I watched a [video](https://www.youtube.com/watch?v=4fhoCt9vXA8) by ProjectAir o
 
 I intend to have live data logging and telemetry at the very least. This rocket will include a GPS, barometer, and accelerometer as well as an ignition system for the main stage engine. I would also like to include some system that can delay the deployment of the main chute since it will significantly increase the rocket's drift during recovery however I'm unsure of how reliably I can integrate such a feature. All the electronics will be housed near/in the nose cone and the rocket will separate close to the main stage motor for recovery such that the body tube/nose cone section containing the electronics remains intact.
 
+# Unrelated note
+Cut main body of rocket and place coupler near motor but also block off motor ejection charge because delay is too short. Use black powder or smthn to separate the main body at apogee using IMU data after which a streamer or drogue shute will deploy. Drogue remains active until rocket is close to ground at which point main chute is released be a servo. The drogue is always pulling on the main chute however a servo must be used to retain it within the rocket body.
+
 # UPDATE Sep 2022
 
 ![Laser cutting fins](/assets/img/habibi-express/fin_laser_cutting.jpg){: style="float: right; width:30%; height:50%; margin-left: 10px;"}
