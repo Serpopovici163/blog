@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>IP Camera Hacking Toolkit - Ludicrous Tech</title>
-<meta name="description" content="Exploit collection/automation for networked cameras">
+<!-- begin _includes/seo.html --><title>Security Camera Privacy Hack - Ludicrous Tech</title>
+<meta name="description" content="Enhancing privacy of cheap security cameras get picture of whole camera to put here as well">
 
 
   <meta name="author" content="Alex Ludicrous">
@@ -22,30 +22,30 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_CA">
 <meta property="og:site_name" content="Ludicrous Tech">
-<meta property="og:title" content="IP Camera Hacking Toolkit">
-<meta property="og:url" content="http://localhost:4000/camera-toolkit/">
+<meta property="og:title" content="Security Camera Privacy Hack">
+<meta property="og:url" content="http://localhost:4000/camera-privacy-hack/">
 
 
-  <meta property="og:description" content="Exploit collection/automation for networked cameras">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2021-05-11T00:00:00-04:00">
+  <meta property="og:description" content="Enhancing privacy of cheap security cameras get picture of whole camera to put here as well">
 
 
 
 
 
-  
+
+
+  <meta property="article:published_time" content="2022-05-07T00:00:00-04:00">
+
+
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/camera-toolkit/">
+
+<link rel="canonical" href="http://localhost:4000/camera-privacy-hack/">
 
 
 
@@ -261,16 +261,16 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="IP Camera Hacking Toolkit">
-    <meta itemprop="description" content="Exploit collection/automation for networked cameras">
-    <meta itemprop="datePublished" content="2021-05-11T00:00:00-04:00">
+    <meta itemprop="headline" content="Security Camera Privacy Hack">
+    <meta itemprop="description" content="Enhancing privacy of cheap security camerasget picture of whole camera to put here as well">
+    <meta itemprop="datePublished" content="2022-05-07T00:00:00-04:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="http://localhost:4000/camera-toolkit/" class="u-url" itemprop="url">IP Camera Hacking Toolkit
+            <a href="http://localhost:4000/camera-privacy-hack/" class="u-url" itemprop="url">Security Camera Privacy Hack
 </a>
           </h1>
           
@@ -287,7 +287,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          3 minute read
+          2 minute read
         
       </span>
     
@@ -299,47 +299,30 @@
 
       <section class="page__content e-content" itemprop="text">
         
-        <h2 id="exploit-collectionautomation-for-networked-cameras">Exploit collection/automation for networked cameras</h2>
+        <h2 id="enhancing-privacy-of-cheap-security-cameras">Enhancing privacy of cheap security cameras</h2>
+<h1 id="get-picture-of-whole-camera-to-put-here-as-well">get picture of whole camera to put here as well</h1>
 
-<p>This is a project I haphazardly began upon discovering <strong>FIND CVE #</strong> which allows an attacker to bypass authentication on Hikvision cameras using a crafted URL. The exploit is rather simplistic but made me consider how useful camera exploits are when infiltrating facilities with unknown camera locations. Aside from connectivity issues I’ve faced with IPv6 networks, it should be theoretically possible to tap into any ethernet cable within a camera network and gain access to every single camera. I have not yet built a device capable of this but I intend to do so in the near future, here is the theoretical approach I have considered.</p>
+<p>I’ve always been a little paranoid of having having IoT devices live streaming views of my living space however I have a long trip coming up so a couple security cameras would be nice to keep an eye on my place. I considered a couple ways of modifying the cameras to provide more privacy:</p>
+<ul>
+  <li>A Python script that forges HTTP requests and orders the camera to turn around;</li>
+  <li>A physical shutter external to the camera that blocks the lens; and</li>
+  <li>An internal relay that cuts power to the camera module.
+Unfortunately these were not ideal. The first idea was unreliable because turning the camera through a script still allows the camera to turn itself back on its own and may not be reliable should a software update be pushed that depreciates my integration of the camera’s API. The second was not an elegant solution and would be difficult to integrate on a PTZ camera that moves around. Finally, the third did not work because the camera would not come back online after the camera module got disconnected from its motherboard, no matter what I tried. In the end I settled on modifying the camera’s internal IR-CUT filter by covering the IR-CUT part with a sticker and integrating a microcontroller to toggle the state of the filter assembly. This was an elegant and invisible solution that should not noticeably affect image quality since the camera is being used indoors so there should be very little ambient IR light.</li>
+</ul>
 
-<p>Axis, Avigilon, and Hikvision cameras are most common in construction site and commercial security so these are a priority.</p>
+<p>The privacy mode of these cameras is toggled using a Python service running on a Linux server I have. The script regularly monitors what devices are connected to the local WiFI network, and once a known device is connected, the Python service blinds any security cameras within the apartment.</p>
 
-<h1 id="theoretical-device">Theoretical device</h1>
+<h1 id="hardware">Hardware</h1>
 
-<p>The device would have two sets of 8 punch down connectors for each wire within an ethernet cable. The attacker would have to strip roughly 15-20 cm of a target cable and separate the wires enough to punch each wire down in both sets of connectors. After all the wires have been connected, the attacker would cut them between the punchdown connectors at which point the device will activate and act as a network switch and instantly reconnect the affected camera while providing the attacker with a physical connection into the network. The device would leech POE power off of the ethernet cable though having a standalone power supply may be required because the POE device powering the camera could technically trigger an alarm and notify someone of a discrepancy in POE power draw.</p>
+<p>While understandably not the most secure way to go about this, I used a few NodeMCU 1.0 modules I had laying around for this project. A more ideal solution would be to either use separate transceivers to air-gap the privacy microcontrollers from the internet or to use a WiFi/bluetooth capable microcontroller that can sniff and determine what devices are around it. Regardless, the hardware here is relatively simple, the camera has:</p>
+<ul>
+  <li>A ESP-12E module;</li>
+  <li>A WS2812B LED; and</li>
+  <li>A MX1508 H-bridge IC.
+The MX1508 was needed since the ESP operates at 3.3V however the IR-CUT filter mechanism requires a higher voltage to actuate. The LED provides a hardcoded correlation between the state of the IR-CUT filter and a visual indication of whether or not the camera is able to see anything.</li>
+</ul>
 
-<h1 id="update-june-2022">UPDATE June 2022</h1>
-
-<p>Just purchased three items to hopefully build a device that can parasitically leech off of a POE camera wire. I bought a POE splitter which accepts one ~30W input and splits it into two ~15W POE outputs; I’m not entirely sure about these specifications but it should be capable of powering a single camera even with the device patched in to the existing POE line. I also purchased a board which converts POE power into a 12V 1A output and managed to find some punchdown connectors that should work with 22-23AWG wire. 
-<img src="/assets/img/camera-toolkit/t-taps.PNG" alt="T-taps" style="float: right; width:30%; margin-right: 25px;" />
-Fortunately, the punchdown connectors I found are single ‘T-taps’ as pictured to the right. These T-taps will make it significantly easier to patch in to an existing installation without needing to strip a large length of wire. I was initially worried about how difficult it may be to align and punch down 8 wires given past experience when installing <a href="https://github.com/rfidtool/ESP-RFID-Tool">ESP-RFID-Tools</a> which only require me to punch down 4 wires. I am eager to proceed with this project once I receive the parts, at the very least I will develop a tool capable of jamming camera networks using a <a href="https://www.researchgate.net/publication/266022049_ICMPv6_Router_Advertisement_Flooding">IPv6 Router Advertisment Flood Attack</a>. I have had issues in the past getting my computer to communicate with devices on NVR networks since these are designed more for communication between the NVR and the camera as opposed to communication between the cameras themselves. For some reason, my computer fails to obtain a valid IP configuration since it does not seem to gather that it is connected to an IPv6 network as opposed to an IPv4 network. I will be using a smaller SBC such as the <a href="https://www.aliexpress.com/item/1005002918902225.html">Orange Pi Zero</a> when building this concept which will ideally perform better.</p>
-
-<p>A possible concern is not knowing whether the installation is using T-568A or T-568B wiring. Not sure how serious it would be to guess but I will do more research into POE wiring and all once I receive the parts and am closer to the design stage. These parts were purchased without a concrete design because the device itself costs about $25 excluding the SBC so I figured why not. I’ll have a use for these things regardless of whether this works.</p>
-
-<h1 id="current-issues">Current issues</h1>
-
-<p>IPv6 is the most significant issue I’m facing at the moment. Both my laptop and cell phone refuse to obtain a valid IP address when on a wired IPv6 network even though they should both be fully compatible. This may be due to MAC address filtering but I’m not sure.</p>
-
-<h1 id="hikvision">Hikvision</h1>
-
-<p>Working exploit for individual cameras but no exploit against NVRs. Camera enumaration/fingerprinting possible.</p>
-
-<h1 id="unv">UNV</h1>
-
-<p>Found a NVR password disclosure exploit but not tested. My building uses UNV cameras on an IPv4 network so I am able to experiment with things but I haven’t done much work thus far.</p>
-
-<h1 id="axis">Axis</h1>
-
-<p>I know remote code execution is possible but have yet to experment with any Axis cameras.</p>
-
-<h1 id="avigilon">Avigilon</h1>
-
-<p>Probably the most important target to me given their deep learning AI that makes them more detrimental than regular cameras.</p>
-
-<h1 id="sony-ipela">Sony IPELA</h1>
-
-<p>Idk if I’ll bother with Sony, they are mostly used in retail so I have little interest in them.</p>
+<h1 id="code">Code</h1>
 
         
       </section>
@@ -351,7 +334,7 @@ Fortunately, the punchdown connectors I found are single ‘T-taps’ as picture
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2021-05-11T00:00:00-04:00">May 11, 2021</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-05-07T00:00:00-04:00">May 7, 2022</time></p>
 
       </footer>
 
@@ -360,21 +343,22 @@ Fortunately, the punchdown connectors I found are single ‘T-taps’ as picture
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=IP+Camera+Hacking+Toolkit%20http%3A%2F%2Flocalhost%3A4000%2Fcamera-toolkit%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=Security+Camera+Privacy+Hack%20http%3A%2F%2Flocalhost%3A4000%2Fcamera-privacy-hack%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fcamera-toolkit%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fcamera-privacy-hack%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fcamera-toolkit%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fcamera-privacy-hack%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="#" class="pagination--pager disabled">Previous</a>
+      <a href="/smart-sight/" class="pagination--pager" title="Smart Holographic Sight
+">Previous</a>
     
     
-      <a href="/annota-mobile-application/" class="pagination--pager" title="Annota Application
+      <a href="/brz/" class="pagination--pager" title="Modernizing my 2013 Subaru BRZ
 ">Next</a>
     
   </nav>
@@ -478,47 +462,6 @@ Fortunately, the punchdown connectors I found are single ‘T-taps’ as picture
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/camera-privacy-hack/" rel="permalink">Security Camera Privacy Hack
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          2 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">Enhancing privacy of cheap security cameras
-get picture of whole camera to put here as well
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
         <a href="/smart-sight/" rel="permalink">Smart Holographic Sight
 </a>
       
@@ -546,6 +489,45 @@ get picture of whole camera to put here as well
 
     <p class="archive__item-excerpt" itemprop="description">Intelligent weapon optics
 </p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/lte-mavic-pro/" rel="permalink">LTE Mavic Pro
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          7 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Cellular-based drone control has been a longstanding goal with the purpose of creating UAVs requiring minimal user input to function. I have found the need f...</p>
   </article>
 </div>
 

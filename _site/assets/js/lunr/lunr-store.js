@@ -35,6 +35,12 @@ var store = [{
         "url": "/smart-sight/",
         "teaser": null
       },{
+        "title": "Security Camera Privacy Hack",
+        "excerpt":"Enhancing privacy of cheap security cameras get picture of whole camera to put here as well I’ve always been a little paranoid of having having IoT devices live streaming views of my living space however I have a long trip coming up so a couple security cameras would be nice...","categories": [],
+        "tags": [],
+        "url": "/camera-privacy-hack/",
+        "teaser": null
+      },{
         "title": "Modernizing my 2013 Subaru BRZ",
         "excerpt":"I recently acquired a car for recreational purposes since I had saved up a decent amount of money and didn’t feel like investing it. I purchased a BRZ because they are built in conjunction with Toyota and this should theoretically imply that they are relatively reliable so I won’t need...","categories": [],
         "tags": [],
