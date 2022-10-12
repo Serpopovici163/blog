@@ -1,4 +1,4 @@
-I"+W<p>I recently acquired a car for recreational purposes since I had saved up a decent amount of money and didn’t feel like investing it. I purchased a BRZ because they are built in conjunction with Toyota and this should theoretically imply that they are relatively reliable so I won’t need to worry about the mechanical aspect of the vehicle. Furthermore, this colaboration with Toyota also makes them relatively easy to work on at home which I am thankful for since I’ve had to do a wealth of maintenance on it even going as far as removing failing drivetrain elements.</p>
+I"�V<p>I recently acquired a car for recreational purposes since I had saved up a decent amount of money and didn’t feel like investing it. I purchased a BRZ because they are built in conjunction with Toyota and this should theoretically imply that they are relatively reliable so I won’t need to worry about the mechanical aspect of the vehicle. Furthermore, this colaboration with Toyota also makes them relatively easy to work on at home which I am thankful for since I’ve had to do a wealth of maintenance on it even going as far as removing failing drivetrain elements.</p>
 
 <h1 id="idea">Idea</h1>
 
@@ -28,9 +28,10 @@
 <ul>
   <li>Better navigation with fully functional Google Maps (I am using the Khadas VIM4 for the head unit and it does not support Google Play Services so it cannot have any Google Maps functionality)</li>
   <li>Better media controls with proper Bluetooth integration (As far as I am aware, Android Mobile cannot be used as a A2DP sink without modifying the source code)</li>
-  <li>Better boot times
-Overall, I did not feel these advantages were enough to justify the increased complexity of building a custom Android Automotive image especially considering how many custom UI screens and functions I ended up incorporating.</li>
+  <li>Better boot times</li>
 </ul>
+
+<p>Overall, I did not feel these advantages were enough to justify the increased complexity of building a custom Android Automotive image especially considering how many custom UI screens and functions I intend to incorporate.</p>
 
 <p>The purpose of rebuilding the vehicle’s UI is not only to provide a seamless means of interacting with additional functionality but also to fully hide any illegal functions on demand. As such, there must not be any visible hint of any countermeasure functionality on the inside and outside of the vehicle and as such the car is able to hide illegal functionality when in ‘legal mode’ which can be enabled using arbitrary key strokes or combinations. Once in legal mode, the user is able to unlock hidden functions by entering an arbitrary set of seemingly random keystrokes using buttons throughout the car’s interior. The combination is such that it would be incredibly difficult to guess or mistakenly enter it.</p>
 
@@ -41,29 +42,26 @@ Overall, I did not feel these advantages were enough to justify the increased co
 <p>The car will contain a multitude of computers listed below alongside their purpose:</p>
 <ul>
   <li>Head Unit/Center Console (Khadas VIM4) –&gt; Mostly displays data and video feeds, very little logic goes on here</li>
-  <li>Diagnostic computer (RPi ?) –&gt; Connects to OBDii port and reports back data as HTTP server on internal network</li>
-  <li>Arduino head unit (Arduino Mega) –&gt; Acts as interface between ethernet network and Arduino serial networks</li>
-  <li>Gauge cluster computer (RPi Zero?) –&gt; Listens to CANBUS and ethernet network to display data</li>
+  <li>CANBUS server (Arduino) –&gt; Acts as interface between ethernet network and vehicle’s CANBUS</li>
+  <li>Gauge cluster computer (RPi Zero?) –&gt; Listens to CANBUS and ethernet network to display data, may link this as a second display for the Khadas VIM4</li>
   <li>Safety computer (nVidia Jetson NX?) –&gt; Uses CV algorithms on vehicle cameras and exports HDMI feeds of cameras for head unit</li>
 </ul>
 
-<p>Most of the hardware modifications done to the vehicle are exectued by Arduinos integrated throughout the vehicle that share a set of serial networks with the Arduino head unit computer. The list of integrated Arduinos as well as the model used is as follows:</p>
+<p>Most of the hardware modifications are exectued by Arduinos integrated throughout the vehicle that share its CANBUS. The list of integrated Arduinos as well as the model used is as follows:</p>
 <ul>
   <li>Head light manager (MEGA_EMBED) –&gt; Used for light animations up front, has relays to control lights and voltage dividers to light input from car’s computer as well as addressable LEDs integrated in the grill.</li>
-  <li>Rear light manager (MEGA_EMBED) –&gt; Same idea but for rear lights. This Arduino also has an accelerometer such that it can flash the brake lights when braking hard.</li>
-  <li>Siren manager (NANO?) –&gt; Has an SD card reader to store audio files and feeds audio to a dedicated amplifier for the vehicle’s loud speaker.</li>
+  <li>Rear light manager (MEGA_EMBED) –&gt; Same idea but for rear lights. This Arduino also flashes the rear lights of the vehicle based on CANBUS data of vehicle speed and brake pressure (the required brake pressure for a flash differs based on vehicle speed)</li>
   <li>Mirror manager (NANO) –&gt; Keeps track of mirror position and allows them to automatically tilt when backing up. One per mirror.</li>
-  <li>HVAC manager (MEGA_EMBED) –&gt; Provides data regarding car’s HVAC system and is able to simulate button presses to modify HVAC settings. This Arduino also receives the ‘reverse signal’ from the car and forwards it to mirror managers etc.</li>
   <li>Diagnostic display button manager (NANO) –&gt; Controls relays that simulate button presses to maintain functionality of old center console buttons.</li>
-  <li>Steering wheel button manager (STM32 “Black Pill”) –&gt; Converts steering wheel button presses into USB keyboard data for head unit computer. Also forwards keystrokes to Arduino manager so commands can be dispatched downstream and eliminate latency by avoiding going through the head unit computer.</li>
+  <li>Steering wheel button manager (PRO MICRO) –&gt; Converts steering wheel button presses into USB keyboard data for head unit computer and sends keystrokes to CANBUS of car</li>
   <li>Power managers (MEGA_EMBED) –&gt; Handles power delivery to components using large relay boards to provide active failover functionality and monitor current/voltage among vehicle power buses. Two of these will be installed: one in front near the head unit and one in the trunk.</li>
   <li>Audio manager (MEGA_EMBED) –&gt; Handles audio amplifier settings (equalizer and volume) and simulates keystrokes on a Bluetooth dongle used to receive mobile audio. Since the head unit computer can’t be used as a A2DP sink, I am using a standalone Bluetooth dongle to receive mobile audio. This allows me to control the music from the head unit however I won’t be able to keep track of the song’s progress or display the album cover.</li>
-  <li>Controller (MEGA_FULL) –&gt; Has a few serial buses to unite all child devices as well as an ethernet adapter to communicate with ethernet network. There is a serial bus for devices which regularly and consistently broadcast data such as the power managers, a bus for each inconsistent device such as the steering wheel manager, and a bus for devices that solely execute actions without providing feedback.</li>
+  <li>Controller (Arduino but idk) –&gt; Doesn’t really matter so long as it has an ethernet shield or other interface. Will store any CANBUS values used by the other computers in a local database that updates anytime new data becomes available on the CANBUS.</li>
 </ul>
 
 <h3 id="cameras">Cameras</h3>
 
-<p>The planned camera layout is included below however two cameras are omitted: one on the interior and another on the right side mirror. Of the cameras that are visible, the green semicircles are <a href="https://www.aliexpress.com/item/1005004337827464.html">136-degree FOV cameras</a> installed in the front windshield and above the rear license plate whereas the grey circles represent <a href="https://www.aliexpress.com/item/1005004335144138.html">180-degree cameras</a> installed beneath side view mirrors of the car. Of the omitted cameras, the interior camera faces the driver and is used for eye tracking such that the touch screen functionality of the center console is not enabled unless the driver is looking at the monitor to prevent accidental input. I planned on including a front-facing camera on the right wing mirror to provide the driver with insight about any vehicles in the right lane ahead of the car that the driver may not be able to see. This camera is not included at this time since the 180-degree FOV camera installed beneath the right side mirror should theoretically capture any vehicles in the right lane and as such the extra camera should not be necessary.</p>
+<p>The planned camera layout is included below. The green semicircles are <a href="https://www.aliexpress.com/item/1005004337827464.html">136-degree FOV cameras</a> installed in the front windshield and above the rear license plate whereas the grey circles represent <a href="https://www.aliexpress.com/item/1005004335144138.html">210-degree cameras</a> (the listing says 180 degrees but they are actually 210) installed beneath side view mirrors of the car. A fifth camera is installed inside the vehicle and faces the driver for eye tracking such that the touch screen functionality of the center console display is disabled unless the driver is looking at the display to prevent accidental inputs. I planned on including a second front-facing camera on the right wing mirror to provide the driver with insight about any vehicles in the right lane ahead of the car that they may not be able to see. This camera is not included at this time since the 210-degree FOV camera installed beneath the right side mirror should theoretically capture any vehicles in the right lane though distortion may severely impact the resolution and thus the viability of using it.</p>
 
 <p><img src="/assets/img/brz/camera_layout.png" alt="Camera layout" /></p>
 
@@ -71,9 +69,9 @@ Overall, I did not feel these advantages were enough to justify the increased co
 
 <p>Steering wheel buttons were added to BRZs in 2017 and mine is a 2013 so I purchased a salvage steering wheel in order to integrate its buttons into my systems. Should anybody else contemplate to do the same, be aware that even though steering wheels are cheap the airbag most certainly is not: a brand new OEM airbag for my car is $CAD 1100 from the dealer while a used one is ~$CAD 600.</p>
 
-<p>The steering wheel uses a <a href="https://www.cnx-software.com/2019/12/24/stm32-black-pill-board-features-stm32f4-cortex-m4-mcu-optional-spi-flash/">STM32 “Black Pill” MCU</a> to convert button presses into keyboard output for the Khadas VIM4 to understand. Furthermore, it connects to the Arduino serial network to circumvent the car’s internal network when forwarding any hardware-related commands as this decreases latency. In order to program the STM32, I took apart the button clusters on each side of the 
+<p>The steering wheel uses a Arduino Pro Micro to convert button presses into keyboard output for the Khadas VIM4 to understand. Furthermore, it connects to the CANBUS to foward hardware-related commands to decrease latency as opposed to transferring commands from the VIM4 to other devices. In order to interface the Arduino with the steering wheel, I took apart the button clusters on each side of the 
 <img src="/assets/img/brz/steering_wheel_button_connector.jpg" alt="Steering wheel button connector" style="float: right; width:50%; height:80%; margin-left: 10px;" />
-steering wheel and looked at the traces to figure out the function of each wire. My findings are listed below for anybody else intending to reverse engineer the steering wheel buttons on a BRZ (wires are listed from left to right, top to bottom, looking at the connector from behind as depicted to the right):</p>
+steering wheel and followed traces to figure out the function of each wire. My findings are listed below for anybody else intending to reverse engineer the steering wheel buttons on a BRZ (wires are listed from left to right, top to bottom, looking at the connector from behind as depicted to the right):</p>
 <ul>
   <li>Light green –&gt; Volume and arrow keys of left side cluster</li>
   <li>Red –&gt; Common of left side cluster</li>
@@ -84,11 +82,11 @@ steering wheel and looked at the traces to figure out the function of each wire.
   <li>Blue –&gt; Steering wheel ground</li>
   <li>Brown –&gt; Cruise control pin 1</li>
   <li>Grey –&gt; Cruise control pin 2</li>
-  <li>Black + Yellow –&gt; LED ground</li>
-  <li>Light yellow –&gt; LED VCC (3.3V works, not sure about 5V)</li>
+  <li>Black + White –&gt; LED ground</li>
+  <li>White –&gt; LED VCC (5V works but dim. Not sure I’m willing to go higher so I’ll suck it up)</li>
 </ul>
 
-<p>The ‘voice’ button on the right side of the steering wheel is wired to the left button cluster and its state is transmitted through the (light green or black) wire. Button states are transmitted by varying the resistance between the common pin of each button cluster and one of the two output pins of each button cluster. The Arduino interprets these using a pulldown resistor on each output pin as explained <a href="https://www.circuitbasics.com/arduino-ohm-meter/">here</a>. Each output wire has a default resistance of 100 kOhm between itself and the common except for the purple output wire which has a 200kOhm default resistance. The resulting resistance and output wire for any button press is listed below in hopes of saving someone else the effort required to decode these circuit boards:</p>
+<p>The ‘voice’ button on the right side of the steering wheel is wired to the left button cluster and its state is transmitted through the (light green or black) wire. Button states are transmitted by varying the resistance between the common pin of each button cluster and one of the two output pins of each button cluster. The Arduino interprets these using an analog pin using the INPUT_PULLUP pin mode with the common pins being connected to ground. The resulting resistance and output wire for any button press is listed below in hopes of saving someone else the effort required to decode these circuit boards though I ended up using analogRead values so these were useless to me.</p>
 
 <table>
   <thead>
@@ -133,12 +131,11 @@ steering wheel and looked at the traces to figure out the function of each wire.
   </tbody>
 </table>
 
-<h3 id="todo-check-purple-resistance-values-again-maybe-swap-resistors-if-necessary">TODO check purple resistance values again, maybe swap resistors if necessary</h3>
-
 <h3 id="lighting-modifications">Lighting Modifications</h3>
 
-<p>Some of the modifications require extensive control of the vehicle’s lights however I was not willing to alter anything about the car’s stock lighting controls. My solution consists of two relays in series placed in between the car’s lights and the control signal coming from the vehicle’s computers: one solid state relay to toggle the light, and one mechanical relay capable of switching the light’s power source from the car to a secondary ‘always-on’ supply. Using the circuit depicted below, any light of the vehicle can be turned on or off at will regardless of any input from the vehicle’s internal computers.
-<img src="/assets/img/brz/light_control_circuit.png" alt="Light relay circuit" /></p>
+<p>Some of the modifications require extensive control of the vehicle’s lights however I am not willing to alter anything about the car’s computers so my solution consists of relays placed along the wiring harnesses controlling the vehicle’s lights with two separate computers on each end of the car. Each computer has a combination of mechanical and solid state relays depending on how frequent a light is expected to toggle on/off. Mechanical relays are used for lights that rarely toggle and because they provide a normally closed and normally open set of contacts. This is important because the lighting computers receive constant power regardless of the vehicle’s state and therefore power draw must be minimized when the vehicle is not running.</p>
+
+<p><img src="/assets/img/brz/rear_light_manager.jpg" alt="Rear light manager computer" style="float: right; width:50%; height:80%; margin-left: 10px;" /> The rear lighting computer is pictured to the right and I expect the front computer to be highly similar. It uses four solid state relays (top left) to drive the brake lights and turn signals of the car. The third and fourth brake light of the car (third is in the windshield and fourth is F1 style in bumper) are converted to addressable LEDs and do not require relays. Addressable LEDs have also been integrated into the reverse lights (two lights adjoined to the fourth brake light) and the two rear quarter panel windows of the car. Excluding the solid state relays, the computer contains two mechanical relays (bottom left) for running lights, a CANBUS module (bottom right), an Arduino (top right), and a 5V regulator on the backside.</p>
 
 <h3 id="cad">CAD</h3>
 
@@ -151,12 +148,10 @@ steering wheel and looked at the traces to figure out the function of each wire.
   <li>Head unit display driver</li>
   <li>Khadas VIM4</li>
   <li>Voltage regulator</li>
-  <li>Diagnostic computer</li>
   <li>Driver-facing camera</li>
-  <li>Head unit Arduino? (would hasten getting reverse signal to mirror managers)</li>
 </ol>
 
-<p>No amp needed up front since it’s in the trunk from factory (woot woot)</p>
+<p>No amp needed up front since it’s in the trunk from factory. That being said it only drives the front speakers and I can’t figure out how the rear side speakers are powered so there may be more amplifiers throughout the vehicle. I also need to include an amplifier for the siren up front which may end up in the head unit if there is space.</p>
 
 <h2 id="visual-user-interface">Visual User Interface</h2>
 
