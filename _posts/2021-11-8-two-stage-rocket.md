@@ -17,8 +17,18 @@ I watched a [video](https://www.youtube.com/watch?v=4fhoCt9vXA8) by ProjectAir o
 
 I intend to have live data logging and telemetry at the very least. This rocket will include a GPS, barometer, and accelerometer as well as an ignition system for the main stage engine. I would also like to include some system that can delay the deployment of the main chute since it will significantly increase the rocket's drift during recovery however I'm unsure of how reliably I can integrate such a feature. All the electronics will be housed near/in the nose cone and the rocket will separate close to the main stage motor for recovery such that the body tube/nose cone section containing the electronics remains intact.
 
-# Unrelated note
-Cut main body of rocket and place coupler near motor but also block off motor ejection charge because delay is too short. Use black powder or smthn to separate the main body at apogee using IMU data after which a streamer or drogue shute will deploy. Drogue remains active until rocket is close to ground at which point main chute is released be a servo. The drogue is always pulling on the main chute however a servo must be used to retain it within the rocket body.
+# UPDATE Oct 2022
+
+![Recovery layout update](/assets/img/habibi-express/recovery_layout_update.jpg){: style="float: right; width:10%; height:20%; margin-left: 10px;"} 
+Progress is being made on flight controller firmware, the I2C issue has been fixed and the IMU data is now being read as well. Turns out the Adafruit BMP280 library was looking for the wrong address and I had to force it to read data from the true address. Engine mounts and fins have been attached to the rocket, currently focused on recovery charge and how to protect the rocket's internals from the motor's ejection charge as well as the true ejection charge. The motor mounts have plenty of space around them to allow the motor's ejection charge gases to escape however I need to add a component following the motor to shield the parachute from the motor's charge and contain the true ejection charge as well. The planned layout is pictured to the right where the green block represents the blast shield, red represents the true ejection charge, yellow represents the drogue chute, and cyan represents the final chute. The rocket splits between the cyan and yellow blocks when the ejection charge detonates.
+
+The avionics bay has been expanded to include relays for the second stage and ejection charge igniters as well as an SD card reader for data logging, servo to retain the primary parachute, and two DVRs (scrapped the camera inside the body tube). The second stage will be ignited based on the following criteria:
+- Rocket attitude is within 30 degrees of launch attitude (makes sure the rocket is vertical)
+- Rocket altitude is greater than 250 meters (should be 500 meters or so based on simulation)
+- Rocket acceleration drops noticeably (simulation suggests peak of 13 Gs however the software will just look for a drop of ~5Gs)
+- Launch was detected less than 10 seconds ago (makes sure the conditions cannot be met unless the rocket just took off)
+
+Once these conditions are met, the rocket will begin a 3-second timer before igniting the second stage, otherwise the flight controller will do nothing. Apogee will be detected when vertical acceleration drops below -5m/s^2 after which the ejection charge will be ignited. The final chute will be deployed 250 meters above ground level based on barometric data. Launch window has been slightly pushed back however it should be achievable by end of November :)
 
 # UPDATE Sep 2022
 
