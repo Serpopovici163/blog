@@ -1,6 +1,6 @@
 var store = [{
         "title": "DIY 3D Printed Powered Ascender",
-        "excerpt":"Shouldn’t work but it might I figured that, considering people have 3D printed functional guns, surely it must be possible to 3D print an ascender without worrying about the material’s strength. Initial designs are solely for prototyping and, as such, have no accomodations for the ESCs, batteries, or any hardware...","categories": [],
+        "excerpt":"Shouldn’t work but it might I figured that, considering people have 3D printed functional guns, surely it must be possible to 3D print an ascender without worrying about the material’s strength. Initial designs are solely for prototyping and, as such, have no accommodations for the ESCs, batteries, or any hardware...","categories": [],
         "tags": [],
         "url": "/powered-ascender/",
         "teaser": null
@@ -30,7 +30,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Security Camera Privacy Hack",
-        "excerpt":"Enhancing privacy of cheap security cameras get picture of whole camera to put here as well I’ve always been a little paranoid of having having IoT devices live streaming views of my living space however I have a long trip coming up so a couple security cameras would be nice...","categories": [],
+        "excerpt":"Enhancing privacy of cheap security cameras get picture of whole camera to put here as well I’ve always been a little paranoid of having IoT devices live streaming views of my living space however I have a long trip coming up so a couple security cameras would be nice to...","categories": [],
         "tags": [],
         "url": "/camera-privacy-hack/",
         "teaser": null

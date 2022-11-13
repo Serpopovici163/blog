@@ -15,7 +15,7 @@ The SmartSight contains a small display which reflects through a mirrored lens t
 # UPDATE Jun 2022
 I have been working on this on and off for a while now without updating this page.
 ![FrontV2](/assets/img/smart-sight/frontV2.PNG){: style="float: right; width:50%; height:50%; margin-left: 10px;"}
- I received the new 1.3" displays about a month ago and have generated a new CAD model which accomodates the larger display. The new display covers the majority of the space available on the lens and a shroud was included in this design to ensure that the optic remains viable even when exposed to sunlight. The previous design would likely have suffered in bright environments given how weak the displays are. Below is an updated exploded view of the new design:
+ I received the new 1.3" displays about a month ago and have generated a new CAD model which accommodates the larger display. The new display covers the majority of the space available on the lens and a shroud was included in this design to ensure that the optic remains viable even when exposed to sunlight. The previous design would likely have suffered in bright environments given how weak the displays are. Below is an updated exploded view of the new design:
 ![Exploded View V2](/assets/img/smart-sight/explodedV2.PNG){: style="display: block; margin-left: auto; margin-right: auto; margin-top: 10px"}
 
 A couple iterations of this design have been printed and all that is left at the moment is to wire up the final version and develop software. Since this design uses an Arduino Nano with its USB port exposed at the back, iterating software should be a piece of cake which can't be said for the [LoRa Sensor Project](/lora-sensor-suite/).
