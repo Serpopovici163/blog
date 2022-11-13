@@ -1,10 +1,11 @@
-I"�<h2 id="a-scalable-dynamic-solution-for-monitoring-activity-in-unknown-environments">A scalable dynamic solution for monitoring activity in unknown environments</h2>
+I"c<h2 id="a-scalable-dynamic-solution-for-monitoring-activity-in-unknown-environments">A scalable dynamic solution for monitoring activity in unknown environments</h2>
 
-<p>At some point in 2021, a friend and I had just finished exploring a construction site and as we were preparing to leave on the first floor, a security guard haphazardly walked in. kLuckily we were out of sight and managed to get away undetected but this presented a need for a system capable of monitoring activity within an uncontrolled environment. So far I have only build PIR sensors for this purpose though I intend to build tripwires and possibly audio sensors.</p>
+<p>At some point in 2021, a friend and I had just finished exploring a construction site and as we were preparing to leave on the first floor, a security guard haphazardly walked in. Luckily we were out of sight and managed to get away undetected but this presented a need for a system capable of monitoring activity within an uncontrolled environment. So far I have only built PIR sensors for this purpose though I intend to build tripwires and possibly audio sensors.</p>
 
-<h1 id="basic-idea">Basic Idea</h1>
+<h1 id="update-november-2022">UPDATE November 2022</h1>
 
-<p>Each sensor runs off of an 18650 Li-Ion cell with a battery protection circuit that enables USB charging and maintains the cell voltage within its acceptable range. Each sensor has an Arduino Nano with a LoRa SX1278 transceiver in addition to its sensing equipment. LoRa modules are ideal since they act as a mesh network and these sensors are intended for use within concrete buildings thus signals will have difficulty travelling far. An additional LoRa module with a high gain antenna connects the LoRa mesh network to the attacker’s phone or some other notification method. Due to the RF challenges faced by these sensors, they should transmit repeteadly once triggered until the attacker’s device is able to acknowledge the signal. Based on experimentation, the LoRa modules I own do not natively do this.</p>
+<p><img src="/assets/img/lora-sensor-suite/PIR-V3-front.jpg" alt="Second generation sensor" style="float: right; width:50%; height:50%" />
+Forgot about this project for a while however I have decided to redesign the sensors to incorporate more functionality. I purchased a few ESP-CAM modules off of AliExpress and redesigned the sensors to fit these modules. The new iteration can now detect Bluetooth devices (the last generation was supposed to do this, but I only had ESP-12E modules on hand) and can now send pictures alongside motion and Bluetooth alerts. Further improvements will include adding a buzzer and possibly LEDs such that the sensors can generate distractions. The new design has two external antennas, one for the LoRa transceiver and another for WiFi, which I chose to keep exposed solely for the aesthetic. Future versions may internalize the WiFi antenna since I see no benefit in having it exposed.</p>
 
 <h1 id="update-feb-2022">UPDATE Feb 2022</h1>
 
@@ -15,7 +16,9 @@ and can be used to pick up unknown devices and send alerts even if the sensor it
 
 <p>The current design does not have space for a battery management circuit so I will need to reiterate but it does successfully house the LoRa SX1278, 18650, and PIR sensor. The general shape of the sensor allows for it to be placed on the floor with the PIR facing 45 degrees upwards or it can be flipped and placed on top of a cabinet, for example, with the PIR facing 45 degrees downwards. The next iteration will likely also include magnets such that the sensor can attach to metallic cabinets, metal hand rails on stairs, light fixtures, etc. I also took apart one of the 433 antennas and noticed that at least 10mm of the rubber housing is left empty so I will take this in account and ommit the rubber housing in future designs.</p>
 
-<h1 id="update-oct-2021">UPDATE Oct 2021</h1>
+<h1 id="basic-idea">Basic Idea</h1>
+
+<p>Each sensor runs off of an 18650 Li-Ion cell with a battery protection circuit that enables USB charging and maintains the cell voltage within its acceptable range. Each sensor has an Arduino Nano with a LoRa SX1278 transceiver in addition to its sensing equipment. LoRa modules are ideal since they act as a mesh network and these sensors are intended for use within concrete buildings thus signals will have difficulty traveling far. An additional LoRa module with a high gain antenna connects the LoRa mesh network to the attacker’s phone or some other notification method. Due to the RF challenges faced by these sensors, they should transmit repeatedly once triggered until the attacker’s device is able to acknowledge the signal. Based on experimentation, the LoRa modules I own do not natively do this.</p>
 
 <h2 id="sensor-construction">Sensor Construction</h2>
 

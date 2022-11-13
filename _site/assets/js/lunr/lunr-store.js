@@ -42,13 +42,13 @@ var store = [{
         "teaser": null
       },{
         "title": "Modernizing my 2013 Subaru BRZ",
-        "excerpt":"I recently acquired a car for recreational purposes since I had saved up a decent amount of money and didn’t feel like investing it. I purchased a BRZ because they are built in conjunction with Toyota and this should theoretically imply that they are relatively reliable so I won’t need...","categories": [],
+        "excerpt":"I recently acquired a car for recreational purposes since I had saved up a decent amount of money and didn’t feel like investing it. I purchased a BRZ because they are built in conjunction with Toyota and this should theoretically imply that they are relatively reliable and I won’t need...","categories": [],
         "tags": [],
         "url": "/brz/",
         "teaser": null
       },{
         "title": "LoRa Sensor Suite",
-        "excerpt":"A scalable dynamic solution for monitoring activity in unknown environments At some point in 2021, a friend and I had just finished exploring a construction site and as we were preparing to leave on the first floor, a security guard haphazardly walked in. kLuckily we were out of sight and...","categories": [],
+        "excerpt":"A scalable dynamic solution for monitoring activity in unknown environments At some point in 2021, a friend and I had just finished exploring a construction site and as we were preparing to leave on the first floor, a security guard haphazardly walked in. Luckily we were out of sight and...","categories": [],
         "tags": [],
         "url": "/lora-sensor-suite/",
         "teaser": null
