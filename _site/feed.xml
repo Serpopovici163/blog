@@ -1,24 +1,100 @@
-<<<<<<< Updated upstream
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-10-12T00:09:12-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ludicrous Tech</title><subtitle>This website keeps track of whichever projects I am most proud of and serves to share some of the knowledge I accumulate from tinkering on whatever comes to my mind. Enjoy!</subtitle><author><name>Alex Ludicrous</name></author><entry><title type="html">Roof Anchor Drone</title><link href="http://localhost:4000/roof-anchor-drone/" rel="alternate" type="text/html" title="Roof Anchor Drone" /><published>2022-08-02T00:00:00-04:00</published><updated>2022-08-02T00:00:00-04:00</updated><id>http://localhost:4000/roof-anchor-drone</id><content type="html" xml:base="http://localhost:4000/roof-anchor-drone/"><![CDATA[<h2 id="a-physical-infiltration-tool">A physical infiltration tool</h2>
-=======
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-10-15T18:19:03-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ludicrous Tech</title><subtitle>This website keeps track of whichever projects I am most proud of and serves to share some of the knowledge I accumulate from tinkering on whatever comes to my mind. Enjoy!</subtitle><author><name>Alex Ludicrous</name></author><entry><title type="html">Roof Anchor Drone</title><link href="http://localhost:4000/roof-anchor-drone/" rel="alternate" type="text/html" title="Roof Anchor Drone" /><published>2022-08-02T00:00:00-04:00</published><updated>2022-08-02T00:00:00-04:00</updated><id>http://localhost:4000/roof-anchor-drone</id><content type="html" xml:base="http://localhost:4000/roof-anchor-drone/"><![CDATA[<h2 id="a-physical-infiltration-tool">A physical infiltration tool</h2>
->>>>>>> Stashed changes
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-11-12T19:55:12-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ludicrous Tech</title><subtitle>This website keeps track of whichever projects I am most proud of and serves to share some of the knowledge I accumulate from tinkering on whatever comes to my mind. Enjoy!</subtitle><author><name>Serban Popovici</name></author><entry><title type="html">Two G-class Stage Rocket w/ Basic Telemetry</title><link href="http://localhost:4000/two-stage-rocket/" rel="alternate" type="text/html" title="Two G-class Stage Rocket w/ Basic Telemetry" /><published>2022-11-08T00:00:00-05:00</published><updated>2022-11-08T00:00:00-05:00</updated><id>http://localhost:4000/two-stage-rocket</id><content type="html" xml:base="http://localhost:4000/two-stage-rocket/"><![CDATA[<h2 id="experimenting-with-rocketry-electronics">Experimenting with rocketry electronics</h2>
 
-<p>This device was originally designed in hopes of rooftopping the second tallest building in Canada at the time of this writing: The St. Regis hotel in Toronto. The concern was that the lower roof at the St. Regis hotel is accessible while the higher roof is roughly 3 storeys taller and unnaccessible through conventional ways. In the end, there was an easier way of reach the top and the drone was not used however it remains a genuinely useful tool for ascending moderately tall structures with no internal access.</p>
+<p>While I doubt I will ever get a high power rocketry license, I do thoroughly enjoy developing and flying model rockets. None of my past rockets have incorporated any amount of electronics so the purpose of this project is to get a feel for rocketry electronics without any risk by developing only non-terribly-flight-critical components. For this project, I purchased the two biggest rocket engines I can legally get my hands on without any license: AeroTech G80-7T motors.</p>
 
-<h1 id="general-premise">General premise</h1>
+<h1 id="design">Design</h1>
+<h2 id="motor-mounts">Motor mounts</h2>
 
-<p>The goal is to build a 3D-printable assembly that attaches to the bottom of a drone and holds a carbiner in an open position which can then be remotely shut. The drone must be small enough to be easily portable and nimble while the carabiner assembly must be able to support a moderate amount of weight as a rope will be carried attached to the carabiner. In cases where the distance to be ascended is too large for the drone to reasonably carry the required length of rope, a thinner and lighter ‘tag line’ can be passed through the carabiner and used to pull the climbing rope up once the carabiner is hooked onto an anchor. Finally, a camera must be integrated on the drone to provide the operator visual feedback to line up the carabiner with the target roof anchor.</p>
+<p>I watched a <a href="https://www.youtube.com/watch?v=4fhoCt9vXA8">video</a> by ProjectAir on YouTube about a rocket he built using similarly powerful motors and I based my rocket motor mounts on his design. The motor mounts consist of a small tube for the motor and a larger tube that fits snuggly into the rocket body. These two are connected by 8 perpendicular supports between the two cylindrical extrusions. The holes on the bottom of this motor mount also work to hold the first stage onto the main stage by using 8 pegs protruding from the first stage which fit snuggly into the 8 holes of the motor mount above.</p>
 
-<h1 id="build">BUILD</h1>
+<h2 id="avionics">Avionics</h2>
 
-<p>The initial design for this project was a singular 3D printed piece that mounts to a DJI F450 frame since I had a few of these lying around. While this design is functional, the large propeller diameter negatively impacts the drone’s agility and the drone’s size make it a poor solution in terms of portability. [PICS] For these reasons, a new design was created using a 215mm race drone frame. The new design (depicted) is much more portable and breaks down into two pieces such that it can be more reasonably stored in a small volume. 
-<img src="/assets/img/roof-anchor-drone/CAD_assembly_view.PNG" alt="CAD view" />
-Here the green component houses the flight controller, ESCs, battery, and radio gear whereas the purple component is the carabiner holder.</p>
+<p>I intend to have live data logging and telemetry at the very least. This rocket will include a GPS, barometer, and accelerometer as well as an ignition system for the main stage engine. I would also like to include some system that can delay the deployment of the main chute since it will significantly increase the rocket’s drift during recovery however I’m unsure of how reliably I can integrate such a feature. All the electronics will be housed near/in the nose cone and the rocket will separate close to the main stage motor for recovery such that the body tube/nose cone section containing the electronics remains intact.</p>
 
-<h2 id="carabiner-mechanism">Carabiner mechanism</h2>
+<h1 id="update-oct-2022">UPDATE Oct 2022</h1>
 
-<p>In addition to its modularity, the final design has two servos on the carabiner holder component: the first (1) retains a rubber band which is wrapped around the holder to keep the latch open while the second (2) supports the weight of the rope being carried by the carabiner.</p>]]></content><author><name>Alex Ludicrous</name></author><summary type="html"><![CDATA[A physical infiltration tool]]></summary></entry><entry><title type="html">Modernizing my 2013 Subaru BRZ</title><link href="http://localhost:4000/brz/" rel="alternate" type="text/html" title="Modernizing my 2013 Subaru BRZ" /><published>2022-06-01T00:00:00-04:00</published><updated>2022-06-01T00:00:00-04:00</updated><id>http://localhost:4000/brz</id><content type="html" xml:base="http://localhost:4000/brz/"><![CDATA[<p>I recently acquired a car for recreational purposes since I had saved up a decent amount of money and didn’t feel like investing it. I purchased a BRZ because they are built in conjunction with Toyota and this should theoretically imply that they are relatively reliable so I won’t need to worry about the mechanical aspect of the vehicle. Furthermore, this collaboration with Toyota also makes them relatively easy to work on at home which I am thankful for since I’ve had to do a wealth of maintenance on it.</p>
+<p><img src="/assets/img/habibi-express/recovery_layout_update.jpg" alt="Recovery layout update" style="float: right; width:10%; height:20%; margin-left: 10px;" /> 
+Progress is being made on flight controller firmware, the I2C issue has been fixed and the IMU data is now being read as well. Turns out the Adafruit BMP280 library was looking for the wrong address and I had to force it to read data from the true address. Engine mounts and fins have been attached to the rocket, currently focused on recovery charge and how to protect the rocket’s internals from the motor’s ejection charge as well as the true ejection charge. The motor mounts have plenty of space around them to allow the motor’s ejection charge gases to escape however I need to add a component following the motor to shield the parachute from the motor’s charge and contain the true ejection charge as well. The planned layout is pictured to the right where the green block represents the blast shield, red represents the true ejection charge, yellow represents the drogue chute, and cyan represents the final chute. The rocket splits between the cyan and yellow blocks when the ejection charge detonates.</p>
+
+<p>The avionics bay has been expanded to include relays for the second stage and ejection charge igniters as well as an SD card reader for data logging, servo to retain the primary parachute, and two DVRs (scrapped the camera inside the body tube). The second stage will be ignited based on the following criteria:</p>
+<ul>
+  <li>Rocket attitude is within 30 degrees of launch attitude (makes sure the rocket is vertical)</li>
+  <li>Rocket altitude is greater than 250 meters (should be 500 meters or so based on simulation)</li>
+  <li>Rocket acceleration drops noticeably (simulation suggests peak of 13 Gs however the software will just look for a drop of ~5Gs)</li>
+  <li>Launch was detected less than 10 seconds ago (makes sure the conditions cannot be met unless the rocket just took off)</li>
+</ul>
+
+<p>Once these conditions are met, the rocket will begin a 3-second timer before igniting the second stage, otherwise the flight controller will do nothing. Apogee will be detected when vertical acceleration drops below -5m/s^2 after which the ejection charge will be ignited. The final chute will be deployed 250 meters above ground level based on barometric data. Launch window has been slightly pushed back however it should be achievable by end of November :)</p>
+
+<h1 id="update-sep-2022">UPDATE Sep 2022</h1>
+
+<p><img src="/assets/img/habibi-express/fin_laser_cutting.jpg" alt="Laser cutting fins" style="float: right; width:30%; height:50%; margin-left: 10px;" />
+Finally got around to laser cutting the fins and I have worked slightly on the firmware for the flight controller. Unfortunately I’m having issues with the barometer since it communicates using 3.3V so the Arduino Mega is not able to interpret the I2C data coming from it. The current solution is to replace the barometer with a proven chip that I can find online as working with the Arduino Mega. I will also attempt to read the I2C data using another 5V Arduino to verify that this is indeed the issue. Finally, I have decided to add a few <a href="https://www.aliexpress.com/item/1005002457700952.html">video recorders</a> and a few analog cameras to capture a few angles of the flight. I’m hoping to add a downward facing camera, a side facing camera, and one looking down the body tube towards the main stage engine to capture the ejection from inside the rocket. I intend model camera mounts and redo the avionics bay by the end of October such that the rocket can be flown early November at the latest.</p>
+
+<h1 id="update-jun-2022">UPDATE Jun 2022</h1>
+
+<p><img src="/assets/img/habibi-express/avionicsFront.jpg" alt="Assembled avionics bay" style="float: right; width:30%; height:50%; margin-left: 10px;" />
+The avionics bay has been assembled though it is missing a couple key elements. Firstly, there is no voltage regulator to step down the LiPo’s voltage for the Arduino and related electronics; furthermore, I need to integrate a relay so the Arduino can ignite the second stage motor once the initial one burns out. Finally, the antenna installed on the design right now can not be used and is solely there to ensure that I don’t accidentally burn the LoRa transceiver by powering it on without an antenna. Everything on the module at the moment is completely wired and ready to go. I have noted the I2C addresses of the MPU6050 and BMP280 and the wire with the white connector sticking out the top of the avionics bay goes to the GPS sensor in the nose cone of the aircraft.</p>
+
+<p>The software for this design won’t be too involved as the arduino only needs to ignite the second stage 3 seconds after the MPU6050 detects a decrease in vertical acceleration all while broadcasting GPS, altitude, and attitude data at regular intervals. The main concern now is developing viable fins for the rocket body. I am hoping to have them laser-cut at the university but I have yet to inquire about using the equipment.</p>
+
+<h1 id="update-mar-2022">UPDATE Mar 2022</h1>
+
+<p><img src="/assets/img/habibi-express/avionics-CAD-V2-back.PNG" alt="Avionics bay V2 back" style="float: right; width:30%; height:50%; margin-left: 10px;" />
+The avionics bay is mostly finalized and I will attempt to print this soon; I’ve done without the 18650 battery and kept the 3s LiPo which is now housed in a casing at the top of the avionics bay. The LoRa module is now positioned such that an antenna can be directly attached to the module and have space in the rocket fuselage. The only thing lacking from the model to the right is a relay holder to ignite the second stage. I still need to remodel the nose cone since the current GPS holder may not have clearance so it must be shifted upwards after which I will begin 3D printing these components and assembling the rocket!</p>
+
+<h1 id="update-feb-2022">UPDATE Feb 2022</h1>
+
+<p><img src="/assets/img/habibi-express/rocket-CAD.PNG" alt="Rocket model" style="float: right; width:50%; height:50%; margin-left: 10px;" />
+CAD model is now mostly finished, lots of small things still need to be figured out however most of the grunt work is done. I don’t have a concrete plan for how to wire the main stage motor’s igniter in a way that won’t risk tangling the parachute during recovery. Furthermore, I purchased two G80-7T motors however the rocket will need at least 10 seconds after the main stage burns out to reach its apogee so I most likely need to source a G80-13T motor to avoid using any complex recovery mechanisms. Unfortunately, <a href="https://www.greathobbies.com/">Great Hobbies</a> does not carry G80 motors anymore so I can only source these for unreasonably high prices from <a href="https://www.allrockets.ca/G80-13">AllRockets</a>.</p>
+
+<p><img src="/assets/img/habibi-express/avionics-CAD.PNG" alt="Avionics model" style="float: right; width:30%; height:50%; margin-left: 10px;" />
+Main focus now is the avionics bay. The model pictured here has space for an Arduino Mega 2560 (embed), a BMP280, an MPU6050, a LoRa SX1278 transceiver, and two batteries. The nose cone contains a GPS antenna bracket for positioning as well. This is the second iteration of the avionics bay and it contains space for both an 18650 LiIon cell (in green) and a small 3S 700mAh LiPo next to the LiIon cell. I’m concerned that the ~3V from the 18650 will not be enough to ignite the main stage of the rocket even with a boost converter which is why I included the LiPo. I originally considered using the 18650 in light of its higher energy density however it only has roughly 1.5 times the energy stored by the LiPo so it will likely be discarded in the next iteration.</p>
+
+<h1 id="update-dec-2021">UPDATE Dec 2021</h1>
+<p>Rocket design was finalized in <a href="https://openrocket.info/">OpenRocket</a> and basic simulation was done; maximum altitude estimated at roughly 1.1km with a max speed of Mach 0.52. I made some faster designs and others with higher apogees but this model seems the most predictable based on how much tech I want to fly with the rocket and how lightly I can manufacture things.</p>
+
+<p><img src="/assets/img/habibi-express/open-rocket-sim.PNG" alt="OpenRocket Model" />
+<img src="/assets/img/habibi-express/open-rocket-sim-graph.PNG" alt="OpenRocket Simulation" /></p>]]></content><author><name>Serban Popovici</name></author><summary type="html"><![CDATA[Experimenting with rocketry electronics]]></summary></entry><entry><title type="html">LoRa Sensor Suite</title><link href="http://localhost:4000/lora-sensor-suite/" rel="alternate" type="text/html" title="LoRa Sensor Suite" /><published>2022-10-16T00:00:00-04:00</published><updated>2022-10-16T00:00:00-04:00</updated><id>http://localhost:4000/lora-sensor-suite</id><content type="html" xml:base="http://localhost:4000/lora-sensor-suite/"><![CDATA[<h2 id="a-scalable-dynamic-solution-for-monitoring-activity-in-unknown-environments">A scalable dynamic solution for monitoring activity in unknown environments</h2>
+
+<p>At some point in 2021, a friend and I had just finished exploring a construction site and as we were preparing to leave on the first floor, a security guard haphazardly walked in. kLuckily we were out of sight and managed to get away undetected but this presented a need for a system capable of monitoring activity within an uncontrolled environment. So far I have only build PIR sensors for this purpose though I intend to build tripwires and possibly audio sensors.</p>
+
+<h1 id="basic-idea">Basic Idea</h1>
+
+<p>Each sensor runs off of an 18650 Li-Ion cell with a battery protection circuit that enables USB charging and maintains the cell voltage within its acceptable range. Each sensor has an Arduino Nano with a LoRa SX1278 transceiver in addition to its sensing equipment. LoRa modules are ideal since they act as a mesh network and these sensors are intended for use within concrete buildings thus signals will have difficulty travelling far. An additional LoRa module with a high gain antenna connects the LoRa mesh network to the attacker’s phone or some other notification method. Due to the RF challenges faced by these sensors, they should transmit repeteadly once triggered until the attacker’s device is able to acknowledge the signal. Based on experimentation, the LoRa modules I own do not natively do this.</p>
+
+<h1 id="update-feb-2022">UPDATE Feb 2022</h1>
+
+<p><img src="/assets/img/lora-sensor-suite/PIR-V2-front.PNG" alt="Front" style="float: right; width:50%; height:50%" />
+I’ve decided to migrate from an Arduino to an ESP32 module; this CAD design has space for an ESP32-WROVER module. The reasoning behind this change is that an ESP32 module can be used to pick up bluetooth devices nearby which would allow the attacker to configure the device with their cell phone 
+<img src="/assets/img/lora-sensor-suite/PIR-V2-back.PNG" alt="Back" style="float: right; width:50%; height:50%" /> 
+and can be used to pick up unknown devices and send alerts even if the sensor itself fails to trip.</p>
+
+<p>The current design does not have space for a battery management circuit so I will need to reiterate but it does successfully house the LoRa SX1278, 18650, and PIR sensor. The general shape of the sensor allows for it to be placed on the floor with the PIR facing 45 degrees upwards or it can be flipped and placed on top of a cabinet, for example, with the PIR facing 45 degrees downwards. The next iteration will likely also include magnets such that the sensor can attach to metallic cabinets, metal hand rails on stairs, light fixtures, etc. I also took apart one of the 433 antennas and noticed that at least 10mm of the rubber housing is left empty so I will take this in account and ommit the rubber housing in future designs.</p>
+
+<h1 id="update-oct-2021">UPDATE Oct 2021</h1>
+
+<h2 id="sensor-construction">Sensor Construction</h2>
+
+<p><img src="/assets/img/lora-sensor-suite/PIR-V1-front.png" alt="Front" style="float: right; width:50%; height:50%" />
+Pins 0 and 1 of the Arduino are used for serial communication with the LoRa module (the RX pin of the LoRa module must be disconnected when code is uploaded to Arduino). Pin A0 is for the pair button and other pins are used as required for the relevant sensor. 
+<img src="/assets/img/lora-sensor-suite/PIR-V1-back.png" alt="Back" style="float: right; width:50%; height:50%" /> 
+Pins M0 and M1 on the module are shorted to ground in order for the module to transmit. The whole assembly is zip tied together in a rather minimalistic form factor but a bit of paint is needed to cover the green and blue circuit boards.</p>
+
+<h2 id="communication-protocol">Communication Protocol</h2>
+
+<p>Each sensor broadcasts an ‘alive’ packet once the pair button has been pressed; this packet contains a unique ID based on the microcontroller’s serial number to differentiate its ‘alive’ packet from that of other sensors. Alive packets are repeated up until the sensor receives an acknowledgment packet from the head unit in which the head unit will assign a numerical value to the sensor between 0 and 9998. The user is then able to assign a more descriptive identifying string to the sensor so that its location can be more apparent. Upon being triggered, the sensor will begin boardcasting a packed in the form of “SENSOR_ID:PACKET_ID:TRIG_VAL” where</p>
+<ul>
+  <li>PACKET_ID is a unique integer identifying the packet to ensure the head unit doesn’t register the same alert twice</li>
+  <li>TRIG_VAL is an integer representative of the sensor’s states</li>
+</ul>
+
+<p>This packet is repeated every 0.5 seconds up until the sensor receives a packet from the head unit in the form of “9999;SENSOR_ID;PACKET_ID” where</p>
+<ul>
+  <li>9999 is the equivalent SENSOR_ID for the head unit</li>
+  <li>SENSOR_ID is the id of whichever sensor tripped</li>
+  <li>PACKET_ID is the packet id</li>
+</ul>]]></content><author><name>Serban Popovici</name></author><summary type="html"><![CDATA[A scalable dynamic solution for monitoring activity in unknown environments]]></summary></entry><entry><title type="html">Modernizing my 2013 Subaru BRZ</title><link href="http://localhost:4000/brz/" rel="alternate" type="text/html" title="Modernizing my 2013 Subaru BRZ" /><published>2022-10-01T00:00:00-04:00</published><updated>2022-10-01T00:00:00-04:00</updated><id>http://localhost:4000/brz</id><content type="html" xml:base="http://localhost:4000/brz/"><![CDATA[<p>I recently acquired a car for recreational purposes since I had saved up a decent amount of money and didn’t feel like investing it. I purchased a BRZ because they are built in conjunction with Toyota and this should theoretically imply that they are relatively reliable so I won’t need to worry about the mechanical aspect of the vehicle. Furthermore, this collaboration with Toyota also makes them relatively easy to work on at home which I am thankful for since I’ve had to do a wealth of maintenance on it.</p>
 
 <h1 id="idea">Idea</h1>
 
@@ -219,59 +295,7 @@ steering wheel and followed traces to figure out the function of each wire. My f
 
 <p>The head unit and diagnostic displays have touchscreen functionality however the head unit display can also be controlled using steering wheel buttons for a hands free experience. The diagnostic display can only be used as a touch screen however the touch screen is disabled if the driver is not looking at the display in order to prevent misinput when shifting.</p>
 
-<p>The right side steering wheel buttons are used to control the contents of the big container while the left side steering wheel buttons are used for the small container’s contents. Additionally, there are dedicated buttons or combinations thereof that can always be used to toggle critical functions such as the vehicle’s legal mode regardless of what content is live at the time.</p>]]></content><author><name>Alex Ludicrous</name></author><summary type="html"><![CDATA[I recently acquired a car for recreational purposes since I had saved up a decent amount of money and didn’t feel like investing it. I purchased a BRZ because they are built in conjunction with Toyota and this should theoretically imply that they are relatively reliable so I won’t need to worry about the mechanical aspect of the vehicle. Furthermore, this collaboration with Toyota also makes them relatively easy to work on at home which I am thankful for since I’ve had to do a wealth of maintenance on it.]]></summary></entry><entry><title type="html">Security Camera Privacy Hack</title><link href="http://localhost:4000/camera-privacy-hack/" rel="alternate" type="text/html" title="Security Camera Privacy Hack" /><published>2022-05-07T00:00:00-04:00</published><updated>2022-05-07T00:00:00-04:00</updated><id>http://localhost:4000/camera-privacy-hack</id><content type="html" xml:base="http://localhost:4000/camera-privacy-hack/"><![CDATA[<h2 id="enhancing-privacy-of-cheap-security-cameras">Enhancing privacy of cheap security cameras</h2>
-<h1 id="get-picture-of-whole-camera-to-put-here-as-well">get picture of whole camera to put here as well</h1>
-
-<p>I’ve always been a little paranoid of having having IoT devices live streaming views of my living space however I have a long trip coming up so a couple security cameras would be nice to keep an eye on my place. I considered a couple ways of modifying the cameras to provide more privacy:</p>
-<ul>
-  <li>A Python script that forges HTTP requests and orders the camera to turn around;</li>
-  <li>A physical shutter external to the camera that blocks the lens; and</li>
-  <li>An internal relay that cuts power to the camera module.
-Unfortunately these were not ideal. The first idea was unreliable because turning the camera through a script still allows the camera to turn itself back on its own and may not be reliable should a software update be pushed that depreciates my integration of the camera’s API. The second was not an elegant solution and would be difficult to integrate on a PTZ camera that moves around. Finally, the third did not work because the camera would not come back online after the camera module got disconnected from its motherboard, no matter what I tried. In the end I settled on modifying the camera’s internal IR-CUT filter by covering the IR-CUT part with a sticker and integrating a microcontroller to toggle the state of the filter assembly. This was an elegant and invisible solution that should not noticeably affect image quality since the camera is being used indoors so there should be very little ambient IR light.</li>
-</ul>
-
-<p>The privacy mode of these cameras is toggled using a Python service running on a Linux server I have. The script regularly monitors what devices are connected to the local WiFI network, and once a known device is connected, the Python service blinds any security cameras within the apartment.</p>
-
-<h1 id="hardware">Hardware</h1>
-
-<p>While understandably not the most secure way to go about this, I used a few NodeMCU 1.0 modules I had laying around for this project. A more ideal solution would be to either use separate transceivers to air-gap the privacy microcontrollers from the internet or to use a WiFi/bluetooth capable microcontroller that can sniff and determine what devices are around it. Regardless, the hardware here is relatively simple, the camera has:</p>
-<ul>
-  <li>A ESP-12E module;</li>
-  <li>A WS2812B LED; and</li>
-  <li>A MX1508 H-bridge IC.
-The MX1508 was needed since the ESP operates at 3.3V however the IR-CUT filter mechanism requires a higher voltage to actuate. The LED provides a hardcoded correlation between the state of the IR-CUT filter and a visual indication of whether or not the camera is able to see anything.</li>
-</ul>
-
-<h1 id="code">Code</h1>]]></content><author><name>Alex Ludicrous</name></author><summary type="html"><![CDATA[Enhancing privacy of cheap security cameras get picture of whole camera to put here as well]]></summary></entry><entry><title type="html">Smart Holographic Sight</title><link href="http://localhost:4000/smart-sight/" rel="alternate" type="text/html" title="Smart Holographic Sight" /><published>2022-02-25T00:00:00-05:00</published><updated>2022-02-25T00:00:00-05:00</updated><id>http://localhost:4000/smart-sight</id><content type="html" xml:base="http://localhost:4000/smart-sight/"><![CDATA[<h2 id="intelligent-weapon-optics">Intelligent weapon optics</h2>
-
-<p>My overarching goal with a lot of the things I build is to develop a small ecosystem of tactically useful devices that can exchange information and provide the user with an advantage over their adversary. These devices include anything from motorized ascenders to augmented reality devices and UAVs. The SmartSight may work in conjunction with a motorized ascender such that the user can maintain the optic at eye level while also being able to control their ascender. This would provide the ability to keep a weapon tracked on a target while moving up or down the side of a building, for example. The SmartSight idea came about as I saw an old project by a <a href="https://andymeng.dev/">friend</a> of mine and decided to elaborate on it.</p>
-
-<h1 id="basic-premise">Basic Premise</h1>
-
-<p>The SmartSight contains a small display which reflects through a mirrored lens that allows the user to see both the display and the real world, just like a traditional holographic sight. I’m not too sure how much information I will present on the display; so far I intend to display a shot counter and a reticle which can adjust based on weapon cant. Furthermore, I will add indicators that describe the motorized ascender’s state and possibly a rangefinder at the very least. I only intend to use this on airsoft rifles so the rangefinder doesn’t need to be excessively good.</p>
-
-<h1 id="update-jun-2022">UPDATE Jun 2022</h1>
-<p>I have been working on this on and off for a while now without updating this page.
-<img src="/assets/img/smart-sight/frontV2.PNG" alt="FrontV2" style="float: right; width:50%; height:50%; margin-left: 10px;" />
- I received the new 1.3” displays about a month ago and have generated a new CAD model which accomodates the larger display. The new display covers the majority of the space available on the lens and a shroud was included in this design to ensure that the optic remains viable even when exposed to sunlight. The previous design would likely have suffered in bright environments given how weak the displays are. Below is an updated exploded view of the new design:
-<img src="/assets/img/smart-sight/explodedV2.PNG" alt="Exploded View V2" style="display: block; margin-left: auto; margin-right: auto; margin-top: 10px" /></p>
-
-<p>A couple iterations of this design have been printed and all that is left at the moment is to wire up the final version and develop software. Since this design uses an Arduino Nano with its USB port exposed at the back, iterating software should be a piece of cake which can’t be said for the <a href="/lora-sensor-suite/">LoRa Sensor Project</a>.</p>
-
-<h1 id="update-mar-2022">UPDATE Mar 2022</h1>
-
-<p>The last version used a 0.96” 80x160 <a href="https://www.aliexpress.com/item/1005003514645335.html">ST7735S display</a> which has great pixel density but does not manage to cover the whole lens that it’s being reflected through. To rectify the issue, I recently purchased a 1.3” 240x240 <a href="https://www.aliexpress.com/item/4001282467099.html">ST7789 display</a> that is large enough to mostly cover the exposed area of the lens.</p>
-
-<h1 id="update-feb-2022">UPDATE Feb 2022</h1>
-
-<p><img src="/assets/img/smart-sight/front.PNG" alt="Front" style="float: right; width:50%; height:50%; margin-left: 10px;" />
-Got around to creating a CAD model of the sight; this model is technically the third iteration but it represents the first reasonably functional version. It has space for an Arduino Nano, LoRa SX1278 transceiver, display, and a LiPo though no antenna mounting hole has been added. Having created this model with a transceiver onboard, I considered the possibility of including a remote kill feature for disabling weapons and as such I will probably need to wire the sight into the gun’s electronics. This means that future designs don’t strictly need to include space for a LiPo but I’m unsure of whether or not I will remove it just yet.</p>
-
-<p><img src="/assets/img/smart-sight/back.PNG" alt="Back" style="float: left; width:50%; height:50%; margin-right: 10px;" />
-Unfortunately, this design was built to fit some standardized Picatinny rail dimensions I found <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Picatinny.svg/1200px-Picatinny.svg.png">online</a> and these did fit one of the rifles I own but not the functional one. I was picky in finding my dimensions since the design was built all in metric units which may have caused some inaccuracies so the next design will be built using real measurements from the functional rifle. The intent with this design was to stick the antenna out the side of the sight but this is a poor decision considering the wear and tear that the weapon will likely be subjected to so I try to will integrate the antenna within the sight for the next iteration.</p>
-
-<p>Here is an exploded view of this model:
-<img src="/assets/img/smart-sight/exploded_noWriting.PNG" alt="Exploded View" style="display: block; margin-left: auto; margin-right: auto; margin-top: 10px" /></p>]]></content><author><name>Alex Ludicrous</name></author><summary type="html"><![CDATA[Intelligent weapon optics]]></summary></entry><entry><title type="html">LTE Mavic Pro</title><link href="http://localhost:4000/lte-mavic-pro/" rel="alternate" type="text/html" title="LTE Mavic Pro" /><published>2021-12-03T00:00:00-05:00</published><updated>2021-12-03T00:00:00-05:00</updated><id>http://localhost:4000/lte-mavic-pro</id><content type="html" xml:base="http://localhost:4000/lte-mavic-pro/"><![CDATA[<p>Cellular-based drone control has been a longstanding goal with the purpose of creating UAVs requiring minimal user input to function. I have found the need for constant input to significantly reduce the useability of drones for recon during my adventures because neither myself nor the people with me can dedicate significant attention to piloting them. This project aims to achieve basic autonomous control through an Android application that allows the user to place the drone at specific coordinates or land it. The first rendition was built to be submitted as an electronics project for a university course and is solely capable of navigation; takeoff and landing must be manually with a separate remote controller. This is because a F1 flight controller was used which is only capable of managing stability.</p>
+<p>The right side steering wheel buttons are used to control the contents of the big container while the left side steering wheel buttons are used for the small container’s contents. Additionally, there are dedicated buttons or combinations thereof that can always be used to toggle critical functions such as the vehicle’s legal mode regardless of what content is live at the time.</p>]]></content><author><name>Serban Popovici</name></author><summary type="html"><![CDATA[I recently acquired a car for recreational purposes since I had saved up a decent amount of money and didn’t feel like investing it. I purchased a BRZ because they are built in conjunction with Toyota and this should theoretically imply that they are relatively reliable so I won’t need to worry about the mechanical aspect of the vehicle. Furthermore, this collaboration with Toyota also makes them relatively easy to work on at home which I am thankful for since I’ve had to do a wealth of maintenance on it.]]></summary></entry><entry><title type="html">LTE Mavic Pro</title><link href="http://localhost:4000/lte-mavic-pro/" rel="alternate" type="text/html" title="LTE Mavic Pro" /><published>2022-09-03T00:00:00-04:00</published><updated>2022-09-03T00:00:00-04:00</updated><id>http://localhost:4000/lte-mavic-pro</id><content type="html" xml:base="http://localhost:4000/lte-mavic-pro/"><![CDATA[<p>Cellular-based drone control has been a longstanding goal with the purpose of creating UAVs requiring minimal user input to function. I have found the need for constant input to significantly reduce the useability of drones for recon during my adventures because neither myself nor the people with me can dedicate significant attention to piloting them. This project aims to achieve basic autonomous control through an Android application that allows the user to place the drone at specific coordinates or land it. The first rendition was built to be submitted as an electronics project for a university course and is solely capable of navigation; takeoff and landing must be manually with a separate remote controller. This is because a F1 flight controller was used which is only capable of managing stability.</p>
 
 <h1 id="basic-idea">Basic Idea</h1>
 
@@ -326,7 +350,75 @@ This design makes maintenance virtually impossible without considerably disassem
 
 <h2 id="android-studio">Android Studio</h2>
 
-<p>Not sure where exactly to go with the application. Probably gonna open to a full screen map but also have another activity for the drone camera feed/more complex controls. The user will be able to have either activity open full screen or split the screen so both can be viewed at the same time.</p>]]></content><author><name>Alex Ludicrous</name></author><summary type="html"><![CDATA[Cellular-based drone control has been a longstanding goal with the purpose of creating UAVs requiring minimal user input to function. I have found the need for constant input to significantly reduce the useability of drones for recon during my adventures because neither myself nor the people with me can dedicate significant attention to piloting them. This project aims to achieve basic autonomous control through an Android application that allows the user to place the drone at specific coordinates or land it. The first rendition was built to be submitted as an electronics project for a university course and is solely capable of navigation; takeoff and landing must be manually with a separate remote controller. This is because a F1 flight controller was used which is only capable of managing stability.]]></summary></entry><entry><title type="html">Jaguar (Medium-sized VTOL UAV Platform)</title><link href="http://localhost:4000/jaguar/" rel="alternate" type="text/html" title="Jaguar (Medium-sized VTOL UAV Platform)" /><published>2021-12-01T00:00:00-05:00</published><updated>2021-12-01T00:00:00-05:00</updated><id>http://localhost:4000/jaguar</id><content type="html" xml:base="http://localhost:4000/jaguar/"><![CDATA[<h2 id="simple-but-limited-uav-platform-for-urban-operations">Simple but limited UAV platform for urban operations</h2>
+<p>Not sure where exactly to go with the application. Probably gonna open to a full screen map but also have another activity for the drone camera feed/more complex controls. The user will be able to have either activity open full screen or split the screen so both can be viewed at the same time.</p>]]></content><author><name>Serban Popovici</name></author><summary type="html"><![CDATA[Cellular-based drone control has been a longstanding goal with the purpose of creating UAVs requiring minimal user input to function. I have found the need for constant input to significantly reduce the useability of drones for recon during my adventures because neither myself nor the people with me can dedicate significant attention to piloting them. This project aims to achieve basic autonomous control through an Android application that allows the user to place the drone at specific coordinates or land it. The first rendition was built to be submitted as an electronics project for a university course and is solely capable of navigation; takeoff and landing must be manually with a separate remote controller. This is because a F1 flight controller was used which is only capable of managing stability.]]></summary></entry><entry><title type="html">Security Camera Privacy Hack</title><link href="http://localhost:4000/camera-privacy-hack/" rel="alternate" type="text/html" title="Security Camera Privacy Hack" /><published>2022-08-07T00:00:00-04:00</published><updated>2022-08-07T00:00:00-04:00</updated><id>http://localhost:4000/camera-privacy-hack</id><content type="html" xml:base="http://localhost:4000/camera-privacy-hack/"><![CDATA[<h2 id="enhancing-privacy-of-cheap-security-cameras">Enhancing privacy of cheap security cameras</h2>
+<h1 id="get-picture-of-whole-camera-to-put-here-as-well">get picture of whole camera to put here as well</h1>
+
+<p>I’ve always been a little paranoid of having having IoT devices live streaming views of my living space however I have a long trip coming up so a couple security cameras would be nice to keep an eye on my place. I considered a couple ways of modifying the cameras to provide more privacy:</p>
+<ul>
+  <li>A Python script that forges HTTP requests and orders the camera to turn around;</li>
+  <li>A physical shutter external to the camera that blocks the lens; and</li>
+  <li>An internal relay that cuts power to the camera module.
+Unfortunately these were not ideal. The first idea was unreliable because turning the camera through a script still allows the camera to turn itself back on its own and may not be reliable should a software update be pushed that depreciates my integration of the camera’s API. The second was not an elegant solution and would be difficult to integrate on a PTZ camera that moves around. Finally, the third did not work because the camera would not come back online after the camera module got disconnected from its motherboard, no matter what I tried. In the end I settled on modifying the camera’s internal IR-CUT filter by covering the IR-CUT part with a sticker and integrating a microcontroller to toggle the state of the filter assembly. This was an elegant and invisible solution that should not noticeably affect image quality since the camera is being used indoors so there should be very little ambient IR light.</li>
+</ul>
+
+<p>The privacy mode of these cameras is toggled using a Python service running on a Linux server I have. The script regularly monitors what devices are connected to the local WiFI network, and once a known device is connected, the Python service blinds any security cameras within the apartment.</p>
+
+<h1 id="hardware">Hardware</h1>
+
+<p>While understandably not the most secure way to go about this, I used a few NodeMCU 1.0 modules I had laying around for this project. A more ideal solution would be to either use separate transceivers to air-gap the privacy microcontrollers from the internet or to use a WiFi/bluetooth capable microcontroller that can sniff and determine what devices are around it. Regardless, the hardware here is relatively simple, the camera has:</p>
+<ul>
+  <li>A ESP-12E module;</li>
+  <li>A WS2812B LED; and</li>
+  <li>A MX1508 H-bridge IC.
+The MX1508 was needed since the ESP operates at 3.3V however the IR-CUT filter mechanism requires a higher voltage to actuate. The LED provides a hardcoded correlation between the state of the IR-CUT filter and a visual indication of whether or not the camera is able to see anything.</li>
+</ul>
+
+<h1 id="code">Code</h1>]]></content><author><name>Serban Popovici</name></author><summary type="html"><![CDATA[Enhancing privacy of cheap security cameras get picture of whole camera to put here as well]]></summary></entry><entry><title type="html">Smart Holographic Sight</title><link href="http://localhost:4000/smart-sight/" rel="alternate" type="text/html" title="Smart Holographic Sight" /><published>2022-07-25T00:00:00-04:00</published><updated>2022-07-25T00:00:00-04:00</updated><id>http://localhost:4000/smart-sight</id><content type="html" xml:base="http://localhost:4000/smart-sight/"><![CDATA[<h2 id="intelligent-weapon-optics">Intelligent weapon optics</h2>
+
+<p>My overarching goal with a lot of the things I build is to develop a small ecosystem of tactically useful devices that can exchange information and provide the user with an advantage over their adversary. These devices include anything from motorized ascenders to augmented reality devices and UAVs. The SmartSight may work in conjunction with a motorized ascender such that the user can maintain the optic at eye level while also being able to control their ascender. This would provide the ability to keep a weapon tracked on a target while moving up or down the side of a building, for example. The SmartSight idea came about as I saw an old project by a <a href="https://andymeng.dev/">friend</a> of mine and decided to elaborate on it.</p>
+
+<h1 id="basic-premise">Basic Premise</h1>
+
+<p>The SmartSight contains a small display which reflects through a mirrored lens that allows the user to see both the display and the real world, just like a traditional holographic sight. I’m not too sure how much information I will present on the display; so far I intend to display a shot counter and a reticle which can adjust based on weapon cant. Furthermore, I will add indicators that describe the motorized ascender’s state and possibly a rangefinder at the very least. I only intend to use this on airsoft rifles so the rangefinder doesn’t need to be excessively good.</p>
+
+<h1 id="update-jun-2022">UPDATE Jun 2022</h1>
+<p>I have been working on this on and off for a while now without updating this page.
+<img src="/assets/img/smart-sight/frontV2.PNG" alt="FrontV2" style="float: right; width:50%; height:50%; margin-left: 10px;" />
+ I received the new 1.3” displays about a month ago and have generated a new CAD model which accomodates the larger display. The new display covers the majority of the space available on the lens and a shroud was included in this design to ensure that the optic remains viable even when exposed to sunlight. The previous design would likely have suffered in bright environments given how weak the displays are. Below is an updated exploded view of the new design:
+<img src="/assets/img/smart-sight/explodedV2.PNG" alt="Exploded View V2" style="display: block; margin-left: auto; margin-right: auto; margin-top: 10px" /></p>
+
+<p>A couple iterations of this design have been printed and all that is left at the moment is to wire up the final version and develop software. Since this design uses an Arduino Nano with its USB port exposed at the back, iterating software should be a piece of cake which can’t be said for the <a href="/lora-sensor-suite/">LoRa Sensor Project</a>.</p>
+
+<h1 id="update-mar-2022">UPDATE Mar 2022</h1>
+
+<p>The last version used a 0.96” 80x160 <a href="https://www.aliexpress.com/item/1005003514645335.html">ST7735S display</a> which has great pixel density but does not manage to cover the whole lens that it’s being reflected through. To rectify the issue, I recently purchased a 1.3” 240x240 <a href="https://www.aliexpress.com/item/4001282467099.html">ST7789 display</a> that is large enough to mostly cover the exposed area of the lens.</p>
+
+<h1 id="update-feb-2022">UPDATE Feb 2022</h1>
+
+<p><img src="/assets/img/smart-sight/front.PNG" alt="Front" style="float: right; width:50%; height:50%; margin-left: 10px;" />
+Got around to creating a CAD model of the sight; this model is technically the third iteration but it represents the first reasonably functional version. It has space for an Arduino Nano, LoRa SX1278 transceiver, display, and a LiPo though no antenna mounting hole has been added. Having created this model with a transceiver onboard, I considered the possibility of including a remote kill feature for disabling weapons and as such I will probably need to wire the sight into the gun’s electronics. This means that future designs don’t strictly need to include space for a LiPo but I’m unsure of whether or not I will remove it just yet.</p>
+
+<p><img src="/assets/img/smart-sight/back.PNG" alt="Back" style="float: left; width:50%; height:50%; margin-right: 10px;" />
+Unfortunately, this design was built to fit some standardized Picatinny rail dimensions I found <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Picatinny.svg/1200px-Picatinny.svg.png">online</a> and these did fit one of the rifles I own but not the functional one. I was picky in finding my dimensions since the design was built all in metric units which may have caused some inaccuracies so the next design will be built using real measurements from the functional rifle. The intent with this design was to stick the antenna out the side of the sight but this is a poor decision considering the wear and tear that the weapon will likely be subjected to so I try to will integrate the antenna within the sight for the next iteration.</p>
+
+<p>Here is an exploded view of this model:
+<img src="/assets/img/smart-sight/exploded_noWriting.PNG" alt="Exploded View" style="display: block; margin-left: auto; margin-right: auto; margin-top: 10px" /></p>]]></content><author><name>Serban Popovici</name></author><summary type="html"><![CDATA[Intelligent weapon optics]]></summary></entry><entry><title type="html">Roof Anchor Drone</title><link href="http://localhost:4000/roof-anchor-drone/" rel="alternate" type="text/html" title="Roof Anchor Drone" /><published>2022-06-02T00:00:00-04:00</published><updated>2022-06-02T00:00:00-04:00</updated><id>http://localhost:4000/roof-anchor-drone</id><content type="html" xml:base="http://localhost:4000/roof-anchor-drone/"><![CDATA[<h2 id="a-physical-infiltration-tool">A physical infiltration tool</h2>
+
+<p>This device was originally designed in hopes of rooftopping the second tallest building in Canada at the time of this writing: The St. Regis hotel in Toronto. The concern was that the lower roof at the St. Regis hotel is accessible while the higher roof is roughly 3 storeys taller and unnaccessible through conventional ways. In the end, there was an easier way of reach the top and the drone was not used however it remains a genuinely useful tool for ascending moderately tall structures with no internal access.</p>
+
+<h1 id="general-premise">General premise</h1>
+
+<p>The goal is to build a 3D-printable assembly that attaches to the bottom of a drone and holds a carbiner in an open position which can then be remotely shut. The drone must be small enough to be easily portable and nimble while the carabiner assembly must be able to support a moderate amount of weight as a rope will be carried attached to the carabiner. In cases where the distance to be ascended is too large for the drone to reasonably carry the required length of rope, a thinner and lighter ‘tag line’ can be passed through the carabiner and used to pull the climbing rope up once the carabiner is hooked onto an anchor. Finally, a camera must be integrated on the drone to provide the operator visual feedback to line up the carabiner with the target roof anchor.</p>
+
+<h1 id="build">BUILD</h1>
+
+<p>The initial design for this project was a singular 3D printed piece that mounts to a DJI F450 frame since I had a few of these lying around. While this design is functional, the large propeller diameter negatively impacts the drone’s agility and the drone’s size make it a poor solution in terms of portability. [PICS] For these reasons, a new design was created using a 215mm race drone frame. The new design (depicted) is much more portable and breaks down into two pieces such that it can be more reasonably stored in a small volume. 
+<img src="/assets/img/roof-anchor-drone/CAD_assembly_view.PNG" alt="CAD view" />
+Here the green component houses the flight controller, ESCs, battery, and radio gear whereas the purple component is the carabiner holder.</p>
+
+<h2 id="carabiner-mechanism">Carabiner mechanism</h2>
+
+<p>In addition to its modularity, the final design has two servos on the carabiner holder component: the first (1) retains a rubber band which is wrapped around the holder to keep the latch open while the second (2) supports the weight of the rope being carried by the carabiner.</p>]]></content><author><name>Serban Popovici</name></author><summary type="html"><![CDATA[A physical infiltration tool]]></summary></entry><entry><title type="html">Jaguar (Medium-sized VTOL UAV Platform)</title><link href="http://localhost:4000/jaguar/" rel="alternate" type="text/html" title="Jaguar (Medium-sized VTOL UAV Platform)" /><published>2021-12-01T00:00:00-05:00</published><updated>2021-12-01T00:00:00-05:00</updated><id>http://localhost:4000/jaguar</id><content type="html" xml:base="http://localhost:4000/jaguar/"><![CDATA[<h2 id="simple-but-limited-uav-platform-for-urban-operations">Simple but limited UAV platform for urban operations</h2>
 
 <p>I kept seeing ~2.5m wide VTOL UAVs on AliExpress that I would love to own but they are all rather overpriced so I decided to make my own. Using the tech I played with while developing the LTE-based Mavic Pro I intend to have this drone operated by a cellular application and AI to minimize how much interaction is required from the user.</p>
 
@@ -357,167 +449,69 @@ The CAD design has also been updated to include more specific design considerati
 
 <p><img src="/assets/img/jaguar/CAD-V1.PNG" alt="Original CAD" /></p>
 
-<p>I’ve also been printing wing ribs on and off for a few weeks now in hopes that I can begin construction soon. It’s difficult to decide where I should begin with a project as daunting as this one.</p>]]></content><author><name>Alex Ludicrous</name></author><summary type="html"><![CDATA[Simple but limited UAV platform for urban operations]]></summary></entry><entry><title type="html">Two G-class Stage Rocket w/ Basic Telemetry</title><link href="http://localhost:4000/two-stage-rocket/" rel="alternate" type="text/html" title="Two G-class Stage Rocket w/ Basic Telemetry" /><published>2021-11-08T00:00:00-05:00</published><updated>2021-11-08T00:00:00-05:00</updated><id>http://localhost:4000/two-stage-rocket</id><content type="html" xml:base="http://localhost:4000/two-stage-rocket/"><![CDATA[<h2 id="experimenting-with-rocketry-electronics">Experimenting with rocketry electronics</h2>
+<p>I’ve also been printing wing ribs on and off for a few weeks now in hopes that I can begin construction soon. It’s difficult to decide where I should begin with a project as daunting as this one.</p>]]></content><author><name>Serban Popovici</name></author><summary type="html"><![CDATA[Simple but limited UAV platform for urban operations]]></summary></entry><entry><title type="html">Mining Rig Temperature Control</title><link href="http://localhost:4000/mining-rig-temp-control/" rel="alternate" type="text/html" title="Mining Rig Temperature Control" /><published>2021-11-25T00:00:00-05:00</published><updated>2021-11-25T00:00:00-05:00</updated><id>http://localhost:4000/mining-rig-temp-control</id><content type="html" xml:base="http://localhost:4000/mining-rig-temp-control/"><![CDATA[<h2 id="a-solution-for-outdoor-mining-rigs-during-winter">A solution for outdoor mining rigs during winter</h2>
 
-<p>While I doubt I will ever get a high power rocketry license, I do thoroughly enjoy developing and flying model rockets. None of my past rockets have incorporated any amount of electronics so the purpose of this project is to get a feel for rocketry electronics without any risk by developing only non-terribly-flight-critical components. For this project, I purchased the two biggest rocket engines I can legally get my hands on without any license: AeroTech G80-7T motors.</p>
+<p>I briefly decided to invest in a few graphics cards with all the recent hype surrounding cryptocurrencies and mining. I figured, with GPU prices today, it would be rather impossible to lose money from such an investment and I wanted to try my hand out at mining. Luckily, I began mining just as temperatures began dropping in Canada and considering that I live in an apartment, it made sense to place my mining rig outdoors.
+<img src="/assets/img/mining-rig/basic-diagram.PNG" alt="Enclosure diagram" style="float: right; width:50%; height:50%" />
+Firstly, I constructed a relatively waterproof enclosure for the rig to protect it from rain and snow while it sits on my balcony. This enclosure uses three 120mm fans to pull cold air in at the bottom which naturally flows upwards and exits through the top of the enclosure. While this works well for colder temperatures, I have found that the lid of the enclosure must remain open for temperatures above ~ -10 C (lid is grey in the image above). Around -10 C and below, heat generated by the graphics cards is no longer enough to reliably maintain all the internals above 0 C and therefore I needed some way to cut off the influx of cold air when the internals got too cold.</p>
 
-<h1 id="design">Design</h1>
-<h2 id="motor-mounts">Motor mounts</h2>
+<h1 id="basic-idea">Basic Idea</h1>
 
-<p>I watched a <a href="https://www.youtube.com/watch?v=4fhoCt9vXA8">video</a> by ProjectAir on YouTube about a rocket he built using similarly powerful motors and I based my rocket motor mounts on his design. The motor mounts consist of a small tube for the motor and a larger tube that fits snuggly into the rocket body. These two are connected by 8 perpendicular supports between the two cylindrical extrusions. The holes on the bottom of this motor mount also work to hold the first stage onto the main stage by using 8 pegs protruding from the first stage which fit snuggly into the 8 holes of the motor mount above.</p>
-
-<h2 id="avionics">Avionics</h2>
-
-<p>I intend to have live data logging and telemetry at the very least. This rocket will include a GPS, barometer, and accelerometer as well as an ignition system for the main stage engine. I would also like to include some system that can delay the deployment of the main chute since it will significantly increase the rocket’s drift during recovery however I’m unsure of how reliably I can integrate such a feature. All the electronics will be housed near/in the nose cone and the rocket will separate close to the main stage motor for recovery such that the body tube/nose cone section containing the electronics remains intact.</p>
-
-<h1 id="update-oct-2022">UPDATE Oct 2022</h1>
-
-<p><img src="/assets/img/habibi-express/recovery_layout_update.jpg" alt="Recovery layout update" style="float: right; width:10%; height:20%; margin-left: 10px;" /> 
-Progress is being made on flight controller firmware, the I2C issue has been fixed and the IMU data is now being read as well. Turns out the Adafruit BMP280 library was looking for the wrong address and I had to force it to read data from the true address. Engine mounts and fins have been attached to the rocket, currently focused on recovery charge and how to protect the rocket’s internals from the motor’s ejection charge as well as the true ejection charge. The motor mounts have plenty of space around them to allow the motor’s ejection charge gases to escape however I need to add a component following the motor to shield the parachute from the motor’s charge and contain the true ejection charge as well. The planned layout is pictured to the right where the green block represents the blast shield, red represents the true ejection charge, yellow represents the drogue chute, and cyan represents the final chute. The rocket splits between the cyan and yellow blocks when the ejection charge detonates.</p>
-
-<p>The avionics bay has been expanded to include relays for the second stage and ejection charge igniters as well as an SD card reader for data logging, servo to retain the primary parachute, and two DVRs (scrapped the camera inside the body tube). The second stage will be ignited based on the following criteria:</p>
+<p>I know from experimentation that having the enclosure’s fans off results in incredibly hot temperatures so cutting off the fans should be enough to maintain the internals above 0 C. I purchased some cheap DHT11 temperature and humidity sensors off of AliExpress for another project a while ago so I will be using those for this application. To more accurately measure the temperature within the enclosure, three sensors will be used to measure the temperature at different points:</p>
 <ul>
-  <li>Rocket attitude is within 30 degrees of launch attitude (makes sure the rocket is vertical)</li>
-  <li>Rocket altitude is greater than 250 meters (should be 500 meters or so based on simulation)</li>
-  <li>Rocket acceleration drops noticeably (simulation suggests peak of 13 Gs however the software will just look for a drop of ~5Gs)</li>
-  <li>Launch was detected less than 10 seconds ago (makes sure the conditions cannot be met unless the rocket just took off)</li>
+  <li>(1) will monitor a known hotspot behind two GPUs</li>
+  <li>(2) will monitor the motherboard</li>
+  <li>(3) will monitor the temperature at the emptier end of the rig given the lack of GPUs which results in lower temps
+<strong>IMAGE</strong></li>
 </ul>
 
-<p>Once these conditions are met, the rocket will begin a 3-second timer before igniting the second stage, otherwise the flight controller will do nothing. Apogee will be detected when vertical acceleration drops below -5m/s^2 after which the ejection charge will be ignited. The final chute will be deployed 250 meters above ground level based on barometric data. Launch window has been slightly pushed back however it should be achievable by end of November :)</p>
+<h2 id="logic">Logic</h2>
 
-<h1 id="update-sep-2022">UPDATE Sep 2022</h1>
+<p>I am not monitoring humidity since I want the microcontroller to prioritize temperature over humidity and Canada’s winters are traditionally dry. The microcontroller will average the temperature across all three DHTs and cut off fans whenever this average dips below 10 C. Furthermore, the fans will cut off if any sensor dips below 5 C; the thresholds are high because I do not trust the accuracy of my cheap AliExpress DHTs.</p>
 
-<p><img src="/assets/img/habibi-express/fin_laser_cutting.jpg" alt="Laser cutting fins" style="float: right; width:30%; height:50%; margin-left: 10px;" />
-Finally got around to laser cutting the fins and I have worked slightly on the firmware for the flight controller. Unfortunately I’m having issues with the barometer since it communicates using 3.3V so the Arduino Mega is not able to interpret the I2C data coming from it. The current solution is to replace the barometer with a proven chip that I can find online as working with the Arduino Mega. I will also attempt to read the I2C data using another 5V Arduino to verify that this is indeed the issue. Finally, I have decided to add a few <a href="https://www.aliexpress.com/item/1005002457700952.html">video recorders</a> and a few analog cameras to capture a few angles of the flight. I’m hoping to add a downward facing camera, a side facing camera, and one looking down the body tube towards the main stage engine to capture the ejection from inside the rocket. I intend model camera mounts and redo the avionics bay by the end of October such that the rocket can be flown early November at the latest.</p>
+<h2 id="build">Build</h2>
+
+<p>I am using an ESP-12E, since that is what I have on hand, as well as a cheap 4-channel relay board in conjunction with the three DHT sensors. Connections are as follows:</p>
+<ul>
+  <li>Motherboard DHT –&gt; digital pin 5</li>
+  <li>GPU DHT –&gt; digital pin 4</li>
+  <li>PSU DHT –&gt; digital pin 0</li>
+  <li>Fan relay –&gt; digital pin 16</li>
+</ul>
+
+<h2 id="code">Code</h2>
+
+<p>The code can be found at https://github.com/Serpopovici163/miningRigTempCtrl and the ESP’s webpage: 
+<img src="/assets/img/mining-rig/webpage.PNG" alt="Wepbage screenshot" />
+The webpage automatcally refreshes every 30 seconds and I am currently displaying it on a Wink Relay in my living room seeing as that’s about the only thing a Wink Relay is good for nowadays. One note from the screenshot above is that the low temperature saved by the ESP is wrong: there seems to be some issue with at least one sensor causing it to briefly report a temperature of -21 Celsius but the enclosure never actually drops below 0 Celsius.</p>
+
+<h1 id="update-dec-2021">UPDATE Dec 2021</h1>
+
+<p>Everything works as intended! The rig manages its temperature accurately and has been up for 24/7 with this system installed.</p>]]></content><author><name>Serban Popovici</name></author><summary type="html"><![CDATA[A solution for outdoor mining rigs during winter]]></summary></entry><entry><title type="html">DIY 3D Printed Powered Ascender</title><link href="http://localhost:4000/powered-ascender/" rel="alternate" type="text/html" title="DIY 3D Printed Powered Ascender" /><published>2021-01-01T00:00:00-05:00</published><updated>2021-01-01T00:00:00-05:00</updated><id>http://localhost:4000/powered-ascender</id><content type="html" xml:base="http://localhost:4000/powered-ascender/"><![CDATA[<h2 id="shouldnt-work-but-it-might">Shouldn’t work but it might</h2>
+
+<p>I figured that, considering people have 3D printed functional guns, surely it must be possible to 3D print an ascender without worrying about the material’s strength. Initial designs are solely for prototyping and, as such, have no accomodations for the ESCs, batteries, or any hardware besides pulleys and motors.</p>
 
 <h1 id="update-jun-2022">UPDATE Jun 2022</h1>
 
-<p><img src="/assets/img/habibi-express/avionicsFront.jpg" alt="Assembled avionics bay" style="float: right; width:30%; height:50%; margin-left: 10px;" />
-The avionics bay has been assembled though it is missing a couple key elements. Firstly, there is no voltage regulator to step down the LiPo’s voltage for the Arduino and related electronics; furthermore, I need to integrate a relay so the Arduino can ignite the second stage motor once the initial one burns out. Finally, the antenna installed on the design right now can not be used and is solely there to ensure that I don’t accidentally burn the LoRa transceiver by powering it on without an antenna. Everything on the module at the moment is completely wired and ready to go. I have noted the I2C addresses of the MPU6050 and BMP280 and the wire with the white connector sticking out the top of the avionics bay goes to the GPS sensor in the nose cone of the aircraft.</p>
+<p>Took a relatively long break from personal projects and school work since I got burned out; this update should have come in March but I am only getting around to it in June. A friend of mine asked me to revisit the personal ascender project since we may have identified a genuine use case for it. 
+<img src="/assets/img/ascender/mit-ascender.PNG" alt="MIT Ascender" style="float: right; width:60%;" />
+I was simultaneously made aware of <a href="https://dspace.mit.edu/bitstream/handle/1721.1/92180/897205934-MIT.pdf;sequence=2">this paper</a> written by Daniel P. Gillund, a Mechanical Engineering student at MIT. He built a relatively cheap ascender using the motor and gearbox of a hand drill alongside a few machined parts of his own. The prototype (pictured to the right) relies on a Capstan pulley to generate adequate friction with the rope thereby solving my problem.</p>
 
-<p>The software for this design won’t be too involved as the arduino only needs to ignite the second stage 3 seconds after the MPU6050 detects a decrease in vertical acceleration all while broadcasting GPS, altitude, and attitude data at regular intervals. The main concern now is developing viable fins for the rocket body. I am hoping to have them laser-cut at the university but I have yet to inquire about using the equipment.</p>
-
-<h1 id="update-mar-2022">UPDATE Mar 2022</h1>
-
-<p><img src="/assets/img/habibi-express/avionics-CAD-V2-back.PNG" alt="Avionics bay V2 back" style="float: right; width:30%; height:50%; margin-left: 10px;" />
-The avionics bay is mostly finalized and I will attempt to print this soon; I’ve done without the 18650 battery and kept the 3s LiPo which is now housed in a casing at the top of the avionics bay. The LoRa module is now positioned such that an antenna can be directly attached to the module and have space in the rocket fuselage. The only thing lacking from the model to the right is a relay holder to ignite the second stage. I still need to remodel the nose cone since the current GPS holder may not have clearance so it must be shifted upwards after which I will begin 3D printing these components and assembling the rocket!</p>
+<p>This design had a couple minor flaws described in section 7.4 of the paper which could easily be improved by iterating the design. The only other modification required will be to modify the ascender’s capstan pulley to accomodate thicker rope; my use case will require this ascender to work with 16mm polysteel rope commonly used by window washers. The thickness of this rope translates to a comparatively thicker Capstan pulley thereby hopefully increasing the feasabiliy of placing the planetary gearbox within the Capstan pulley itself. I will likely begin by designing an ascender for 8-10mm climbing rope and go from there once that design is proved to be feasible.</p>
 
 <h1 id="update-feb-2022">UPDATE Feb 2022</h1>
 
-<p><img src="/assets/img/habibi-express/rocket-CAD.PNG" alt="Rocket model" style="float: right; width:50%; height:50%; margin-left: 10px;" />
-CAD model is now mostly finished, lots of small things still need to be figured out however most of the grunt work is done. I don’t have a concrete plan for how to wire the main stage motor’s igniter in a way that won’t risk tangling the parachute during recovery. Furthermore, I purchased two G80-7T motors however the rocket will need at least 10 seconds after the main stage burns out to reach its apogee so I most likely need to source a G80-13T motor to avoid using any complex recovery mechanisms. Unfortunately, <a href="https://www.greathobbies.com/">Great Hobbies</a> does not carry G80 motors anymore so I can only source these for unreasonably high prices from <a href="https://www.allrockets.ca/G80-13">AllRockets</a>.</p>
+<p>Previous design did not work well, there was a substantial lack of grip on the rope which led to excessive friction that melted part of the rope. Furthermore, the ‘teeth’ on the drive pulley wore out in no time so I will be abandoning these in the future; I knew they wouldn’t last long but I assumed they would simply round off as opposed to completely melting off.</p>
 
-<p><img src="/assets/img/habibi-express/avionics-CAD.PNG" alt="Avionics model" style="float: right; width:30%; height:50%; margin-left: 10px;" />
-Main focus now is the avionics bay. The model pictured here has space for an Arduino Mega 2560 (embed), a BMP280, an MPU6050, a LoRa SX1278 transceiver, and two batteries. The nose cone contains a GPS antenna bracket for positioning as well. This is the second iteration of the avionics bay and it contains space for both an 18650 LiIon cell (in green) and a small 3S 700mAh LiPo next to the LiIon cell. I’m concerned that the ~3V from the 18650 will not be enough to ignite the main stage of the rocket even with a boost converter which is why I included the LiPo. I originally considered using the 18650 in light of its higher energy density however it only has roughly 1.5 times the energy stored by the LiPo so it will likely be discarded in the next iteration.</p>
+<p>One solution to the lack of grip is increasing the number of drive pulleys in the design, but in the interest of keeping things simple and compact the new design simply has the rope loop around the drive pulley multiple times. The new issue to consider here is is whether or not the drive pulley will get crushed now because, by looping the rope around multiple times, the drive pulley is now effectively supporting the full weight of the wearer.</p>
 
-<h1 id="update-dec-2021">UPDATE Dec 2021</h1>
-<p>Rocket design was finalized in <a href="https://openrocket.info/">OpenRocket</a> and basic simulation was done; maximum altitude estimated at roughly 1.1km with a max speed of Mach 0.52. I made some faster designs and others with higher apogees but this model seems the most predictable based on how much tech I want to fly with the rocket and how lightly I can manufacture things.</p>
+<h1 id="update-jan-2022">UPDATE Jan 2022</h1>
 
-<p><img src="/assets/img/habibi-express/open-rocket-sim.PNG" alt="OpenRocket Model" />
-<img src="/assets/img/habibi-express/open-rocket-sim-graph.PNG" alt="OpenRocket Simulation" /></p>]]></content><author><name>Alex Ludicrous</name></author><summary type="html"><![CDATA[Experimenting with rocketry electronics]]></summary></entry><entry><title type="html">Annota Application</title><link href="http://localhost:4000/annota-mobile-application/" rel="alternate" type="text/html" title="Annota Application" /><published>2021-07-20T00:00:00-04:00</published><updated>2021-07-20T00:00:00-04:00</updated><id>http://localhost:4000/annota-mobile-application</id><content type="html" xml:base="http://localhost:4000/annota-mobile-application/"><![CDATA[<p>Annota is my first ever attempt at developing software for Android devices. As part of a second year course, we were challenged to develop an application that could digitize a user’s notes in order to categorize and index them. This application is far from exemplar for a variety of reasons however I had a tremendous level of success considering I knew very little about Java and Android development prior to this project. This was a group project so the work was done in conjunction with three other students though I got away with doing the coding work while the others focused on testing the application and taking care of written deliverables.</p>
+<p>I only have 5015 320kV motors available to me which are meant to be used for the Jaguar UAV; given their high kV and low torque rating I will be using two of these in tandem. I am confident in the motor mount and side panel of this prototype, however I fully expect the main pulley to fail but only time will tell.</p>
 
-<h1 id="clients-needs">Client’s Needs</h1>
-
-<p>The client for this product suffers from Multiple Sclerosis (MS), an auto-immune disase impacting the central nervous, which causes her to suffer from short-term memory loss and fatigue. Since there is no known cure for MS as of this writing, available treatments focus on mitigating the impact of symptoms in patients. For our client, this entails developing an application which can digitize and index important information and provide them with time-based and potentially location-based reminders. Based on a couple interviews, the following needs were identified for the project:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Customer Need</th>
-      <th>Design Criteria</th>
-      <th>Importance</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>A product for everybody</td>
-      <td>Must be accessible and usable by everyone.</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>Ideally a virtual ‘cork board’</td>
-      <td>Must be able to capture and organize text and images with possible support for other medias such as video</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <td>Needs notifications</td>
-      <td>Should have reminder function</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <td>Red and green need to be avoided</td>
-      <td>Accessibilty-focused UI</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <td>Automate organization</td>
-      <td>Enable easy transfer of handwritten text to digital form</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <td>English as primary language</td>
-      <td>Multiple language option with English as primary</td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <td>Compatible with many devices</td>
-      <td>Should support multiple platforms</td>
-      <td>7</td>
-    </tr>
-    <tr>
-      <td>Copy annotations from textbook</td>
-      <td>Read, annotate, and categorize selective parts of written content</td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <td>Zoom in and out of documents</td>
-      <td>Integrate an image viewer interface</td>
-      <td>9</td>
-    </tr>
-    <tr>
-      <td>Make it aesthetic</td>
-      <td>Visual appeal and stimulate user</td>
-      <td>10</td>
-    </tr>
-  </tbody>
-</table>]]></content><author><name>Alex Ludicrous</name></author><summary type="html"><![CDATA[Annota is my first ever attempt at developing software for Android devices. As part of a second year course, we were challenged to develop an application that could digitize a user’s notes in order to categorize and index them. This application is far from exemplar for a variety of reasons however I had a tremendous level of success considering I knew very little about Java and Android development prior to this project. This was a group project so the work was done in conjunction with three other students though I got away with doing the coding work while the others focused on testing the application and taking care of written deliverables.]]></summary></entry><entry><title type="html">IP Camera Hacking Toolkit</title><link href="http://localhost:4000/camera-toolkit/" rel="alternate" type="text/html" title="IP Camera Hacking Toolkit" /><published>2021-05-11T00:00:00-04:00</published><updated>2021-05-11T00:00:00-04:00</updated><id>http://localhost:4000/camera-toolkit</id><content type="html" xml:base="http://localhost:4000/camera-toolkit/"><![CDATA[<h2 id="exploit-collectionautomation-for-networked-cameras">Exploit collection/automation for networked cameras</h2>
-
-<p>This is a project I haphazardly began upon discovering <strong>FIND CVE #</strong> which allows an attacker to bypass authentication on Hikvision cameras using a crafted URL. The exploit is rather simplistic but made me consider how useful camera exploits are when infiltrating facilities with unknown camera locations. Aside from connectivity issues I’ve faced with IPv6 networks, it should be theoretically possible to tap into any ethernet cable within a camera network and gain access to every single camera. I have not yet built a device capable of this but I intend to do so in the near future, here is the theoretical approach I have considered.</p>
-
-<p>Axis, Avigilon, and Hikvision cameras are most common in construction site and commercial security so these are a priority.</p>
-
-<h1 id="theoretical-device">Theoretical device</h1>
-
-<p>The device would have two sets of 8 punch down connectors for each wire within an ethernet cable. The attacker would have to strip roughly 15-20 cm of a target cable and separate the wires enough to punch each wire down in both sets of connectors. After all the wires have been connected, the attacker would cut them between the punchdown connectors at which point the device will activate and act as a network switch and instantly reconnect the affected camera while providing the attacker with a physical connection into the network. The device would leech POE power off of the ethernet cable though having a standalone power supply may be required because the POE device powering the camera could technically trigger an alarm and notify someone of a discrepancy in POE power draw.</p>
-
-<h1 id="update-june-2022">UPDATE June 2022</h1>
-
-<p>Just purchased three items to hopefully build a device that can parasitically leech off of a POE camera wire. I bought a POE splitter which accepts one ~30W input and splits it into two ~15W POE outputs; I’m not entirely sure about these specifications but it should be capable of powering a single camera even with the device patched in to the existing POE line. I also purchased a board which converts POE power into a 12V 1A output and managed to find some punchdown connectors that should work with 22-23AWG wire. 
-<img src="/assets/img/camera-toolkit/t-taps.PNG" alt="T-taps" style="float: right; width:30%; margin-right: 25px;" />
-Fortunately, the punchdown connectors I found are single ‘T-taps’ as pictured to the right. These T-taps will make it significantly easier to patch in to an existing installation without needing to strip a large length of wire. I was initially worried about how difficult it may be to align and punch down 8 wires given past experience when installing <a href="https://github.com/rfidtool/ESP-RFID-Tool">ESP-RFID-Tools</a> which only require me to punch down 4 wires. I am eager to proceed with this project once I receive the parts, at the very least I will develop a tool capable of jamming camera networks using a <a href="https://www.researchgate.net/publication/266022049_ICMPv6_Router_Advertisement_Flooding">IPv6 Router Advertisment Flood Attack</a>. I have had issues in the past getting my computer to communicate with devices on NVR networks since these are designed more for communication between the NVR and the camera as opposed to communication between the cameras themselves. For some reason, my computer fails to obtain a valid IP configuration since it does not seem to gather that it is connected to an IPv6 network as opposed to an IPv4 network. I will be using a smaller SBC such as the <a href="https://www.aliexpress.com/item/1005002918902225.html">Orange Pi Zero</a> when building this concept which will ideally perform better.</p>
-
-<p>A possible concern is not knowing whether the installation is using T-568A or T-568B wiring. Not sure how serious it would be to guess but I will do more research into POE wiring and all once I receive the parts and am closer to the design stage. These parts were purchased without a concrete design because the device itself costs about $25 excluding the SBC so I figured why not. I’ll have a use for these things regardless of whether this works.</p>
-
-<h1 id="current-issues">Current issues</h1>
-
-<p>IPv6 is the most significant issue I’m facing at the moment. Both my laptop and cell phone refuse to obtain a valid IP address when on a wired IPv6 network even though they should both be fully compatible. This may be due to MAC address filtering but I’m not sure.</p>
-
-<h1 id="hikvision">Hikvision</h1>
-
-<p>Working exploit for individual cameras but no exploit against NVRs. Camera enumaration/fingerprinting possible.</p>
-
-<h1 id="unv">UNV</h1>
-
-<p>Found a NVR password disclosure exploit but not tested. My building uses UNV cameras on an IPv4 network so I am able to experiment with things but I haven’t done much work thus far.</p>
-
-<h1 id="axis">Axis</h1>
-
-<p>I know remote code execution is possible but have yet to experment with any Axis cameras.</p>
-
-<h1 id="avigilon">Avigilon</h1>
-
-<p>Probably the most important target to me given their deep learning AI that makes them more detrimental than regular cameras.</p>
-
-<h1 id="sony-ipela">Sony IPELA</h1>
-
-<p>Idk if I’ll bother with Sony, they are mostly used in retail so I have little interest in them.</p>]]></content><author><name>Alex Ludicrous</name></author><summary type="html"><![CDATA[Exploit collection/automation for networked cameras]]></summary></entry></feed>
+<p>I started with the main gear that is responsible for feeding the rope through the ascender. Initially, the gear was 80 mm in diameter to provide more surface area thereby having greater grip on the rope; this was later reduced to 40mm because the motors I own have a relatively high kV so they need to work at a higher RPM to produce their rated torque. Below is a preliminary model of the main pulley. It has a hole in the center to accomodate the motor’s shaft and four holes that are meant to be occupied by the heads of 4 screws mounted to each motor. I was unsure of how else to link the motors and pulley without overcomplicating the design.
+<img src="/assets/img/ascender/V1-main-pulley.PNG" alt="Main pulley design" />
+The image below depicts the assembly without a sidepanel to display the internals. The blue solid demonstrates where the rope is meant to go and the red arrow point upwards.
+<img src="/assets/img/ascender/V1-assy-without-sidepanel.PNG" alt="Assembly w/o side panel" />
+Below is the complete assembly.
+<img src="/assets/img/ascender/V1-assy.PNG" alt="Complete assembly" /></p>]]></content><author><name>Serban Popovici</name></author><summary type="html"><![CDATA[Shouldn’t work but it might]]></summary></entry></feed>
