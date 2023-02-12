@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-11-12T20:47:34-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ludicrous Tech</title><subtitle>This website keeps track of whichever projects I am most proud of and serves to share some of the knowledge I accumulate from tinkering on whatever comes to my mind. Enjoy!</subtitle><author><name>Serban Popovici</name></author><entry><title type="html">Two G-class Stage Rocket w/ Basic Telemetry</title><link href="http://localhost:4000/two-stage-rocket/" rel="alternate" type="text/html" title="Two G-class Stage Rocket w/ Basic Telemetry" /><published>2022-11-08T00:00:00-05:00</published><updated>2022-11-08T00:00:00-05:00</updated><id>http://localhost:4000/two-stage-rocket</id><content type="html" xml:base="http://localhost:4000/two-stage-rocket/"><![CDATA[<h2 id="experimenting-with-rocketry-electronics">Experimenting with rocketry electronics</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-02-11T23:42:30-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ludicrous Tech</title><subtitle>This website keeps track of whichever projects I am most proud of and serves to share some of the knowledge I accumulate from tinkering on whatever comes to my mind. Enjoy!</subtitle><author><name>Serban Popovici</name></author><entry><title type="html">Two G-class Stage Rocket w/ Basic Telemetry</title><link href="http://localhost:4000/two-stage-rocket/" rel="alternate" type="text/html" title="Two G-class Stage Rocket w/ Basic Telemetry" /><published>2022-11-08T00:00:00-05:00</published><updated>2022-11-08T00:00:00-05:00</updated><id>http://localhost:4000/two-stage-rocket</id><content type="html" xml:base="http://localhost:4000/two-stage-rocket/"><![CDATA[<h2 id="experimenting-with-rocketry-electronics">Experimenting with rocketry electronics</h2>
 
 <p>While I doubt I will ever get a high power rocketry license, I do thoroughly enjoy developing and flying model rockets. None of my past rockets have incorporated any amount of electronics so the purpose of this project is to get a feel for rocketry electronics without any risk by developing only non-terribly-flight-critical components. For this project, I purchased the two biggest rocket engines I can legally get my hands on without any license: AeroTech G80-7T motors.</p>
 
@@ -101,7 +101,17 @@ Pins M0 and M1 on the module are shorted to ground in order for the module to tr
   <li>9999 is the equivalent SENSOR_ID for the head unit</li>
   <li>SENSOR_ID is the id of whichever sensor tripped</li>
   <li>PACKET_ID is the packet id</li>
-</ul>]]></content><author><name>Serban Popovici</name></author><summary type="html"><![CDATA[A scalable dynamic solution for monitoring activity in unknown environments]]></summary></entry><entry><title type="html">Modernizing my 2013 Subaru BRZ</title><link href="http://localhost:4000/brz/" rel="alternate" type="text/html" title="Modernizing my 2013 Subaru BRZ" /><published>2022-10-01T00:00:00-04:00</published><updated>2022-10-01T00:00:00-04:00</updated><id>http://localhost:4000/brz</id><content type="html" xml:base="http://localhost:4000/brz/"><![CDATA[<p>I recently acquired a car for recreational purposes since I had saved up a decent amount of money and didn’t feel like investing it. I purchased a BRZ because they are built in conjunction with Toyota and this should theoretically imply that they are relatively reliable and I won’t need to worry about the mechanical aspect of the vehicle. Furthermore, this collaboration with Toyota also makes them relatively easy to work on at home which I am thankful for since I’ve had to do a wealth of maintenance on it.</p>
+</ul>]]></content><author><name>Serban Popovici</name></author><summary type="html"><![CDATA[A scalable dynamic solution for monitoring activity in unknown environments]]></summary></entry><entry><title type="html">BRZ VIM4</title><link href="http://localhost:4000/brz-VIM4/" rel="alternate" type="text/html" title="BRZ VIM4" /><published>2022-10-01T00:00:00-04:00</published><updated>2022-10-01T00:00:00-04:00</updated><id>http://localhost:4000/brz-VIM4</id><content type="html" xml:base="http://localhost:4000/brz-VIM4/"><![CDATA[]]></content><author><name>Serban Popovici</name></author><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Modernizing my 2013 Subaru BRZ</title><link href="http://localhost:4000/brz/" rel="alternate" type="text/html" title="Modernizing my 2013 Subaru BRZ" /><published>2022-10-01T00:00:00-04:00</published><updated>2022-10-01T00:00:00-04:00</updated><id>http://localhost:4000/brz</id><content type="html" xml:base="http://localhost:4000/brz/"><![CDATA[<p>I recently acquired a car for recreational purposes since I had saved up a decent amount of money and didn’t feel like investing it. I purchased a BRZ because they are built in conjunction with Toyota and this should theoretically imply that they are relatively reliable and I won’t need to worry about the mechanical aspects of the vehicle. Furthermore, the BRZ’s interior is driver-centered while maintaining a relatively simple geometry that should facilitate the design of custom dash components to fit my upgraded electronics.</p>
+
+<p>This project began as a way to disguise speed enforcement countermeasures within the car’s UI seeing as radar/lidar countermeasures are illegal in Ontario. As such, I figured that the best way to hide illegal features would be to program the UI myself. Seeing as the current head unit is only capable of playing back bluetooth audio, it’s very unlikely that anything I do will result in less overall functionality so there really is nothing to lose here.</p>
+
+<p>A lot of work has gone into the project so I have split up this post to include a variety of sub-pages detailing individual subsystems in greater detail. This page serves to provide a general overview of the project and a set of links to sub-pages is included below:</p>
+<ul>
+  <li><a href="/brz-head-unit">Head Unit</a></li>
+  <li><a href="/brz-user-interface">User Interface (Software)</a></li>
+  <li><a href="/brz-steering-wheel">Steering Wheel</a></li>
+  <li><a href="/brz-light-link">LightLink Module</a></li>
+</ul>
 
 <h1 id="idea">Idea</h1>
 
@@ -109,67 +119,58 @@ Pins M0 and M1 on the module are shorted to ground in order for the module to tr
 
 <p><img src="/assets/img/brz/planned_display_layout.jpg" alt="Picture of plan" style="float: right; width:50%; height:80%; margin-left: 10px;" /></p>
 
-<p>The plan is to replace the head unit of the BRZ with a <a href="https://www.aliexpress.com/item/1005003546521274.html">12.3” touch-screen</a>, replace the small button cluster on the center console with a <a href="https://www.aliexpress.com/item/4000393713339.html">7” touch screen</a>, convert the analog gauge cluster to a display, and potentially add a heads-up display in the windshield. The 12.3” display will be used for most vehicle functionality such as navigation and media whereas the 7” display will provide diagnostic information about the vehicle as well as any subsystems I add. Ideally, the computer running the 7” display will have access to the car’s internal computer to provide any information from DTC/SRS/ABS codes to general information about things like tire pressure.</p>
+<p>The plan is to replace the head unit of the BRZ with a <a href="https://www.aliexpress.com/item/1005003546521274.html">12.3” touch-screen</a>, replace the small button cluster on the center console with a <a href="https://www.aliexpress.com/item/4000393713339.html">7” touch screen</a>, and convert the analog gauge cluster to a display. The 12.3” display will be used for most vehicle functionality such as navigation and media whereas the 7” display will provide diagnostic information about the vehicle as well as any subsystems I add.</p>
 
-<p>The car will have an LTE modem in it to provide WiFi connectivity for passengers and allow its internal computers to access Google Maps, media streaming services, and other resources such as the Waze database to protect against police encounters. Finally, I hope to add cameras all around the car and experiment with computer vision though, aside from collision warnings and enhanced cruise control I’m not sure what I’ll be able to develop. The cameras will however provide a 360-degree dash cam and I will be able to use them for a Tesla-like sentry mode when the car is locked.</p>
+<p>The car will have an LTE modem in it to provide WiFi connectivity for passengers and allow its internal computers to access Google Maps, media streaming services, and other resources such as the Waze database to protect against police encounters. Finally, I hope to add cameras all around the car and experiment with computer vision though, aside from collision warnings and enhanced cruise control I’m not sure what I’ll be able to code. The cameras will however provide a 360-degree dash cam and I will be able to use them for a Tesla-like sentry mode when the car is locked. Furthermore, it may be interesting to experiment with augmented reality headsets in the future to provide the driver with enhanced situational awareness but this is not in the works as of this writing.</p>
 
 <h2 id="speed-enforcement-countermeasures">Speed Enforcement Countermeasures</h2>
 
-<p>I’m hoping to, at the very least, add passive sensors for police radar/lidar and possibly even aircraft but I may not be able to add active countermeasures such as radar/lidar jamming. Based on some brief research, there is a significant risk that a radar/lidar gun would detect my jamming attempts seeing as many of them have jamming detection built in and proper commercial jammers are designed to identify the specific make/model of a lidar gun and behave accordingly.</p>
+<p>I’m hoping to, at the very least, add passive sensors for radar/lidar and aircraft but I may not be able to add active countermeasures such as radar/lidar jamming. Based on some brief research, there is a significant risk that a radar/lidar device would detect my jamming attempts seeing as many of them have jamming detection built in. Proper commercial jammers are designed to identify the specific make/model of a lidar gun and behave accordingly however they are rather cost-prohibitive so I may not be able to reasonably source a commercial system.</p>
 
 <p>Aircraft countermeasures are more reasonably achievable since aircraft speed detection works using lines painted on the pavement at a known distance interval such that an aircraft flying above can time a vehicle crossing a set of these lines. My plan for countering this is to use a front facing camera on the car to pick up the lines at which point an onboard computer will use a software defined radio to look for any aircraft transponders within a certain radius of the vehicle. Should there be an aircraft nearby, the onboard computer will begin calling out speeds for the user to match in hopes that the average speed across the two lines does not exceed the posted limit.</p>
 
-<p>An even more complex countermeasure I’m hoping to integrate is cellular sniffing where a computer would once again use a software defined radio to look for nearby cellular devices and fingerprint them to single out the specific make and model of cellular modem present in a Ford Interceptor. I’m unsure if this is even theoretically possible since newer cellular devices may encrypt everything but I intend to research this in depth.</p>
+<p>An even more complex countermeasure I’m hoping to integrate is cellular sniffing where a computer would once again use a software defined radio to look for nearby cellular devices and fingerprint them to single out the specific make and model of cellular modem present in a Ford Interceptor. I’m unsure if this is even theoretically possible since newer cellular devices may encrypt everything including metadata but I intend to research this in depth.</p>
 
-<p>In addition to passive countermeasures and radar/lidar jammers, the vehicle will hopefully have cellular and VHF/UHF jammers. The purpose of these is to prevent a Ford Interceptor’s cellular modem and radio from working when in close proximity to the BRZ meaning that the officer will not be able to run driver’s licenses or issue tickets.</p>
+<p>In addition to passive countermeasures and radar/lidar jammers, the vehicle will hopefully have cellular and VHF/UHF jammers. The purpose of these is to prevent a Ford Interceptor’s cellular modem and radio from working when in close proximity to the BRZ meaning that the officer will <em>hopefully</em> be unable to run driver’s licenses or issue tickets.</p>
 
 <h1 id="build">Build</h1>
 
-<h2 id="design-considerations">Design considerations</h2>
+<h2 id="software">Software</h2>
 
 <p>I initially intended to build a custom image of Android Automotive for the BRZ and develop mobile applications that would mostly run as background services and overlay themselves on top of Android to display relevant information. Unfortunately this turned out to be a rather lucrative task and as of this writing I have elected to build a simple Android application running on a mobile image. The advantages of Android Automotive are as follows:</p>
 <ul>
-  <li>Better navigation with fully functional Google Maps (I am using the Khadas VIM4 for the head unit and it does not support Google Play Services so it cannot have any Google Maps functionality)</li>
-  <li>Better media controls with proper Bluetooth integration (As far as I am aware, Android Mobile cannot be used as a A2DP sink without modifying the source code)</li>
+  <li>Better navigation with fully functional Google Maps (Android applications cannot have integrated navigation activities and can only display 2D maps as far as I am aware)</li>
+  <li>Better media controls with proper Bluetooth integration (the Android Mobile OS cannot be used as a A2DP sink without modifying the source code)</li>
   <li>Better boot times</li>
 </ul>
 
-<p>Overall, I did not feel these advantages were enough to justify the increased complexity of building a custom Android Automotive image especially considering how many custom UI screens and functions I intend to incorporate.</p>
+<p>Overall, I did not feel these advantages were enough to justify the increased complexity of building a custom Android Automotive image especially considering how many custom UI screens and functions I intend to incorporate as well as my lack of affinity for hardware-level programming.</p>
 
-<p>The purpose of rebuilding the vehicle’s UI is not only to provide a seamless means of interacting with the additional functionality but also to fully hide any illegal functions on demand. As such, there will be no visible indications of aftermarket components on the vehicle and a ‘legal mode’ will be integrated which can be activated using arbitrary keystrokes or combinations thereof and hide all illegal functions from the vehicle’s UI. Once in legal mode, the user will be able to unlock hidden functions by entering an arbitrary set of seemingly random keystrokes using buttons throughout the car’s interior. The combination will be intricate such that it would be incredibly difficult to guess or mistakenly enter it.</p>
+<p>The purpose of rebuilding the vehicle’s UI is not only to provide a seamless means of interacting with the additional functionality but also to fully hide any illegal functions on demand. As such, a ‘legal mode’ will be integrated in the software which will be activated on boot and will hide all illegal functionality from the vehicle’s UI. The driver can disable legal mode using an arbitrary set of seemingly random keystrokes using buttons throughout the car’s interior which will be intricate such that they cannot be haphazardly entered.</p>
 
 <h2 id="hardware">Hardware</h2>
 
 <h3 id="computers">Computers</h3>
 
-<p>The car will contain a multitude of computers listed below alongside their purpose:</p>
-<ul>
-  <li>Head Unit/Center Console (Khadas VIM4) –&gt; Mostly displays data and video feeds, very little logic goes on here</li>
-  <li>Diagnostic computer (RPi Zero) –&gt; runs diagnostic display in center console and interacts with the CANBUS using the last Arduino from the list below (CANBUS Controller).</li>
-  <li>CANBUS server (Arduino) –&gt; Acts as interface between ethernet network and vehicle’s CANBUS</li>
-  <li>Gauge cluster computer (RPi 4) –&gt; Listens to CANBUS and ethernet network to display data, will potentially run <a href="https://www.automotivelinux.org/">Automotive Grade Linux</a></li>
-  <li>Safety computer (nVidia Jetson NX?) –&gt; Uses CV algorithms with vehicle cameras and exports HDMI feeds of cameras for head unit. The Khadas VIM4 has an HDMI input which can be used to display the HDMI output of the Jetson. This computer will be omitted in the first iteration of this build due to the chip shortage and the cameras will be connected directly to the Khadas VIM4.</li>
-</ul>
+<p>The UI of the car is handled by two primary computers (a Raspberry Pi 4B and a <a href="https://www.khadas.com/vim4">Khadas VIM4</a>) whereas the hardware modifications are handled by a varity of Arduinos integrated throughout the vehicle. The Khadas VIM4 was not my first choice, I wanted a nVidia Jetson, however I purchased this during the height of the pandemic meaning that the chip shortage was in full stride and I could not find a reasonably-priced Jetson powerful enough for my application.</p>
+
+<p>The Raspberry Pi runs Android and controls the head unit and center console displays which function in tandem to deliver the interactive component of the vehicle’s UI whereas the VIM4 runs Linux and does most of the heavy lifting. The RPi does not handle any logic and interacts with the VIM4 using a series of web services. The VIM4 handles a variety of tasks including Bluetooth media playback, camera feed management, and CANBUS communication. More information can be found <a href="/brz-VIM4">here</a>.</p>
 
 <p>Most of the hardware modifications are executed by Arduinos integrated throughout the vehicle that share its CANBUS. The list of integrated Arduinos as well as the model used is as follows:</p>
 <ul>
-  <li>Headlight manager (MEGA_EMBED) –&gt; Used to control lights on front half of the vehicle. Controls relays for the factory lights, voltage dividers to detect their state, and addressable LEDs integrated throughout the front end.</li>
-  <li>Rear light manager (MEGA_EMBED) –&gt; Same idea as the headlight manager but for rear lights. This Arduino also flashes the brake lights of the vehicle based on CANBUS data of vehicle speed and brake pressure (the required brake pressure for a flash differs based on vehicle speed) to indicate sudden stops.</li>
+  <li>LightLink (2xMEGA_EMBED) –&gt; Used to control all exterior vehicle lights, more info <a href="/brz-light-link">here</a>.</li>
   <li>Mirror manager (NANO) –&gt; Keeps track of mirror position and allows them to automatically tilt when backing up. One per mirror.</li>
-  <li>Diagnostic display button manager (NANO) –&gt; Controls relays that simulate button presses to maintain functionality of old center console buttons.</li>
-  <li>Steering wheel button manager (PRO MICRO) –&gt; Converts steering wheel button presses into USB keyboard data for head unit computer and sends keystrokes to CANBUS of car.</li>
-  <li>Power managers (MEGA_EMBED) –&gt; Handles power delivery to components using large relay boards to provide active failover functionality and monitor current/voltage among vehicle power buses. Two of these will be installed: one in the front near the head unit and one in the trunk.</li>
-  <li>Audio manager (MEGA_EMBED) –&gt; Handles audio amplifier settings (equalizer and volume) and simulates keystrokes on a Bluetooth dongle used to receive mobile audio. The current head unit design does not allow it to work as an A2DP sink so I am using a standalone Bluetooth dongle to receive mobile audio.</li>
-  <li>CANBUS Controller (not sure) –&gt; Doesn’t really matter so long as it has an ethernet shield or other ethernet interface. Will store any CANBUS values used by the other computers in a local database that updates anytime new data becomes available on the CANBUS. This would be used by the Khadas VIM4 and diagnostic computer for example since it won’t have direct access to the CANBUS.</li>
+  <li>Diagnostic display button manager (NANO) –&gt; Controls MOSFETs that simulate button presses to maintain functionality of old center console buttons.</li>
+  <li>Steering wheel button manager (NANO) –&gt; Converts steering wheel button presses into CAN messages for head unit.</li>
 </ul>
 
 <h3 id="cameras">Cameras</h3>
 
-<p>The planned camera layout is included below. The green semicircles are <a href="https://www.aliexpress.com/item/1005004337827464.html">136-degree FOV cameras</a> installed in the front windshield and above the rear license plate whereas the gray circles represent <a href="https://www.aliexpress.com/item/1005004335144138.html">210-degree cameras</a> (the listing says 180 degrees but they are actually 210) installed beneath side view mirrors of the car. A fifth camera is installed inside the vehicle and faces the driver for eye tracking such that the touch screen functionality of the center console display is disabled unless the driver is looking at the display to prevent accidental inputs. I planned on including a second front-facing camera on the right wing mirror to provide the driver with insight about any vehicles in the right lane ahead of the car however this camera is not included at this time since the 210-degree FOV camera installed beneath the mirror should theoretically capture all vehicles in the right lane.</p>
+<p>The planned camera layout is included below. The green semicircles are <a href="https://www.aliexpress.com/item/1005004337827464.html">136-degree FOV cameras</a> installed in the front windshield and above the rear license plate whereas the gray circles represent <a href="https://www.aliexpress.com/item/1005004335144138.html">210-degree cameras</a> (the listing says 180 degrees but they are actually 210) installed beneath the side view mirrors of the car (PIC). I planned on including a second front-facing camera on the right wing mirror to provide the driver with insight about any vehicles in the right lane ahead of the car however this camera is not included at this time since the 210-degree FOV camera installed beneath the mirror should theoretically capture all vehicles in the right lane.</p>
 
 <p><img src="/assets/img/brz/camera_layout.png" alt="Camera layout" /></p>
 
-<h3 id="steering-wheel-button-integration">Steering Wheel Button Integration</h3>
+<p>Beyond the cameras used for 360 degree coverage, both fog lights of the vehicle contain camera modules with the driver side being a thermal camera and the passenger side being a Sony Starvis low light camera with optical zoom. These are meant to be used in conjunction with AI to detect threats on the road ahead as well as to provide increased visibility in low light conditions. A final camera is installed inside the vehicle and faces the driver for eye tracking such that the touch screen functionality of the center console display is disabled unless the driver is looking at the display to prevent accidental inputs (might not be included after all, depends on whether accidental input truly is an issue).</p>]]></content><author><name>Serban Popovici</name></author><summary type="html"><![CDATA[I recently acquired a car for recreational purposes since I had saved up a decent amount of money and didn’t feel like investing it. I purchased a BRZ because they are built in conjunction with Toyota and this should theoretically imply that they are relatively reliable and I won’t need to worry about the mechanical aspects of the vehicle. Furthermore, the BRZ’s interior is driver-centered while maintaining a relatively simple geometry that should facilitate the design of custom dash components to fit my upgraded electronics.]]></summary></entry><entry><title type="html">BRZ Steering Wheel</title><link href="http://localhost:4000/brz-steering-wheel/" rel="alternate" type="text/html" title="BRZ Steering Wheel" /><published>2022-10-01T00:00:00-04:00</published><updated>2022-10-01T00:00:00-04:00</updated><id>http://localhost:4000/brz-steering-wheel</id><content type="html" xml:base="http://localhost:4000/brz-steering-wheel/"><![CDATA[<h3 id="steering-wheel-button-integration">Steering Wheel Button Integration</h3>
 
 <p>Steering wheel buttons were added to BRZs in 2017 and mine is a 2013 so I purchased a salvage steering wheel in order to integrate its buttons into my systems. Should anybody else contemplate to do the same, be aware that even though steering wheels are cheap the airbag most certainly is not: a brand new OEM airbag for my car is $CAD 1100 from the dealer while a used one is ~$CAD 600.</p>
 
@@ -233,15 +234,33 @@ steering wheel and followed traces to figure out the function of each wire. My f
       <td> </td>
     </tr>
   </tbody>
-</table>
+</table>]]></content><author><name>Serban Popovici</name></author><summary type="html"><![CDATA[Steering Wheel Button Integration]]></summary></entry><entry><title type="html">BRZ LightLink</title><link href="http://localhost:4000/brz-light-link/" rel="alternate" type="text/html" title="BRZ LightLink" /><published>2022-10-01T00:00:00-04:00</published><updated>2022-10-01T00:00:00-04:00</updated><id>http://localhost:4000/brz-light-link</id><content type="html" xml:base="http://localhost:4000/brz-light-link/"><![CDATA[<h2 id="rgb-ftw">RGB ftw</h2>
+
+<h2 id="lightlink-overview">LightLink Overview</h2>
+
+<p>Control of a vehicle’s external lighting is safety critical and I did not feel comfortable half-assing a solution to handle this considering the hardware upgrades to the vehicle. As a result, I’ve settled on designing a custom circuit board with 12 MOSFET channels to handle ‘dumb’ lights and 8 addressable channels to handle a set of addressable LED arrays retrofitted throughout the vehicle.</p>
+
+<h3 id="redundancy-considerations">Redundancy Considerations</h3>
+
+<p>Given its safety critical function, this board was built with redundancy in mind and includes two of each component required for nominal operation. The MOSFET channels are designed as per the schematic below:</p>
+
+<p>MOSFET SCHEMATIC</p>
+
+<p>Two MOSFETs are included in parallel, both of which are immediately followed by a Schottky diode to prevent backflow from the other MOSFET. This is necessary because a diagnostic pin is included prior to the Schottky. The diagnostic connections use a summing amplifier with a op-amp IC as pictured below such that the output signal ranges between 0V and 3V with the Qx MOSFET contributing 80% of the output voltage and Qx only contributing the other 20%. This allows the microcontroller to detect the functionality of each individual MOSFET regardless of their parallel arrangement.</p>
+
+<p>MOSFETS SCHEMATIC</p>
+
+<p>For control, two Arduino Mega EMBEDs are inclded. These were chosen because I have about a dozen on hand right now and they have been reliable in my experience. Regardless, two Arduinos with separate CAN transceivers are included on the board as depicted in the schematic below:</p>
+
+<p>OVERALL SCHEMATIC</p>
+
+<p>At any given moment, one of the Arduinos is considered the ‘master’. The master is in charge of outputting signals to the MOSFET and addressable channels while simoultaneously communicating its state over to the slave Arduino over a UART connection. The master updates the slave at regular intervals such that the updates themselves function as ‘heartbeat’ signals assuring the slave that the master is operating optimally. Should the master miss a heartbeat for whatever reason, the slave sends a hardware reset pin to the current master after which it assumes the master role and resumes signal outputs based on the last state update it received over UART. This system also allows the Arduinos to swap roles ever 30 days since my asynchronous code uses the millis() function to keep track of time and its value will exceed the maximum possible variable size in approximately 50 days.</p>
 
 <h3 id="lighting-modifications">Lighting Modifications</h3>
 
 <p>Some modifications require extensive control of the vehicle’s lights however I am not willing to alter anything about the car’s computers so my solution consists of placing relays along the wiring harnesses controlling the vehicle’s lights with two separate computers on each end of the car. Each computer has a combination of mechanical and solid state relays depending on how frequently a light is expected to toggle on/off. Mechanical relays are used for lights that rarely toggle and because they provide a normally closed and normally open set of contacts. This is important because the lighting computers receive constant power regardless of the vehicle’s state and therefore power draw must be minimized when the vehicle is not running.</p>
 
-<p><img src="/assets/img/brz/rear_light_manager.jpg" alt="Rear light manager computer" style="float: right; width:50%; height:80%; margin-left: 10px;" /> The rear lighting computer is pictured to the right and I expect the front computer to be highly similar. It uses four solid state relays (top left) to drive the brake lights and turn signals of the car by connecting them to the car’s battery. The third and fourth brake light of the car (third is in the windshield and fourth is F1 style in bumper) are converted to addressable LEDs and do not require relays. Addressable LEDs have also been integrated into the reverse lights (two lights adjoined to the fourth brake light) and the two rear quarter panel windows of the car. Excluding the solid state relays, the computer contains two mechanical relays (bottom left) for running lights, a CANBUS module (bottom right), an Arduino (top right), and a 5V regulator on the backside. Currently, this computer turns lights on based on whether or not live data is being sent across the CANBUS since it is always powered and I have not yet figured out what value represents the stte of the vehicle’s running lights. This is not ideal since a side effect of my current solution is that running lights turn on when doors open or the car is unlocked etc.</p>
-
-<h3 id="cad">CAD</h3>
+<p><img src="/assets/img/brz/rear_light_manager.jpg" alt="Rear light manager computer" style="float: right; width:50%; height:80%; margin-left: 10px;" /> The rear lighting computer is pictured to the right and I expect the front computer to be highly similar. It uses four solid state relays (top left) to drive the brake lights and turn signals of the car by connecting them to the car’s battery. The third and fourth brake light of the car (third is in the windshield and fourth is F1 style in bumper) are converted to addressable LEDs and do not require relays. Addressable LEDs have also been integrated into the reverse lights (two lights adjoined to the fourth brake light) and the two rear quarter panel windows of the car. Excluding the solid state relays, the computer contains two mechanical relays (bottom left) for running lights, a CANBUS module (bottom right), an Arduino (top right), and a 5V regulator on the backside. Currently, this computer turns lights on based on whether or not live data is being sent across the CANBUS since it is always powered and I have not yet figured out what value represents the stte of the vehicle’s running lights. This is not ideal since a side effect of my current solution is that running lights turn on when doors open or the car is unlocked etc.</p>]]></content><author><name>Serban Popovici</name></author><summary type="html"><![CDATA[RGB ftw]]></summary></entry><entry><title type="html">BRZ Head Unit</title><link href="http://localhost:4000/brz-head-unit/" rel="alternate" type="text/html" title="BRZ Head Unit" /><published>2022-10-01T00:00:00-04:00</published><updated>2022-10-01T00:00:00-04:00</updated><id>http://localhost:4000/brz-head-unit</id><content type="html" xml:base="http://localhost:4000/brz-head-unit/"><![CDATA[<h3 id="cad">CAD</h3>
 
 <p>The retrofit brackets for this vehicle were designed by first measuring and modelling the mount points to the vehicle before extruding a general shape to house all the required components. The components are then arranged on the aforementioned general shape such that their screw holes/mount points can be cut after which the bulk of the material is removed leaving a barebones structure which can be further broken down into smaller pieces to facilitate manufacturing.</p>
 
@@ -255,55 +274,7 @@ steering wheel and followed traces to figure out the function of each wire. My f
   <li>Driver-facing camera</li>
 </ol>
 
-<p>No amp needed up front since it’s in the trunk from factory. That being said it only drives the front speakers and I can’t figure out how the rear side speakers are powered so there may be more amplifiers throughout the vehicle. I also need to include an amplifier for a loudspeaker up front which may end up in the head unit if there is space.</p>
-
-<h2 id="visual-user-interface">Visual User Interface</h2>
-
-<h3 id="head-unit-display">Head Unit Display</h3>
-
-<p>The large head unit display is split horizontally into two sections: a ‘big container’ which is 2/3 of the display’s width and a ‘small container’ which occupies the remaining space. The views displayed by the big container and their respective purpose are as follows:</p>
-<ul>
-  <li>Navigation fragment –&gt; Contains an interactive map that the user</li>
-  <li>Lighting control fragment –&gt; Handles interior accent colours and vehicle under-lighting (legal light functions)</li>
-  <li>Safety fragment –&gt; Displays live view of cameras around the car as well as any computer vision-related safety warnings</li>
-  <li>Settings fragment –&gt; Allows user to modify settings of any subsystem</li>
-  <li>Defense fragment –&gt; Compliments defense fragment in small container, displays advanced countermeasures</li>
-</ul>
-
-<p>The views displayed by the small container and their respective purpose are as follows:</p>
-<ul>
-  <li>Media fragment –&gt; Handles media playback controls</li>
-  <li>Diagnostic fragment –&gt; Mirror of center console display, describes states of vehicle systems</li>
-  <li>Soundboard fragment –&gt; Enables playback of custom sounds through a loudspeaker in front of vehicle</li>
-  <li>Pop-up defense fragment –&gt; Brief rundown of countermeasure states, this fragment is automatically overlaid when vehicle detects radar/lidar etc.</li>
-  <li>Traffic advisor fragment –&gt; Allows user to control illegal light patterns of vehicle including police and hazard strobes</li>
-</ul>
-
-<p>In addition to the two primary fragment containers, a few fragments can be overlaid on top of the whole display in specific circumstances:</p>
-<ul>
-  <li>Parking fragment –&gt; Overlaid when vehicle is put into reverse by driver and persists until vehicle speeds up regardless of which gear the vehicle is in. This fragment provides data from parking sensors and cameras around vehicle to facilitate parking.</li>
-  <li>Merging fragment –&gt; Pops up when merging right, provides live view of traffic in right lane so driver can see all vehicles in adjacent lane and blind spot.</li>
-</ul>
-
-<h3 id="diagnostic-display">Diagnostic Display</h3>
-
-<p>This display provides the same view as the diagnostic fragment from the head unit display however there are also be four buttons underneath this view to replace the physical buttons that used to be in the center console. Furthermore, this display is capable of opening in depth sub-system diagnostic dialogs and clear error codes as well as execute diagnostic actions whereas the head unit fragment solely provides status information. This display runs off the same computer as the head unit since it has shared views and processes similar data (TRUE?).</p>
-
-<p>The touch screen functionality of this display is toggled on demand using an interior-facing camera installed next to the 12.3” head unit display to track the driver’s eyes. As such, all touch screen functionality aside from the passenger seat warmer button will not function unless the driver is looking down towards the display.</p>
-
-<h3 id="gauge-cluster-display">Gauge Cluster Display</h3>
-
-<p>Listens to car’s CANBUS and displays the same information as was available with original gauge cluster though it also adds data for range and displays alerts from vehicle systems. (TRUE?) Furthermore, can be used to display night vision camera in front of vehicle to drive in less than optimal lighting conditions.</p>
-
-<h3 id="heads-up-display">Heads Up Display</h3>
-
-<p>Might scrap this but would display basic vehicle information.</p>
-
-<h2 id="interactive-user-interface">Interactive User Interface</h2>
-
-<p>The head unit and diagnostic displays have touchscreen functionality however the head unit display can also be controlled using steering wheel buttons for a handsfree experience. The diagnostic display can only be used as a touch screen however the touch screen is disabled if the driver is not looking at the display in order to prevent misinput when shifting.</p>
-
-<p>The right side steering wheel buttons are used to control the contents of the big container while the left side steering wheel buttons are used for the small container’s contents. Additionally, there are dedicated buttons or combinations thereof that can always be used to toggle critical functions such as the vehicle’s legal mode regardless of what content is live at the time.</p>]]></content><author><name>Serban Popovici</name></author><summary type="html"><![CDATA[I recently acquired a car for recreational purposes since I had saved up a decent amount of money and didn’t feel like investing it. I purchased a BRZ because they are built in conjunction with Toyota and this should theoretically imply that they are relatively reliable and I won’t need to worry about the mechanical aspect of the vehicle. Furthermore, this collaboration with Toyota also makes them relatively easy to work on at home which I am thankful for since I’ve had to do a wealth of maintenance on it.]]></summary></entry><entry><title type="html">LTE Mavic Pro</title><link href="http://localhost:4000/lte-mavic-pro/" rel="alternate" type="text/html" title="LTE Mavic Pro" /><published>2022-09-03T00:00:00-04:00</published><updated>2022-09-03T00:00:00-04:00</updated><id>http://localhost:4000/lte-mavic-pro</id><content type="html" xml:base="http://localhost:4000/lte-mavic-pro/"><![CDATA[<p>Cellular-based drone control has been a longstanding goal with the purpose of creating UAVs requiring minimal user input to function. I have found the need for constant input to significantly reduce the useability of drones for recon during my adventures because neither myself nor the people with me can dedicate significant attention to piloting them. This project aims to achieve basic autonomous control through an Android application that allows the user to place the drone at specific coordinates or land it. The first rendition was built to be submitted as an electronics project for a university course and is solely capable of navigation; takeoff and landing must be manually with a separate remote controller. This is because a F1 flight controller was used which is only capable of managing stability.</p>
+<p>No amp needed up front since it’s in the trunk from factory. That being said it only drives the front speakers and I can’t figure out how the rear side speakers are powered so there may be more amplifiers throughout the vehicle. I also need to include an amplifier for a loudspeaker up front which may end up in the head unit if there is space.</p>]]></content><author><name>Serban Popovici</name></author><summary type="html"><![CDATA[CAD]]></summary></entry><entry><title type="html">LTE Mavic Pro</title><link href="http://localhost:4000/lte-mavic-pro/" rel="alternate" type="text/html" title="LTE Mavic Pro" /><published>2022-09-03T00:00:00-04:00</published><updated>2022-09-03T00:00:00-04:00</updated><id>http://localhost:4000/lte-mavic-pro</id><content type="html" xml:base="http://localhost:4000/lte-mavic-pro/"><![CDATA[<p>Cellular-based drone control has been a longstanding goal with the purpose of creating UAVs requiring minimal user input to function. I have found the need for constant input to significantly reduce the useability of drones for recon during my adventures because neither myself nor the people with me can dedicate significant attention to piloting them. This project aims to achieve basic autonomous control through an Android application that allows the user to place the drone at specific coordinates or land it. The first rendition was built to be submitted as an electronics project for a university course and is solely capable of navigation; takeoff and landing must be manually with a separate remote controller. This is because a F1 flight controller was used which is only capable of managing stability.</p>
 
 <h1 id="basic-idea">Basic Idea</h1>
 
@@ -410,116 +381,4 @@ Got around to creating a CAD model of the sight; this model is technically the t
 Unfortunately, this design was built to fit some standardized Picatinny rail dimensions I found <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Picatinny.svg/1200px-Picatinny.svg.png">online</a> and these did fit one of the rifles I own but not the functional one. I was picky in finding my dimensions since the design was built all in metric units which may have caused some inaccuracies so the next design will be built using real measurements from the functional rifle. The intent with this design was to stick the antenna out the side of the sight but this is a poor decision considering the wear and tear that the weapon will likely be subjected to so I try to will integrate the antenna within the sight for the next iteration.</p>
 
 <p>Here is an exploded view of this model:
-<img src="/assets/img/smart-sight/exploded_noWriting.PNG" alt="Exploded View" style="display: block; margin-left: auto; margin-right: auto; margin-top: 10px" /></p>]]></content><author><name>Serban Popovici</name></author><summary type="html"><![CDATA[Intelligent weapon optics]]></summary></entry><entry><title type="html">Roof Anchor Drone</title><link href="http://localhost:4000/roof-anchor-drone/" rel="alternate" type="text/html" title="Roof Anchor Drone" /><published>2022-06-02T00:00:00-04:00</published><updated>2022-06-02T00:00:00-04:00</updated><id>http://localhost:4000/roof-anchor-drone</id><content type="html" xml:base="http://localhost:4000/roof-anchor-drone/"><![CDATA[<h2 id="a-physical-infiltration-tool">A physical infiltration tool</h2>
-
-<p>This device was originally designed in hopes of rooftopping the second tallest building in Canada at the time of this writing: The St. Regis hotel in Toronto. The concern was that the lower roof at the St. Regis hotel is accessible while the higher roof is roughly 3 storeys taller and unnaccessible through conventional ways. In the end, there was an easier way of reach the top and the drone was not used however it remains a genuinely useful tool for ascending moderately tall structures with no internal access.</p>
-
-<h1 id="general-premise">General premise</h1>
-
-<p>The goal is to build a 3D-printable assembly that attaches to the bottom of a drone and holds a carbiner in an open position which can then be remotely shut. The drone must be small enough to be easily portable and nimble while the carabiner assembly must be able to support a moderate amount of weight as a rope will be carried attached to the carabiner. In cases where the distance to be ascended is too large for the drone to reasonably carry the required length of rope, a thinner and lighter ‘tag line’ can be passed through the carabiner and used to pull the climbing rope up once the carabiner is hooked onto an anchor. Finally, a camera must be integrated on the drone to provide the operator visual feedback to line up the carabiner with the target roof anchor.</p>
-
-<h1 id="build">BUILD</h1>
-
-<p>The initial design for this project was a singular 3D printed piece that mounts to a DJI F450 frame since I had a few of these lying around. While this design is functional, the large propeller diameter negatively impacts the drone’s agility and the drone’s size make it a poor solution in terms of portability. [PICS] For these reasons, a new design was created using a 215mm race drone frame. The new design (depicted) is much more portable and breaks down into two pieces such that it can be more reasonably stored in a small volume. 
-<img src="/assets/img/roof-anchor-drone/CAD_assembly_view.PNG" alt="CAD view" />
-Here the green component houses the flight controller, ESCs, battery, and radio gear whereas the purple component is the carabiner holder.</p>
-
-<h2 id="carabiner-mechanism">Carabiner mechanism</h2>
-
-<p>In addition to its modularity, the final design has two servos on the carabiner holder component: the first (1) retains a rubber band which is wrapped around the holder to keep the latch open while the second (2) supports the weight of the rope being carried by the carabiner.</p>]]></content><author><name>Serban Popovici</name></author><summary type="html"><![CDATA[A physical infiltration tool]]></summary></entry><entry><title type="html">Jaguar (Medium-sized VTOL UAV Platform)</title><link href="http://localhost:4000/jaguar/" rel="alternate" type="text/html" title="Jaguar (Medium-sized VTOL UAV Platform)" /><published>2021-12-01T00:00:00-05:00</published><updated>2021-12-01T00:00:00-05:00</updated><id>http://localhost:4000/jaguar</id><content type="html" xml:base="http://localhost:4000/jaguar/"><![CDATA[<h2 id="simple-but-limited-uav-platform-for-urban-operations">Simple but limited UAV platform for urban operations</h2>
-
-<p>I kept seeing ~2.5m wide VTOL UAVs on AliExpress that I would love to own but they are all rather overpriced so I decided to make my own. Using the tech I played with while developing the LTE-based Mavic Pro I intend to have this drone operated by a cellular application and AI to minimize how much interaction is required from the user.</p>
-
-<p>I purchased motors and ESCs in accordance with <a href="https://www.aliexpress.com/item/1005002831031206.html?spm=a2g0o.productlist.0.0.38ef1d39JjUhDN&amp;algo_pvid=7475fc42-48b8-4b91-ad05-eff71d8d9826&amp;algo_exp_id=7475fc42-48b8-4b91-ad05-eff71d8d9826-8">this</a> VTOL from AliExpress because it will be similarly sized to my final design.</p>
-
-<h1 id="design-overview">Design Overview</h1>
-
-<p>This design relies heavily on 3D printed components and foam board/spars which can be sourced at Dollarama. The general premise is to create a form of outline using 3D printed ribs and cover it in delaminated foamboard. The spars inside the fuselage are fiberglass whereas all other spars in the aircraft are steel broomsticks from Dollarama. The current design is solely a prototype and, as such, the extra weight should not matter.</p>
-
-<h1 id="update-mar-2022">UPDATE Mar 2022</h1>
-
-<p>Project abandoned for financial reasons.</p>
-
-<h1 id="update-feb-2022">UPDATE Feb 2022</h1>
-
-<p>Removable wing extensions have been finished.</p>
-
-<p><strong>WING PICS</strong></p>
-
-<p><img src="/assets/img/jaguar/CAD-V1.PNG" alt="Tail closeup" style="float: right; width:50%; height:50%" />
-The CAD design has also been updated to include more specific design considerations for the tail: there are now servo and LED holes. The VTOL motors and mounts have been omitted in the design below. I also doubled the rib density in the wing based on my experience when building the removable portions; one rib every 8 inches allowed for an inconsistent profile at the leading edge once the foam board was delaminated on one side.</p>
-
-<p><img src="/assets/img/jaguar/CAD-V2.PNG" alt="Updated CAD" /></p>
-
-<h1 id="update-dec-2021">UPDATE Dec 2021</h1>
-
-<p>Went on a last minute trip before the COVID-19 Omicron wave and, for some reason, I find that my design productivity is very high while traveling so I was able to finish the CAD design for this UAV. The internals of the plane are not yet finalized because I have not yet decided on the specifications of the battery and I can’t fully imagine what components will be included in the UAV just yet. The current CAD progress focused on obtaining a general shape for the aircraft and fully designing the wings as well as the rear half of the fuselage containing the camera gimbal, electronics, and thrust motor. The tail is currently designed but without any considerations about the electronics which will be housed within.</p>
-
-<p><img src="/assets/img/jaguar/CAD-V1.PNG" alt="Original CAD" /></p>
-
-<p>I’ve also been printing wing ribs on and off for a few weeks now in hopes that I can begin construction soon. It’s difficult to decide where I should begin with a project as daunting as this one.</p>]]></content><author><name>Serban Popovici</name></author><summary type="html"><![CDATA[Simple but limited UAV platform for urban operations]]></summary></entry><entry><title type="html">Mining Rig Temperature Control</title><link href="http://localhost:4000/mining-rig-temp-control/" rel="alternate" type="text/html" title="Mining Rig Temperature Control" /><published>2021-11-25T00:00:00-05:00</published><updated>2021-11-25T00:00:00-05:00</updated><id>http://localhost:4000/mining-rig-temp-control</id><content type="html" xml:base="http://localhost:4000/mining-rig-temp-control/"><![CDATA[<h2 id="a-solution-for-outdoor-mining-rigs-during-winter">A solution for outdoor mining rigs during winter</h2>
-
-<p>I briefly decided to invest in a few graphics cards with all the recent hype surrounding cryptocurrencies and mining. I figured, with GPU prices today, it would be rather impossible to lose money from such an investment and I wanted to try my hand out at mining. Luckily, I began mining just as temperatures began dropping in Canada and considering that I live in an apartment, it made sense to place my mining rig outdoors.
-<img src="/assets/img/mining-rig/basic-diagram.PNG" alt="Enclosure diagram" style="float: right; width:50%; height:50%" />
-Firstly, I constructed a relatively waterproof enclosure for the rig to protect it from rain and snow while it sits on my balcony. This enclosure uses three 120mm fans to pull cold air in at the bottom which naturally flows upwards and exits through the top of the enclosure. While this works well for colder temperatures, I have found that the lid of the enclosure must remain open for temperatures above ~ -10 C (lid is grey in the image above). Around -10 C and below, heat generated by the graphics cards is no longer enough to reliably maintain all the internals above 0 C and therefore I needed some way to cut off the influx of cold air when the internals got too cold.</p>
-
-<h1 id="basic-idea">Basic Idea</h1>
-
-<p>I know from experimentation that having the enclosure’s fans off results in incredibly hot temperatures so cutting off the fans should be enough to maintain the internals above 0 C. I purchased some cheap DHT11 temperature and humidity sensors off of AliExpress for another project a while ago so I will be using those for this application. To more accurately measure the temperature within the enclosure, three sensors will be used to measure the temperature at different points:</p>
-<ul>
-  <li>(1) will monitor a known hotspot behind two GPUs</li>
-  <li>(2) will monitor the motherboard</li>
-  <li>(3) will monitor the temperature at the emptier end of the rig given the lack of GPUs which results in lower temps
-<strong>IMAGE</strong></li>
-</ul>
-
-<h2 id="logic">Logic</h2>
-
-<p>I am not monitoring humidity since I want the microcontroller to prioritize temperature over humidity and Canada’s winters are traditionally dry. The microcontroller will average the temperature across all three DHTs and cut off fans whenever this average dips below 10 C. Furthermore, the fans will cut off if any sensor dips below 5 C; the thresholds are high because I do not trust the accuracy of my cheap AliExpress DHTs.</p>
-
-<h2 id="build">Build</h2>
-
-<p>I am using an ESP-12E, since that is what I have on hand, as well as a cheap 4-channel relay board in conjunction with the three DHT sensors. Connections are as follows:</p>
-<ul>
-  <li>Motherboard DHT –&gt; digital pin 5</li>
-  <li>GPU DHT –&gt; digital pin 4</li>
-  <li>PSU DHT –&gt; digital pin 0</li>
-  <li>Fan relay –&gt; digital pin 16</li>
-</ul>
-
-<h2 id="code">Code</h2>
-
-<p>The code can be found at https://github.com/Serpopovici163/miningRigTempCtrl and the ESP’s webpage: 
-<img src="/assets/img/mining-rig/webpage.PNG" alt="Wepbage screenshot" />
-The webpage automatcally refreshes every 30 seconds and I am currently displaying it on a Wink Relay in my living room seeing as that’s about the only thing a Wink Relay is good for nowadays. One note from the screenshot above is that the low temperature saved by the ESP is wrong: there seems to be some issue with at least one sensor causing it to briefly report a temperature of -21 Celsius but the enclosure never actually drops below 0 Celsius.</p>
-
-<h1 id="update-dec-2021">UPDATE Dec 2021</h1>
-
-<p>Everything works as intended! The rig manages its temperature accurately and has been up for 24/7 with this system installed.</p>]]></content><author><name>Serban Popovici</name></author><summary type="html"><![CDATA[A solution for outdoor mining rigs during winter]]></summary></entry><entry><title type="html">DIY 3D Printed Powered Ascender</title><link href="http://localhost:4000/powered-ascender/" rel="alternate" type="text/html" title="DIY 3D Printed Powered Ascender" /><published>2021-01-01T00:00:00-05:00</published><updated>2021-01-01T00:00:00-05:00</updated><id>http://localhost:4000/powered-ascender</id><content type="html" xml:base="http://localhost:4000/powered-ascender/"><![CDATA[<h2 id="shouldnt-work-but-it-might">Shouldn’t work but it might</h2>
-
-<p>I figured that, considering people have 3D printed functional guns, surely it must be possible to 3D print an ascender without worrying about the material’s strength. Initial designs are solely for prototyping and, as such, have no accommodations for the ESCs, batteries, or any hardware besides pulleys and motors.</p>
-
-<h1 id="update-jun-2022">UPDATE Jun 2022</h1>
-
-<p>Took a relatively long break from personal projects and school work since I got burned out; this update should have come in March but I am only getting around to it in June. A friend of mine asked me to revisit the personal ascender project since we may have identified a genuine use case for it. 
-<img src="/assets/img/ascender/mit-ascender.PNG" alt="MIT Ascender" style="float: right; width:60%;" />
-I was simultaneously made aware of <a href="https://dspace.mit.edu/bitstream/handle/1721.1/92180/897205934-MIT.pdf;sequence=2">this paper</a> written by Daniel P. Gillund, a Mechanical Engineering student at MIT. He built a relatively cheap ascender using the motor and gearbox of a hand drill alongside a few machined parts of his own. The prototype (pictured to the right) relies on a Capstan pulley to generate adequate friction with the rope thereby solving my problem.</p>
-
-<p>This design had a couple minor flaws described in section 7.4 of the paper which could easily be improved by iterating the design. The only other modification required will be to modify the ascender’s capstan pulley to accommodate thicker rope; my use case will require this ascender to work with 16mm polysteel rope commonly used by window washers. The thickness of this rope translates to a comparatively thicker Capstan pulley thereby hopefully increasing the feasibility of placing the planetary gearbox within the Capstan pulley itself. I will likely begin by designing an ascender for 8-10mm climbing rope and go from there once that design is proved to be feasible.</p>
-
-<h1 id="update-feb-2022">UPDATE Feb 2022</h1>
-
-<p>Previous design did not work well, there was a substantial lack of grip on the rope which led to excessive friction that melted part of the rope. Furthermore, the ‘teeth’ on the drive pulley wore out in no time so I will be abandoning these in the future; I knew they wouldn’t last long but I assumed they would simply round off as opposed to completely melting off.</p>
-
-<p>One solution to the lack of grip is increasing the number of drive pulleys in the design, but in the interest of keeping things simple and compact the new design simply has the rope loop around the drive pulley multiple times. The new issue to consider here is whether the drive pulley will get crushed because, by looping the rope around multiple times, the drive pulley is now effectively supporting the full weight of the wearer.</p>
-
-<h1 id="update-jan-2022">UPDATE Jan 2022</h1>
-
-<p>I only have 5015 320kV motors available to me which are meant to be used for the Jaguar UAV; given their high kV and low torque rating I will be using two of these in tandem. I am confident in the motor mount and side panel of this prototype, however I fully expect the main pulley to fail but only time will tell.</p>
-
-<p>I started with the main gear that is responsible for feeding the rope through the ascender. Initially, the gear was 80 mm in diameter to provide more surface area thereby having greater grip on the rope; this was later reduced to 40mm because the motors I own have a relatively high kV so they need to work at a higher RPM to produce their rated torque. Below is a preliminary model of the main pulley. It has a hole in the center to accommodate the motor’s shaft and four holes that are meant to be occupied by the heads of 4 screws mounted to each motor. I was unsure of how else to link the motors and pulley without overly complicating the design.
-<img src="/assets/img/ascender/V1-main-pulley.PNG" alt="Main pulley design" />
-The image below depicts the assembly without a side panel to display the internals. The blue solid demonstrates where the rope is meant to go and the red arrow point upwards.
-<img src="/assets/img/ascender/V1-assy-without-sidepanel.PNG" alt="Assembly w/o side panel" />
-Below is the complete assembly.
-<img src="/assets/img/ascender/V1-assy.PNG" alt="Complete assembly" /></p>]]></content><author><name>Serban Popovici</name></author><summary type="html"><![CDATA[Shouldn’t work but it might]]></summary></entry></feed>
+<img src="/assets/img/smart-sight/exploded_noWriting.PNG" alt="Exploded View" style="display: block; margin-left: auto; margin-right: auto; margin-top: 10px" /></p>]]></content><author><name>Serban Popovici</name></author><summary type="html"><![CDATA[Intelligent weapon optics]]></summary></entry></feed>

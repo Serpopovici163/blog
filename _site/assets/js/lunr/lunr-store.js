@@ -5,6 +5,12 @@ var store = [{
         "url": "/powered-ascender/",
         "teaser": null
       },{
+        "title": "Annota Application",
+        "excerpt":"Annota is my first ever attempt at developing software for Android devices. As part of a second year course, we were challenged to develop an application that could digitize a user’s notes in order to categorize and index them. This application is far from exemplar for a variety of reasons...","categories": [],
+        "tags": [],
+        "url": "/annota-mobile-application-DESKTOP-Q9T83P9/",
+        "teaser": null
+      },{
         "title": "Mining Rig Temperature Control",
         "excerpt":"A solution for outdoor mining rigs during winter I briefly decided to invest in a few graphics cards with all the recent hype surrounding cryptocurrencies and mining. I figured, with GPU prices today, it would be rather impossible to lose money from such an investment and I wanted to try...","categories": [],
         "tags": [],
@@ -39,6 +45,30 @@ var store = [{
         "excerpt":"Cellular-based drone control has been a longstanding goal with the purpose of creating UAVs requiring minimal user input to function. I have found the need for constant input to significantly reduce the useability of drones for recon during my adventures because neither myself nor the people with me can dedicate...","categories": [],
         "tags": [],
         "url": "/lte-mavic-pro/",
+        "teaser": null
+      },{
+        "title": "BRZ VIM4",
+        "excerpt":" ","categories": [],
+        "tags": [],
+        "url": "/brz-VIM4/",
+        "teaser": null
+      },{
+        "title": "BRZ Head Unit",
+        "excerpt":"CAD The retrofit brackets for this vehicle were designed by first measuring and modelling the mount points to the vehicle before extruding a general shape to house all the required components. The components are then arranged on the aforementioned general shape such that their screw holes/mount points can be cut...","categories": [],
+        "tags": [],
+        "url": "/brz-head-unit/",
+        "teaser": null
+      },{
+        "title": "BRZ LightLink",
+        "excerpt":"RGB ftw LightLink Overview Control of a vehicle’s external lighting is safety critical and I did not feel comfortable half-assing a solution to handle this considering the hardware upgrades to the vehicle. As a result, I’ve settled on designing a custom circuit board with 12 MOSFET channels to handle ‘dumb’...","categories": [],
+        "tags": [],
+        "url": "/brz-light-link/",
+        "teaser": null
+      },{
+        "title": "BRZ Steering Wheel",
+        "excerpt":"Steering Wheel Button Integration Steering wheel buttons were added to BRZs in 2017 and mine is a 2013 so I purchased a salvage steering wheel in order to integrate its buttons into my systems. Should anybody else contemplate to do the same, be aware that even though steering wheels are...","categories": [],
+        "tags": [],
+        "url": "/brz-steering-wheel/",
         "teaser": null
       },{
         "title": "Modernizing my 2013 Subaru BRZ",
