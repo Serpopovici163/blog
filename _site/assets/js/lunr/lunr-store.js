@@ -47,6 +47,12 @@ var store = [{
         "url": "/lte-mavic-pro/",
         "teaser": null
       },{
+        "title": "BRZ CAN",
+        "excerpt":" ","categories": [],
+        "tags": [],
+        "url": "/brz-CAN/",
+        "teaser": null
+      },{
         "title": "BRZ VIM4",
         "excerpt":" ","categories": [],
         "tags": [],
@@ -54,13 +60,13 @@ var store = [{
         "teaser": null
       },{
         "title": "BRZ Head Unit",
-        "excerpt":"CAD The retrofit brackets for this vehicle were designed by first measuring and modelling the mount points to the vehicle before extruding a general shape to house all the required components. The components are then arranged on the aforementioned general shape such that their screw holes/mount points can be cut...","categories": [],
+        "excerpt":"This page outlines the process of modifying the BRZ’s stock head unit to contain custom components. I maintained the casing of the original head unit to avoid designing custom mounting hardware and alleviate the need to reverse engineer the casing design. Architecture include block diagram of design here CAD The...","categories": [],
         "tags": [],
         "url": "/brz-head-unit/",
         "teaser": null
       },{
         "title": "BRZ LightLink",
-        "excerpt":"RGB ftw LightLink Overview Control of a vehicle’s external lighting is safety critical and I did not feel comfortable half-assing a solution to handle this considering the hardware upgrades to the vehicle. As a result, I’ve settled on designing a custom circuit board with 12 MOSFET channels to handle ‘dumb’...","categories": [],
+        "excerpt":"LightLink Overview Control of a vehicle’s external lighting is safety critical, so I’ve settled on designing a fully-redundant custom circuit board with 12 MOSFET-driven channels to handle ‘dumb’ lights and 8 addressable channels to handle a set of addressable LED arrays retrofitted throughout the vehicle. In addition to designing a...","categories": [],
         "tags": [],
         "url": "/brz-light-link/",
         "teaser": null
@@ -69,6 +75,12 @@ var store = [{
         "excerpt":"Steering Wheel Button Integration Steering wheel buttons were added to BRZs in 2017 and mine is a 2013 so I purchased a salvage steering wheel in order to integrate its buttons into my systems. Should anybody else contemplate to do the same, be aware that even though steering wheels are...","categories": [],
         "tags": [],
         "url": "/brz-steering-wheel/",
+        "teaser": null
+      },{
+        "title": "BRZ Wiring",
+        "excerpt":" ","categories": [],
+        "tags": [],
+        "url": "/brz-wiring/",
         "teaser": null
       },{
         "title": "Modernizing my 2013 Subaru BRZ",

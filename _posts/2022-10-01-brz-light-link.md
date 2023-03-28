@@ -6,13 +6,17 @@ toc: true
 hidden: true
 ---
 
-## RGB ftw
-
-
-
 ## LightLink Overview
 
-Control of a vehicle's external lighting is safety critical and I did not feel comfortable half-assing a solution to handle this considering the hardware upgrades to the vehicle. As a result, I've settled on designing a custom circuit board with 12 MOSFET channels to handle 'dumb' lights and 8 addressable channels to handle a set of addressable LED arrays retrofitted throughout the vehicle. 
+Control of a vehicle's external lighting is safety critical, so I've settled on designing a fully-redundant custom circuit board with 12 MOSFET-driven channels to handle 'dumb' lights and 8 addressable channels to handle a set of addressable LED arrays retrofitted throughout the vehicle. 
+
+In addition to designing a fully-redundant board, I felt it necessary to minimize the number of functional components in an effort to limit design complexity and reduce the risk of component failure. All lights within the vehicle share a common ground which means they need to be toggled using a high side switch, ergo P-channel MOSFETs. The problem with this is that P-channel MOSFETs are off when the gate voltage high relative to *their* source which is the car battery whereas the Arduinos operate on regulated 5V. A typical solution for this would be to include some form of transistor to toggle the P-channel MOSFET which would effectively double the components required for a fully redundant solution. 
+
+![Picture of plan](/assets/img/brz/weird_arduino_p_channel_mosfet.png){: style="float: right; width:50%; height:80%; margin-left: 10px;"}
+
+This was not acceptable for me so I did some research and found the picture depicted here to the right. This schematic works by connecting the Arduino's 5V to the MOSFET supply's 12V but keeping the grounds disconnected. In this way, the Arduino can toggle the MOSFET when it sets digital pin 6 to LOW which appears as -5V to the MOSFET and should be enough to fully excite it. This may work however, in order to achieve proper redundancy, I want to know when either MOSFET fails. For this reason, I need some way to sense the output voltage of each MOSFET so I asked around and eventually converged to the solution of decoupling the 5V and 12V grounds using a capacitor at which point I could reference the 12V ground with the Arduino to measure potential at the MOSFET's drain. This design fell through since MOSFETs have an inherent capacitance between their gate and source that needs to be charged when their state is toggled. Due to the lack of common ground, it would be difficult to guarantee predictable behaviour when switching the MOSFET's state resulting in my final solution.
+
+The design explained below follows the same principle of decoupling the voltage rails however a decoupling capacitor is now included on the positive sides of the 5V and 12V rails which allows both components to maintain a common ground. Additionally, this tremendously simplifies the sensing functionality since I no longer need to expend any effort converting a potential from the 12V 'domain' to the 5V 'domain'; I can simply connect an analog pin to the potential I wish to measure as long as it is less than 5V.
 
 ### Redundancy Considerations
 
