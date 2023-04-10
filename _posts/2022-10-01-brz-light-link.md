@@ -18,13 +18,11 @@ This was not acceptable for me so I did some research and found the picture depi
 
 The design explained below follows the same principle of decoupling the voltage rails however a decoupling capacitor is now included on the positive sides of the 5V and 12V rails which allows both components to maintain a common ground. Additionally, this tremendously simplifies the sensing functionality since I no longer need to expend any effort converting a potential from the 12V 'domain' to the 5V 'domain'; I can simply connect an analog pin to the potential I wish to measure as long as it is less than 5V.
 
-### Redundancy Considerations
-
-Given its safety critical function, this board was built with redundancy in mind and includes two of each component required for nominal operation. The MOSFET channels are designed as per the schematic below:
+### Redundant MOSFET Schematic
 
 MOSFET SCHEMATIC
 
-Two MOSFETs are included in parallel, both of which are immediately followed by a Schottky diode to prevent backflow from the other MOSFET. This is necessary because a diagnostic pin is included prior to the Schottky. The diagnostic connections use a summing amplifier with a op-amp IC as pictured below such that the output signal ranges between 0V and 3V with the Qx MOSFET contributing 80% of the output voltage and Qx only contributing the other 20%. This allows the microcontroller to detect the functionality of each individual MOSFET regardless of their parallel arrangement.
+Two MOSFETs are included in parallel, both of which are immediately followed by a Schottky diode to prevent backflow from the other MOSFET. This is necessary because a diagnostic pin is included prior to the Schottky and senses voltage which would be biased by backflow from the other MOSFET therefore hindering the detection of a MOSFET failure. The diagnostic connections use a summing amplifier with a op-amp IC as pictured below such that the output signal ranges between 0V and 3V with the Qx MOSFET contributing 80% of the output voltage and Qx only contributing the other 20%. This allows the microcontroller to detect the functionality of each individual MOSFET regardless of their parallel arrangement.
 
 MOSFETS SCHEMATIC
 
