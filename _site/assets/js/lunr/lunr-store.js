@@ -84,7 +84,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Modernizing my 2013 Subaru BRZ",
-        "excerpt":"I recently acquired a car for recreational purposes since I had saved up a decent amount of money and didn’t feel like investing it. I purchased a BRZ because they are built in conjunction with Toyota and this should theoretically imply that they are relatively reliable and I won’t need...","categories": [],
+        "excerpt":"UPDATE This page is very much under construction, with the nice weather finally here I have begun work on the car and certain things will change/be populated as I get to them. I apologize for the organizational mess that is this page. I recently acquired a car for recreational purposes...","categories": [],
         "tags": [],
         "url": "/brz/",
         "teaser": null

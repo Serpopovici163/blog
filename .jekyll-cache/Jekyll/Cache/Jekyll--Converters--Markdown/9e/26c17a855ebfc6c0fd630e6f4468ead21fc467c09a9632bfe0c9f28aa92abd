@@ -1,15 +1,17 @@
-I"
-5<p>I recently acquired a car for recreational purposes since I had saved up a decent amount of money and didn’t feel like investing it. I purchased a BRZ because they are built in conjunction with Toyota and this should theoretically imply that they are relatively reliable and I won’t need to worry about the mechanical aspects of the vehicle. Furthermore, the BRZ’s interior is driver-centered while maintaining a relatively simple geometry that should facilitate the design of custom dash components to fit my upgraded electronics.</p>
+I"6<h1 id="update">UPDATE</h1>
+<p>This page is very much under construction, with the nice weather finally here I have begun work on the car and certain things will change/be populated as I get to them. I apologize for the organizational mess that is this page.</p>
+
+<p>I recently acquired a car for recreational purposes since I had saved up a decent amount of money and didn’t feel like investing it. I purchased a BRZ because they are built in conjunction with Toyota and this should theoretically imply that they are relatively reliable and I won’t need to worry about the mechanical aspects of the vehicle. Furthermore, the BRZ’s interior is driver-centered while maintaining a relatively simple geometry that should facilitate the design of custom dash components to fit my upgraded electronics.</p>
 
 <p>This project began as a way to disguise speed enforcement countermeasures within the car’s UI seeing as radar/lidar countermeasures are illegal in Ontario. As such, I figured that the best way to hide illegal features would be to program the UI entirely. Seeing as the current head unit is only capable of playing Bluetooth audio, it’s very unlikely that anything I do will result in less overall functionality so I see no downside to this project.</p>
 
 <p>A lot of work has gone into the project so I have split up this post to include a variety of sub-pages detailing individual subsystems in greater detail. This page serves to provide a general overview of the project and a set of links to sub-pages is included below:</p>
 <ul>
   <li><a href="/brz-head-unit">Head Unit</a></li>
-  <li><a href="/brz-user-interface">User Interface (Software)</a></li>
-  <li><a href="/brz-steering-wheel">Steering Wheel</a></li>
   <li><a href="/brz-light-link">LightLink Module</a></li>
   <li><a href="/brz-wiring">Wiring</a></li>
+  <li><a href="/brz-steering-wheel">Steering Wheel</a></li>
+  <li><a href="/brz-user-interface">User Interface (Software)</a></li>
 </ul>
 
 <h1 id="idea">Idea</h1>
