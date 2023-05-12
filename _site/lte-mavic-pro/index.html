@@ -287,7 +287,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          7 minute read
+          8 minute read
         
       </span>
     
@@ -302,30 +302,22 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#basic-idea">Basic Idea</a><ul><li><a href="#data-link">Data Link</a></li><li><a href="#flight-algorithm">Flight Algorithm</a></li></ul></li><li><a href="#update-feb-2022">UPDATE Feb 2022</a></li><li><a href="#update-dec-2021">UPDATE Dec 2021</a></li><li><a href="#code">Code</a><ul><li><a href="#raspberry-pi">Raspberry Pi</a></li><li><a href="#arduino">Arduino</a></li><li><a href="#android-studio">Android Studio</a></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#final-update-feb-2022">FINAL UPDATE Feb 2022</a></li><li><a href="#update-feb-2022">UPDATE Feb 2022</a></li><li><a href="#update-dec-2021">UPDATE Dec 2021</a></li><li><a href="#basic-idea">Basic Idea</a><ul><li><a href="#data-link">Data Link</a></li><li><a href="#flight-algorithm">Flight Algorithm</a></li></ul></li><li><a href="#code">Code</a><ul><li><a href="#raspberry-pi">Raspberry Pi</a></li><li><a href="#arduino">Arduino</a></li><li><a href="#android-studio">Android Studio</a></li></ul></li></ul>
 
             </nav>
           </aside>
         
         <p>Cellular-based drone control has been a longstanding goal with the purpose of creating UAVs requiring minimal user input to function. I have found the need for constant input to significantly reduce the useability of drones for recon during my adventures because neither myself nor the people with me can dedicate significant attention to piloting them. This project aims to achieve basic autonomous control through an Android application that allows the user to place the drone at specific coordinates or land it. The first rendition was built to be submitted as an electronics project for a university course and is solely capable of navigation; takeoff and landing must be manually with a separate remote controller. This is because a F1 flight controller was used which is only capable of managing stability.</p>
 
-<h1 id="basic-idea">Basic Idea</h1>
+<h1 id="final-update-feb-2022">FINAL UPDATE Feb 2022</h1>
 
-<p>The drone will be centered around a Raspberry Pi Zero and a LTE modem for internet access. A Raspberry Pi CM4 could fit and would be beneficial but I am not currently capable of developing carrier boards and a full size Raspberry Pi will not fit. The Pi’s serial port is dedicated to communicating with the flight controller through iBus since iBus operates at 115200 baud and bit bashing on the Pi becomes unreliable past 19200 baud. The GPS data will be received using a GPIO pin and bit bashing and another bit bashing serial connection will be used to communicate with an Arduino. The Arduino serves as an IO expander for the Pi to manage the LEDs on the drone as well as an ultrasonic sensor and sense voltage and current throughout the drone. Using an Arduino as such is advantageous since it has an ADC whereas the Pi does not. Additionally, offloading time-sensitive operations such as reading the ultrasonic sensor and running the drone’s LED patterns decreases the complexity of the Pi’s code.</p>
-
-<h2 id="data-link">Data Link</h2>
-
-<p>My current LTE modem filters all ports no matter what settings I chose within its menu. For this reason, I’ve elected to use a P2P UDP protocol which is able to punch through firewalls. A second Raspberry Pi will serve as an intermediary P2P server to connect the cell phone and drone given that neither has a static IP. The P2P code was largely copied from https://github.com/grakshith/p2p-chat-python.git and modified to better fit my protocol. Both the drone and cell phone should identify themselves during their initial UDP broadcast in order to identify what function they serve; this future proofs the server’s code since I can selectively connect devices based on functionality as opposed to the time at which they contact the server. Once two compatible hosts have broadcast their address/port to the P2P server, they will each receive the address/port of the other client and the server logs the connection before discarding all saved host data.</p>
-
-<h2 id="flight-algorithm">Flight Algorithm</h2>
-
-<p>The version submitted for my course uses a rather primal flight algorithm in which the Pi has a barometer and compass connected to it through I2C. Using GPS, compass, and altitude data the Pi is able to compute a vector from its current coordinates to the target coordinates using the haversine libary for Python and a bearing function I stole from StackExchange. It then points the drone in the target direction and goes forward; the drone’s speed varies based on distance to target and it progressively slows down as the distance decreases. The current version offloaded all navigation to the flight controller running iNav thereby reserving the Pi’s looptime for more useful functions such as WiFi, cellular, and UHF sniffing. OpenCV can also be used on the Pi to provide some level of active tracking and increase the effective autonomy of this platform. For this, I may need to choose a UAV platform with surround cameras such as the Mavic 2 or Skydio 2 and upgrade to an nVidia Jetson computer since having the drone actively follow subjects would require some level of obstacle avoidance.</p>
+<p>I never did test the Mavic camera with the Caddx Vista since I do not have a fully intact gimbal cable lying around and don’t fully intend on maintaining this project. Overall, the system worked. I initially had a physical relay with a separate Arduino to toggle between the FlySky i6 and the Raspberry Pi for control since I did not trust the Raspberry Pi but I ended up omitting this during the final build. The flight algorithm is incredibly buggy since I am relying on the Pi providing raw pitch, roll, and yaw control to the flight controller as opposed to using the flight controller itself to do the navigation.</p>
 
 <h1 id="update-feb-2022">UPDATE Feb 2022</h1>
 
 <p>Obtained a SucceX-D Mini F7 Twin G stack and redesigned the 3D printed bracket which holds all the electronics inside the Mavic. 
 <img src="/assets/img/hacked-mavic/board-mount-V3.PNG" alt="Bracket V2" style="float: right" />
-The new design no longer requires tape and glue but rather relies on three pre-existing screwholes used by the original DJI flight control board. It took a few revisions to finalize the fit of the board such that the components comfortably fit within the restricted space originally occupied by DJI’s proprietary electronics. This is the fifth revision of the bracket and it includes mount points for a 4-in-1 ESC board, flight controller, the Raspberry Pi, and a Flysky receiver. I’m sticking with the Flysky receiver over a Crossfire system since it is able to take advantage of the 2.4 GHz antennas already integrated in the Mavic leading to a more ‘stock’ look. The 4-in-1 ESC board is on the bottom such that it can be in contact with the bottom heatsink of the Mavic and hopefully take advantage of it. Realistically, this ESC board is rated for 45A per motor which is likely over double what the motors should be drawing. Finally, I have decided to remove the Arduino since I should be able to accomplish its tasks with threaded processes on the RPi. In doing so, I am now once again able to install the OEM gimbal on the drone and, since the DJI Mavic’s camera seems to use MIPI, I should be able to interface it with the RPi (I haven’t yet tested the camera’s protocol but its connector looks identical to that of the Caddx Polar camera I own).</p>
+The new design no longer requires tape and glue but rather relies on three pre-existing screwholes used by the original DJI flight control board. It took a few revisions to finalize the fit of the board such that the components comfortably fit within the restricted space originally occupied by DJI’s proprietary electronics. This is the fifth revision of the bracket and it includes mount points for a 4-in-1 ESC board, flight controller, the Raspberry Pi, and a Flysky receiver. I’m sticking with the Flysky receiver over a Crossfire system since it is able to take advantage of the 2.4 GHz antennas already integrated in the Mavic leading to a more ‘stock’ look. The 4-in-1 ESC board is on the bottom such that it can be in contact with the bottom heatsink of the Mavic and hopefully take advantage of it. Realistically, this ESC board is rated for 45A per motor which is likely over double what the motors should be drawing. Finally, I have decided to remove the Arduino since I should be able to accomplish its tasks with threaded processes on the RPi. In doing so, I am now once again able to install the OEM gimbal on the drone and, since the DJI Mavic’s camera seems to use MIPI, I may be able to interface it with the RPi (I haven’t yet tested the camera’s protocol but its connector looks identical to that of the Caddx Polar camera I own).</p>
 
 <p>Unfortunately I still do not have a compact cellular modem and I am not sure where I will be able to fit it. I also need to create a custom target to flash the F7 board with iNav since I don’t believe Betaflight is capable of executing waypoint missions through telemetry but I will see if that’s a possibility. I also need to figure out if the flight controller is able to arm and takeoff without any contribution from the receiver since I only intend to keep it for debugging/testing purposes and it is not intended to be used during regular operation.</p>
 
@@ -343,6 +335,18 @@ This design makes maintenance virtually impossible without considerably disassem
 </ul>
 
 <p><img src="/assets/img/hacked-mavic/build-V1.jpg" alt="Mavic Build V1" /></p>
+
+<h1 id="basic-idea">Basic Idea</h1>
+
+<p>The drone will be centered around a Raspberry Pi Zero and a LTE modem for internet access. A Raspberry Pi CM4 could fit and would be beneficial but I am not currently capable of developing carrier boards and a full size Raspberry Pi will not fit. The Pi’s serial port is dedicated to communicating with the flight controller through iBus since iBus operates at 115200 baud and bit bashing on the Pi becomes unreliable past 19200 baud. The GPS data will be received using a GPIO pin and bit bashing and another bit bashing serial connection will be used to communicate with an Arduino. The Arduino serves as an IO expander for the Pi to manage the LEDs on the drone as well as an ultrasonic sensor and sense voltage and current throughout the drone. Using an Arduino as such is advantageous since it has an ADC whereas the Pi does not. Additionally, offloading time-sensitive operations such as reading the ultrasonic sensor and running the drone’s LED patterns decreases the complexity of the Pi’s code.</p>
+
+<h2 id="data-link">Data Link</h2>
+
+<p>My current LTE modem filters all ports no matter what settings I chose within its menu. For this reason, I’ve elected to use a P2P UDP protocol which is able to punch through firewalls. A second Raspberry Pi will serve as an intermediary P2P server to connect the cell phone and drone given that neither has a static IP. The P2P code was largely copied from https://github.com/grakshith/p2p-chat-python.git and modified to better fit my protocol. Both the drone and cell phone should identify themselves during their initial UDP broadcast in order to identify what function they serve; this future proofs the server’s code since I can selectively connect devices based on functionality as opposed to the time at which they contact the server. Once two compatible hosts have broadcast their address/port to the P2P server, they will each receive the address/port of the other client and the server logs the connection before discarding all saved host data.</p>
+
+<h2 id="flight-algorithm">Flight Algorithm</h2>
+
+<p>The version submitted for my course uses a rather primal flight algorithm in which the Pi has a barometer and compass connected to it through I2C. Using GPS, compass, and altitude data the Pi is able to compute a vector from its current coordinates to the target coordinates using the haversine libary for Python and a bearing function I stole from StackExchange. It then points the drone in the target direction and goes forward; the drone’s speed varies based on distance to target and it progressively slows down as the distance decreases. The current version offloaded all navigation to the flight controller running iNav thereby reserving the Pi’s looptime for more useful functions such as WiFi, cellular, and UHF sniffing. OpenCV can also be used on the Pi to provide some level of active tracking and increase the effective autonomy of this platform. For this, I may need to choose a UAV platform with surround cameras such as the Mavic 2 or Skydio 2 and upgrade to an nVidia Jetson computer since having the drone actively follow subjects would require some level of obstacle avoidance.</p>
 
 <h1 id="code">Code</h1>
 
@@ -362,7 +366,10 @@ This design makes maintenance virtually impossible without considerably disassem
 
 <h2 id="android-studio">Android Studio</h2>
 
-<p>Not sure where exactly to go with the application. Probably gonna open to a full screen map but also have another activity for the drone camera feed/more complex controls. The user will be able to have either activity open full screen or split the screen so both can be viewed at the same time.</p>
+<p>The application is pretty simple overall, it displays a map on which the user can select a point for the drone to go do. By default, the drone will attempt to do so at an altitude of 50m, however a dialog exists for the user to modify that altitude. This application worked using a peer-to-peer server hosted on my server that connected the drone and app through UDP. Normally, the map would center around the drone but these screenshots were taken with the drone offline.</p>
+
+<p><img src="/assets/img/hacked-mavic/app_map.png" alt="App map" style="float: left; width:50%;" />
+<img src="/assets/img/hacked-mavic/app_parameter.png" alt="App parameter" style="float: right; width:50%;" /></p>
 
         
       </section>
