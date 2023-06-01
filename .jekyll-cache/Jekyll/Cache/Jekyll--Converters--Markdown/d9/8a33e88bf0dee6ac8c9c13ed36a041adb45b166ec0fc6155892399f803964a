@@ -1,11 +1,14 @@
-I"ñ)<h2 id="experimenting-with-rocketry-electronics">Experimenting with rocketry electronics</h2>
+I"j+<h2 id="experimenting-with-rocketry-electronics">Experimenting with rocketry electronics</h2>
 
 <p>While I doubt I will ever get a high power rocketry license, I do thoroughly enjoy developing and flying model rockets. None of my past rockets have incorporated any amount of electronics so the purpose of this project is to get a feel for rocketry electronics without any risk by developing only non-terribly-flight-critical components. For this project, I purchased the two biggest rocket engines I can legally get my hands on without any license: AeroTech G80-7T motors.</p>
 
 <h1 id="design">Design</h1>
 <h2 id="motor-mounts">Motor mounts</h2>
 
-<p>I watched a <a href="https://www.youtube.com/watch?v=4fhoCt9vXA8">video</a> by ProjectAir on YouTube about a rocket he built using similarly powerful motors and I based my rocket motor mounts on his design. The motor mounts consist of a small tube for the motor and a larger tube that fits snugly into the rocket body. These two are connected by 8 perpendicular supports between the two cylindrical extrusions. The holes on the bottom of this motor mount also work to hold the first stage onto the main stage by using 8 pegs protruding from the first stage which fit snugly into the 8 holes of the motor mount above.</p>
+<p><img src="/assets/img/habibi-express/motor-mount-and-coupler.png" alt="Recovery layout update" style="float: right; width:30%; margin-left: 10px;" /> 
+I watched a <a href="https://www.youtube.com/watch?v=4fhoCt9vXA8">video</a> by ProjectAir on YouTube about a rocket he built using similarly powerful motors and I based my rocket motor mounts on his design. The motor mounts consist of a small tube for the motor and a larger tube that fits snugly into the rocket body. These two are connected by 8 perpendicular supports between the two cylindrical extrusions. The holes on the bottom of this motor mount also work to hold the first stage onto the main stage by using 8 pegs protruding from the first stage which fit snugly into the 8 holes of the motor mount above.</p>
+
+<p>A screenshot of the motor mount CAD (black) and the first stage coupler (gray) is included to the right. One of the pegs on the coupler is hollow, allowing ignition wires to reach the bottom of the second stage motor.</p>
 
 <h2 id="avionics">Avionics</h2>
 

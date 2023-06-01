@@ -11,7 +11,10 @@ While I doubt I will ever get a high power rocketry license, I do thoroughly enj
 # Design
 ## Motor mounts
 
+![Recovery layout update](/assets/img/habibi-express/motor-mount-and-coupler.png){: style="float: right; width:35%; margin-left: 10px;"} 
 I watched a [video](https://www.youtube.com/watch?v=4fhoCt9vXA8) by ProjectAir on YouTube about a rocket he built using similarly powerful motors and I based my rocket motor mounts on his design. The motor mounts consist of a small tube for the motor and a larger tube that fits snugly into the rocket body. These two are connected by 8 perpendicular supports between the two cylindrical extrusions. The holes on the bottom of this motor mount also work to hold the first stage onto the main stage by using 8 pegs protruding from the first stage which fit snugly into the 8 holes of the motor mount above.
+
+A screenshot of the motor mount CAD (black) and the first stage coupler (gray) is included to the right. One of the pegs on the coupler is hollow, allowing ignition wires to reach the bottom of the second stage motor.
 
 ## Avionics
 
@@ -19,20 +22,20 @@ I intend to have live data logging and telemetry at the very least. This rocket 
 
 # UPDATE Nov 2022
 
-Project is not on track, too many things going on in school however the avionics bay had been printed and mostly assembled. The nose cone is being redesigned to house status LEDs, the GPS, and two cameras for in-flight footage. Pictures coming soon.
+Project is not on track, too many things going on in school however the avionics bay has been printed and mostly assembled. The nose cone is being redesigned to house status LEDs, the GPS, and two cameras for in-flight footage. Pictures coming soon.
 
 # UPDATE Oct 2022
 
 ![Recovery layout update](/assets/img/habibi-express/recovery_layout_update.jpg){: style="float: right; width:10%; height:20%; margin-left: 10px;"} 
 Progress is being made on flight controller firmware, the I2C issue has been fixed, and the IMU data is now being read as well. Turns out the Adafruit BMP280 library was looking for the wrong address and I had to force it to read data from the true address. Engine mounts and fins have been attached to the rocket, currently focused on recovery charge and how to protect the rocket's internals from the motor's ejection charge as well as the true ejection charge. The motor mounts have plenty of space around them to allow the motor's ejection charge gases to escape however I need to add a component following the motor to shield the parachute from the motor's charge and contain the true ejection charge as well. The planned layout is pictured to the right where the green block represents the blast shield, red represents the true ejection charge, yellow represents the drogue chute, and cyan represents the final chute. The rocket splits between the cyan and yellow blocks when the ejection charge detonates.
 
-The avionics bay has been expanded to include relays for the second stage and ejection charge igniters as well as an SD card reader for data logging, servo to retain the primary parachute, and two DVRs (scrapped the camera inside the body tube). The second stage will be ignited based on the following criteria:
+The avionics bay has been expanded to include MOSFETs for the second stage and ejection charge igniters as well as an SD card reader for data logging, servo to retain the primary parachute, and two DVRs (scrapped the camera inside the body tube). The second stage will be ignited based on the following criteria:
 - Rocket attitude is within 30 degrees of launch attitude (makes sure the rocket is vertical)
 - Rocket altitude is greater than 250 meters (should be 500 meters or so based on simulation)
 - Rocket acceleration drops noticeably (simulation suggests peak of 13 Gs however the software will just look for a drop of ~5Gs)
 - Launch was detected less than 10 seconds ago (makes sure the conditions cannot be met unless the rocket just took off)
 
-Once these conditions are met, the rocket will begin a 3-second timer before igniting the second stage, otherwise the flight controller will do nothing. Apogee will be detected when vertical acceleration drops below -5m/s^2 after which the ejection charge will be ignited. The final chute will be deployed 250 meters above ground level based on barometric data. Launch window has been slightly pushed back however it should be achievable by end of November :)
+Once launch is detected (as a peak in acceleration), the rocket will begin a 3-second timer before checking the conditions listed above and igniting the second stage. Apogee will be detected when vertical acceleration drops below -5m/s^2 after which the ejection charge will be ignited. The final chute will be deployed 250 meters above ground level based on barometric data. Launch window has been slightly pushed back however it should be achievable by end of November :)
 
 # UPDATE Sep 2022
 

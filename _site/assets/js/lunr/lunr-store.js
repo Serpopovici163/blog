@@ -60,7 +60,7 @@ var store = [{
         "teaser": null
       },{
         "title": "BRZ Head Unit",
-        "excerpt":"This page outlines the process of modifying the BRZ’s stock head unit to contain custom components. I maintained the casing of the original head unit to avoid designing custom mounting hardware and alleviate the need to reverse engineer the casing design. Architecture include block diagram of design here CAD The...","categories": [],
+        "excerpt":"This page outlines the process of modifying the BRZ’s stock head unit to contain custom components. I maintained the casing of the original head unit to avoid designing custom mounting hardware and alleviate the need to reverse engineer the casing/mounting point dimensions. Architecture include block diagram of design here CAD...","categories": [],
         "tags": [],
         "url": "/brz-head-unit/",
         "teaser": null

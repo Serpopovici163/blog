@@ -5,7 +5,7 @@ toc: true
 hidden: true
 ---
 
-This page outlines the process of modifying the BRZ's stock head unit to contain custom components. I maintained the casing of the original head unit to avoid designing custom mounting hardware and alleviate the need to reverse engineer the casing design.
+This page outlines the process of modifying the BRZ's stock head unit to contain custom components. I maintained the casing of the original head unit to avoid designing custom mounting hardware and alleviate the need to reverse engineer the casing/mounting point dimensions.
 
 ## Architecture
 
@@ -13,7 +13,8 @@ This page outlines the process of modifying the BRZ's stock head unit to contain
 
 ## CAD
 
-The head unit CAD is split into two parts: the internal components (SBCs, amplifiers, etc.) and the external components (display and driver-facing camera). 
+The head unit CAD solely consists of a mounting framework to include all the necessary hardware within the casing of the stock head unit. I initially intended to mount the media display to the head unit itself however I ended up simply mounting it to the trim piece which saved me a ton of work. Of the two pictures included below, the first shows the CAD of the internal framework that holds all the components in the head unit whereas the second is a picture of the assembled head unit. 
+![Head unit internals](/assets/img/brz/head_unit_internals.png)
 
 ### Internal CAD
 
