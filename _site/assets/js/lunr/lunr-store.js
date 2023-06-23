@@ -60,13 +60,13 @@ var store = [{
         "teaser": null
       },{
         "title": "BRZ Head Unit",
-        "excerpt":"This page outlines the process of modifying the BRZ’s stock head unit to contain custom components. I maintained the casing of the original head unit to avoid designing custom mounting hardware and alleviate the need to reverse engineer the casing/mounting point dimensions. Architecture include block diagram of design here CAD...","categories": [],
+        "excerpt":"This page outlines the process of modifying the BRZ’s stock head unit to contain custom components. I maintained the casing of the original head unit to avoid designing custom mounting hardware and alleviate the need to reverse engineer the casing/mounting point dimensions. Architecture include block diagram of design here Final...","categories": [],
         "tags": [],
         "url": "/brz-head-unit/",
         "teaser": null
       },{
         "title": "BRZ LightLink",
-        "excerpt":"LightLink Overview Control of a vehicle’s external lighting is safety critical, so I’ve settled on designing a fully-redundant custom circuit board with 12 MOSFET-driven channels to handle ‘dumb’ lights and 8 addressable channels to handle a set of addressable LED arrays retrofitted throughout the vehicle. In addition to designing a...","categories": [],
+        "excerpt":"LightLink Overview Control of a vehicle’s external lighting is safety critical, so I’ve settled on designing a fully-redundant custom circuit board with 12 MOSFET-driven channels to handle ‘dumb’ lights and 8 addressable channels to handle a set of addressable LED arrays retrofitted throughout the vehicle. The primary challenge with designing...","categories": [],
         "tags": [],
         "url": "/brz-light-link/",
         "teaser": null
