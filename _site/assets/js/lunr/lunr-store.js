@@ -53,12 +53,6 @@ var store = [{
         "url": "/brz-CAN/",
         "teaser": null
       },{
-        "title": "BRZ VIM4",
-        "excerpt":" ","categories": [],
-        "tags": [],
-        "url": "/brz-VIM4/",
-        "teaser": null
-      },{
         "title": "BRZ Head Unit",
         "excerpt":"This page outlines the process of modifying the BRZ’s stock head unit to contain custom components. I maintained the casing of the original head unit to avoid designing custom mounting hardware and alleviate the need to reverse engineer the casing/mounting point dimensions. Architecture include block diagram of design here Final...","categories": [],
         "tags": [],
@@ -66,7 +60,7 @@ var store = [{
         "teaser": null
       },{
         "title": "BRZ LightLink",
-        "excerpt":"LightLink Overview Control of a vehicle’s external lighting is safety critical, so I’ve settled on designing a fully-redundant custom circuit board with 12 MOSFET-driven channels to handle ‘dumb’ lights and 8 addressable channels to handle a set of addressable LED arrays retrofitted throughout the vehicle. The primary challenge with designing...","categories": [],
+        "excerpt":"UPDATE: I’m nearly done schematics and hope to order this PCB soon. I’m also working on a PCB for the transceiver computer that connects the car’s CAN network to my own and I will finish both before I send off the order. LightLink Overview Control of a vehicle’s external lighting...","categories": [],
         "tags": [],
         "url": "/brz-light-link/",
         "teaser": null
@@ -75,6 +69,18 @@ var store = [{
         "excerpt":"Steering Wheel Button Integration Steering wheel buttons were added to BRZs in 2017 and mine is a 2013 so I purchased a salvage steering wheel in order to integrate its buttons into my systems. Should anybody else contemplate to do the same, be aware that even though steering wheels are...","categories": [],
         "tags": [],
         "url": "/brz-steering-wheel/",
+        "teaser": null
+      },{
+        "title": "BRZ User Interface",
+        "excerpt":"Head Unit Display The large head unit display is split horizontally into two sections: a ‘big container’ which is 3/4 of the display’s width and a ‘small container’ which occupies the remaining space. The views displayed by the big container and their respective purpose are as follows: Navigation fragment –&gt;...","categories": [],
+        "tags": [],
+        "url": "/brz-user-interface/",
+        "teaser": null
+      },{
+        "title": "BRZ Vision System",
+        "excerpt":"General Overview All cameras are wired to the center console, near the airbag module of the car, where I will mount a nVidia Jetson Orin NX. Front Sensor Package TODO: add surround camera to front as well as tight/zoom IR-sensitive cameras for active night vision. Also add IR flood light...","categories": [],
+        "tags": [],
+        "url": "/brz-vision-system/",
         "teaser": null
       },{
         "title": "BRZ Wiring",

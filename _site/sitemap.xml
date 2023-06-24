@@ -37,10 +37,6 @@
 <lastmod>2022-10-01T00:00:00-04:00</lastmod>
 </url>
 <url>
-<loc>http://localhost:4000/brz-VIM4/</loc>
-<lastmod>2022-10-01T00:00:00-04:00</lastmod>
-</url>
-<url>
 <loc>http://localhost:4000/brz-head-unit/</loc>
 <lastmod>2022-10-01T00:00:00-04:00</lastmod>
 </url>
@@ -50,6 +46,14 @@
 </url>
 <url>
 <loc>http://localhost:4000/brz-steering-wheel/</loc>
+<lastmod>2022-10-01T00:00:00-04:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/brz-user-interface/</loc>
+<lastmod>2022-10-01T00:00:00-04:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/brz-vision-system/</loc>
 <lastmod>2022-10-01T00:00:00-04:00</lastmod>
 </url>
 <url>
@@ -73,6 +77,6 @@
 </url>
 <url>
 <loc>http://localhost:4000/mito/</loc>
-<lastmod>2023-06-01T16:16:36-04:00</lastmod>
+<lastmod>2022-08-07T19:22:11-04:00</lastmod>
 </url>
 </urlset>
