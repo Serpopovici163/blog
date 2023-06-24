@@ -1,4 +1,4 @@
-I""<p>UPDATE: I’m nearly done schematics and hope to order this PCB soon. I’m also working on a PCB for the transceiver computer that connects the car’s CAN network to my own and I will finish both before I send off the order.</p>
+I"�"<p>UPDATE: I’m nearly done schematics and hope to order this PCB soon. I’m also working on a PCB for the transceiver computer that connects the car’s CAN network to my own and I will finish both before I send off the order.</p>
 
 <h2 id="lightlink-module-overview">LightLink Module Overview</h2>
 
@@ -41,5 +41,6 @@ As it turns out, it is in fact cheaper to buy high power addressable RGB LEDs an
 
 <h3 id="fourth-brake-light">Fourth Brake Light</h3>
 
+<iframe width="420" height="315" src="/assets/img/brz/fourth_brake_light_video.mp4" frameborder="0" allowfullscreen="allowfullscreen">&nbsp;</iframe>
 <p>This was a fun one. The stock fourth brake light only contains two bulbs that turn on when the vehicle is in reverse. The plastic housing of the light quite literally has a spot dedicated to having a light bulb behind the red lens but none is included from the factory. I knew I was going to add a fourth brake light to the car and decided that I might as well add RGB to the two reverse light compartments as well. I don’t seem to have any pictures of the modified fourth brake light though I do have this video where I had programmed it to flash red and blue. The assembly process was rather simple, I cut some holes in the fourth brake light casing with my soldering iron that were just large enough for the portion of the LED that lights up. I then screwed the LEDs into the plastic of the fourth brake light using the two mounting holes they have and lathered the completed thing with high temp hot glue. I’ve had this running for quite a while now and it has yet to fail.</p>
 :ET

@@ -2,7 +2,7 @@
 layout: single
 title:  "BRZ User Interface"
 toc: true
-hidden: false
+hidden: true
 ---
 
 ### Head Unit Display

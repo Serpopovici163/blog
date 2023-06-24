@@ -108,7 +108,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Two G-class Stage Rocket w/ Basic Telemetry",
-        "excerpt":"Experimenting with rocketry electronics While I doubt I will ever get a high power rocketry license, I do thoroughly enjoy developing and flying model rockets. None of my past rockets have incorporated any amount of electronics so the purpose of this project is to get a feel for rocketry electronics...","categories": [],
+        "excerpt":"Experimenting with rocketry electronics While I may never get a high power rocketry license, I do thoroughly enjoy developing and flying model rockets. None of my past rockets have incorporated any amount of electronics so the purpose of this project is to get a feel for rocketry electronics without any...","categories": [],
         "tags": [],
         "url": "/two-stage-rocket/",
         "teaser": null

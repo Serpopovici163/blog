@@ -6,19 +6,18 @@ classes: wide
 
 ## Experimenting with rocketry electronics
 
-While I doubt I will ever get a high power rocketry license, I do thoroughly enjoy developing and flying model rockets. None of my past rockets have incorporated any amount of electronics so the purpose of this project is to get a feel for rocketry electronics without any risk by developing only non-terribly-flight-critical components. For this project, I purchased the two biggest rocket engines I can legally get my hands on without any license: AeroTech G80-7T motors.
+While I may never get a high power rocketry license, I do thoroughly enjoy developing and flying model rockets. None of my past rockets have incorporated any amount of electronics so the purpose of this project is to get a feel for rocketry electronics without any risk by developing only non-terribly-flight-critical components. For this project, I purchased the two biggest rocket engines I can legally get my hands on without any license: AeroTech G80-7T motors.
 
-# Design
-## Motor mounts
+# UPDATE May 2023
 
-![Recovery layout update](/assets/img/habibi-express/motor-mount-and-coupler.png){: style="float: right; width:35%; margin-left: 10px;"} 
-I watched a [video](https://www.youtube.com/watch?v=4fhoCt9vXA8) by ProjectAir on YouTube about a rocket he built using similarly powerful motors and I based my rocket motor mounts on his design. The motor mounts consist of a small tube for the motor and a larger tube that fits snugly into the rocket body. These two are connected by 8 perpendicular supports between the two cylindrical extrusions. The holes on the bottom of this motor mount also work to hold the first stage onto the main stage by using 8 pegs protruding from the first stage which fit snugly into the 8 holes of the motor mount above.
+![Assembled airframe](/assets/img/habibi-express/assembled_airframe.jpg){: style="float: right; width:30%; height:50%; margin-left: 10px;"}
 
-A screenshot of the motor mount CAD (black) and the first stage coupler (gray) is included to the right. One of the pegs on the coupler is hollow, allowing ignition wires to reach the bottom of the second stage motor.
+It's been a minute. I've been really busy with other commitments but the airframe is finally coming together! Unfortunately, the GPS I got does not seem to work very well. This is the second BN-880 module I've gotten, I assumed the first one was a fluke but I guess these are just bad GPS sensors in general. As such, I will need to reprint the nose cone to accomodate a uBlox-M8N chip I have and I will also attempt to install some cameras in the nose cone for the DVRs that I've added to the avionics bay. The avionics bay is also rather messy however everything works well from a software perspective. The one issue it has is that the voltage on the 5V rail drops dramatically whenever the radio sends out a telemetry packet. This does not affect the avionics systems but does affect the servo that is in charge of preventing the main chute from deploying straight away. This could be because of a bad LiPo battery that sags a bunch or simply the servo being too cheap so I will first attempt to swap the servo out with a nicer one before going to a nicer battery. I've already given the radio a separate 5V regulator from the other avionics and added a capacitor in parallel on the radio's power input which should theoretically take care of the voltage drop but that has not really fixed anything so far. Given that the other electronics behave themselves, it's almost certainly an issue with the servo.
 
-## Avionics
+![Avionics front](/assets/img/habibi-express/avionics_front.jpg){: style="float: left; width:50%; height:80%;"}
+![Avionics rear](/assets/img/habibi-express/avionics_rear.jpg){: style="float: right; width:50%; height:80%;"}
 
-I intend to have live data logging and telemetry at the very least. This rocket will include a GPS, barometer, and accelerometer as well as an ignition system for the main stage engine. I would also like to include some system that can delay the deployment of the main chute since it will significantly increase the rocket's drift during recovery however I'm unsure of how reliably I can integrate such a feature. All the electronics will be housed near/in the nose cone and the rocket will separate close to the main stage motor for recovery such that the body tube/nose cone section containing the electronics remains intact.
+Definitely not a fan of how messy the wiring is but I don't see it getting much better with the amount of tech stuffed in there. I've added an APM power module to use its regulator and add current/voltage sensing to the Arduino so I can get this info through telemetry. There are two sets of wires coming out of the top of the avionics assembly: the first (with the white connector) go to the GPS in the nose cone and the second set (4 free wires) are for power and two video feeds coming from cameras in the nose cone. The four wires at the bottom are for the second stage ignitor and the ejection charge ignitor.
 
 # UPDATE Nov 2022
 
@@ -67,3 +66,15 @@ Rocket design was finalized in [OpenRocket](https://openrocket.info/) and basic 
 
 ![OpenRocket Model](/assets/img/habibi-express/open-rocket-sim.PNG)
 ![OpenRocket Simulation](/assets/img/habibi-express/open-rocket-sim-graph.PNG)
+
+# Design
+## Motor mounts
+
+![Recovery layout update](/assets/img/habibi-express/motor-mount-and-coupler.png){: style="float: right; width:35%; margin-left: 10px;"} 
+I watched a [video](https://www.youtube.com/watch?v=4fhoCt9vXA8) by ProjectAir on YouTube about a rocket he built using similarly powerful motors and I based my rocket motor mounts on his design. The motor mounts consist of a small tube for the motor and a larger tube that fits snugly into the rocket body. These two are connected by 8 perpendicular supports between the two cylindrical extrusions. The holes on the bottom of this motor mount also work to hold the first stage onto the main stage by using 8 pegs protruding from the first stage which fit snugly into the 8 holes of the motor mount above.
+
+A screenshot of the motor mount CAD (black) and the first stage coupler (gray) is included to the right. One of the pegs on the coupler is hollow, allowing ignition wires to reach the bottom of the second stage motor.
+
+## Avionics
+
+I intend to have live data logging and telemetry at the very least. This rocket will include a GPS, barometer, and accelerometer as well as an ignition system for the main stage engine. I would also like to include some system that can delay the deployment of the main chute since it will significantly increase the rocket's drift during recovery however I'm unsure of how reliably I can integrate such a feature. All the electronics will be housed near/in the nose cone and the rocket will separate close to the main stage motor for recovery such that the body tube/nose cone section containing the electronics remains intact.
