@@ -330,7 +330,14 @@ steering wheel and followed traces to figure out the function of each wire. My f
   </tbody>
 </table>
 
-<p>Taking these findings into account, I connected the yellow and red pins to ground and connected the light green, green, purple, and black wire to analog pins that were set up as INPUT_PULLUPs. With this setup the Arduino can mostly distinguish between the buttons however some buttons produce analogRead() values that are very close to each other and are therefore mistaken by the Arduino at times. The Arduino then encodes these button presses into an 8-byte CAN packet that gets sent repeatedly over my CAN network as long as the button remains pressed. I’ve also attached the LED VCC pin to a digital pin so it can be set on by the Arduino whenever another device on the CAN network commands it to do so.</p>
+<p>Taking these findings into account, I connected the yellow and red pins to ground and connected the light green, green, purple, and black wire to analog pins that were set up as INPUT_PULLUPs.
+<img src="/assets/img/brz/steering_wheel_computer.jpg" alt="Steering wheel computer" style="float: right; width:50%; height:80%; margin-left: 10px;" />
+With this setup the Arduino can mostly distinguish between the buttons however some buttons produce analogRead() values that are very close to each other and are therefore mistaken by the Arduino at times. The Arduino then encodes these button presses into an 8-byte CAN packet that gets sent repeatedly over my CAN network as long as the button remains pressed. I’ve also attached the LED VCC pin to a digital pin so it can be set on by the Arduino whenever another device on the CAN network commands it to do so. The final product, inserted in the steering wheel, is depicted below.</p>
+
+<p><img src="/assets/img/brz/steering_wheel_computer_installed_1.jpg" alt="Steering wheel computer 1" style="float: left; width:50%; height:80%;" />
+<img src="/assets/img/brz/steering_wheel_computer_installed_2.jpg" alt="Steering wheel computer 2" style="float: right; width:50%; height:80%;" /></p>
+
+<p>This design worked out really nicely and provides easy access to the Arduino’s USB port so the computer can be reprogrammed at any time. The car’s clockspring had quite a few unused pins so I was able to wire power and CAN through the stock steering wheel connector and retrieve the signals inside. I’ve integrated a 5V regulator into the steering column that provides regulated 5V to the steering wheel computer. This is because I omitted to add it in the 3D-printed bracket that holds the steering wheel computer in place and decided to simply include it in the steering column as opposed to redesigning the bracket slightly and rewiring the steering wheel. I justified this by telling myself that I do not trust the cheap buck regulators I got and I would rather a fire occur in the steering column as opposed to right next to my counterfeit steering wheel airbag.</p>
 
   </div>
 </div>

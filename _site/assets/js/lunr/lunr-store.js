@@ -78,13 +78,13 @@ var store = [{
         "teaser": null
       },{
         "title": "BRZ Vision System",
-        "excerpt":"General Overview All cameras are wired to the center console, near the airbag module of the car, where I will mount a nVidia Jetson Orin NX. Front Sensor Package TODO: add surround camera to front as well as tight/zoom IR-sensitive cameras for active night vision. Also add IR flood light...","categories": [],
+        "excerpt":"General Overview All cameras are wired to the center console, near the airbag module of the car, where I will mount a nVidia Jetson Orin NX. Any cameras mounted somewhere that could be reasonably reached by water have been doused in 422C conformal coating by MG Chemicals to provide an...","categories": [],
         "tags": [],
         "url": "/brz-vision-system/",
         "teaser": null
       },{
         "title": "BRZ Wiring",
-        "excerpt":" ","categories": [],
+        "excerpt":"Don’t even get me started.              ","categories": [],
         "tags": [],
         "url": "/brz-wiring/",
         "teaser": null

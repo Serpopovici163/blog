@@ -20,7 +20,9 @@ The updated head unit was a very satisfying thing to assemble. It effectively as
 ![Head unit internals](/assets/img/brz/head_unit_internals_real.jpg)
 ![Final head unit](/assets/img/brz/final_head_unit.jpg)
 
-The final product, pictured above, came out rather clean! There's a ribon cable protruding from the front that goes to the main media display and there are a few small JST-SM connectors as well as some generic I/O on the back to interface with the center console display, CAN bus, and various other things. My initial plan was to mount the display to the head unit itself, but aligning it with the trim and designing a mount that can be secured while also being removeable for a display as large as mine proved incredibly difficult. I therefore settled for mounting the display in the trim piece itself with only a ribon cable connecting it to the head unit.
+The final product, pictured above, came out rather clean! There's a ribon cable protruding from the front that goes to the main media display and there are a few small JST-SM connectors as well as some generic I/O on the back to interface with the center console display, CAN bus, and various other things. My initial plan was to mount the display to the head unit itself, but aligning it with the trim and designing a mount that can be secured while also being removeable for a display as large as mine proved incredibly difficult. I therefore settled for mounting the display in the trim piece itself with only a ribon cable connecting it to the head unit. The original head unit is included below though I had already removed the CD player in this picture which is why it is missing its top XD.
+
+![Original head unit](/assets/img/brz/head_unit_original.jpg)
 
 I found a blog post and managed to obtain the stock wiring plugs for the head unit (Metra 70-1761) to get power and interface with the vehicle's speakers. Lastly, the head unit gets a few state-related signals from the car such as a reverse signal (to turn on the backup camera) and an illumination signal (to notify it when the running lights are on). Both of these signals are forwarded back out through the JST-SM connectors and will connect to a transceiver computer by the car's OBD port such that they can be encoded into CAN packets that are passed through my CAN network. This allows all of my hardware to keep track of their state and reduces the amount of hardware required in the head unit itself.
 
@@ -43,6 +45,37 @@ The inside of the OEM head unit's casing has been redesigned to utilize a series
 10. Voltage splitter --> splits battery voltage for display driver, amplifiers, and 5V regulator which do not require upstream power regulation
 
 There are 4 total brackets in the CAD design depicted above. The bottom bracket solely holds the display driver and Raspberry Pi, the second bracket holds the VIM4 alongside its NVMe SSD and CAN shield, the third holds one of the amplifiers and the display driver's power board, and the fourth holds the final amplifier alongside the 5V regulator, USB DAC, and RCA to HDMI converter. The third bracket has a gap on the right side of the image to provide clearance for the VIM4's fan.
+
+## Display Mounting
+
+![Unfinished display mounts](/assets/img/brz/displays_mounted_unfinished.jpg){: style="float: right; width:50%; height:80%;"}
+
+Two displays are currently connected to the head unit: a media display and the center console display. I've mostly finalized the mount for the media display and the mount for the center console display is about halfway done. In the picture to the right, neither display mount is finalized. The media display does not have body filler and is therefore overhanging above the trim piece on either side and the center console display does have a finalized mounting bracket but no body filler to mate it with the vehicle's trim.
+
+### Media Display Mount
+
+Starting with the media display, I decided to refrain from mounting it to the head unit itself. Instead, I modified the stock trim with body filler to hold the new display which enabled me to effortlessly achieve a more 'stock' aesthetic. Below are a set of pictures of the process; I feel the final product is pretty decent, having never used body filler before. My only complaint is that the right side of the display does not mate perfectly with the trim pieces but I simply haven't had the time and motivation to take it apart and attempt to fix this. Since the display spans across both trim pieces, I'd need to mount them both in the vehicle and sand them together to achieve a nice finish all while trying to match the display's profile without being able to have the display inserted during sanding.
+
+![Bondo work 1](/assets/img/brz/media_bondo_1.jpg){: style="float: left; width:49%; height:80%;"}
+![Bondo work 2](/assets/img/brz/media_bondo_2.jpg){: style="float: right; width:49%; height:80%;"}
+![Bondo work 3](/assets/img/brz/media_bondo_3.jpg){: style="float: left; width:49%; height:80%;"}
+![Bondo work 4](/assets/img/brz/media_bondo_4.jpg){: style="float: right; width:49%; height:80%;"}
+
+The final product obviously isn't perfect, but when painted black and mounted to the dash, it looks pretty good.
+
+### Center Console Display Mount
+
+![Center console display cut plan](/assets/img/brz/center_console_display_cut_plan.jpg){: style="float: right; width:50%; height:80%;"}
+
+This display was a little more intricate to mount. I began by using a soldering iron to cut a somewhat-arbitrary hole in the center console. I knew I wanted to use the sides of the seat warmer button cutout as the edge of my display and the rest of the cut was more or less arbitrary. I cut up to the silver trim piece and completed a rectangular shape as depicted to the right (excuse the crappy sketch). The only requirement for this hole is that it be smaller than the display which allows the 3D printed bracket holding the display to mate seamlessly with the center console.
+
+
+he 3D-printed bracket was designed to rest on the ledge that was left on the center console (1) and mount to some existing screwholes within the center console trim that were used for the
+![Center console display bracket 1](/assets/img/brz/center_console_bracket_1.jpg){: style="float: right; width:50%; height:80%;"}
+sport mode/traction control buttons (2). Unfortunately, there is still a corner of the bracket (3) that is not supported by anything but I have not found this to be an issue when using the display. Lastly, the driver PCB for the display is mounted on the bottom of the 3D-printed bracket and connects to the head unit using an HDMI cable and a USB cable to provide power and data for the digitizer. Below are two pictures of the final product with the display sitting flush along the center console. I did end up redoing the bracket a few times after this as the bottom part of the display (3 in the picture above) kept popping out when the shifter trim was inserted as the shifter trim pushed back against the display bracket. The only thing that is left to do at the moment is add body filler to better mate the display to the shifter trim piece.
+
+![Center console display bracket 2](/assets/img/brz/center_console_bracket_2.jpg){: style="float: left; width:49%; height:80%;"}
+![Center console display bracket 3](/assets/img/brz/center_console_bracket_3.jpg){: style="float: right; width:49%; height:80%;"}
 
 ## Behavioural Nightmares
 

@@ -1,0 +1,105 @@
+I"8<h1 id="update">UPDATE</h1>
+<p>This page is very much under construction, with the nice weather finally here I have begun work on the car and certain things will change/be populated as I get to them. I apologize for the organizational mess that is this page.</p>
+
+<p>I recently acquired a car for recreational purposes since I had saved up a decent amount of money and didn’t feel like investing it. 
+<img src="/assets/img/brz/damn.jpg" alt="Hot damn" style="float: right; width:50%; height:80%;" />
+I purchased a BRZ because they are built in conjunction with Toyota and this should theoretically imply that they are reliable and won’t need much mechanical maintenance. Furthermore, the BRZ’s interior is driver-centered while maintaining a relatively simple geometry that should facilitate the design of custom dash components to fit my upgraded electronics.</p>
+
+<p>This project began as a way to disguise speed enforcement countermeasures within the car’s UI seeing as radar/lidar countermeasures are illegal in Ontario. As such, I figured that the best way to hide illegal features would be to program the UI entirely. Seeing as the current head unit is only capable of playing Bluetooth audio, it’s very unlikely that anything I do will result in less overall functionality so I see no downside to this project.</p>
+
+<p>A lot of work has gone into the project so I have split up this post to include a variety of sub-pages detailing individual subsystems in greater detail. This page serves to provide a general overview of the project and a set of links to sub-pages is included below. I’d recommend to read this page first to have an idea of what my goals are before diving into specific sub-systems.</p>
+<ul>
+  <li><a href="/brz-head-unit">Head Unit</a></li>
+  <li><a href="/brz-light-link">LightLink Module</a></li>
+  <li><a href="/brz-vision-system">Vision System</a></li>
+  <li><a href="/brz-wiring">Wiring</a></li>
+  <li><a href="/brz-steering-wheel">Steering Wheel</a></li>
+  <li><a href="/brz-user-interface">User Interface (Software)</a></li>
+  <li><a href="/brz-gallery">Gallery</a></li>
+</ul>
+
+<h1 id="idea">Idea</h1>
+
+<h2 id="ui-enhancements">UI Enhancements</h2>
+
+<p><img src="/assets/img/brz/planned_display_layout.jpg" alt="Picture of plan" style="float: right; width:50%; height:80%; margin-left: 10px;" /></p>
+
+<p>The plan is to replace the head unit of the BRZ with a <a href="https://www.aliexpress.com/item/1005004988939115.html">12.7” touch-screen</a>, replace the small button cluster on the center console with a <a href="https://www.aliexpress.com/item/4000393713339.html">7” touch screen</a>, and convert the analog gauge cluster to a display. The 12.3” display will be used for most vehicle functionality such as navigation and media whereas the 7” display will provide diagnostic information about the vehicle as well as any subsystems I add.</p>
+
+<p>This has been completed (minus digitizing the gauge cluster), the picture below is from a debugging session with a friend of mine.
+<img src="/assets/img/brz/finalized_display_layout.jpg" alt="Picture of actual layout" /></p>
+
+<h2 id="convenience-upgrades">Convenience Upgrades</h2>
+
+<p>The car will have an LTE modem in it to provide WiFi connectivity for passengers and allow its internal computers to access Google Maps, media streaming services, and other resources such as the Waze database to protect against police encounters. Finally, I hope to add cameras all around the car and experiment with computer vision though, aside from collision warnings and enhanced cruise control I’m not sure what I’ll be able to code. The cameras will however provide a 360-degree dash cam and I will be able to use them for a Tesla-like sentry mode when the car is locked. Furthermore, it may be interesting to experiment with augmented reality headsets in the future to provide the driver with enhanced situational awareness, but this is not in the works as of this writing.</p>
+
+<p>In order to improve the driver’s situational awareness, I’ve elected to replace the two fog lights of the car with thermal and low light high zoom cameras, respectively. The thermal camera will provide the driver with warnings about heat signatures detected ahead whereas the low light camera does not serve much of a practical purpose and was included because I had it laying around. Finally, I’m hoping to integrate blind spot detection radars and cruise control radars out of scrapped vehicles to provide additional peace of mind when merging lanes.</p>
+
+<h2 id="speed-enforcement-countermeasures">Speed Enforcement Countermeasures</h2>
+
+<p>I’m hoping to, at the very least, add passive sensors for radar/lidar and aircraft but I may not be able to add active countermeasures such as radar/lidar jamming. Based on some brief research, there is a significant risk that a radar/lidar device would detect my jamming attempts seeing as many of them have jamming detection built in. Proper commercial jammers are designed to identify the specific make/model of a lidar gun and behave accordingly however they are rather cost-prohibitive so I may not be able to reasonably source a commercial system.</p>
+
+<p>Aircraft countermeasures are more achievable since aircraft speed detection works using lines painted on the pavement at a known distance interval such that an aircraft flying above can time a vehicle crossing a set of these lines. My plan for countering this is to use a front facing camera on the car to pick up the lines at which point an onboard computer will use a software defined radio to look for any aircraft transponders within a certain radius of the vehicle. Should there be an aircraft nearby, the onboard computer will begin calling out speeds for the user to match in hopes that the average speed across the two lines does not exceed the posted limit.</p>
+
+<p>An even more complex countermeasure I’m hoping to integrate is cellular sniffing where a computer would once again use a software defined radio to look for nearby cellular devices and fingerprint them to single out the specific make and model of cellular modem present in a Ford Interceptor. I’m unsure if this is even theoretically possible since newer cellular devices may encrypt everything including metadata but I intend to research this in depth.</p>
+
+<p>In addition to passive countermeasures and radar/lidar jammers, the vehicle will hopefully have cellular and VHF/UHF jammers. The purpose of these is to prevent a Ford Interceptor’s cellular modem and radio from working when in close proximity to the BRZ meaning that the officer will <em>hopefully</em> be unable to run driver’s licenses or issue tickets.</p>
+
+<h1 id="build">Build</h1>
+
+<h2 id="functional-diagram">Functional Diagram</h2>
+
+<p><img src="/assets/img/brz/functional_diagram.png" alt="BRZ Functional Diagram" /></p>
+
+<p>The diagram above displays the overall hierarchy of devices integrated in the car. Red boxes are video capture devices, green boxes are computers, blue boxes are displays, and purple devices are CAN bus devices. I have elected to create a second CAN bus for my devices and use the “Transceiver node” to forward relevant CAN bus data to my private bus. This is to prevent the risk of conflicting IDs and eliminate the possibility of damaging the vehicle should any of my custom devices malfunction and, for example, short circuit the CAN bus lines. A brief description of each device alongside its functionality is included in the section below.</p>
+
+<h2 id="hardware">Hardware</h2>
+
+<h3 id="computers">Computers</h3>
+
+<p>The UI of the car is handled by two primary computers (a Raspberry Pi 4B and a <a href="https://www.khadas.com/vim4">Khadas VIM4</a>) whereas the hardware modifications are handled by a variety of other Arduinos integrated throughout the vehicle. All the computers denoted by green boxes in the diagram above connect through ethernet and have internet access.</p>
+
+<p>The “Android computer” is a Raspberry Pi 4B running Android that controls the head unit and center console displays which function in tandem to deliver the interactive component of the vehicle’s UI whereas the VIM4 runs Linux and does most of the heavy lifting. The Android computer does not handle any logic and interacts with the VIM4 using a series of web services. The VIM4 handles a variety of tasks including Bluetooth media playback, camera feed management, and CANBUS communication. More information can be found <a href="/brz-VIM4">here</a>.</p>
+
+<p>The “Vision computer” is meant to be an nVidia Jetson however those are too expensive for me at the moment so it is substituted with a second Raspberry Pi 4B running Linux. Finally, the SDR computer has not been set in stone at the moment but any modestly powerful SBC will be adequate as its sole purpose is to interact with a few RTL-SDR modules to listen for ADS-B, cellular, and possibly audio communications over radio.</p>
+
+<h3 id="secondary-can-bus">Secondary CAN Bus</h3>
+
+<p>Most of the hardware modifications are executed by Arduinos integrated throughout the vehicle that share a CAN bus. The list of integrated Arduinos as well as other CAN bus devices is as follows:</p>
+
+<ul>
+  <li>Blind spot radars –&gt; Will use some second hand eBay or junkyard radars from another car.</li>
+  <li>Steering wheel button manager (NANO) –&gt; Converts steering wheel button presses into CAN messages for head unit.</li>
+  <li>Center console button manager (NANO) –&gt; Controls MOSFETs that simulate button presses to maintain functionality of old center console buttons.</li>
+  <li>Front-facing radar –&gt; Will use a second hand eBay or junkyard radar from another car.</li>
+  <li>Ceiling switches –&gt; I would like to install a fancy ceiling switch panel in the car but this is a future project.</li>
+  <li>Mirror manager (NANO) –&gt; Keeps track of mirror position and allows them to automatically tilt when backing up. One per mirror.</li>
+  <li>Low light camera controller –&gt; Translates CAN messages into PWM signals to actuate the camera’s gimbal.</li>
+  <li>Thermal camera controller –&gt; Translates CAN messages into a PWM pitch value to adjust the camera’s pitch.</li>
+  <li>LightLink (2xMEGA_EMBED) –&gt; Used to control most exterior vehicle lights, more info <a href="/brz-light-link">here</a>.</li>
+  <li>Rear defence controller –&gt; In charge of managing jammers in the rear of the vehicle.</li>
+  <li>Uniden R9 –&gt; Reverse engineered CAN interface for the Uniden R9 system (not released at the time of this writing but am hoping to get one when they come out).</li>
+  <li>Transceiver node –&gt; Forwards CAN data from vehicle’s CAN bus to my CAN bus. More info <a href="/brz-CAN">here</a>.</li>
+</ul>
+
+<h3 id="cameras">Cameras</h3>
+
+<p>The planned camera layout is included below. The green semicircles are <a href="https://www.aliexpress.com/item/1005004337827464.html">136-degree FOV cameras</a> installed in the front windshield and above the rear license plate whereas the gray circles represent <a href="https://www.aliexpress.com/item/1005004335144138.html">210-degree cameras</a> (the listing says 180 degrees but they are actually 210) installed beneath the side view mirrors of the car (PIC). I planned on including a second front-facing camera on the right wing mirror to provide the driver with insight about any vehicles in the right lane ahead of the car however this camera is not included at this time since the 210-degree FOV camera installed beneath the mirror should theoretically capture all vehicles in the right lane.</p>
+
+<p><img src="/assets/img/brz/camera_layout.png" alt="Camera layout" /></p>
+
+<p>Beyond the cameras used for 360 degree coverage, both fog lights of the vehicle contain camera modules with the driver side being a thermal camera and the passenger side being a Sony Starvis low light camera with optical zoom. These are meant to be used in conjunction with AI to detect threats on the road ahead as well as to provide increased visibility in low light conditions. Of these two, the thermal camera uses a RCA to HDMI adapter to interface with the Khadas VIM4’s HDMI input and the low light camera simply outputs to ethernet and shares the vehicle’s ethernet network. A final camera is installed inside the vehicle and faces the driver for eye tracking such that the touch screen functionality of the center console display is disabled unless the driver is looking at the display to prevent accidental inputs (might not be included after all, depends on whether accidental input truly is an issue).</p>
+
+<h2 id="software">Software</h2>
+
+<p>I initially intended to build a custom image of Android Automotive for the BRZ and develop mobile applications that would mostly run as background services and overlay themselves on top of Android to display relevant information. Unfortunately this turned out to be a rather lucrative task and as of this writing I have elected to build a simple Android application running on a mobile image. The advantages of Android Automotive are as follows:</p>
+<ul>
+  <li>Better navigation with fully functional Google Maps (Android applications cannot have integrated navigation activities and can only display 2D maps as far as I am aware)</li>
+  <li>Better media controls with proper Bluetooth integration (the Android Mobile OS cannot be used as a A2DP sink without modifying the source code)</li>
+  <li>Better boot times</li>
+</ul>
+
+<p>Overall, I did not feel these advantages were enough to justify the increased complexity of building a custom Android Automotive image especially considering how many custom UI screens and functions I intend to incorporate as well as my lack of affinity for hardware-level programming.</p>
+
+<p>The purpose of rebuilding the vehicle’s UI is not only to provide a seamless means of interacting with the additional functionality but also to fully hide any illegal functions on demand. As such, a ‘legal mode’ will be integrated in the software which will be activated on boot and will hide all illegal functionality from the vehicle’s UI. The driver can disable legal mode using an arbitrary set of seemingly random keystrokes using buttons throughout the car’s interior which will be intricate such that they cannot be haphazardly entered.</p>
+:ET
