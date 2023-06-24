@@ -43,8 +43,9 @@ Two fisheye cameras are included on the sides of the car, one in each wing mirro
 
 In the end, these cameras were mounted using a 3D-printed bracket that piggy backs off of some existing screws within the factory mirror mount and position the camera such that its optic rests flush with the factory mirror trim. I lined up the image sensors through eye-balling and trial and error. I got an idea of how far down the optic should be and how far out it should be from the existing screws in the mirror mount and worked backwards from there. In order to get the lens through the mirror trim, I used a soldering iron to cut through the plastic and then sanded the edges to get them as smoothly as possible. The passenger-side mirror came out a little rough but the drivers side looks pretty swell.
 
-![Surround camera bracket](/assets/img/brz/surround_camera_3D_scan_2.jpg){: style="float: left; width:50%; height:80%;"}
-![Surround camera final](/assets/img/brz/surround_camera_3D_scan_1.jpg){: style="float: right; width:50%; height:80%;"}
+![Surround camera bracket CAD](/assets/img/brz/surround_camera_bracket_CAD.png){: style="float: left; width:50%; height:80%;"}
+![Surround camera bracket real](/assets/img/brz/surround_camera_no_trim.png){: style="float: right; width:50%; height:80%;"}
+![Surround camera final](/assets/img/brz/surround_camera_final.jpg)
 
 A similar thing was done for the rear view mirror though this time the bracket replaces a trunk release (?) button. I'm not sure if it was a trunk release button because I did not think BRZs had trunk releases but it definitely looked like a button when I took it out. Regardless, pictures of the CAD and the final product are included below alongside a snapshot of what the camera sees taken by my laptop once the install was complete. I elected to use a 210-degree camera in the back because the 136-degree cameras were not wide enough to capture the pavement and the cars behind me simoultaneously. This choice has the added benefit of allowing me to see on either side of a parking spot before backing out.
 

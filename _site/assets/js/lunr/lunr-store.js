@@ -53,6 +53,12 @@ var store = [{
         "url": "/brz-CAN/",
         "teaser": null
       },{
+        "title": "BRZ Gallery",
+        "excerpt":"Accident I managed to rear end someone in this car, definitely my fault, but I was not willing to let it die that soon because I had barely done any work on it. The accident luckily wasn’t very bad, the other car suffered next to no damage and mine took...","categories": [],
+        "tags": [],
+        "url": "/brz-gallery/",
+        "teaser": null
+      },{
         "title": "BRZ Head Unit",
         "excerpt":"This page outlines the process of modifying the BRZ’s stock head unit to contain custom components. I maintained the casing of the original head unit to avoid designing custom mounting hardware and alleviate the need to reverse engineer the casing/mounting point dimensions. Architecture include block diagram of design here Final...","categories": [],
         "tags": [],
@@ -60,7 +66,7 @@ var store = [{
         "teaser": null
       },{
         "title": "BRZ LightLink",
-        "excerpt":"UPDATE: I’m nearly done schematics and hope to order this PCB soon. I’m also working on a PCB for the transceiver computer that connects the car’s CAN network to my own and I will finish both before I send off the order. LightLink Overview Control of a vehicle’s external lighting...","categories": [],
+        "excerpt":"UPDATE: I’m nearly done schematics and hope to order this PCB soon. I’m also working on a PCB for the transceiver computer that connects the car’s CAN network to my own and I will finish both before I send off the order. LightLink Module Overview Control of a vehicle’s external...","categories": [],
         "tags": [],
         "url": "/brz-light-link/",
         "teaser": null

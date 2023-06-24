@@ -8,7 +8,7 @@ hidden: true
 
 UPDATE: I'm nearly done schematics and hope to order this PCB soon. I'm also working on a PCB for the transceiver computer that connects the car's CAN network to my own and I will finish both before I send off the order.
 
-## LightLink Overview
+## LightLink Module Overview
 
 Control of a vehicle's external lighting is safety critical, so I've settled on designing a fully-redundant custom circuit board with 12 MOSFET-driven channels to handle 'dumb' lights and 8 addressable channels to handle a set of addressable LED arrays retrofitted throughout the vehicle. 
 
@@ -29,3 +29,24 @@ OVERALL SCHEMATIC
 For control, two Arduino Mega EMBEDs are included. These were chosen because I have about a dozen on hand right now and they have been reliable in my experience. At any given moment, one of the Arduinos is considered the 'master'. The master is in charge of outputting signals to the MOSFET and addressable channels while simoultaneously communicating its state over to the slave Arduino over a UART connection. The master updates the slave at regular intervals such that the updates themselves function as 'heartbeat' signals ensuring the slave that the master is operating normally. Should the master miss a heartbeat for whatever reason, the slave sends a hardware reset signal to the master after which it assumes the master role and resumes signal outputs based on the last state update it received. 
 
 Each arduino has separate a separate CAN controller and transceiver. I am using the MCP2515 controller alongside the TCAN1043DQ1 transceiver. The MCP2515 is a well known controller and therefore has many libraries available and the TCAN1043DQ1 controller was chosen because it has the ability to 'wake on CAN'. The TCAN1043DQ1 has a separate power pin that does not require an external regulator and allows it to monitor for activity on the CAN bus. Once activity is detected, it sets the INH pin high which turns on the LightLink. This provides an incredibly low-power solution to ensure this device cannot drain the vehicle's battery.
+
+## Light Modifications
+
+The LightLink module will be installed under the steering column, next to the car's body control module which provides it with immediate access to all of the car's stock lighting wiring. I may have to run some extra wires for things like my brake and running lights since the running lights, for example, probably have a single wire connecting them to the body control module but I want the ability to toggle both independently. The only lights that will remain controlled by the body control module are the third brake light and the headlight highbeams; everything else will be handled by the LightLink module.
+
+### License Plate LEDs
+
+![License Plate LED CAD](/assets/img/brz/license_plate_LED_CAD.png){: style="float: right; width:40%; height:80%;"}
+There wasn't much of a reason to redo these, the light bulbs were perfectly adequate but I figured I might as well add more RGB. These mounts are currently flawed since the LEDs got incredibly hot and managed to melt the ABS so they are currently only partially supported by what's left of the plastic bracket. The current CAD is pictured to the right. I'm going to fix this by mounting the LEDs onto some sort of metal piece, likely some sheet metal cut to size, such that they can better dissipate the heat the generate. From there, the ABS mount will solely come in contact with the sheet metal and not the LED. I'm hoping this will provide enough insulation to prevent the ABS from melting again.
+
+### Side Markers
+
+The following may be useful to other people hoping to get custom side markers for their BRZ. I managed to lose one of mine while driving and it got run over before I had the chance to go retrieve it off the side of the road.
+![Side marker CAD](/assets/img/brz/side_marker_CAD.png){: style="float: right; width:30%; height:80%;"}
+As it turns out, it is in fact cheaper to buy high power addressable RGB LEDs and 3D-print two custom side markers than it is to obtain a single OEM one so I naturally chose that route. The CAD to the right shows the final iteration of the side marker which houses a 9W RGB LED. No space is provided for the LED's driver board as it will be housed on the inside of the bumper. I'm not sure if this design is functional. I did a similar thing for the license plate LEDs, as explained in the section above, and may redo this design to avoid having the ABS melt. The picture below provides an idea of how the LED would currently fit in the design.
+
+![Side marker LED test fit](/assets/img/brz/side_marker_LED_test_fit.jpg){: style="width:50%; display:block; margin-left: auto; margin-right: auto;"}
+
+### Fourth Brake Light
+
+This was a fun one. The stock fourth brake light only contains two bulbs that turn on when the vehicle is in reverse. The plastic housing of the light quite literally has a spot dedicated to having a light bulb behind the red lens but none is included from the factory. I knew I was going to add a fourth brake light to the car and decided that I might as well add RGB to the two reverse light compartments as well.
