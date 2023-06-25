@@ -35,10 +35,10 @@ var store = [{
         "url": "/smart-sight/",
         "teaser": null
       },{
-        "title": "Security Camera Privacy Hack",
-        "excerpt":"Enhancing privacy of cheap security cameras get picture of whole camera to put here as well I’ve always been a little paranoid of having IoT devices live streaming views of my living space however I have a long trip coming up so a couple security cameras would be nice to...","categories": [],
+        "title": "LoRa Sensor Suite",
+        "excerpt":"A scalable dynamic solution for monitoring activity in unknown environments At some point in 2021, a friend and I had just finished exploring a construction site and as we were preparing to leave on the first floor, a security guard haphazardly walked in. Luckily we were out of sight and...","categories": [],
         "tags": [],
-        "url": "/camera-privacy-hack/",
+        "url": "/lora-sensor-suite/",
         "teaser": null
       },{
         "title": "LTE Mavic Pro",
@@ -101,10 +101,10 @@ var store = [{
         "url": "/brz/",
         "teaser": null
       },{
-        "title": "LoRa Sensor Suite",
-        "excerpt":"A scalable dynamic solution for monitoring activity in unknown environments At some point in 2021, a friend and I had just finished exploring a construction site and as we were preparing to leave on the first floor, a security guard haphazardly walked in. Luckily we were out of sight and...","categories": [],
+        "title": "Security Camera Privacy Hack",
+        "excerpt":"Enhancing privacy of cheap security cameras I’ve always been a little paranoid of having IoT devices live streaming views of my living space however I have a long trip coming up so a couple security cameras would be nice to keep an eye on my place. I considered a couple...","categories": [],
         "tags": [],
-        "url": "/lora-sensor-suite/",
+        "url": "/camera-privacy-hack/",
         "teaser": null
       },{
         "title": "Two G-class Stage Rocket w/ Basic Telemetry",
