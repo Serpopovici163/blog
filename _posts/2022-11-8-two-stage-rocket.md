@@ -8,6 +8,14 @@ classes: wide
 
 While I may never get a high power rocketry license, I do thoroughly enjoy developing and flying model rockets. None of my past rockets have incorporated any amount of electronics so the purpose of this project is to get a feel for rocketry electronics without any risk by developing only non-terribly-flight-critical components. For this project, I purchased the two biggest rocket engines I can legally get my hands on without any license: AeroTech G80-7T motors.
 
+# UPDATE June 2023
+
+In order to test the avionics before a flight in which their functionality is critical, I am going to test fly the main stage off of a G80-10T motor which shouldn't require any special considerations for when the main chute can deploy. I've done simulations in OpenRocket (depicted below) which concluded that the 10 second ejection delay should be plenty to allow the rocket to reach apogee. 
+![Single stage flight simulation](/assets/img/habibi-express/single_stage_simulation.png)
+The simulation above shows that the motor burnout occurs roughly around 1.5 seconds which means that our ejection charge would deploy at 11.5 seconds and therefore slightly past apogee.
+
+In this test, the avionics system will log its decisions to the SD card onboard the rocket alongside a time-stamp. Ideally, I can start recording video with my phone, send a message to the rocket over telemetry on camera which will reset the rocket's clock to 0 at that point in time, and then proceed with the launch while maintaining the recording. In this manner, I should be able to match events seen in the video to the timestamped events logged by the rocket and hopefully determine whether or not it detects launch appropriately, detects apogee appropriately, and attempts to deploy the main chute at the appropriate altitude.
+
 # UPDATE May 2023
 
 ![Assembled airframe](/assets/img/habibi-express/assembled_airframe.jpg){: style="float: right; width:30%; height:50%; margin-left: 10px;"}
