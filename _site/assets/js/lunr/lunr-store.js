@@ -90,7 +90,7 @@ var store = [{
         "teaser": null
       },{
         "title": "BRZ Wiring",
-        "excerpt":"Don’t even get me started.              ","categories": [],
+        "excerpt":"Don’t even get me started. General overview This page is somewhat just documentation for myself with regards to connector pinouts but also contains some general information lower down. I bought a bunch of ‘waterproof’ connectors off of AliExpress for this project. I say waterproof in quotes because I disconnected one...","categories": [],
         "tags": [],
         "url": "/brz-wiring/",
         "teaser": null
