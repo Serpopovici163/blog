@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-06-26T14:04:43-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ludicrous Tech</title><subtitle>This website keeps track of whichever projects I am most proud of and serves to share some of the knowledge I accumulate from tinkering on whatever comes to my mind. Enjoy!</subtitle><author><name>Serban Popovici</name></author><entry><title type="html">My Introduction to PCB Design</title><link href="http://localhost:4000/hydra/" rel="alternate" type="text/html" title="My Introduction to PCB Design" /><published>2023-05-01T00:00:00-04:00</published><updated>2023-05-01T00:00:00-04:00</updated><id>http://localhost:4000/hydra</id><content type="html" xml:base="http://localhost:4000/hydra/"><![CDATA[<p>This page briefly summarized the extensive amount of work that went into designing the avionics system for the University of Ottawa’s rocketry team. We unfortunately had to scrap last year’s work since it was very unorganized and we had absolutely no documentation to work off of. For this project, I was given the requirement that the system be modular, incrimentally upgradeable, and above all well documented. Fortunately, I am a fan of documentation and have included the two primary documents that describe the system below. This blog post will gloss over the design of these boards, however in-depth information is available in the documents below.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-06-26T14:07:57-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ludicrous Tech</title><subtitle>This website keeps track of whichever projects I am most proud of and serves to share some of the knowledge I accumulate from tinkering on whatever comes to my mind. Enjoy!</subtitle><author><name>Serban Popovici</name></author><entry><title type="html">My Introduction to PCB Design</title><link href="http://localhost:4000/hydra/" rel="alternate" type="text/html" title="My Introduction to PCB Design" /><published>2023-05-01T00:00:00-04:00</published><updated>2023-05-01T00:00:00-04:00</updated><id>http://localhost:4000/hydra</id><content type="html" xml:base="http://localhost:4000/hydra/"><![CDATA[<p>This page briefly summarized the extensive amount of work that went into designing the avionics system for the University of Ottawa’s rocketry team. We unfortunately had to scrap last year’s work since it was very unorganized and we had absolutely no documentation to work off of. For this project, I was given the requirement that the system be modular, incrimentally upgradeable, and above all well documented. Fortunately, I am a fan of documentation and have included the two primary documents that describe the system below. This blog post will gloss over the design of these boards, however in-depth information is available in the documents below.</p>
 
 <ul>
   <li><a href="/assets/img/hydra/hydra_framework.docx">Hydra Framework</a> –&gt; this document describes the general features that are to be included in each version of Hydra as well as system-wide specifications that must be respected by all Hydra PCBs.</li>
@@ -37,13 +37,13 @@ generously sponsored to us by SBG Systems. This sensor contains an IMU, baromete
 
 <h2 id="hydra_v1_logic">HYDRA_V1_LOGIC</h2>
 
-<p><img src="/assets/img/hydra/hydra_V1_logic.png" alt="Hydra V1 logic" style="width:80%; display:block; margin-left: auto; margin-right: auto;" /></p>
+<p><img src="/assets/img/hydra/hydra_v1_logic.png" alt="Hydra V1 logic" style="width:80%; display:block; margin-left: auto; margin-right: auto;" /></p>
 
 <p>These were my first ever PCBs and I am not awfully proud of them given how messy and poor the design was but everybody’s gotta start somewhere I guess. The main purpose of these PCBs was to test if the MCU circuitry was ok and whether our circuitry to interface with the SD card, SBG, and telemetry radio was functional. The only thing that didn’t work on this logic board was the programming interface; I did not double check my work and managed to offset the programming pins on the MCU by two so we could not program the MCU. Luckily the firmware was written in Rust so a successful compilation most likely means everything will work. This was a beautiful thing because we ended up getting the board running by programming an MCU on a development board and then transplanting it to the logic board.</p>
 
 <h2 id="hydra_v1_power">HYDRA_V1_POWER</h2>
 
-<p><img src="/assets/img/hydra/hydra_V1_power.png" alt="Hydra V1 power" style="width:80%; display:block; margin-left: auto; margin-right: auto;" /></p>
+<p><img src="/assets/img/hydra/hydra_v1_power.png" alt="Hydra V1 power" style="width:80%; display:block; margin-left: auto; margin-right: auto;" /></p>
 
 <p>The power board is a truly ugly thing but it worked, and it worked well. I ran 10A in a lab through the thinnest traces I could find and it did not even get hot. The purpose of this test was to see if we would need to upgrade to 2oz PCBs but the results confirmed that 1oz boards are fine. On a final note, this board only had reverse polarity protection and was therefore rather lacking in the power protection department. This was fixed in V2.</p>
 
@@ -57,7 +57,7 @@ generously sponsored to us by SBG Systems. This sensor contains an IMU, baromete
 
 <h2 id="hydra_v2_power">HYDRA_V2_POWER</h2>
 
-<p><img src="/assets/img/hydra/hydra_V2_power.png" alt="Hydra V2 power" style="width:80%; display:block; margin-left: auto; margin-right: auto;" /></p>
+<p><img src="/assets/img/hydra/hydra_v2_power.png" alt="Hydra V2 power" style="width:80%; display:block; margin-left: auto; margin-right: auto;" /></p>
 
 <p>This is the board I focused on and the only one I’d consider worthy of the Hydra name. This PCB provides redundant 5V and 3V3 rails to the avionics stack, can turn off any specific regulator individually or even cut avionics power outright, and contains a wealth of protections such as over-current, over-voltage, over-discharge (software-based), thermal cut-off (software- and hardware-based), and reverse polarity. Additionally, the board has a variety of voltage sensors throughout, current sensing at the input, and thermal sensors on each regulator. The MCU of this board is powered by its own internal regulators such that it remains online even if the over-current protection trips and can therefore notify the ground station of the failure and reset the current latch. The empty space left near the top mounting hole and on the bottom right, around the ground power switch logic section, is to accomodate 3D-printed pieces that will help guide the safety rod which interacts with the two safety switches on the PCB. This rod passes through the airframe and is inserted to cut power to the avionics prior to flight. Two power switches are included to combine their current capacity and also for redundancy.</p>
 
@@ -106,13 +106,13 @@ The MCU sensing circuit (pictured to the right) uses a simple voltage divider wi
 
 <h2 id="hydra_v2_logic">HYDRA_V2_LOGIC</h2>
 
-<p><img src="/assets/img/hydra/hydra_V2_logic.png" alt="Hydra V2 logic" style="width:80%; display:block; margin-left: auto; margin-right: auto;" /></p>
+<p><img src="/assets/img/hydra/hydra_v2_logic.png" alt="Hydra V2 logic" style="width:80%; display:block; margin-left: auto; margin-right: auto;" /></p>
 
 <p>This is definitely the prettiest one of the lot. It’s an awfully simple board and its schematic is identical to that of the V1 logic board, however we added some MOSFETs to cut off power to the SBG and fixed the programming header/swapped it out for a different one. The MOSFETs were included to help but the board to sleep since the SBG consumes more current than the remaining avionics combined. The programming header was swapped with one that matches our debugger (the Segger J-Link EDU Mini) so that these boards can be plug and play to debug. The pinout was also fixed and made to match the Segger’s I/O header.</p>
 
 <h2 id="hydra_v3_communication">HYDRA_V3_COMMUNICATION</h2>
 
-<p><img src="/assets/img/hydra/hydra_V3_communication.png" alt="Hydra V3 communication" style="width:80%; display:block; margin-left: auto; margin-right: auto;" /></p>
+<p><img src="/assets/img/hydra/hydra_v3_communication.png" alt="Hydra V3 communication" style="width:80%; display:block; margin-left: auto; margin-right: auto;" /></p>
 
 <p>This board is labelled V3 since we effectively fast-tracked to the feature set we planned for Hydra V3. Hydra V1 and V2 were meant to have the logic board interface directly with the RFD900 through the UART bus of the left header on the PCB. I felt it was a waste of money to order a PCB this size with 4 traces (power and data for the RFD900) so we designed the V3 board and ordered it instead. That being said, there are still some traces with pads that can be soldered across to connect the RFD900’s UART directly to the left header. Our software team is confident they can program this board on time so these likely won’t get used; instead, the RFD900 will interface with an MCU on the communication board which enables it to interact directly with the avionics CAN bus. This is much better design since our telemetry no longer depends on the availability of the logic board and we can communicate with each PCB within the system directly. Additionally, the MCU on the communication board has very little to do thereby mitigating the risk of it getting overloaded and alleviating the logic board of a task.</p>
 
@@ -120,7 +120,7 @@ The MCU sensing circuit (pictured to the right) uses a simple voltage divider wi
 
 <h2 id="hydra_v2_recovery">HYDRA_V2_RECOVERY</h2>
 
-<p><img src="/assets/img/hydra/hydra_V2_recovery.png" alt="Hydra V2 recovery" style="width:80%; display:block; margin-left: auto; margin-right: auto;" /></p>
+<p><img src="/assets/img/hydra/hydra_v2_recovery.png" alt="Hydra V2 recovery" style="width:80%; display:block; margin-left: auto; margin-right: auto;" /></p>
 
 <p>This board has its fair share of issues and I will likely redesign it prior to competition. Its main purpose is to ignite pyrotechnics using e-matches to deploy the parachutes of the rocket. In addition to this, we decided to include a backup sensor package that allows the recovery board to act independently even if the logic board goes offline. The logic behind this likely won’t be implemented in time for competition this year since we’d ideally need three sensor packages to be able to discriminate between them and positively identify if one of them is an outlier.</p>
 
