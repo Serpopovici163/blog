@@ -112,4 +112,10 @@ var store = [{
         "tags": [],
         "url": "/two-stage-rocket/",
         "teaser": null
+      },{
+        "title": "My Introduction to PCB Design",
+        "excerpt":"This page briefly summarized the extensive amount of work that went into designing the avionics system for the University of Ottawa’s rocketry team. We unfortunately had to scrap last year’s work since it was very unorganized and we had absolutely no documentation to work off of. For this project, I...","categories": [],
+        "tags": [],
+        "url": "/hydra/",
+        "teaser": null
       }]
