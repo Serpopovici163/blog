@@ -47,6 +47,12 @@ var store = [{
         "url": "/lte-mavic-pro/",
         "teaser": null
       },{
+        "title": "Creating a Watch Dogs-type app",
+        "excerpt":"The premise of Ubisoft’s Watch Dogs video game series has always fascinated me. Some of the exploits you can pull off with your in-game cell phone are far fetched but most are genuinely possible with the right amount of software work. I’ve personally always been a fan of rooftopping, moreso...","categories": [],
+        "tags": [],
+        "url": "/alexnet/",
+        "teaser": null
+      },{
         "title": "BRZ CAN",
         "excerpt":" ","categories": [],
         "tags": [],

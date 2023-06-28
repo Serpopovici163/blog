@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>BRZ CAN - Ludicrous Tech</title>
-<meta name="description" content="">
+<!-- begin _includes/seo.html --><title>Creating a Watch Dogs-type app - Ludicrous Tech</title>
+<meta name="description" content="The premise of Ubisoft’s Watch Dogs video game series has always fascinated me. Some of the exploits you can pull off with your in-game cell phone are far fetched but most are genuinely possible with the right amount of software work. I’ve personally always been a fan of rooftopping, moreso the aspect of getting to the roof since every building is almost like a puzzle some of which require a significant amount of critical thinking. Over time, rooftopping in my hometown became relatively dull because I knew virtually every building inside and out but with the extensive amount of buildings I have been to came a need to store critical bits of information such as which stairwell to take or what security measures are in place. Furthermore, I dove into the world of RFID hacking a couple years ago and have been collecting RFID credentials where possible to provide me with unrestricted access to these places.">
 
 
   <meta name="author" content="Serban Popovici">
@@ -22,30 +22,30 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_CA">
 <meta property="og:site_name" content="Ludicrous Tech">
-<meta property="og:title" content="BRZ CAN">
-<meta property="og:url" content="http://localhost:4000/brz-CAN/">
+<meta property="og:title" content="Creating a Watch Dogs-type app">
+<meta property="og:url" content="http://localhost:4000/alexnet/">
 
 
-  <meta property="og:description" content="">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2022-10-01T00:00:00-04:00">
+  <meta property="og:description" content="The premise of Ubisoft’s Watch Dogs video game series has always fascinated me. Some of the exploits you can pull off with your in-game cell phone are far fetched but most are genuinely possible with the right amount of software work. I’ve personally always been a fan of rooftopping, moreso the aspect of getting to the roof since every building is almost like a puzzle some of which require a significant amount of critical thinking. Over time, rooftopping in my hometown became relatively dull because I knew virtually every building inside and out but with the extensive amount of buildings I have been to came a need to store critical bits of information such as which stairwell to take or what security measures are in place. Furthermore, I dove into the world of RFID hacking a couple years ago and have been collecting RFID credentials where possible to provide me with unrestricted access to these places.">
 
 
 
 
 
-  
+
+
+  <meta property="article:published_time" content="2022-09-05T00:00:00-04:00">
+
+
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/brz-CAN/">
+
+<link rel="canonical" href="http://localhost:4000/alexnet/">
 
 
 
@@ -261,16 +261,16 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="BRZ CAN">
-    <meta itemprop="description" content="">
-    <meta itemprop="datePublished" content="2022-10-01T00:00:00-04:00">
+    <meta itemprop="headline" content="Creating a Watch Dogs-type app">
+    <meta itemprop="description" content="The premise of Ubisoft’s Watch Dogs video game series has always fascinated me. Some of the exploits you can pull off with your in-game cell phone are far fetched but most are genuinely possible with the right amount of software work. I’ve personally always been a fan of rooftopping, moreso the aspect of getting to the roof since every building is almost like a puzzle some of which require a significant amount of critical thinking. Over time, rooftopping in my hometown became relatively dull because I knew virtually every building inside and out but with the extensive amount of buildings I have been to came a need to store critical bits of information such as which stairwell to take or what security measures are in place. Furthermore, I dove into the world of RFID hacking a couple years ago and have been collecting RFID credentials where possible to provide me with unrestricted access to these places.">
+    <meta itemprop="datePublished" content="2022-09-05T00:00:00-04:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="http://localhost:4000/brz-CAN/" class="u-url" itemprop="url">BRZ CAN
+            <a href="http://localhost:4000/alexnet/" class="u-url" itemprop="url">Creating a Watch Dogs-type app
 </a>
           </h1>
           
@@ -287,7 +287,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          less than 1 minute read
+          1 minute read
         
       </span>
     
@@ -302,12 +302,18 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              
+              <ul class="toc__menu"><li><a href="#system-overview">System Overview</a></li></ul>
 
             </nav>
           </aside>
         
-        
+        <p>The premise of Ubisoft’s Watch Dogs video game series has always fascinated me. Some of the exploits you can pull off with your in-game cell phone are far fetched but most are genuinely possible with the right amount of software work. I’ve personally always been a fan of <a href="https://en.wikipedia.org/wiki/Rooftopping">rooftopping</a>, moreso the aspect of getting to the roof since every building is almost like a puzzle some of which require a significant amount of critical thinking. Over time, rooftopping in my hometown became relatively dull because I knew virtually every building inside and out but with the extensive amount of buildings I have been to came a need to store critical bits of information such as which stairwell to take or what security measures are in place. Furthermore, I dove into the world of RFID hacking a couple years ago and have been collecting RFID credentials where possible to provide me with unrestricted access to these places.</p>
+
+<p>I decided to create an app that unifies all of this information in a single place and automatically loads the relevant information/emulates the relevant RFID fob based on my location such that I can use my phone to effortlessly go where I please, as you would in Watch Dogs. Furthermore, I added a ‘tools’ section where I can include other network-based exploits on my phone and take advantage of flaws such as the <a href="https://packetstormsecurity.com/files/144097/Hikvision-IP-Camera-Access-Bypass.html">Hikvision Auth Key Explot</a> to obtain snapshots of any IP cameras on the same network as my phone.</p>
+
+<h1 id="system-overview">System Overview</h1>
+
+<p>The system consists solely of the user’s mobile device and a server that stores building data.</p>
 
         
       </section>
@@ -319,7 +325,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-10-01T00:00:00-04:00">October 1, 2022</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2022-09-05T00:00:00-04:00">September 5, 2022</time></p>
 
       </footer>
 
@@ -328,22 +334,22 @@
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=BRZ+CAN%20http%3A%2F%2Flocalhost%3A4000%2Fbrz-CAN%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=Creating+a+Watch+Dogs-type+app%20http%3A%2F%2Flocalhost%3A4000%2Falexnet%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fbrz-CAN%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Falexnet%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fbrz-CAN%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Falexnet%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/alexnet/" class="pagination--pager" title="Creating a Watch Dogs-type app
+      <a href="/lte-mavic-pro/" class="pagination--pager" title="LTE Mavic Pro
 ">Previous</a>
     
     
-      <a href="/brz-gallery/" class="pagination--pager" title="BRZ Gallery
+      <a href="/brz-CAN/" class="pagination--pager" title="BRZ CAN
 ">Next</a>
     
   </nav>

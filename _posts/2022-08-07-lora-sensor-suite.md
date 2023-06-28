@@ -34,11 +34,13 @@ Pins M0 and M1 on the module are shorted to ground in order for the module to tr
 
 ## Communication Protocol
 
-Each sensor broadcasts an 'alive' packet once the pair button has been pressed; this packet contains a unique ID based on the microcontroller's serial number to differentiate its 'alive' packet from that of other sensors. Alive packets are repeated up until the sensor receives an acknowledgment packet from the head unit in which the head unit will assign a numerical value to the sensor between 0 and 9998. The user is then able to assign a more descriptive identifying string to the sensor so that its location can be more apparent. Upon being triggered, the sensor will begin broadcasting a packed in the form of "SENSOR_ID:PACKET_ID:TRIG_VAL" where 
-- PACKET_ID is a unique integer identifying the packet to ensure the head unit doesn't register the same alert twice
-- TRIG_VAL is an integer representative of the sensor's states
+Each sensor broadcasts an 'alive' packet once powered on; this packet contains a unique ID based on the microcontroller's serial number to differentiate its 'alive' packet from that of other sensors. Alive packets are repeated up until the sensor receives an acknowledgment packet from the head unit in which the head unit will assign a numerical value to the sensor between 0 and 98 for brevity. The user is then able to assign a more descriptive identifying string to the sensor so that its location can be more apparent. Upon being triggered, the sensor will begin broadcasting a packed in the form of "SENSOR_ID:PACKET_ID:TRIG_VAL" where 
+- PACKET_ID is an incrementing integer identifying the packet to ensure the head unit doesn't register the same alert twice
+- TRIG_VAL is an integer representative of the sensor's state to discriminate between a motion alert and a bluetooth device alert
 
-This packet is repeated every 0.5 seconds up until the sensor receives a packet from the head unit in the form of "9999;SENSOR_ID;PACKET_ID" where
-- 9999 is the equivalent SENSOR_ID for the head unit
+This packet is repeated every 0.5 seconds up until the sensor receives a packet from the head unit in the form of "99;SENSOR_ID;PACKET_ID" where
+- 99 is the equivalent SENSOR_ID for the head unit
 - SENSOR_ID is the id of whichever sensor tripped
 - PACKET_ID is the packet id
+
+Currently, the sensor network is effectively rebuilt any time the head unit is rebooted as it will inherently forget the previous sensor network. This is an issue if the head unit accidentally power cycles in practice so I need to integrate some kind of rediscovery functionality. Something along the lines of the head unit sending a packet that instructs all sensors to respond with their current asigned IDs or simply force the sensors to reset and redo the ID assignment phase. The latter seems safer as the first may lead to an ID conflict if an additional sensor is turned on while the rediscovery process is happening.
