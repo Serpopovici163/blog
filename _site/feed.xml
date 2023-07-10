@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-06-28T13:00:43-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ludicrous Tech</title><subtitle>This website keeps track of whichever projects I am most proud of and serves to share some of the knowledge I accumulate from tinkering on whatever comes to my mind. Enjoy!</subtitle><author><name>Serban Popovici</name></author><entry><title type="html">My Introduction to PCB Design</title><link href="http://localhost:4000/hydra/" rel="alternate" type="text/html" title="My Introduction to PCB Design" /><published>2023-05-01T00:00:00-04:00</published><updated>2023-05-01T00:00:00-04:00</updated><id>http://localhost:4000/hydra</id><content type="html" xml:base="http://localhost:4000/hydra/"><![CDATA[<p>This page briefly summarized the extensive amount of work that went into designing the avionics system for the University of Ottawa’s rocketry team. We unfortunately had to scrap last year’s work since it was very unorganized and we had absolutely no documentation to work off of. For this project, I was given the requirement that the system be modular, incrimentally upgradeable, and above all well documented. Fortunately, I am a fan of documentation and have included the two primary documents that describe the system below. This blog post will gloss over the design of these boards, however in-depth information is available in the documents below.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-07-10T14:24:05-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ludicrous Tech</title><subtitle>This website keeps track of whichever projects I am most proud of and serves to share some of the knowledge I accumulate from tinkering on whatever comes to my mind. Enjoy!</subtitle><author><name>Serban Popovici</name></author><entry><title type="html">HYDRA: Modular Avionics</title><link href="http://localhost:4000/hydra/" rel="alternate" type="text/html" title="HYDRA: Modular Avionics" /><published>2023-05-01T00:00:00-04:00</published><updated>2023-05-01T00:00:00-04:00</updated><id>http://localhost:4000/hydra</id><content type="html" xml:base="http://localhost:4000/hydra/"><![CDATA[<p>This page briefly summarized the extensive amount of work that went into designing the avionics system for the University of Ottawa’s rocketry team. We unfortunately had to scrap last year’s work since it was very unorganized and we had absolutely no documentation to work off of. For this project, I was given the requirement that the system be modular, incrimentally upgradeable, and above all well documented. Fortunately, I am a fan of documentation and have included the two primary documents that describe the system below. This blog post will gloss over the design of these boards, however in-depth information is available in the documents below.</p>
 
 <ul>
   <li><a href="/assets/img/hydra/hydra_framework.docx">Hydra Framework</a> –&gt; this document describes the general features that are to be included in each version of Hydra as well as system-wide specifications that must be respected by all Hydra PCBs.</li>
@@ -108,13 +108,13 @@ The MCU sensing circuit (pictured to the right) uses a simple voltage divider wi
 
 <p><img src="/assets/img/hydra/hydra_v2_logic.png" alt="Hydra V2 logic" style="width:80%; display:block; margin-left: auto; margin-right: auto;" /></p>
 
-<p>This is definitely the prettiest one of the lot. It’s an awfully simple board and its schematic is identical to that of the V1 logic board, however we added some MOSFETs to cut off power to the SBG and fixed the programming header/swapped it out for a different one. The MOSFETs were included to help but the board to sleep since the SBG consumes more current than the remaining avionics combined. The programming header was swapped with one that matches our debugger (the Segger J-Link EDU Mini) so that these boards can be plug and play to debug. The pinout was also fixed and made to match the Segger’s I/O header.</p>
+<p>This is definitely the prettiest one of the lot. It’s an awfully simple board and its schematic is identical to that of the V1 logic board, however we added some MOSFETs to cut off power to the SBG and fixed the programming header/swapped it out for a different one. The MOSFETs were included to help put the board to sleep since the SBG consumes more current than the remaining avionics combined. The programming header was swapped with one that matches our debugger (the Segger J-Link EDU Mini) so that these boards can be plug and play to debug. The pinout was also fixed and made to match the Segger’s I/O header.</p>
 
 <h2 id="hydra_v3_communication">HYDRA_V3_COMMUNICATION</h2>
 
 <p><img src="/assets/img/hydra/hydra_v3_communication.png" alt="Hydra V3 communication" style="width:80%; display:block; margin-left: auto; margin-right: auto;" /></p>
 
-<p>This board is labelled V3 since we effectively fast-tracked to the feature set we planned for Hydra V3. Hydra V1 and V2 were meant to have the logic board interface directly with the RFD900 through the UART bus of the left header on the PCB. I felt it was a waste of money to order a PCB this size with 4 traces (power and data for the RFD900) so we designed the V3 board and ordered it instead. That being said, there are still some traces with pads that can be soldered across to connect the RFD900’s UART directly to the left header. Our software team is confident they can program this board on time so these likely won’t get used; instead, the RFD900 will interface with an MCU on the communication board which enables it to interact directly with the avionics CAN bus. This is much better design since our telemetry no longer depends on the availability of the logic board and we can communicate with each PCB within the system directly. Additionally, the MCU on the communication board has very little to do thereby mitigating the risk of it getting overloaded and alleviating the logic board of a task.</p>
+<p>This board is labelled V3 since we effectively fast-tracked to the feature set we planned for Hydra V3. Hydra V1 and V2 were meant to have the logic board interface directly with the RFD900 through the UART bus on the left header of the PCB. I felt it was a waste of money to order a PCB this size with 4 traces (power and data for the RFD900) so we designed the V3 board and ordered it instead. That being said, there are still some traces with pads that can be soldered across to connect the RFD900’s UART directly to the left header. Our software team is confident they can program this board on time so these likely won’t get used; instead, the RFD900 will interface with an MCU on the communication board which enables it to interact directly with the avionics CAN bus. This is much better design since our telemetry no longer depends on the availability of the logic board and we can communicate with each PCB within the system directly. Additionally, the MCU on the communication board has very little to do thereby mitigating the risk of it getting overloaded and alleviating the logic board of a task.</p>
 
 <p>An interesting last-minute addition made to this board is the use of internal regulators. These regulators leech off of the pyrotechnics power bus on the right header of the PCB. The pyrotechnics bus is always on, regardless of whether the current latch on the power board has tripped which enables us to maintain telemetry with he avionics system even if the power protection cuts off power to the rest of the avionics. This was done primarily to allow the power board to put the avionics to sleep while the rocket is sitting on the launch pad. Sleep mode was initially meant to be a software concern but I figured there was no reason to give them more work when we have a power board that is perfectly capable of cutting power to the avionics using hardware. It is also important to note that the communication board has a failover circuit that allows it to fail over to the avionics power buses on the left header of the PCB if its internal regulators fail.</p>
 
@@ -499,106 +499,9 @@ sport mode/traction control buttons (2). Unfortunately, there is still a corner 
 
 <h2 id="interactive-user-interface">Interactive User Interface</h2>
 
-<p>The diagnostic displays is the only one with touchscreen functionality and the head unit display can only be controlled using steering wheel buttons for a handsfree experience. The right side steering wheel buttons are used to control the contents of the big container while the left side steering wheel buttons are used for the small container’s contents. Additionally, there are dedicated buttons or combinations thereof that can always be used to toggle critical functions such as the vehicle’s legal mode regardless of what content is live at the time.</p>]]></content><author><name>Serban Popovici</name></author><summary type="html"><![CDATA[Head Unit Display]]></summary></entry><entry><title type="html">BRZ Steering Wheel</title><link href="http://localhost:4000/brz-steering-wheel/" rel="alternate" type="text/html" title="BRZ Steering Wheel" /><published>2022-10-01T00:00:00-04:00</published><updated>2022-10-01T00:00:00-04:00</updated><id>http://localhost:4000/brz-steering-wheel</id><content type="html" xml:base="http://localhost:4000/brz-steering-wheel/"><![CDATA[<h3 id="steering-wheel-button-integration">Steering Wheel Button Integration</h3>
+<p>The diagnostic displays is the only one with touchscreen functionality and the head unit display can only be controlled using steering wheel buttons for a handsfree experience. The right side steering wheel buttons are used to control the contents of the big container while the left side steering wheel buttons are used for the small container’s contents. Additionally, there are dedicated buttons or combinations thereof that can always be used to toggle critical functions such as the vehicle’s legal mode regardless of what content is live at the time.</p>]]></content><author><name>Serban Popovici</name></author><summary type="html"><![CDATA[Head Unit Display]]></summary></entry><entry><title type="html">BRZ LightLink</title><link href="http://localhost:4000/brz-light-link/" rel="alternate" type="text/html" title="BRZ LightLink" /><published>2022-10-01T00:00:00-04:00</published><updated>2022-10-01T00:00:00-04:00</updated><id>http://localhost:4000/brz-light-link</id><content type="html" xml:base="http://localhost:4000/brz-light-link/"><![CDATA[<h2 id="light-modifications">Light Modifications</h2>
 
-<p>Steering wheel buttons were added to BRZs in 2017 and mine is a 2013 so I purchased a salvage steering wheel in order to integrate its buttons into my systems. Should anybody else contemplate to do the same, be aware that even though steering wheels are cheap the airbag most certainly is not: a brand new OEM airbag for my car is $CAD 1100 from the dealer while a used one is ~$CAD 700 (I got one of these and it is most likely counterfeit so it may be more of a grenade than it is an airbag - choose wisely).</p>
-
-<p>The steering wheel uses an Arduino Nano to convert button presses into CAN messages that are sent along my CAN network. In order to interface the Arduino with the steering wheel, I took apart the button clusters on each side of the 
-<img src="/assets/img/brz/steering_wheel_button_connector.jpg" alt="Steering wheel button connector" style="float: right; width:50%; height:80%; margin-left: 10px;" />
-steering wheel and followed traces to figure out the function of each wire. My findings are listed below for anybody else intending to reverse engineer the steering wheel buttons on a BRZ (wires are listed from left to right, top to bottom, looking at the connector from behind as depicted to the right):</p>
-<ul>
-  <li>Light green –&gt; Volume and arrow keys of left side cluster</li>
-  <li>Red –&gt; Common of left side cluster</li>
-  <li>Green –&gt; Arrow keys of right side cluster</li>
-  <li>Purple –&gt; Enter and back key of right side cluster</li>
-  <li>Yellow –&gt; Common of right side cluster</li>
-  <li>Black –&gt; Call buttons, source button, left enter button, and voice button</li>
-  <li>Blue –&gt; Steering wheel ground</li>
-  <li>Brown –&gt; Cruise control pin 1</li>
-  <li>Grey –&gt; Cruise control pin 2</li>
-  <li>Black + White –&gt; LED ground</li>
-  <li>White –&gt; LED VCC (5V works but LEDs are dim. Not sure I’m willing to go higher so I’ll suck it up)</li>
-</ul>
-
-<p>The ‘voice’ button on the right side of the steering wheel is wired to the left button cluster and its state is transmitted through the (light green or black) wire. Button states are transmitted by varying the resistance between the common pin of each button cluster and one of the two output pins of each button cluster. The Arduino interprets these using an analog pin using the INPUT_PULLUP pin mode with the common pins being connected to ground. The resulting resistance and output wire for any button press is listed below in hopes of saving someone else the effort required to decode these circuit boards though I ended up using analogRead values in my code so these are useless to me.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Left Side Cluster</th>
-      <th>Right Side Cluster</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Source –&gt; 115 Ohm BLACK</td>
-      <td>Up –&gt; 330 Ohm GREEN</td>
-    </tr>
-    <tr>
-      <td>Call pickup –&gt; 425 Ohm BLACK</td>
-      <td>Right –&gt; 3.1 kOhm GREEN</td>
-    </tr>
-    <tr>
-      <td>Call hangup –&gt; 225 Ohm BLACK</td>
-      <td>Down –&gt; 1 kOhm GREEN</td>
-    </tr>
-    <tr>
-      <td>Volume up –&gt; short LIGHT GREEN</td>
-      <td>Left –&gt; short GREEN</td>
-    </tr>
-    <tr>
-      <td>Volume down –&gt; 50 Ohm LIGHT GREEN</td>
-      <td>Enter –&gt; 100 kOhm PURPLE</td>
-    </tr>
-    <tr>
-      <td>Right –&gt; 115 Ohm LIGHT GREEN</td>
-      <td>Back –&gt; 101 kOhm PURPLE</td>
-    </tr>
-    <tr>
-      <td>Left –&gt; 245 Ohm LIGHT GREEN</td>
-      <td>Voice –&gt; 50 Ohm BLACK</td>
-    </tr>
-    <tr>
-      <td>Enter –&gt; short BLACK</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Taking these findings into account, I connected the yellow and red pins to ground and connected the light green, green, purple, and black wire to analog pins that were set up as INPUT_PULLUPs.
-<img src="/assets/img/brz/steering_wheel_computer.jpg" alt="Steering wheel computer" style="float: right; width:50%; height:80%; margin-left: 10px;" />
-With this setup the Arduino can mostly distinguish between the buttons however some buttons produce analogRead() values that are very close to each other and are therefore mistaken by the Arduino at times. The Arduino then encodes these button presses into an 8-byte CAN packet that gets sent repeatedly over my CAN network as long as the button remains pressed. I’ve also attached the LED VCC pin to a digital pin so it can be set on by the Arduino whenever another device on the CAN network commands it to do so. The final product, inserted in the steering wheel, is depicted below.</p>
-
-<p><img src="/assets/img/brz/steering_wheel_computer_installed_1.jpg" alt="Steering wheel computer 1" style="float: left; width:50%; height:80%;" />
-<img src="/assets/img/brz/steering_wheel_computer_installed_2.jpg" alt="Steering wheel computer 2" style="float: right; width:50%; height:80%;" /></p>
-
-<p>This design worked out really nicely and provides easy access to the Arduino’s USB port so the computer can be reprogrammed at any time. The car’s clockspring had quite a few unused pins so I was able to wire power and CAN through the stock steering wheel connector and retrieve the signals inside. I’ve integrated a 5V regulator into the steering column that provides regulated 5V to the steering wheel computer. This is because I omitted to add it in the 3D-printed bracket that holds the steering wheel computer in place and decided to simply include it in the steering column as opposed to redesigning the bracket slightly and rewiring the steering wheel. I justified this by telling myself that I do not trust the cheap buck regulators I got and I would rather a fire occur in the steering column as opposed to right next to my counterfeit steering wheel airbag.</p>]]></content><author><name>Serban Popovici</name></author><summary type="html"><![CDATA[Steering Wheel Button Integration]]></summary></entry><entry><title type="html">BRZ LightLink</title><link href="http://localhost:4000/brz-light-link/" rel="alternate" type="text/html" title="BRZ LightLink" /><published>2022-10-01T00:00:00-04:00</published><updated>2022-10-01T00:00:00-04:00</updated><id>http://localhost:4000/brz-light-link</id><content type="html" xml:base="http://localhost:4000/brz-light-link/"><![CDATA[<p>UPDATE: I’m nearly done schematics and hope to order this PCB soon. I’m also working on a PCB for the transceiver computer that connects the car’s CAN network to my own and I will finish both before I send off the order.</p>
-
-<h2 id="lightlink-module-overview">LightLink Module Overview</h2>
-
-<p>Control of a vehicle’s external lighting is safety critical, so I’ve settled on designing a fully-redundant custom circuit board with 12 MOSFET-driven channels to handle ‘dumb’ lights and 8 addressable channels to handle a set of addressable LED arrays retrofitted throughout the vehicle.</p>
-
-<p>The primary challenge with designing a redundant board for this application is the required use of P-channel MOSFETs and the limited analog I/O available on the Arduino Mega I am using for control. P-channel MOSFETs are required since the car’s chassis is a system-wide ground that all components always have access to and we must therefore toggle the high side of a circuit to turn it on and off. This is an issue because P-channel MOSFETs need their gates to be driven low in order to turn on but the MOSFET would operate off of the car battery whereas the driving circuit would be operating at a much lower logic-level voltage. Therefore, an intermediary N-channel MOSFET must be used to drive the P-channel from a logic-level signal.</p>
-
-<p>This board has gone through many design iterations with the first being as described <a href="https://circuitjournal.com/how-to-use-a-p-channel-mosfet-with-an-arduino">here</a>. I initially wanted to solely use P-channel MOSFETs to decrease the number of components but this seemed like a bad idea so, in the end, I decided to settle for a more traditional design. The final design includes the intermediary N-channel MOSFETs to drive the P-channels and is described more in depth below.</p>
-
-<h3 id="redundant-mosfet-schematic">Redundant MOSFET Schematic</h3>
-
-<p><img src="/assets/img/brz/mosfet_schematic.PNG" alt="MOSFET schematic" /></p>
-
-<p>Two MOSFETs (top left) are included in parallel, both of which are immediately followed by a Schottky diode to prevent backflow from the other MOSFET. This is necessary because a diagnostic pin is included prior to the Schottky to sense the voltage at the output of each MOSFET which would be biased by backflow from the other MOSFET therefore hindering the detection of a MOSFET failure. The diagnostic connections use LM324D-based comparators to compare the voltage before the Schottky to the voltage following the Schottky. If the voltage prior to the diode falls below the voltage following the diode, the output of the LM324D swings low. This is by design since I am using digital pins for sensing MOSFET failures and digital pins can be set up as inputs with pull-up resistors in the Arduino meaning that the pin should go low when a failure occurs.</p>
-
-<p>In addition to detecting individual MOSFET failures, the circuit includes a shunt at the MOSFET output. This allows the board to detect a short circuit or burnt light bulb based on the current being drawn from the circuit. I am using 4-op-amp ICs for this circuit and have therefore included a voltage follower on the near-side of the shunt since I had the extra op amp. I’m not sure if this makes sense but I wanted to ensure the op amp does not influence the near side of the shunt which may throw off the current sensing.</p>
-
-<p>OVERALL SCHEMATIC</p>
-
-<p>For control, two Arduino Mega EMBEDs are included. These were chosen because I have about a dozen on hand right now and they have been reliable in my experience. At any given moment, one of the Arduinos is considered the ‘master’. The master is in charge of outputting signals to the MOSFET and addressable channels while simoultaneously communicating its state over to the slave Arduino over a UART connection. The master updates the slave at regular intervals such that the updates themselves function as ‘heartbeat’ signals ensuring the slave that the master is operating normally. Should the master miss a heartbeat for whatever reason, the slave sends a hardware reset signal to the master after which it assumes the master role and resumes signal outputs based on the last state update it received.</p>
-
-<p>Each arduino has separate a separate CAN controller and transceiver. I am using the MCP2515 controller alongside the TCAN1043DQ1 transceiver. The MCP2515 is a well known controller and therefore has many libraries available and the TCAN1043DQ1 controller was chosen because it has the ability to ‘wake on CAN’. The TCAN1043DQ1 has a separate power pin that does not require an external regulator and allows it to monitor for activity on the CAN bus. Once activity is detected, it sets the INH pin high which turns on the LightLink. This provides an incredibly low-power solution to ensure this device cannot drain the vehicle’s battery.</p>
-
-<h2 id="light-modifications">Light Modifications</h2>
-
-<p>The LightLink module will be installed under the steering column, next to the car’s body control module which provides it with immediate access to all of the car’s stock lighting wiring. I may have to run some extra wires for things like my brake and running lights since the running lights, for example, probably have a single wire connecting them to the body control module but I want the ability to toggle both independently. The only lights that will remain controlled by the body control module are the third brake light and the headlight highbeams; everything else will be handled by the LightLink module.</p>
+<p>The car uses <a href="/brz-custom-hardware">my custom LightLink</a> module will be installed under the steering column, next to the car’s body control module which provides it with immediate access to all of the car’s stock lighting wiring. I may have to run some extra wires for things like my brake and running lights since the running lights, for example, probably have a single wire connecting them to the body control module but I want the ability to toggle both independently. The only lights that will remain controlled by the body control module are the third brake light and the headlight highbeams; everything else will be handled by the LightLink module.</p>
 
 <h3 id="license-plate-leds">License Plate LEDs</h3>
 
@@ -619,7 +522,64 @@ As it turns out, it is in fact cheaper to buy high power addressable RGB LEDs an
 
 <p>This was a fun one. The stock fourth brake light only contains two bulbs that turn on when the vehicle is in reverse. The plastic housing of the light quite literally has a spot dedicated to having a light bulb behind the red lens but none is included from the factory. I knew I was going to add a fourth brake light to the car and decided that I might as well add RGB to the two reverse light compartments as well. I don’t seem to have any pictures of the modified fourth brake light though I do have this video where I had programmed it to flash red and blue. The assembly process was rather simple, I cut some holes in the fourth brake light casing with my soldering iron that were just large enough for the portion of the LED that lights up. I then screwed the LEDs into the plastic of the fourth brake light using the two mounting holes they have and lathered the completed thing with high temp hot glue. I’ve had this running for quite a while now and it has yet to fail. Aesthetically, the fourth brake light truly completes the rear end of the car.</p>
 
-<p><img src="/assets/img/brz/fourth_brake_light_rear_end.jpg" alt="BRZ rear" style="width:50%; display:block; margin-left: auto; margin-right: auto;" /></p>]]></content><author><name>Serban Popovici</name></author><summary type="html"><![CDATA[UPDATE: I’m nearly done schematics and hope to order this PCB soon. I’m also working on a PCB for the transceiver computer that connects the car’s CAN network to my own and I will finish both before I send off the order.]]></summary></entry><entry><title type="html">Modernizing my 2013 Subaru BRZ</title><link href="http://localhost:4000/brz/" rel="alternate" type="text/html" title="Modernizing my 2013 Subaru BRZ" /><published>2022-10-01T00:00:00-04:00</published><updated>2022-10-01T00:00:00-04:00</updated><id>http://localhost:4000/brz</id><content type="html" xml:base="http://localhost:4000/brz/"><![CDATA[<h1 id="update">UPDATE</h1>
+<p><img src="/assets/img/brz/fourth_brake_light_rear_end.jpg" alt="BRZ rear" style="width:50%; display:block; margin-left: auto; margin-right: auto;" /></p>]]></content><author><name>Serban Popovici</name></author><summary type="html"><![CDATA[Light Modifications]]></summary></entry><entry><title type="html">BRZ Vision System</title><link href="http://localhost:4000/brz-vision-system/" rel="alternate" type="text/html" title="BRZ Vision System" /><published>2022-10-01T00:00:00-04:00</published><updated>2022-10-01T00:00:00-04:00</updated><id>http://localhost:4000/brz-vision-system</id><content type="html" xml:base="http://localhost:4000/brz-vision-system/"><![CDATA[<h2 id="general-overview">General Overview</h2>
+
+<p>All cameras are wired to the center console, near the airbag module of the car, where I will mount a nVidia Jetson Orin NX. Any cameras mounted somewhere that could be reasonably reached by water have been doused in 422C conformal coating by MG Chemicals to provide an additional layer of protection from water damage.</p>
+
+<h2 id="front-sensor-package">Front Sensor Package</h2>
+
+<p>Four cameras are included in the front bumper to complete the car’s 360-degree vision system and provide both active and passive night vision to the driver.</p>
+
+<h3 id="grill-sensor-package">Grill Sensor Package</h3>
+
+<p>Three cameras are to be included in the car’s grill. Why three? Because I can. Only one of them is truly useful to the car: a fish-eye wide angle mounted at the front-most point of the car’s grill. The second camera to be included is a tighter IR-sensitive camera mounted close to the fisheye that will provide a low-latency medium-magnification feed that can be used in low light. Finally, I will likely include a gimballed low light sensor with 30x optical zoom because I have one laying around and it could be a cool feature to have. This camera may get massacred by rocks and bugs but that’s ok because it was really cheap. It does unfortunately interface through ethernet so the latency will be too great to use it when driving but it could be used by the passenger.</p>
+
+<h3 id="thermal-camera">Thermal Camera</h3>
+
+<p>I decided to repurpose both of the car’s fog lights since I found the fog lights themselves rather useless in practice. I did however nearly hit two deer and figured a good, practical decision might be to include a thermal camera in the front bumper. This sounds nice in practice, but making it happen for cheap was another story. I managed to obtain a handheld FLIR inspection camera for cheap due to a damaged display which was perfect for this application. I then proceeded to dissasemble it and discard of all unnecessary electronics such as its displays, buttons, wireless functionality, and visible spectrum camera/laser. Having narrowed the components down to the image sensor and the PCB required to drive it, I designed a 3D-printed bracket to mate that with the fog light mounting holes in the bumper. 
+<img src="/assets/img/brz/thermal_camera_CAD.png" alt="Thermal camera bracket CAD" style="float: right; width:59%; height:80%;" />
+I initially wanted to gimbal the camera, but the complexity of doing so when compared to the advantages it provides drove me away from that idea. Instead, I mounted the sensor on a servo-driven bracket to provide pitch control which will help maintain the camera level when going up- or downhill. The bracket off to the right of the picture above is to hold the thermal camera’s PCB.</p>
+
+<p><img src="/assets/img/brz/thermal_camera_1.jpg" alt="Thermal camera front view" style="float: left; width:50%; height:80%;" />
+<img src="/assets/img/brz/thermal_camera_2.jpg" alt="Thermal camera side view" style="float: right; width:50%; height:80%;" /></p>
+
+<p>I have not designed the pitch controller yet though its design requirements are set: the computer will interface with my CAN network and use one IMU (mounted to the camera) to determine the angle that the camera should be at to keep itself facing along the horizon. I’m not sure if this will be practical since there are situations where one might want the camera to not be level with the theoretical horizon, but I do not see another way of doing this simply. A possible scenario where the camera shouldn’t be level would be when the vehicle is traveling downhill and approaching an uphill portion and I do not see an easy way to mitigate this besides maybe using computer vision to determine what the most appropriate angle for the camera is.</p>
+
+<p>A final consideration is protecting this camera from rock chips. I will do so by plastic-welding a mosquito net type fabric to the trim piece that goes in front of the thermal camera; this should hopefully prevent any rock chips from damaging the optic.</p>
+
+<h3 id="ir-flood-light">IR Flood Light</h3>
+
+<p>The remaining fog light will be used for a high power IR flood light to provide me with active nightvision and compliment the passive nightvision provided by the thermal camera. I have not chosen a light for this purpose yet or designed any form of mounting hardware for it. Should be light work, I think.</p>
+
+<h2 id="surround-cameras">Surround Cameras</h2>
+
+<p>Two fisheye cameras are included on the sides of the car, one in each wing mirror, to provide complete coverage of each side of the car. I initially wanted to remake the entire mirror trim such that it could have dedicated mounting points for a camera. I began by 3D-scanning the existing trim pieces but quickly ran into a myriad of road blocks seeing as working with 3D-scan data is a rather painful process. Solidworks would only let me insert 20’000 (?) polygons in a 3D model which was far too few to truly represent the finish of the mirror’s trim and so I swiftly scrapped this approach.</p>
+
+<p><img src="/assets/img/brz/surround_camera_3D_scan_2.jpg" alt="Mirror trim 3D scan 1" style="float: left; width:50%; height:80%;" />
+<img src="/assets/img/brz/surround_camera_3D_scan_1.jpg" alt="Mirror trim 3D scan 2" style="float: right; width:50%; height:80%;" /></p>
+
+<p>In the end, these cameras were mounted using a 3D-printed bracket that piggy backs off of some existing screws within the factory mirror mount and position the camera such that its optic rests flush with the factory mirror trim. I lined up the image sensors through eye-balling and trial and error. I got an idea of how far down the optic should be and how far out it should be from the existing screws in the mirror mount and worked backwards from there. In order to get the lens through the mirror trim, I used a soldering iron to cut through the plastic and then sanded the edges to get them as smoothly as possible. The passenger-side mirror came out a little rough but the drivers side looks pretty swell.</p>
+
+<p><img src="/assets/img/brz/surround_camera_bracket_CAD.png" alt="Surround camera bracket CAD" style="float: left; width:50%; height:80%;" />
+<img src="/assets/img/brz/surround_camera_no_trim.png" alt="Surround camera bracket real" style="float: right; width:50%; height:80%;" />
+<img src="/assets/img/brz/surround_camera_final.jpg" alt="Surround camera final" /></p>
+
+<p>A similar thing was done for the rear view mirror though this time the bracket replaces a trunk release (?) button. I’m not sure if it was a trunk release button because I did not think BRZs had trunk releases but it definitely looked like a button when I took it out. Regardless, pictures of the CAD and the final product are included below alongside a snapshot of what the camera sees taken by my laptop once the install was complete. I elected to use a 210-degree camera in the back because the 136-degree cameras were not wide enough to capture the pavement and the cars behind me simoultaneously. This choice has the added benefit of allowing me to see on either side of a parking spot before backing out.</p>
+
+<p><img src="/assets/img/brz/rear_camera_CAD.png" alt="Rear camera CAD" style="float: left; width:49%; height:80%;" />
+<img src="/assets/img/brz/rear_camera_final.jpg" alt="Rear camera for real" style="float: right; width:49%; height:80%;" /></p>
+
+<p><img src="/assets/img/brz/rear_camera_view.jpg" alt="Rear camera view" /></p>
+
+<p>The camera mount consists of two parts. The first holds the camera and connects it to the trunk trim piece. It does so thanks to an extrusion that protrudes through the rectangular cutout of the trunk release button and a flange that limits how much it can protrude throught he cutout. The second part of the rear view camera mount is a rectangular extrusion that is much wider than the cutout of the trunk release and effectively acts as a clamp to secure the camera in place.</p>
+
+<h2 id="nvidia-jetson-install">nVidia Jetson Install</h2>
+
+<p>The nVidia Jetson that interfaces with the surround cameras and those within the front sensor package is installed inside the dashboard of the car, next to the airbag module. 
+<img src="/assets/img/brz/siren_speaker.jpg" alt="Siren loudspeaker" style="float: right; width:50%; height:80%;" />
+I currently made a very quick bracket that solely mounts the Jetson and will update this down the line to include a custom CAN switch PCB and an amplifier for the loudspeaker installed on the front of the car. I decided to use the Jetson for driving the front speaker since I didn’t want to mess with multiple independent audio streams coming from the Khadas VIM4 in the head unit, and having the speaker tied to the Jetson allows it to be used for auditory warnings in sentry mode without needing to involve additional hardware.</p>
+
+<p>The Jetson bracket installs to a pair of existing holes in a metal bracket within the dashboard. These wholes were intended to hold wires going to various components of the dashboard and only one of them was used from factory.</p>]]></content><author><name>Serban Popovici</name></author><summary type="html"><![CDATA[General Overview]]></summary></entry><entry><title type="html">Modernizing my 2013 Subaru BRZ</title><link href="http://localhost:4000/brz/" rel="alternate" type="text/html" title="Modernizing my 2013 Subaru BRZ" /><published>2022-10-01T00:00:00-04:00</published><updated>2022-10-01T00:00:00-04:00</updated><id>http://localhost:4000/brz</id><content type="html" xml:base="http://localhost:4000/brz/"><![CDATA[<h1 id="update">UPDATE</h1>
 <p>This page is very much under construction, with the nice weather finally here I have begun work on the car and certain things will change/be populated as I get to them. I apologize for the organizational mess that is this page.</p>
 
 <p>I recently acquired a car for recreational purposes since I had saved up a decent amount of money and didn’t feel like investing it. 
@@ -630,11 +590,12 @@ I purchased a BRZ because they are built in conjunction with Toyota and this sho
 
 <p>A lot of work has gone into the project so I have split up this post to include a variety of sub-pages detailing individual subsystems in greater detail. This page serves to provide a general overview of the project and a set of links to sub-pages is included below. I’d recommend to read this page first to have an idea of what my goals are before diving into specific sub-systems.</p>
 <ul>
-  <li><a href="/brz-head-unit">Head Unit</a></li>
-  <li><a href="/brz-light-link">Lighting System</a></li>
-  <li><a href="/brz-vision-system">Vision System</a></li>
+  <li><a href="/brz-head-unit">Head Unit [ COMPLETED ]</a></li>
+  <li><a href="/brz-steering-wheel">Steering Wheel [ COMPLETED ]</a></li>
+  <li><a href="/brz-light-link">Lighting System [ IN PROGRESS ]</a></li>
+  <li><a href="/brz-custom-hardware">Custom Hardware [ IN PROGRESS ]</a></li>
+  <li><a href="/brz-vision-system">Vision System [ IN PROGRESS ]</a></li>
   <li><a href="/brz-wiring">Wiring</a></li>
-  <li><a href="/brz-steering-wheel">Steering Wheel</a></li>
   <li><a href="/brz-user-interface">User Interface (Software)</a></li>
   <li><a href="/brz-gallery">Gallery</a></li>
 </ul>
@@ -682,7 +643,7 @@ I purchased a BRZ because they are built in conjunction with Toyota and this sho
 
 <p>The “Android computer” is a Raspberry Pi 4B running Android that controls the head unit and center console displays which function in tandem to deliver the interactive component of the vehicle’s UI whereas the VIM4 runs Linux and does most of the heavy lifting. The Android computer does not handle any logic and interacts with the VIM4 using a series of web services. The VIM4 handles a variety of tasks including Bluetooth media playback, camera feed management, and CANBUS communication. More information can be found <a href="/brz-VIM4">here</a>.</p>
 
-<p>The “Vision computer” is meant to be an nVidia Jetson however those are too expensive for me at the moment so it is substituted with a second Raspberry Pi 4B running Linux. Finally, the SDR computer has not been set in stone at the moment but any modestly powerful SBC will be adequate as its sole purpose is to interact with a few RTL-SDR modules to listen for ADS-B, cellular, and possibly audio communications over radio.</p>
+<p>The “Vision computer” is currently a nVidia Jetson Nano, however I hope to upgrade to the Orin Nano when I have more money to throw at this project. Finally, the SDR computer has not been set in stone at the moment but any modestly powerful SBC will be adequate as its sole purpose is to interact with a few RTL-SDR modules to listen for ADS-B, cellular, and possibly audio communications over radio.</p>
 
 <h3 id="secondary-can-bus">Secondary CAN Bus</h3>
 

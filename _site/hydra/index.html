@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>My Introduction to PCB Design - Ludicrous Tech</title>
+<!-- begin _includes/seo.html --><title>HYDRA: Modular Avionics - Ludicrous Tech</title>
 <meta name="description" content="This page briefly summarized the extensive amount of work that went into designing the avionics system for the University of Ottawa’s rocketry team. We unfortunately had to scrap last year’s work since it was very unorganized and we had absolutely no documentation to work off of. For this project, I was given the requirement that the system be modular, incrimentally upgradeable, and above all well documented. Fortunately, I am a fan of documentation and have included the two primary documents that describe the system below. This blog post will gloss over the design of these boards, however in-depth information is available in the documents below.">
 
 
@@ -22,7 +22,7 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_CA">
 <meta property="og:site_name" content="Ludicrous Tech">
-<meta property="og:title" content="My Introduction to PCB Design">
+<meta property="og:title" content="HYDRA: Modular Avionics">
 <meta property="og:url" content="http://localhost:4000/hydra/">
 
 
@@ -261,7 +261,7 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="My Introduction to PCB Design">
+    <meta itemprop="headline" content="HYDRA: Modular Avionics">
     <meta itemprop="description" content="This page briefly summarized the extensive amount of work that went into designing the avionics system for the University of Ottawa’s rocketry team. We unfortunately had to scrap last year’s work since it was very unorganized and we had absolutely no documentation to work off of. For this project, I was given the requirement that the system be modular, incrimentally upgradeable, and above all well documented. Fortunately, I am a fan of documentation and have included the two primary documents that describe the system below. This blog post will gloss over the design of these boards, however in-depth information is available in the documents below.">
     <meta itemprop="datePublished" content="2023-05-01T00:00:00-04:00">
     
@@ -270,7 +270,7 @@
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="http://localhost:4000/hydra/" class="u-url" itemprop="url">My Introduction to PCB Design
+            <a href="http://localhost:4000/hydra/" class="u-url" itemprop="url">HYDRA: Modular Avionics
 </a>
           </h1>
           
@@ -417,13 +417,13 @@ The MCU sensing circuit (pictured to the right) uses a simple voltage divider wi
 
 <p><img src="/assets/img/hydra/hydra_v2_logic.png" alt="Hydra V2 logic" style="width:80%; display:block; margin-left: auto; margin-right: auto;" /></p>
 
-<p>This is definitely the prettiest one of the lot. It’s an awfully simple board and its schematic is identical to that of the V1 logic board, however we added some MOSFETs to cut off power to the SBG and fixed the programming header/swapped it out for a different one. The MOSFETs were included to help but the board to sleep since the SBG consumes more current than the remaining avionics combined. The programming header was swapped with one that matches our debugger (the Segger J-Link EDU Mini) so that these boards can be plug and play to debug. The pinout was also fixed and made to match the Segger’s I/O header.</p>
+<p>This is definitely the prettiest one of the lot. It’s an awfully simple board and its schematic is identical to that of the V1 logic board, however we added some MOSFETs to cut off power to the SBG and fixed the programming header/swapped it out for a different one. The MOSFETs were included to help put the board to sleep since the SBG consumes more current than the remaining avionics combined. The programming header was swapped with one that matches our debugger (the Segger J-Link EDU Mini) so that these boards can be plug and play to debug. The pinout was also fixed and made to match the Segger’s I/O header.</p>
 
 <h2 id="hydra_v3_communication">HYDRA_V3_COMMUNICATION</h2>
 
 <p><img src="/assets/img/hydra/hydra_v3_communication.png" alt="Hydra V3 communication" style="width:80%; display:block; margin-left: auto; margin-right: auto;" /></p>
 
-<p>This board is labelled V3 since we effectively fast-tracked to the feature set we planned for Hydra V3. Hydra V1 and V2 were meant to have the logic board interface directly with the RFD900 through the UART bus of the left header on the PCB. I felt it was a waste of money to order a PCB this size with 4 traces (power and data for the RFD900) so we designed the V3 board and ordered it instead. That being said, there are still some traces with pads that can be soldered across to connect the RFD900’s UART directly to the left header. Our software team is confident they can program this board on time so these likely won’t get used; instead, the RFD900 will interface with an MCU on the communication board which enables it to interact directly with the avionics CAN bus. This is much better design since our telemetry no longer depends on the availability of the logic board and we can communicate with each PCB within the system directly. Additionally, the MCU on the communication board has very little to do thereby mitigating the risk of it getting overloaded and alleviating the logic board of a task.</p>
+<p>This board is labelled V3 since we effectively fast-tracked to the feature set we planned for Hydra V3. Hydra V1 and V2 were meant to have the logic board interface directly with the RFD900 through the UART bus on the left header of the PCB. I felt it was a waste of money to order a PCB this size with 4 traces (power and data for the RFD900) so we designed the V3 board and ordered it instead. That being said, there are still some traces with pads that can be soldered across to connect the RFD900’s UART directly to the left header. Our software team is confident they can program this board on time so these likely won’t get used; instead, the RFD900 will interface with an MCU on the communication board which enables it to interact directly with the avionics CAN bus. This is much better design since our telemetry no longer depends on the availability of the logic board and we can communicate with each PCB within the system directly. Additionally, the MCU on the communication board has very little to do thereby mitigating the risk of it getting overloaded and alleviating the logic board of a task.</p>
 
 <p>An interesting last-minute addition made to this board is the use of internal regulators. These regulators leech off of the pyrotechnics power bus on the right header of the PCB. The pyrotechnics bus is always on, regardless of whether the current latch on the power board has tripped which enables us to maintain telemetry with he avionics system even if the power protection cuts off power to the rest of the avionics. This was done primarily to allow the power board to put the avionics to sleep while the rocket is sitting on the launch pad. Sleep mode was initially meant to be a software concern but I figured there was no reason to give them more work when we have a power board that is perfectly capable of cutting power to the avionics using hardware. It is also important to note that the communication board has a failover circuit that allows it to fail over to the avionics power buses on the left header of the PCB if its internal regulators fail.</p>
 
@@ -472,7 +472,7 @@ The MCU sensing circuit (pictured to the right) uses a simple voltage divider wi
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=My+Introduction+to+PCB+Design%20http%3A%2F%2Flocalhost%3A4000%2Fhydra%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=HYDRA%3A+Modular+Avionics%20http%3A%2F%2Flocalhost%3A4000%2Fhydra%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
   <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fhydra%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 

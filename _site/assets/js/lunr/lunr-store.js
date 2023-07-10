@@ -59,6 +59,12 @@ var store = [{
         "url": "/brz-CAN/",
         "teaser": null
       },{
+        "title": "BRZ Custom Hardware",
+        "excerpt":"This page contains any custom PCBs I’ve ordered for the car. The two PCBs currently included are the LightLink module and a custom wake-on-CAN switch, used to cut off power delivery to computers within the car when they are not needed. LightLink Module Overview Control of a vehicle’s external lighting...","categories": [],
+        "tags": [],
+        "url": "/brz-custom-hardware/",
+        "teaser": null
+      },{
         "title": "BRZ Gallery",
         "excerpt":"Accident I managed to rear end someone in this car, definitely my fault, but I was not willing to let it die that soon because I had barely done any work on it. The accident luckily wasn’t very bad, the other car suffered next to no damage and mine took...","categories": [],
         "tags": [],
@@ -72,7 +78,7 @@ var store = [{
         "teaser": null
       },{
         "title": "BRZ LightLink",
-        "excerpt":"UPDATE: I’m nearly done schematics and hope to order this PCB soon. I’m also working on a PCB for the transceiver computer that connects the car’s CAN network to my own and I will finish both before I send off the order. LightLink Module Overview Control of a vehicle’s external...","categories": [],
+        "excerpt":"Light Modifications The car uses my custom LightLink module will be installed under the steering column, next to the car’s body control module which provides it with immediate access to all of the car’s stock lighting wiring. I may have to run some extra wires for things like my brake...","categories": [],
         "tags": [],
         "url": "/brz-light-link/",
         "teaser": null
@@ -119,7 +125,7 @@ var store = [{
         "url": "/two-stage-rocket/",
         "teaser": null
       },{
-        "title": "My Introduction to PCB Design",
+        "title": "HYDRA: Modular Avionics",
         "excerpt":"This page briefly summarized the extensive amount of work that went into designing the avionics system for the University of Ottawa’s rocketry team. We unfortunately had to scrap last year’s work since it was very unorganized and we had absolutely no documentation to work off of. For this project, I...","categories": [],
         "tags": [],
         "url": "/hydra/",

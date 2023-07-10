@@ -318,11 +318,12 @@ I purchased a BRZ because they are built in conjunction with Toyota and this sho
 
 <p>A lot of work has gone into the project so I have split up this post to include a variety of sub-pages detailing individual subsystems in greater detail. This page serves to provide a general overview of the project and a set of links to sub-pages is included below. I’d recommend to read this page first to have an idea of what my goals are before diving into specific sub-systems.</p>
 <ul>
-  <li><a href="/brz-head-unit">Head Unit</a></li>
-  <li><a href="/brz-light-link">Lighting System</a></li>
-  <li><a href="/brz-vision-system">Vision System</a></li>
+  <li><a href="/brz-head-unit">Head Unit [ COMPLETED ]</a></li>
+  <li><a href="/brz-steering-wheel">Steering Wheel [ COMPLETED ]</a></li>
+  <li><a href="/brz-light-link">Lighting System [ IN PROGRESS ]</a></li>
+  <li><a href="/brz-custom-hardware">Custom Hardware [ IN PROGRESS ]</a></li>
+  <li><a href="/brz-vision-system">Vision System [ IN PROGRESS ]</a></li>
   <li><a href="/brz-wiring">Wiring</a></li>
-  <li><a href="/brz-steering-wheel">Steering Wheel</a></li>
   <li><a href="/brz-user-interface">User Interface (Software)</a></li>
   <li><a href="/brz-gallery">Gallery</a></li>
 </ul>
@@ -370,7 +371,7 @@ I purchased a BRZ because they are built in conjunction with Toyota and this sho
 
 <p>The “Android computer” is a Raspberry Pi 4B running Android that controls the head unit and center console displays which function in tandem to deliver the interactive component of the vehicle’s UI whereas the VIM4 runs Linux and does most of the heavy lifting. The Android computer does not handle any logic and interacts with the VIM4 using a series of web services. The VIM4 handles a variety of tasks including Bluetooth media playback, camera feed management, and CANBUS communication. More information can be found <a href="/brz-VIM4">here</a>.</p>
 
-<p>The “Vision computer” is meant to be an nVidia Jetson however those are too expensive for me at the moment so it is substituted with a second Raspberry Pi 4B running Linux. Finally, the SDR computer has not been set in stone at the moment but any modestly powerful SBC will be adequate as its sole purpose is to interact with a few RTL-SDR modules to listen for ADS-B, cellular, and possibly audio communications over radio.</p>
+<p>The “Vision computer” is currently a nVidia Jetson Nano, however I hope to upgrade to the Orin Nano when I have more money to throw at this project. Finally, the SDR computer has not been set in stone at the moment but any modestly powerful SBC will be adequate as its sole purpose is to interact with a few RTL-SDR modules to listen for ADS-B, cellular, and possibly audio communications over radio.</p>
 
 <h3 id="secondary-can-bus">Secondary CAN Bus</h3>
 
@@ -471,7 +472,7 @@ I purchased a BRZ because they are built in conjunction with Toyota and this sho
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/hydra/" rel="permalink">My Introduction to PCB Design
+        <a href="/hydra/" rel="permalink">HYDRA: Modular Avionics
 </a>
       
     </h2>

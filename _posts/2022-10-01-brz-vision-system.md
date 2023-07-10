@@ -55,3 +55,11 @@ A similar thing was done for the rear view mirror though this time the bracket r
 ![Rear camera view](/assets/img/brz/rear_camera_view.jpg)
 
 The camera mount consists of two parts. The first holds the camera and connects it to the trunk trim piece. It does so thanks to an extrusion that protrudes through the rectangular cutout of the trunk release button and a flange that limits how much it can protrude throught he cutout. The second part of the rear view camera mount is a rectangular extrusion that is much wider than the cutout of the trunk release and effectively acts as a clamp to secure the camera in place.
+
+## nVidia Jetson Install
+
+The nVidia Jetson that interfaces with the surround cameras and those within the front sensor package is installed inside the dashboard of the car, next to the airbag module. 
+![Siren loudspeaker](/assets/img/brz/siren_speaker.jpg){: style="float: right; width:50%; height:80%;"}
+I currently made a very quick bracket that solely mounts the Jetson and will update this down the line to include a custom CAN switch PCB and an amplifier for the loudspeaker installed on the front of the car. I decided to use the Jetson for driving the front speaker since I didn't want to mess with multiple independent audio streams coming from the Khadas VIM4 in the head unit, and having the speaker tied to the Jetson allows it to be used for auditory warnings in sentry mode without needing to involve additional hardware.
+
+The Jetson bracket installs to a pair of existing holes in a metal bracket within the dashboard. These wholes were intended to hold wires going to various components of the dashboard and only one of them was used from factory.

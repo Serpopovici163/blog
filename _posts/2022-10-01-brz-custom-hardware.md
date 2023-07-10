@@ -1,0 +1,50 @@
+---
+layout: single
+classes: wide
+title:  "BRZ Custom Hardware"
+toc: true
+hidden: true
+---
+
+This page contains any custom PCBs I've ordered for the car. The two PCBs currently included are the LightLink module and a custom wake-on-CAN switch, used to cut off power delivery to computers within the car when they are not needed.
+
+## LightLink Module Overview
+
+Control of a vehicle's external lighting is safety critical, so I've settled on designing a fully-redundant custom circuit board with 12 MOSFET-driven channels to handle 'dumb' lights and 6 addressable channels to handle a set of addressable LED arrays retrofitted throughout the vehicle. 
+
+The primary challenges with designing a redundant board for this application are the required use of P-channel MOSFETs and the limited analog I/O available on the Arduino Mega I am using for control. P-channel MOSFETs are required since the car's chassis is a system-wide ground that all components always have access to and we must therefore toggle the high side of a circuit to reliably turn it on and off. This is an issue because P-channel MOSFETs need their gates to be driven low in order to turn on but the MOSFET operates off of the car's battery whereas the driving circuit would be operating at a much lower logic-level voltage. Therefore, an intermediary N-channel MOSFET must be used to drive the P-channel from a logic-level signal. 
+
+This board has gone through many design iterations with the first being as described [here](https://circuitjournal.com/how-to-use-a-p-channel-mosfet-with-an-arduino). I initially wanted to solely use P-channel MOSFETs (no intermediary N-channel) to decrease the number of components but this seemed like a bad idea so, in the end, I decided to settle for a more traditional design. The final design includes the intermediary N-channel MOSFETs to drive the P-channels and is described more in depth below.
+
+### Control
+
+Two Arduino Mega EMBEDs are included for control. These were chosen because I have about a dozen on hand right now and they have been reliable in my experience. At any given moment, one of the Arduinos is considered the 'master'. The master is in charge of outputting signals to the MOSFET and addressable channels while simoultaneously communicating its state to the slave Arduino using a UART connection. The master updates the slave at regular intervals such that the updates themselves function as 'heartbeat' signals ensuring the slave that the master is operating normally. Should the master miss an arbitrary amount of heartbeats for whatever reason, the slave sends a hardware reset signal to the master after which it assumes the master role and resumes signal outputs based on the last state update it received. 
+
+Each arduino has separate a separate CAN controller and transceiver. I am using the MCP2515 controller alongside the TCAN1043DQ1 transceiver. The MCP2515 is a well known controller and therefore has many libraries available and the TCAN1043DQ1 transceiver was chosen because it has the ability to 'wake on CAN'. The TCAN1043DQ1 has a separate power pin that does not require an external regulator and allows it to monitor for activity on the CAN bus. Once activity is detected, it sets the INH pin high which turns on the LightLink. This provides a low-power solution to ensure this device does not drain the vehicle's battery.
+
+### Redundant MOSFET Schematic
+
+![MOSFET schematic](/assets/img/brz/custom-hardware/lightlink_mosfet_schematic.png)
+
+Two P-channel MOSFETs (Q1 and Q3) are included in parallel, both of which are immediately followed by a Schottky diode to prevent backflow from the other MOSFET. This is necessary because a diagnostic pin is included prior to the Schottky to sense the voltage at the output of each MOSFET which would be biased by backflow from the other MOSFET therefore hindering the detection of a MOSFET failure. The diagnostic connections use LM324D-based comparators to compare the voltage before the Schottky to the voltage following the Schottky. If the voltage prior to the diode falls below the voltage following the diode, the output of the LM324D swings low. This is by design since I am using digital pins for sensing MOSFET failures and digital pins can be set up as inputs with pull-up resistors in the Arduino meaning that the pin should go low when a failure occurs.
+
+In addition to detecting individual MOSFET failures, the circuit includes a shunt at the MOSFET output. This allows the board to detect a short circuit or burnt light bulb based on the current being drawn from the circuit. I am using 4-op-amp ICs for this circuit and have therefore included a voltage follower on the near-side of the shunt since I had the extra op amp. I'm not sure if this makes sense or is useful in any manner, but I figured I might as well add it.
+
+## Wake-On-CAN Switch
+
+The purpose of this board was derived from the development of the [head unit](/brz-head-unit). I needed a way to prevent components from rebooting due to the accessory power cutting off for a split second when the engine starts. My initial solution of using a microcontroller was pretty poor since running a microcontroller 24/7 beats the purpose of a power cutoff board. My second idea of using a RC network, as described in the 'Behavioural Nightmares' section of the [head unit](/brz-head-unit) page worked, but I wanted more control.
+
+My final solution is to mate a CAN shield with a MOSFET-based power switch. In this manner, I can use the TCAN1043DQ1 transceiver to wake up the board when activity occurs on the CAN bus while also being able to use an external accessory power signal. In order to dictate when the board turns off, the TCAN1043DQ1's wake up signal and the accessory power signal are multiplexed using an OR gate whose output drives the set pin of a SR latch. A separate 'kill' signal can then be provided by an external source to reset the SR latch and turn off the board.
+
+![CAN switch logic schematic](/assets/img/brz/custom-hardware/can_switch_logic_schem.png)
+
+This schematic depicts the general logic of the CAN switch's logic. The accessory power goes through a voltage divider to drop the battery voltage to a logic-level voltage before the signal gets multiplexed with the INH signal coming from the TCAN1043DQ1. The output of the OR gate goes into an SR latch, constructed of two NOR gates, the output of which drives a N-channel MOSFET which in turn drives two back-to-back P-channel MOSFETs that toggle the power delivery to components downstream from this PCB. Back-to-back MOSFETs are used to nullify the MOSFETs' body diode and prevent current flow in both directions when the MOSFET switch is off.
+
+![CAN switch transceiver schematic](/assets/img/brz/custom-hardware/can_switch_transceiver_schem.png)
+
+Finally, the SPI-CAN shield is included; this schematic was designed using components with identical sizing to those on my existing SPI-CAN shields to reduce the component cost of this board.
+
+![CAN switch PCB 2D](/assets/img/brz/custom-hardware/can_switch_pcb_2D.png){: style="width:50%; height:80%;"}
+![CAN switch PCB 3D](/assets/img/brz/custom-hardware/can_switch_pcb_3D.png){: style="float: right; width:50%; height:80%;"}
+
+This is what the final PCB looks like; not the prettiest thing I know but I can't really be asked to fix it since it'll almost certainly work. Only one screwhole is included at the top of the PCB as I'm hoping to mount these by creating 'slots' in the 3D-printed parts that house them so the bottom of the PCB would go into a slot after which the top would get secured by that one screw.
