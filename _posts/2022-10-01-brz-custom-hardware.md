@@ -16,11 +16,21 @@ The primary challenges with designing a redundant board for this application are
 
 This board has gone through many design iterations with the first being as described [here](https://circuitjournal.com/how-to-use-a-p-channel-mosfet-with-an-arduino). I initially wanted to solely use P-channel MOSFETs (no intermediary N-channel) to decrease the number of components but this seemed like a bad idea so, in the end, I decided to settle for a more traditional design. The final design includes the intermediary N-channel MOSFETs to drive the P-channels and is described more in depth below.
 
+### Power Protection
+
+Very few protections were included here since the fuse placed upstream of the board's power input should do most of the necessary protection. The board itself has its own set of fuses (one for the main power input and a separate one for the 12V input used by the LEDs) in addition to reverse polarity protection on each of the two power inputs. The reverse polarity protection uses two MOSFETs in parallel for redundancy and also to halve the resistance of the reverse polarity protection circuit thereby increasing its efficiency.
+
+![MOSFET schematic](/assets/img/brz/custom-hardware/lightlink_V3_PWR_MGMT_schematic.png)
+
+The power management schematic is pictured above. Power comes in through the left (PWR_IN and 12V_IN nets), immediately meets a fuse, and then passes through P-MOS-based reverse polarity protection. Each power rail then passes through two sets of back-to-back MOSFETs which serve to turn the board on and off; two sets of MOSFETs were once again included for redundancy and to reduce the power dissipated by this circuit. The power leaving these MOSFETs then enters the board-wide Vcc and 12V rails. A SR-latch is constructed in the top right of the schematic which serves to drive the MOSFETs that cut off power to the board; this latch is driven by the INH pin of the TCAN1043DQ1 transceiver to wake the board when it receives a CAN message and can be shut down by a KILL signal from the Arduinos.
+
 ### Control
 
 Two Arduino Mega EMBEDs are included for control. These were chosen because I have about a dozen on hand right now and they have been reliable in my experience. At any given moment, one of the Arduinos is considered the 'master'. The master is in charge of outputting signals to the MOSFET and addressable channels while simoultaneously communicating its state to the slave Arduino using a UART connection. The master updates the slave at regular intervals such that the updates themselves function as 'heartbeat' signals ensuring the slave that the master is operating normally. Should the master miss an arbitrary amount of heartbeats for whatever reason, the slave sends a hardware reset signal to the master after which it assumes the master role and resumes signal outputs based on the last state update it received. 
 
 Each arduino has separate a separate CAN controller and transceiver. I am using the MCP2515 controller alongside the TCAN1043DQ1 transceiver. The MCP2515 is a well known controller and therefore has many libraries available and the TCAN1043DQ1 transceiver was chosen because it has the ability to 'wake on CAN'. The TCAN1043DQ1 has a separate power pin that does not require an external regulator and allows it to monitor for activity on the CAN bus. Once activity is detected, it sets the INH pin high which turns on the LightLink. This provides a low-power solution to ensure this device does not drain the vehicle's battery.
+
+In addition to their independent CAN interfaces, each Arduino has its own 5V regulator. I initially wanted to provide a board-wide 5V rail with two regulators in parallel but decided this was a better solution that required less parts overall (no load sharing controllers). This removes the possibility that a short circuit caused by the failure of one Arduino/SPI interface/regulator combination won't kill the other Arduino/SPI interface/regulator combination.
 
 ### Redundant MOSFET Schematic
 
@@ -28,7 +38,17 @@ Each arduino has separate a separate CAN controller and transceiver. I am using 
 
 Two P-channel MOSFETs (Q1 and Q3) are included in parallel, both of which are immediately followed by a Schottky diode to prevent backflow from the other MOSFET. This is necessary because a diagnostic pin is included prior to the Schottky to sense the voltage at the output of each MOSFET which would be biased by backflow from the other MOSFET therefore hindering the detection of a MOSFET failure. The diagnostic connections use LM324D-based comparators to compare the voltage before the Schottky to the voltage following the Schottky. If the voltage prior to the diode falls below the voltage following the diode, the output of the LM324D swings low. This is by design since I am using digital pins for sensing MOSFET failures and digital pins can be set up as inputs with pull-up resistors in the Arduino meaning that the pin should go low when a failure occurs.
 
-In addition to detecting individual MOSFET failures, the circuit includes a shunt at the MOSFET output. This allows the board to detect a short circuit or burnt light bulb based on the current being drawn from the circuit. I am using 4-op-amp ICs for this circuit and have therefore included a voltage follower on the near-side of the shunt since I had the extra op amp. I'm not sure if this makes sense or is useful in any manner, but I figured I might as well add it.
+In addition to detecting individual MOSFET failures, the circuit includes a shunt at the MOSFET output. This allows the board to detect a short circuit or burnt light bulb based on the current being drawn from the circuit. I used single op-amp in a differential configuration to measure the voltage drop across the shunt; I'm not sure if this will work without voltage followers but it costs nothing to add the pads :)
+
+### Final PCB
+
+![Final PCB](/assets/img/brz/custom-hardware/lightlink_V3_PCB.png)
+
+This was a royal pain in the ass to route but I think it turned out rather nice. In the end, I went with a 6-layer board to make my life easier. Of the four internal layers, two are used for power and ground while the other two are used mainly to connect the Arduinos in parallel. I initially chose surface mount headers for the Arduinos (top left) so that there would be no holes in the PCB but these were reasonably-priced, low profile, and had a CAD model available so I stuck with them. The lack of holes under the headers would have made routing this much easier and possibly even doable with a 4-layer board but I'm ok with the way it turned out.
+
+![Final PCB](/assets/img/brz/custom-hardware/lightlink_V3_PCB_back.png)
+
+Altium does show some of the routing going on beneath the top layers when looking at the back of the board. I decided to keep the current sensing signals on the outer layer but mosf of the digital signals have been embedded deeper in the board. I also wired the last four MOSFET channels (9-12) to be PWM capable; all channels are technically PWM capable through software but 9-12 have access to hardware PWM.
 
 ## Wake-On-CAN Switch
 
