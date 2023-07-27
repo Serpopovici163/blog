@@ -1,7 +1,7 @@
 ---
 layout: single
 classes: wide
-title:  "BRZ LightLink"
+title:  "BRZ Lighting"
 toc: true
 hidden: true
 ---

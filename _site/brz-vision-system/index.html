@@ -302,7 +302,7 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#general-overview">General Overview</a></li><li><a href="#front-sensor-package">Front Sensor Package</a><ul><li><a href="#grill-sensor-package">Grill Sensor Package</a></li><li><a href="#thermal-camera">Thermal Camera</a></li><li><a href="#ir-flood-light">IR Flood Light</a></li></ul></li><li><a href="#surround-cameras">Surround Cameras</a></li><li><a href="#nvidia-jetson-install">nVidia Jetson Install</a></li></ul>
+              <ul class="toc__menu"><li><a href="#general-overview">General Overview</a></li><li><a href="#front-sensor-package">Front Sensor Package</a><ul><li><a href="#grill-sensor-package">Grill Sensor Package</a></li><li><a href="#thermal-camera">Thermal Camera</a></li><li><a href="#ir-flood-light">IR Flood Light</a></li></ul></li><li><a href="#surround-cameras">Surround Cameras</a></li><li><a href="#nvidia-jetson-install-in-progress">nVidia Jetson Install [in progress]</a></li></ul>
 
             </nav>
           </aside>
@@ -358,11 +358,11 @@ I initially wanted to gimbal the camera, but the complexity of doing so when com
 
 <p>The camera mount consists of two parts. The first holds the camera and connects it to the trunk trim piece. It does so thanks to an extrusion that protrudes through the rectangular cutout of the trunk release button and a flange that limits how much it can protrude throught he cutout. The second part of the rear view camera mount is a rectangular extrusion that is much wider than the cutout of the trunk release and effectively acts as a clamp to secure the camera in place.</p>
 
-<h2 id="nvidia-jetson-install">nVidia Jetson Install</h2>
+<h2 id="nvidia-jetson-install-in-progress">nVidia Jetson Install [in progress]</h2>
 
 <p>The nVidia Jetson that interfaces with the surround cameras and those within the front sensor package is installed inside the dashboard of the car, next to the airbag module. 
 <img src="/assets/img/brz/siren_speaker.jpg" alt="Siren loudspeaker" style="float: right; width:50%; height:80%;" />
-I currently made a very quick bracket that solely mounts the Jetson and will update this down the line to include a custom CAN switch PCB and an amplifier for the loudspeaker installed on the front of the car. I decided to use the Jetson for driving the front speaker since I didn’t want to mess with multiple independent audio streams coming from the Khadas VIM4 in the head unit, and having the speaker tied to the Jetson allows it to be used for auditory warnings in sentry mode without needing to involve additional hardware.</p>
+I currently made a very quick bracket that solely mounts the Jetson and my <a href="http://ludicroustech.ca/brz-custom-hardware/#wake-on-can-switch">custom CAN switch PCB</a> and I will update it in the future to also hosue an amplifier for the loudspeaker installed on the front of the car. I decided to use the Jetson for driving the front speaker since I didn’t want to mess with multiple independent audio streams coming from the Khadas VIM4 in the head unit, and having the speaker tied to the Jetson allows it to be used for auditory warnings in sentry mode without needing to involve additional hardware.</p>
 
 <p>The Jetson bracket installs to a pair of existing holes in a metal bracket within the dashboard. These wholes were intended to hold wires going to various components of the dashboard and only one of them was used from factory.</p>
 

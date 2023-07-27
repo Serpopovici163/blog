@@ -60,7 +60,7 @@ var store = [{
         "teaser": null
       },{
         "title": "BRZ Custom Hardware",
-        "excerpt":"This page contains any custom PCBs I’ve ordered for the car. The two PCBs currently included are the LightLink module and a custom wake-on-CAN switch, used to cut off power delivery to computers within the car when they are not needed. LightLink Module Overview Control of a vehicle’s external lighting...","categories": [],
+        "excerpt":"This page contains any custom PCBs I’ve ordered for the car. The two PCBs currently included are the LightLink module and a custom wake-on-CAN switch, used to cut off power delivery to computers within the car when they are not needed. UPDATE July 2023 Boards ordered :) I really hope...","categories": [],
         "tags": [],
         "url": "/brz-custom-hardware/",
         "teaser": null
@@ -77,7 +77,7 @@ var store = [{
         "url": "/brz-head-unit/",
         "teaser": null
       },{
-        "title": "BRZ LightLink",
+        "title": "BRZ Lighting",
         "excerpt":"Light Modifications The car uses my custom LightLink module will be installed under the steering column, next to the car’s body control module which provides it with immediate access to all of the car’s stock lighting wiring. I may have to run some extra wires for things like my brake...","categories": [],
         "tags": [],
         "url": "/brz-light-link/",
@@ -108,7 +108,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Modernizing my 2013 Subaru BRZ",
-        "excerpt":"UPDATE This page is very much under construction, with the nice weather finally here I have begun work on the car and certain things will change/be populated as I get to them. I apologize for the organizational mess that is this page. I recently acquired a car for recreational purposes...","categories": [],
+        "excerpt":"UPDATE This page is very much under construction, with the nice weather finally here I have begun work on the car and certain things will change/be populated as I get to them. I apologize for the organizational mess that is this page. GitHub: https://github.com/Serpopovici163/BRZ I recently acquired a car for...","categories": [],
         "tags": [],
         "url": "/brz/",
         "teaser": null
