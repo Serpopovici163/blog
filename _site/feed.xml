@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-09-06T13:44:30-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ludicrous Tech</title><subtitle>This website keeps track of whichever projects I am most proud of and serves to share some of the knowledge I accumulate from tinkering on whatever comes to my mind. Enjoy!</subtitle><author><name>Serban Popovici</name></author><entry><title type="html">HYDRA: Modular Avionics</title><link href="http://localhost:4000/hydra/" rel="alternate" type="text/html" title="HYDRA: Modular Avionics" /><published>2023-05-01T00:00:00-04:00</published><updated>2023-05-01T00:00:00-04:00</updated><id>http://localhost:4000/hydra</id><content type="html" xml:base="http://localhost:4000/hydra/"><![CDATA[<p>This page briefly summarizes the extensive amount of work that went into designing the avionics system for the University of Ottawa’s rocketry team. We unfortunately had to scrap last year’s work since it was very unorganized and we had absolutely no documentation to work off of. For this project, I was given the requirement that the system be modular, incrimentally upgradeable, and above all well documented. Fortunately, I am a fan of documentation and have included the two primary documents that describe the system below. This blog post will gloss over the design of these boards, however in-depth information is available in the documents below. I would also like to add that this was my first project involving PCB design, hence the very poor design of the V1 boards depicted below.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-10-11T15:49:17-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ludicrous Tech</title><subtitle>This website keeps track of whichever projects I am most proud of and serves to share some of the knowledge I accumulate from tinkering on whatever comes to my mind. Enjoy!</subtitle><author><name>Serban Popovici</name></author><entry><title type="html">HYDRA: Modular Avionics</title><link href="http://localhost:4000/hydra/" rel="alternate" type="text/html" title="HYDRA: Modular Avionics" /><published>2023-05-01T00:00:00-04:00</published><updated>2023-05-01T00:00:00-04:00</updated><id>http://localhost:4000/hydra</id><content type="html" xml:base="http://localhost:4000/hydra/"><![CDATA[<p>This page briefly summarizes the extensive amount of work that went into designing the avionics system for the University of Ottawa’s rocketry team. We unfortunately had to scrap last year’s work since it was very unorganized and we had absolutely no documentation to work off of. For this project, I was given the requirement that the system be modular, incrimentally upgradeable, and above all well documented. Fortunately, I am a fan of documentation and have included the two primary documents that describe the system below. This blog post will gloss over the design of these boards, however in-depth information is available in the documents below. I would also like to add that this was my first project involving PCB design, hence the very poor design of the V1 boards depicted below.</p>
 
 <ul>
   <li><a href="/assets/img/hydra/hydra_framework.docx">Hydra Framework</a> –&gt; this document describes the general features that are to be included in each version of Hydra as well as system-wide specifications that must be respected by all Hydra PCBs.</li>
   <li><a href="/assets/img/hydra/hydra_hardware.docx">Hydra Hardware</a> –&gt; this document describes board-specific decisions for each PCB within the hardware ecosystem.</li>
 </ul>
 
-<p>Note: at the time of this writing, these documents only include V1 boards which were solely for debugging purposes. We just finished the work on V2 and will be assembling the PCBs in the coming week. (June 23, 2023)</p>
-
 <h2 id="design">Design</h2>
+
+<h3 id="hydra-v1--v2">Hydra V1 &amp; V2</h3>
 
 <p>As previously mentioned, the key focus of this system is modularity. Modularity and redundancy go hand-in-hand in my head so I figured I’d tack that on there as a design requirement. Based on these two requirements, the obvious answer to me was to produce stackable boards that share power buses and communicate through a protocol that can accomodate a flexible amount of hosts without needing rewiring, such as CAN. Seeing as we’re building a rocket, the boards should be circular to maximize the area available within the airframe’s cross section. Finally, I consulted with the airframe team to establish the position of the mounting holes for the PCBs. From here, we ended up with a finalized set of requirements for each PCB:</p>
 
@@ -17,7 +17,7 @@
   <li>2 standardized connectors on each side of the PCB (2 included for stability, we only really need one)</li>
 </ul>
 
-<p><img src="/assets/img/hydra/hydra_PCB_layout.png" alt="Hydra PCB layout" style="width:60%; display:block; margin-left: auto; margin-right: auto;" /></p>
+<p><img src="/assets/img/hydra/hydra_PCB_layout.png" alt="Hydra V1/V2 PCB layout" style="width:60%; display:block; margin-left: auto; margin-right: auto;" /></p>
 
 <p>The pinout for each connector was then defined as follows:</p>
 
@@ -25,29 +25,43 @@
 
 <p>The left header is the main one used by the system. It provides battery power, regulated 5V, and regulated 3V3 to all the PCBs as well as shared CAN, UART, SPI, and I2C buses. SPI and I2C were included in case we wanted to make any last minute sensor additions or establish a high speed SPI datalink between specific PCBs. UART was included for Hydra V1, to communicate directly with our telemetry radio (an RFD900). In the future, the SPI, I2C, and UART interfaces may be eliminated as they likely won’t be particularly useful but we’ve kept them so far because we have no idea what to replace them with.</p>
 
+<h3 id="hydra-v3">Hydra V3</h3>
+
+<p>Due to my Master’s beginning in January, I had the opportunity to continue working with the uOttawa rocketry team for a semester following the Launch Canada 2023 competition to continue developing this modular avionics system. The goal for my final semester is to iron out some bugs of the system, upgrade the boards from the current ATSAME51J18A MCU to the STM32H733VGT6, and shrink the system from 140mm in diameter to 50mm in diameter. The new PCB format for Hydra V3 PCBs is as follows:</p>
+
+<p><img src="/assets/img/hydra/hydra_V3_PCB_layout.png" alt="Hydra V3 PCB layout" style="width:60%; display:block; margin-left: auto; margin-right: auto;" /></p>
+
+<p>Beyond the changes outlined above, Hydra V3 will also shift towards more aerospace-grade hardware such as more resilient connectors and arming system; these changes are outlined in the Hydra-Framework document linked above. The new connector pinout for Hydra V3 is as follows:</p>
+
+<p><img src="/assets/img/hydra/hydra_V3_header_pinout.png" alt="Hydra header pinout" style="width:80%; display:block; margin-left: auto; margin-right: auto;" /></p>
+
+<p>This pinout drops a lot of the data protocols included in the V1/V2 pinout since the system requirements are clearer now and there is no need to include exposed I2C, SPI, or UART interfaces for last minute hardware changes. Moreover, the new pinout focuses on power capacity over data and now includes two CAN buses: one for commands and another for sensor data. The software team had issues with sending commands within the V2 system because the CAN messages representing commands would get drowned in sensor data and V3 will therefore segregate sensor and command data in two separate CAN buses. This also provides the system with redundant CAN buses :)</p>
+
+<p>Lastly, the right header of the Hydra V3 system is dedicated to power transport and has been made into a large avionics-wide power bus. This change compliments the HYDRA_V3_POWER board design which is detailed farther along in this post.</p>
+
 <h3 id="sbg-systems">SBG Systems</h3>
 
 <p>This system was designed around the <a href="https://www.sbg-systems.com/products/ellipse-series/">SBG Systems Ellipse2-N INS</a> (Inertial Navigation System) which was 
 <img src="/assets/img/hydra/sbg.jpg" alt="SBG" style="float: right; width:40%; height:100%;" />
 generously sponsored to us by SBG Systems. This sensor contains an IMU, barometer, magnetometer, and GPS alongside an MCU running a Kalman filter to ensure accurate data is being sent out of the sensor. From here on out, the Ellipse2-N will be referred to as ‘the SBG’.</p>
 
-<h1 id="hydra-v1">Hydra V1</h1>
+<h2 id="hydra-v1">Hydra V1</h2>
 
 <p>The first version of the system was rushed so that we could have a functional system and prove to <a href="http://www.launchcanada.org/">Launch Canada</a> that we had a functional avionics system. This system consisted of a simple power board, with two regulators and no other functionality, and a logic board. The logic board was our first PCB containing an MCU and so its purpose was to test whether or not the circuitry surrounding the MCU was done properly. In this version, the MCU simply reads data from the SBG, writes it to the SD card onboard the logic board, and sends an update of the rocket’s state over telemetry four times a second.</p>
 
-<h2 id="hydra_v1_logic">HYDRA_V1_LOGIC</h2>
+<h3 id="hydra_v1_logic">HYDRA_V1_LOGIC</h3>
 
 <p><img src="/assets/img/hydra/hydra_v1_logic.png" alt="Hydra V1 logic" style="width:80%; display:block; margin-left: auto; margin-right: auto;" /></p>
 
 <p>These were my first ever PCBs and I am not awfully proud of them given how messy and poor the design was but everybody’s gotta start somewhere I guess. The main purpose of these PCBs was to test if the MCU circuitry was ok and whether our circuitry to interface with the SD card, SBG, and telemetry radio was functional. The only thing that didn’t work on this logic board was the programming interface; I did not double check my work and managed to offset the programming pins on the MCU by two so we could not program the MCU. Luckily the firmware was written in Rust so a successful compilation most likely means everything will work. This was a beautiful thing because we ended up getting the board running by programming an MCU on a development board and then transplanting it to the logic board.</p>
 
-<h2 id="hydra_v1_power">HYDRA_V1_POWER</h2>
+<h3 id="hydra_v1_power">HYDRA_V1_POWER</h3>
 
 <p><img src="/assets/img/hydra/hydra_v1_power.png" alt="Hydra V1 power" style="width:80%; display:block; margin-left: auto; margin-right: auto;" /></p>
 
 <p>The power board is a truly ugly thing but it worked, and it worked well. I ran 10A in a lab through the thinnest traces I could find and it did not even get hot. The purpose of this test was to see if we would need to upgrade to 2oz PCBs but the results confirmed that 1oz boards are fine. On a final note, this board only had reverse polarity protection and was therefore rather lacking in the power protection department. This was fixed in V2.</p>
 
-<h1 id="hydra-v2">Hydra V2</h1>
+<h2 id="hydra-v2">Hydra V2</h2>
 
 <p>This is where things got interesting. We ordered an intermediary set of test boards, pictured below, to test the MCU schematics again this time with the programming pins wired where they should be. These boards also allowed us to test CAN between multiple boards which we had not been able to test with the V1 logic board seeing as we couldn’t actively debug it. The header on the right side of the PCB (P1) serves to provide power to the board, expose a SERCOM interface on the MCU (allows us to communicate with the chip using a serial protocol such as UART, SPI, etc), and was used to test how much noise a trace would pick up from being close to a crystal (Y1). The trace connected to the bottom right pin of the header follows the outline of Y1 very closely to pick up as much noise as possible.</p>
 
@@ -55,7 +69,7 @@ generously sponsored to us by SBG Systems. This sensor contains an IMU, baromete
 
 <p>Having confirmed the MCU schematic, we then proceeded to order the V2 boards. It was very important to confirm the MCU layout because each V2 board has an MCU onboard and we must be able to interface with them all. Lastly, I’d like to add that I did not do all of the PCBs listed below; I did all the work for the V2 power board, the layout for the V2 logic board (basically the same thing as V1 but better-looking), modified the layout of the communication board to make it look more like the others, and did the recovery board. I was not supposed to do the recovery board, but the team member responsible for it was unable to complete it and so I took over last minute and threw something together.</p>
 
-<h2 id="hydra_v2_power">HYDRA_V2_POWER</h2>
+<h3 id="hydra_v2_power">HYDRA_V2_POWER</h3>
 
 <p><img src="/assets/img/hydra/hydra_v2_power.png" alt="Hydra V2 power" style="width:80%; display:block; margin-left: auto; margin-right: auto;" /></p>
 
@@ -71,7 +85,7 @@ generously sponsored to us by SBG Systems. This sensor contains an IMU, baromete
 
 <p>Once we’re through the power protection stage, the power now reaches the main regulators of the power board. The 3V3 and 5V regulator schematics are virtually identical so I will focus on a single regulator stage, pictured above. There are two regulators that each pass through a separate MOSFET stage before reaching the power rail. The MOSFETs are driven by <em>PART NUM</em> load-sharing ICs. These sense the voltage immediately prior to the MOSFET stage as well as the voltage immediately following the MOSFET stage. They then regulate how excited the MOSFET stage is which is correlated to how much resistance the MOSFET stage adds between the regulator and the rail. In this manner, the IC can ensure that the voltage of both regulators immediately following the MOSFET stage is equal and they can therefore equally share the load they are supplying.</p>
 
-<h3 id="power-protection-in-depth">Power protection (in depth)</h3>
+<h4 id="power-protection-in-depth">Power protection (in depth)</h4>
 
 <p>This was my first time designing proper power protection circuitry and I’m rather fond of how it turned out. A system diagram of the power protection schematic is included below.</p>
 
@@ -104,13 +118,13 @@ The MCU sensing circuit (pictured to the right) uses a simple voltage divider wi
 
 <p><img src="/assets/img/hydra/over_voltage_protection_schematic.png" alt="Over-voltage protection schematic" style="width:100%; display:block; margin-left: auto; margin-right: auto;" /></p>
 
-<h2 id="hydra_v2_logic">HYDRA_V2_LOGIC</h2>
+<h3 id="hydra_v2_logic">HYDRA_V2_LOGIC</h3>
 
 <p><img src="/assets/img/hydra/hydra_v2_logic.png" alt="Hydra V2 logic" style="width:80%; display:block; margin-left: auto; margin-right: auto;" /></p>
 
 <p>This is definitely the prettiest one of the lot. It’s an awfully simple board and its schematic is identical to that of the V1 logic board, however we added some MOSFETs to cut off power to the SBG and fixed the programming header/swapped it out for a different one. The MOSFETs were included to help put the board to sleep since the SBG consumes more current than the remaining avionics combined. The programming header was swapped with one that matches our debugger (the Segger J-Link EDU Mini) so that these boards can be plug and play to debug. The pinout was also fixed and made to match the Segger’s I/O header.</p>
 
-<h2 id="hydra_v3_communication">HYDRA_V3_COMMUNICATION</h2>
+<h3 id="hydra_v3_communication">HYDRA_V3_COMMUNICATION</h3>
 
 <p><img src="/assets/img/hydra/hydra_v3_communication.png" alt="Hydra V3 communication" style="width:80%; display:block; margin-left: auto; margin-right: auto;" /></p>
 
@@ -118,7 +132,7 @@ The MCU sensing circuit (pictured to the right) uses a simple voltage divider wi
 
 <p>An interesting last-minute addition made to this board is the use of internal regulators. These regulators leech off of the pyrotechnics power bus on the right header of the PCB. The pyrotechnics bus is always on, regardless of whether the current latch on the power board has tripped which enables us to maintain telemetry with he avionics system even if the power protection cuts off power to the rest of the avionics. This was done primarily to allow the power board to put the avionics to sleep while the rocket is sitting on the launch pad. Sleep mode was initially meant to be a software concern but I figured there was no reason to give them more work when we have a power board that is perfectly capable of cutting power to the avionics using hardware. It is also important to note that the communication board has a failover circuit that allows it to fail over to the avionics power buses on the left header of the PCB if its internal regulators fail.</p>
 
-<h2 id="hydra_v2_recovery">HYDRA_V2_RECOVERY</h2>
+<h3 id="hydra_v2_recovery">HYDRA_V2_RECOVERY</h3>
 
 <p><img src="/assets/img/hydra/hydra_v2_recovery.png" alt="Hydra V2 recovery" style="width:80%; display:block; margin-left: auto; margin-right: auto;" /></p>
 
@@ -126,7 +140,7 @@ The MCU sensing circuit (pictured to the right) uses a simple voltage divider wi
 
 <p>The rectangular shape to the left is a mounting point for a <a href="https://www.apogeerockets.com/Electronics-Payloads/Altimeters/RRC3-Sport-Altimeter">RRC3</a> which acts as our redundant deployment system.</p>
 
-<h2 id="v2-vs-v1">V2 vs V1</h2>
+<h3 id="system-comparison-v2-vs-v1">System Comparison: V2 vs V1</h3>
 
 <p>The top two pictures show Hydra V1 which solely had a logic board and used two consumer <a href="https://www.apogeerockets.com/Electronics-Payloads/Altimeters/RRC3-Sport-Altimeter">RRC3</a> recovery systems in parallel as opposed to our custom recovery board used by V2. The bottom pictures shows the final Hydra V2 stack prior to launch.</p>
 
@@ -134,7 +148,17 @@ The MCU sensing circuit (pictured to the right) uses a simple voltage divider wi
 <img src="/assets/img/hydra/hydra_v1_stacked.jpg" alt="Hydra V1 stacked" style="float: right; width:50%; height:80%;" />
 <img src="/assets/img/hydra/hydra_v2_stacked.jpg" alt="Hydra V2 stacked" /></p>
 
-<p>In practice, this system performed admirably. Thanks to contributions from the software team, we had an extensive ground station suite that logged thousands of data points during the rockets flight enabling us to recover the vehicle in no time. Furthermore, the onboard SD card of the V2 logic board logged over 6 million data points with regards to the rocket’s state during its 30 minute flight enabling us to further gain insight into the airframe’s behaviour.</p>]]></content><author><name>Serban Popovici</name></author><summary type="html"><![CDATA[This page briefly summarizes the extensive amount of work that went into designing the avionics system for the University of Ottawa’s rocketry team. We unfortunately had to scrap last year’s work since it was very unorganized and we had absolutely no documentation to work off of. For this project, I was given the requirement that the system be modular, incrimentally upgradeable, and above all well documented. Fortunately, I am a fan of documentation and have included the two primary documents that describe the system below. This blog post will gloss over the design of these boards, however in-depth information is available in the documents below. I would also like to add that this was my first project involving PCB design, hence the very poor design of the V1 boards depicted below.]]></summary></entry><entry><title type="html">Two G-class Stage Rocket w/ Basic Telemetry</title><link href="http://localhost:4000/two-stage-rocket/" rel="alternate" type="text/html" title="Two G-class Stage Rocket w/ Basic Telemetry" /><published>2022-11-08T00:00:00-05:00</published><updated>2022-11-08T00:00:00-05:00</updated><id>http://localhost:4000/two-stage-rocket</id><content type="html" xml:base="http://localhost:4000/two-stage-rocket/"><![CDATA[<h2 id="experimenting-with-rocketry-electronics">Experimenting with rocketry electronics</h2>
+<p>In practice, this system performed admirably. Thanks to contributions from the software team, we had an extensive ground station suite that logged thousands of data points during the rockets flight enabling us to recover the vehicle in no time. Furthermore, the onboard SD card of the V2 logic board logged over 6 million data points with regards to the rocket’s state during its 30 minute flight enabling us to further gain insight into the airframe’s behaviour.</p>
+
+<h2 id="hydra-v3-1">Hydra V3</h2>
+
+<p>This system is still currently in its inception so most PCBs don’t exist yet. I’ve currently created a template PCB containing barebones circuitry common to all Hydra V3 PCBs. This project still uses the old ATSAME51J18A MCU such that we can work on developing the MCU circuitry for the STM32H733VGT6 MCU in parallel with the first round of avionics boards. Once the STM32H733VGT6 MCU circuitry is completed, it should be easy to replace the MCU and reorder Hydra V3 PCBs with the upgraded processor.</p>
+
+<h3 id="hydra_v3_same51_template">HYDRA_V3_SAME51_TEMPLATE</h3>
+
+<p><img src="/assets/img/hydra/hydra_V3_SAME51_template.png" alt="Hydra V3 SAME51 template" style="width:80%; display:block; margin-left: auto; margin-right: auto;" /></p>
+
+<p>This is the aforementioned template project that has some sample connectors and status LEDs since the position of such features has been standardized in V3 as per the Hydra Framework document linked at the top of this page.</p>]]></content><author><name>Serban Popovici</name></author><summary type="html"><![CDATA[This page briefly summarizes the extensive amount of work that went into designing the avionics system for the University of Ottawa’s rocketry team. We unfortunately had to scrap last year’s work since it was very unorganized and we had absolutely no documentation to work off of. For this project, I was given the requirement that the system be modular, incrimentally upgradeable, and above all well documented. Fortunately, I am a fan of documentation and have included the two primary documents that describe the system below. This blog post will gloss over the design of these boards, however in-depth information is available in the documents below. I would also like to add that this was my first project involving PCB design, hence the very poor design of the V1 boards depicted below.]]></summary></entry><entry><title type="html">Two G-class Stage Rocket w/ Basic Telemetry</title><link href="http://localhost:4000/two-stage-rocket/" rel="alternate" type="text/html" title="Two G-class Stage Rocket w/ Basic Telemetry" /><published>2022-11-08T00:00:00-05:00</published><updated>2022-11-08T00:00:00-05:00</updated><id>http://localhost:4000/two-stage-rocket</id><content type="html" xml:base="http://localhost:4000/two-stage-rocket/"><![CDATA[<h2 id="experimenting-with-rocketry-electronics">Experimenting with rocketry electronics</h2>
 
 <p>While I may never get a high power rocketry license, I do thoroughly enjoy developing and flying model rockets. None of my past rockets have incorporated any amount of electronics so the purpose of this project is to get a feel for rocketry electronics without any risk by developing only non-terribly-flight-critical components. For this project, I purchased the two biggest rocket engines I can legally get my hands on without any license: AeroTech G80-7T motors.</p>
 
@@ -582,7 +606,7 @@ I purchased a BRZ because they are built in conjunction with Toyota and this sho
 
 <p>This project began as a way to disguise speed enforcement countermeasures within the car’s UI seeing as radar/lidar countermeasures are illegal in Ontario. As such, I figured that the best way to hide illegal features would be to program the UI entirely. Seeing as the current head unit is only capable of playing Bluetooth audio, it’s very unlikely that anything I do will result in less overall functionality so I see no downside to this project.</p>
 
-<p>A lot of work has gone into the project so I have split up this post to include a variety of sub-pages detailing individual subsystems in greater detail. This page serves to provide a general overview of the project and a set of links to sub-pages is included below. I’d recommend to read this page first to have an idea of what my goals are before diving into specific sub-systems.</p>
+<p>A lot of work has gone into the project so I have split up this post to include a variety of sub-pages discussing individual subsystems in greater detail. This page serves to provide a general overview of the project and a set of links to sub-pages is included below. I’d recommend to read this page first to have an idea of what my goals are before diving into specific sub-systems.</p>
 <ul>
   <li><a href="/brz-head-unit">Head Unit [ COMPLETED ]</a></li>
   <li><a href="/brz-steering-wheel">Steering Wheel [ COMPLETED ]</a></li>
@@ -600,14 +624,14 @@ I purchased a BRZ because they are built in conjunction with Toyota and this sho
 
 <p><img src="/assets/img/brz/planned_display_layout.jpg" alt="Picture of plan" style="float: right; width:50%; height:80%; margin-left: 10px;" /></p>
 
-<p>The plan is to replace the head unit of the BRZ with a <a href="https://www.aliexpress.com/item/1005004988939115.html">12.7” touch-screen</a>, replace the small button cluster on the center console with a <a href="https://www.aliexpress.com/item/4000393713339.html">7” touch screen</a>, and convert the analog gauge cluster to a display. The 12.3” display will be used for most vehicle functionality such as navigation and media whereas the 7” display will provide diagnostic information about the vehicle as well as any subsystems I add.</p>
+<p>The plan is to replace the head unit of the BRZ with a <a href="https://www.aliexpress.com/item/1005004988939115.html">12.7” touch-screen</a>, replace the small button cluster on the center console with a <a href="https://www.aliexpress.com/item/4000393713339.html">7” touch screen</a>, and convert the analog gauge cluster to a display. The 12.7” display will be used for most vehicle functionality such as navigation and media whereas the 7” display will provide diagnostic information about the vehicle as well as any subsystems I add.</p>
 
-<p>This has been completed (minus digitizing the gauge cluster), the picture below is from a debugging session with a friend of mine.
+<p>This has been completed (minus digitizing the gauge cluster); the picture below is from a debugging session with a friend of mine.
 <img src="/assets/img/brz/finalized_display_layout.jpg" alt="Picture of actual layout" /></p>
 
 <h2 id="convenience-upgrades">Convenience Upgrades</h2>
 
-<p>The car will have an LTE modem in it to provide WiFi connectivity for passengers and allow its internal computers to access Google Maps, media streaming services, and other resources such as the Waze database to protect against police encounters. Finally, I hope to add cameras all around the car and experiment with computer vision though, aside from collision warnings and enhanced cruise control I’m not sure what I’ll be able to code. The cameras will however provide a 360-degree dash cam and I will be able to use them for a Tesla-like sentry mode when the car is locked. Furthermore, it may be interesting to experiment with augmented reality headsets in the future to provide the driver with enhanced situational awareness, but this is not in the works as of this writing.</p>
+<p>The car will have an LTE modem in it to provide WiFi connectivity for passengers and allow its internal computers to access Google Maps, media streaming services, and other resources such as the Waze database to protect against police encounters. Additionally, I hope to add cameras all around the car and experiment with computer vision though, aside from collision warnings and enhanced cruise control I’m not sure what I’ll be able to add. The cameras will provide a 360-degree dash cam and I will be able to use them for a Tesla-like sentry mode when the car is locked. Furthermore, it may be interesting to experiment with augmented reality headsets in the future to provide the driver with enhanced situational awareness, but this is not in the works as of this writing.</p>
 
 <p>In order to improve the driver’s situational awareness, I’ve elected to replace the two fog lights of the car with thermal and low light high zoom cameras, respectively. The thermal camera will provide the driver with warnings about heat signatures detected ahead whereas the low light camera does not serve much of a practical purpose and was included because I had it laying around. Finally, I’m hoping to integrate blind spot detection radars and cruise control radars out of scrapped vehicles to provide additional peace of mind when merging lanes.</p>
 
@@ -627,7 +651,7 @@ I purchased a BRZ because they are built in conjunction with Toyota and this sho
 
 <p><img src="/assets/img/brz/functional_diagram.png" alt="BRZ Functional Diagram" /></p>
 
-<p>The diagram above displays the overall hierarchy of devices integrated in the car. Red boxes are video capture devices, green boxes are computers, blue boxes are displays, and purple devices are CAN bus devices. I have elected to create a second CAN bus for my devices and use the “Transceiver node” to forward relevant CAN bus data to my private bus. This is to prevent the risk of conflicting IDs and eliminate the possibility of damaging the vehicle should any of my custom devices malfunction and, for example, short circuit the CAN bus lines. A brief description of each device alongside its functionality is included in the section below.</p>
+<p>The diagram above displays the overall hierarchy of devices integrated in the car. Red boxes are video capture devices, green boxes are computers, blue boxes are displays, and purple devices are CAN bus devices. I have elected to create a second CAN bus for my devices and use the “Transceiver node” to forward relevant CAN bus data from the car to my private bus. This is to prevent the risk of conflicting IDs and eliminate the possibility of damaging the vehicle should any of my custom devices malfunction and, for example, short circuit the CAN bus lines. A brief description of each device alongside its functionality is included in the section below.</p>
 
 <h2 id="hardware">Hardware</h2>
 
@@ -646,35 +670,26 @@ I purchased a BRZ because they are built in conjunction with Toyota and this sho
 <ul>
   <li>Blind spot radars –&gt; Will use some second hand eBay or junkyard radars from another car.</li>
   <li>Steering wheel button manager (NANO) –&gt; Converts steering wheel button presses into CAN messages for head unit.</li>
-  <li>Center console button manager (NANO) –&gt; Controls MOSFETs that simulate button presses to maintain functionality of old center console buttons.</li>
+  <li>Center console button manager (NANO) –&gt; Controls MOSFETs that simulate button presses to maintain functionality of old center console buttons which were removed to make way for the 7” diagnostic display.</li>
   <li>Front-facing radar –&gt; Will use a second hand eBay or junkyard radar from another car.</li>
-  <li>Ceiling switches –&gt; I would like to install a fancy ceiling switch panel in the car but this is a future project.</li>
-  <li>Mirror manager (NANO) –&gt; Keeps track of mirror position and allows them to automatically tilt when backing up. One per mirror.</li>
+  <li>Ceiling switches –&gt; The car will include a streamdeck-based ceiling switch panel such that the switch labels can change dynamically.</li>
+  <li>Mirror manager (NANO) –&gt; Keeps track of mirror position and allows them to automatically tilt down when backing up. One per mirror.</li>
   <li>Low light camera controller –&gt; Translates CAN messages into PWM signals to actuate the camera’s gimbal.</li>
   <li>Thermal camera controller –&gt; Translates CAN messages into a PWM pitch value to adjust the camera’s pitch.</li>
-  <li>LightLink (2xMEGA_EMBED) –&gt; Used to control most exterior vehicle lights, more info <a href="/brz-light-link">here</a>.</li>
+  <li>LightLink (2xMEGA_EMBED) –&gt; Used to control most exterior vehicle lights, more info <a href="/brz-custom-hardware">here</a>.</li>
   <li>Rear defence controller –&gt; In charge of managing jammers in the rear of the vehicle.</li>
-  <li>Uniden R9 –&gt; Reverse engineered CAN interface for the Uniden R9 system (not released at the time of this writing but am hoping to get one when they come out).</li>
+  <li>Uniden R7 –&gt; Reverse engineered CAN interface for the Uniden R7 system. I wanted an R9 but those are incredibly expensive.</li>
   <li>Transceiver node –&gt; Forwards CAN data from vehicle’s CAN bus to my CAN bus. More info <a href="/brz-CAN">here</a>.</li>
 </ul>
 
 <h3 id="cameras">Cameras</h3>
 
-<p>The planned camera layout is included below. The green semicircles are <a href="https://www.aliexpress.com/item/1005004337827464.html">136-degree FOV cameras</a> installed in the front windshield and above the rear license plate whereas the gray circles represent <a href="https://www.aliexpress.com/item/1005004335144138.html">210-degree cameras</a> (the listing says 180 degrees but they are actually 210) installed beneath the side view mirrors of the car (PIC). I planned on including a second front-facing camera on the right wing mirror to provide the driver with insight about any vehicles in the right lane ahead of the car however this camera is not included at this time since the 210-degree FOV camera installed beneath the mirror should theoretically capture all vehicles in the right lane.</p>
+<p>The planned camera layout is included below. The green semicircles are <a href="https://www.aliexpress.com/item/1005004337827464.html">136-degree FOV cameras</a> installed in the front windshield and above the rear license plate whereas the gray circles represent <a href="https://www.aliexpress.com/item/1005004335144138.html">210-degree cameras</a> (the listing says 180 degrees but they are actually 210) installed beneath the side view mirrors of the car. I planned on including a second front-facing camera on the right wing mirror to provide the driver with insight about any vehicles in the right lane ahead of the car however this camera is not included at this time since the 210-degree FOV camera installed beneath the mirror should theoretically capture all vehicles in the right lane. More information <a href="/brz-vision-system">here</a></p>
 
 <p><img src="/assets/img/brz/camera_layout.png" alt="Camera layout" /></p>
 
-<p>Beyond the cameras used for 360 degree coverage, both fog lights of the vehicle contain camera modules with the driver side being a thermal camera and the passenger side being a Sony Starvis low light camera with optical zoom. These are meant to be used in conjunction with AI to detect threats on the road ahead as well as to provide increased visibility in low light conditions. Of these two, the thermal camera uses a RCA to HDMI adapter to interface with the Khadas VIM4’s HDMI input and the low light camera simply outputs to ethernet and shares the vehicle’s ethernet network. A final camera is installed inside the vehicle and faces the driver for eye tracking such that the touch screen functionality of the center console display is disabled unless the driver is looking at the display to prevent accidental inputs (might not be included after all, depends on whether accidental input truly is an issue).</p>
+<p>Beyond the cameras used for 360 degree coverage, both fog lights of the vehicle contain camera modules with the driver side being a thermal camera and the passenger side being a Sony Starvis low light camera with optical zoom. These are meant to be used in conjunction with AI to detect threats on the road ahead as well as to provide increased visibility in low light conditions. Of these two, the thermal camera uses a RCA to HDMI adapter to interface with the Khadas VIM4’s HDMI input and the low light camera simply outputs to ethernet and shares the vehicle’s ethernet network. A final camera is installed inside the vehicle and acts as an internal dash cam.</p>
 
 <h2 id="software">Software</h2>
 
-<p>I initially intended to build a custom image of Android Automotive for the BRZ and develop mobile applications that would mostly run as background services and overlay themselves on top of Android to display relevant information. Unfortunately this turned out to be a rather lucrative task and as of this writing I have elected to build a simple Android application running on a mobile image. The advantages of Android Automotive are as follows:</p>
-<ul>
-  <li>Better navigation with fully functional Google Maps (Android applications cannot have integrated navigation activities and can only display 2D maps as far as I am aware)</li>
-  <li>Better media controls with proper Bluetooth integration (the Android Mobile OS cannot be used as a A2DP sink without modifying the source code)</li>
-  <li>Better boot times</li>
-</ul>
-
-<p>Overall, I did not feel these advantages were enough to justify the increased complexity of building a custom Android Automotive image especially considering how many custom UI screens and functions I intend to incorporate as well as my lack of affinity for hardware-level programming.</p>
-
-<p>The purpose of rebuilding the vehicle’s UI is not only to provide a seamless means of interacting with the additional functionality but also to fully hide any illegal functions on demand. As such, a ‘legal mode’ will be integrated in the software which will be activated on boot and will hide all illegal functionality from the vehicle’s UI. The driver can disable legal mode using an arbitrary set of seemingly random keystrokes using buttons throughout the car’s interior which will be intricate such that they cannot be haphazardly entered.</p>]]></content><author><name>Serban Popovici</name></author><summary type="html"><![CDATA[UPDATE This page is very much under construction, with the nice weather finally here I have begun work on the car and certain things will change/be populated as I get to them. I apologize for the organizational mess that is this page.]]></summary></entry></feed>
+<p>I initially intended to build a custom image of Android Automotive for the BRZ and develop mobile applications that would mostly run as background services and overlay themselves on top of Android to display relevant information. Unfortunately this turned out to be a rather lucrative task so I elected to build a simple Android application running on a mobile image. This also turned out to be an issue due to the odd nature of my head unit’s display arrangement so I have finally settled on running a Linux backend and developing the infotainment software to run on top of Linux.</p>]]></content><author><name>Serban Popovici</name></author><summary type="html"><![CDATA[UPDATE This page is very much under construction, with the nice weather finally here I have begun work on the car and certain things will change/be populated as I get to them. I apologize for the organizational mess that is this page.]]></summary></entry></feed>

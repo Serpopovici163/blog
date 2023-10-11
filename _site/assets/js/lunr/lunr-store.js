@@ -54,7 +54,7 @@ var store = [{
         "teaser": null
       },{
         "title": "BRZ CAN",
-        "excerpt":" ","categories": [],
+        "excerpt":"This page is mostly for my personal reference but will also showcase some of the hardware used to wire my CAN hardware  ","categories": [],
         "tags": [],
         "url": "/brz-CAN/",
         "teaser": null
