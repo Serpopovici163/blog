@@ -104,8 +104,8 @@ analytics:
 author:
   name             : "Serban Popovici"
   avatar           : "/assets/img/bio.jpg"
-  bio              : "BioMedical Mechanical Engineering student at the University of Ottawa"
-  location         : "Ottawa, Ontario, Canada"
+  bio              : "MEng Aerospace Student at McGill || BASc Biomedical Mechanical Engineering"
+  location         : "Montreal, Quebec, Canada"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
