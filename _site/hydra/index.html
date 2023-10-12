@@ -295,7 +295,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          18 minute read
+          19 minute read
         
       </span>
     
@@ -344,17 +344,19 @@
 
 <h3 id="hydra-v3">Hydra V3</h3>
 
-<p>Due to my Master’s beginning in January, I had the opportunity to continue working with the uOttawa rocketry team for a semester following the Launch Canada 2023 competition to continue developing this modular avionics system. The goal for my final semester is to iron out some bugs of the system, upgrade the boards from the current ATSAME51J18A MCU to the STM32H733VGT6, and shrink the system from 140mm in diameter to 50mm in diameter. The new PCB format for Hydra V3 PCBs is as follows:</p>
+<p>Due to my Master’s beginning in January, I have the opportunity to continue working with the uOttawa rocketry team for a semester following the Launch Canada 2023 competition and continue developing this modular avionics system. The goal for my final semester is to iron out some bugs of the system, upgrade the boards from the current ATSAME51J18A MCU to the STM32H733VGT6, and shrink the system from 140mm in diameter to 50mm in diameter. The new PCB format for Hydra V3 PCBs is as follows:</p>
 
 <p><img src="/assets/img/hydra/hydra_V3_PCB_layout.png" alt="Hydra V3 PCB layout" style="width:60%; display:block; margin-left: auto; margin-right: auto;" /></p>
 
+<p>No mounting provisions are made for Hydra V3 to maximize usable PCB space and the system is intended to be clamped in place from either end. A larger cutout is included at the rear of the system to improve access to wires since the locking connectors used by Hydra V2 were often poorly placed and difficult to mate/unmate with the stack assembled. The flat cutout should make it easy to place connectors at the edge of the PCB and facilitate mate/unmating peripherals. Lastly, due to the small size of the new system, the SBG, RFD900, and battery will now need to be mounted outside of the avionics stack. The system itself is heavily inspired by the <a href="https://gregox.com/cusf_martlet3/">Martlet III</a> system and may therefore evolve to contain 18650s within the avionics stack, much like the Martlet III stack. The Martlet III uses 40mm PCBs but I did not want new recruits to struggle miniaturizing things to that extent so we settled on 50mm as it would still fit all the small rockets that the uOttawa rocketry team owns. This was very important as it will enable us to cost-effectively test fly the system regularly.</p>
+
 <p>Beyond the changes outlined above, Hydra V3 will also shift towards more aerospace-grade hardware such as more resilient connectors and arming system; these changes are outlined in the Hydra-Framework document linked above. The new connector pinout for Hydra V3 is as follows:</p>
 
-<p><img src="/assets/img/hydra/hydra_V3_header_pinout.png" alt="Hydra header pinout" style="width:80%; display:block; margin-left: auto; margin-right: auto;" /></p>
+<p><img src="/assets/img/hydra/hydra_V3_header_pinout.PNG" alt="Hydra header pinout" style="width:80%; display:block; margin-left: auto; margin-right: auto;" /></p>
 
-<p>This pinout drops a lot of the data protocols included in the V1/V2 pinout since the system requirements are clearer now and there is no need to include exposed I2C, SPI, or UART interfaces for last minute hardware changes. Moreover, the new pinout focuses on power capacity over data and now includes two CAN buses: one for commands and another for sensor data. The software team had issues with sending commands within the V2 system because the CAN messages representing commands would get drowned in sensor data and V3 will therefore segregate sensor and command data in two separate CAN buses. This also provides the system with redundant CAN buses :)</p>
+<p>This pinout drops a lot of the data protocols included in the V1/V2 pinout since the system requirements are clearer now and there is no need to include exposed I2C, SPI, or UART interfaces for last minute hardware changes. Moreover, the new pinout focuses on power capacity over data and now includes two CAN buses: one for commands and another for sensor data. The software team had issues with sending commands within the V2 system because the CAN messages representing commands would get drowned in sensor data and V3 will therefore segregate sensor and command data in two separate CAN buses. This also technically provides the system with redundant CAN buses :)</p>
 
-<p>Lastly, the right header of the Hydra V3 system is dedicated to power transport and has been made into a large avionics-wide power bus. This change compliments the HYDRA_V3_POWER board design which is detailed farther along in this post.</p>
+<p>Lastly, the right header of the Hydra V3 system is dedicated to power transport and has been made into a large avionics-wide power bus. This change compliments the HYDRA_V3_POWER board design which is detailed further along in this post.</p>
 
 <h3 id="sbg-systems">SBG Systems</h3>
 
@@ -475,7 +477,7 @@ The MCU sensing circuit (pictured to the right) uses a simple voltage divider wi
 
 <p><img src="/assets/img/hydra/hydra_V3_SAME51_template.png" alt="Hydra V3 SAME51 template" style="width:80%; display:block; margin-left: auto; margin-right: auto;" /></p>
 
-<p>This is the aforementioned template project that has some sample connectors and status LEDs since the position of such features has been standardized in V3 as per the Hydra Framework document linked at the top of this page.</p>
+<p>This is the aforementioned template project that has some sample connectors and status LEDs since the position of such features has been standardized in V3 as per the Hydra Framework document linked at the top of this page. More details are available in the Hydra Hardware documentation linked at the top of this post. I also added quite a few test points to facilitate debugging hardware as this was a regular challenge with V2 PCBs.</p>
 
         
       </section>
