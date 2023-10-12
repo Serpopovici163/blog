@@ -1,4 +1,4 @@
-I"xn<p>This page briefly summarizes the extensive amount of work that went into designing the avionics system for the University of Ottawa’s rocketry team. We unfortunately had to scrap last year’s work since it was very unorganized and we had absolutely no documentation to work off of. For this project, I was given the requirement that the system be modular, incrimentally upgradeable, and above all well documented. Fortunately, I am a fan of documentation and have included the two primary documents that describe the system below. This blog post will gloss over the design of these boards, however in-depth information is available in the documents below. I would also like to add that this was my first project involving PCB design, hence the very poor design of the V1 boards depicted below.</p>
+I"Ko<p>This page briefly summarizes the extensive amount of work that went into designing the avionics system for the University of Ottawa’s rocketry team. We unfortunately had to scrap last year’s work since it was very unorganized and we had absolutely no documentation to work off of. For this project, I was given the requirement that the system be modular, incrimentally upgradeable, and above all well documented. Fortunately, I am a fan of documentation and have included the two primary documents that describe the system below. This blog post will gloss over the design of these boards, however in-depth information is available in the documents below. I would also like to add that this was my first project involving PCB design, hence the very poor design of the V1 boards depicted below.</p>
 
 <ul>
   <li><a href="/assets/img/hydra/hydra_framework.docx">Hydra Framework</a> –&gt; this document describes the general features that are to be included in each version of Hydra as well as system-wide specifications that must be respected by all Hydra PCBs.</li>
@@ -158,7 +158,7 @@ The MCU sensing circuit (pictured to the right) uses a simple voltage divider wi
 
 <h3 id="hydra_v3_same51_template">HYDRA_V3_SAME51_TEMPLATE</h3>
 
-<p><img src="/assets/img/hydra/hydra_V3_SAME51_template.png" alt="Hydra V3 SAME51 template" style="width:80%; display:block; margin-left: auto; margin-right: auto;" /></p>
+<p><img src="/assets/img/hydra/hydra_V3_SAME51_template.PNG" alt="Hydra V3 SAME51 template" style="width:80%; display:block; margin-left: auto; margin-right: auto;" /></p>
 
-<p>This is the aforementioned template project that has some sample connectors and status LEDs since the position of such features has been standardized in V3 as per the Hydra Framework document linked at the top of this page.</p>
+<p>This is the aforementioned template project that has some sample connectors and status LEDs since the position of such features has been standardized in V3 as per the Hydra Framework document linked at the top of this page. More details are available in the Hydra Hardware documentation linked at the top of this post. I also added quite a few test points to facilitate debugging hardware as this was a regular challenge with V2 PCBs.</p>
 :ET
